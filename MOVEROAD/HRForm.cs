@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace MOVEROAD
 {
-    public partial class Form1 : Form
+    public partial class HRForm : Form
     {
-        public Form1()
+        public HRForm()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
