@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace MOVEROAD
 {
-    public partial class Main : Form
+    public partial class MainForm : Form
     {
         private Point mousePoint;
- 
-        public Main()
+        private UserInfo me;
+        public MainForm(UserInfo me)
         {
+            this.me = me;
             InitializeComponent();
-            DBConnetion.getInstance().getDBConnetion(); // 최초 DB서버 on/off 체크 
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -67,11 +67,7 @@ namespace MOVEROAD
 
         private void button3_Click(object sender, EventArgs e)
         {
-            work work = new work();
-            work.TopLevel = false;
-            work.Show();
-            this.MainPanel.Controls.Clear();
-            this.MainPanel.Controls.Add(work);
+   
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

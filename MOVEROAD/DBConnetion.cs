@@ -11,10 +11,10 @@ namespace MOVEROAD
 {
     public class DBConnetion
     {
-        private string DBIp = "211.229.51.172";
-        private string DBId = "project";
-        private string DBPass = "root";
-        private string DBName = "project";
+        private string dbip = "211.229.51.172";
+        private string dbid = "project";
+        private string dbpass = "root";
+        private string dbname = "project";
         private static DBConnetion instance_ = new DBConnetion();
 
         public static DBConnetion getInstance()
@@ -26,7 +26,7 @@ namespace MOVEROAD
         {
             try
             {
-                string con = "Server=" + DBIp + ";Database=" + DBName + ";Uid=" + DBId + ";Pwd=" + DBPass + ";Charset=euckr";
+                string con = "Server=" + dbip + ";Database=" + dbid + ";Uid=" + dbname + ";Pwd=" + dbpass + ";Charset=euckr";
                 MySqlConnection conn = new MySqlConnection(con);
                 conn.Open();
                 conn.Close();
@@ -34,9 +34,42 @@ namespace MOVEROAD
             }
             catch
             {
-                MessageBox.Show("dd");
+                MessageBox.Show("DB서버 연결오류");
                 return null;
             }
         }
+
+        public object Select(string sql, int token)
+        {
+            MySqlConnection conn = getDBConnetion();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            object thing = new object();
+            switch (token)
+            {
+                case 0:
+                    if (!rdr.Read())
+                    {
+                        thing = -1;
+                        break;
+                    }
+                    thing = (int)rdr["index"];
+                    break;
+                case 1:
+                    rdr.Read();
+                    UserInfo me = new UserInfo((string)rdr["name"], "s", (int)rdr["age"], 0, 0);
+                    thing = me;
+                    break;
+            }
+            rdr.Close();
+            conn.Close();
+            return thing;
+        }
+
+
+
+
+
     }
 }
