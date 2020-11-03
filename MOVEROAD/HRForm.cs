@@ -21,5 +21,10 @@ namespace MOVEROAD
         {
 
         }
+
+        private void HRForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
