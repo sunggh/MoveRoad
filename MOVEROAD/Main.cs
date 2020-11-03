@@ -59,6 +59,11 @@ namespace MOVEROAD
             this.MainPanel.Controls.Clear();
         }
 
+        private void MainPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             work work = new work();
@@ -66,7 +71,6 @@ namespace MOVEROAD
             work.Show();
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(work);
-
         }
     }
 }
