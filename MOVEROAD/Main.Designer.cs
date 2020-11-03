@@ -118,6 +118,7 @@
             this.button3.TabStop = false;
             this.button3.Text = "\r\n\r\n업무";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
