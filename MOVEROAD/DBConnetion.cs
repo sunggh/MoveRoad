@@ -11,8 +11,8 @@ namespace MOVEROAD
 {
     public class DBConnetion
     {
-        private string DBIp = "localhost";
-        private string DBId = "root";
+        private string DBIp = "211.229.51.172";
+        private string DBId = "project";
         private string DBPass = "root";
         private string DBName = "project";
         private static DBConnetion instance_ = new DBConnetion();
