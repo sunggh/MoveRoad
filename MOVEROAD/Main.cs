@@ -72,5 +72,10 @@ namespace MOVEROAD
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(work);
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
