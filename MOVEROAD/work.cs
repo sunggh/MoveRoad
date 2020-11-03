@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace MOVEROAD
 {
-    public partial class HRForm : Form
+    public partial class work : Form
     {
-        public HRForm()
+        public work()
         {
             InitializeComponent();
         }
 
         private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HRForm_Load(object sender, EventArgs e)
         {
 
         }
