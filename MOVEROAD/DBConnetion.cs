@@ -11,12 +11,12 @@ namespace MOVEROAD
 {
     public class DBConnetion
     {
-        private string DBIp = "3.138.172.1";
+        private string DBIp = "localhost";
         private string DBId = "root";
         private string DBPass = "root";
-        private string DBName = "dbproject";
+        private string DBName = "project";
         private static DBConnetion instance_ = new DBConnetion();
-        TcpClient clientSocket;
+
         public static DBConnetion getInstance()
         {
             return instance_;
@@ -34,25 +34,9 @@ namespace MOVEROAD
             }
             catch
             {
+                MessageBox.Show("dd");
                 return null;
             }
         }
-        public void InitSocket()
-        {
-            try
-            {
-                clientSocket.Connect(DBIp, 9999);
-                MessageBox.Show("서버 연결 완료");
-            }
-            catch (SocketException se)
-            {
-             
-            }
-            catch (Exception ex)
-            {
-                
-            }
-        }
-
     }
 }

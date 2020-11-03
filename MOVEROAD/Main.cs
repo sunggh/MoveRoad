@@ -18,12 +18,7 @@ namespace MOVEROAD
         public Main()
         {
             InitializeComponent();
-            //DBConnetion.getInstance().getDBConnetion();
-            new Thread(delegate ()
-            {
-                DBConnetion.getInstance().InitSocket();
-            }).Start();
-
+            DBConnetion.getInstance().getDBConnetion(); // 최초 DB서버 on/off 체크 
 
         }
 
@@ -49,6 +44,11 @@ namespace MOVEROAD
                 Location = new Point(this.Left - (mousePoint.X - e.X),
                     this.Top - (mousePoint.Y - e.Y));
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

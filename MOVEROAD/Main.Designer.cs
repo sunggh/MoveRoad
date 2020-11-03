@@ -30,12 +30,12 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.MainPanel = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.MainPanel = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,13 +64,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(55, 412);
             this.panel2.TabIndex = 1;
-            // 
-            // MainPanel
-            // 
-            this.MainPanel.Location = new System.Drawing.Point(55, 38);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(745, 412);
-            this.MainPanel.TabIndex = 2;
             // 
             // button5
             // 
@@ -161,6 +154,14 @@
             this.button1.TabStop = false;
             this.button1.Text = "\r\n\r\n인사";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // MainPanel
+            // 
+            this.MainPanel.Location = new System.Drawing.Point(55, 38);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(745, 412);
+            this.MainPanel.TabIndex = 2;
             // 
             // Main
             // 
