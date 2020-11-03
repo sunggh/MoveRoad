@@ -71,6 +71,7 @@
             // button5
             // 
             this.button5.CausesValidation = false;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -78,17 +79,19 @@
             this.button5.ForeColor = System.Drawing.Color.White;
             this.button5.Image = global::MOVEROAD.Properties.Resources._5;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button5.Location = new System.Drawing.Point(0, 268);
+            this.button5.Location = new System.Drawing.Point(0, 244);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(55, 61);
             this.button5.TabIndex = 4;
             this.button5.TabStop = false;
-            this.button5.Text = "\r\n\r\n메신저";
+            this.button5.Text = "메신저";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
             this.button4.CausesValidation = false;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -96,17 +99,19 @@
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = global::MOVEROAD.Properties.Resources._4;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(0, 201);
+            this.button4.Location = new System.Drawing.Point(0, 183);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(55, 61);
             this.button4.TabIndex = 3;
             this.button4.TabStop = false;
-            this.button4.Text = "\r\n\r\n결재";
+            this.button4.Text = "결재";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
             this.button3.CausesValidation = false;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -114,18 +119,20 @@
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = global::MOVEROAD.Properties.Resources._3;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(0, 134);
+            this.button3.Location = new System.Drawing.Point(0, 122);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(55, 61);
             this.button3.TabIndex = 2;
             this.button3.TabStop = false;
-            this.button3.Text = "\r\n\r\n업무";
+            this.button3.Text = "업무";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
             this.button2.CausesValidation = false;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -133,18 +140,20 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = global::MOVEROAD.Properties.Resources._2;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(0, 67);
+            this.button2.Location = new System.Drawing.Point(0, 61);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(55, 61);
             this.button2.TabIndex = 1;
             this.button2.TabStop = false;
-            this.button2.Text = "\r\n\r\n출근부";
+            this.button2.Text = "출근부";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
             this.button1.CausesValidation = false;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -157,7 +166,8 @@
             this.button1.Size = new System.Drawing.Size(55, 61);
             this.button1.TabIndex = 0;
             this.button1.TabStop = false;
-            this.button1.Text = "\r\n\r\n인사";
+            this.button1.Text = "인사";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -176,7 +186,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(297, 207);
             this.button6.TabIndex = 0;
-            this.button6.Text = "button6";
+            this.button6.Text = "지은아 잘보이니?";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // Main
