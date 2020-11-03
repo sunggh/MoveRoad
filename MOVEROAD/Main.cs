@@ -50,6 +50,7 @@ namespace MOVEROAD
             HRForm hR = new HRForm();
             hR.TopLevel = false;
             hR.Show();
+
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(hR);
         }
