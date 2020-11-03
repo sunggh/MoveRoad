@@ -1,6 +1,6 @@
 ﻿namespace MOVEROAD
 {
-    partial class HRForm
+    partial class work
     {
         /// <summary>
         /// Required designer variable.
@@ -34,24 +34,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(275, 129);
+            this.label1.Location = new System.Drawing.Point(524, 99);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(12, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "안녕친구들";
+            this.label1.Text = "d";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // HRForm
+            // work
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(729, 373);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "HRForm";
-            this.Text = "HRForm";
-            this.Load += new System.EventHandler(this.HRForm_Load);
+            this.Name = "work";
+            this.Text = "work";
             this.ResumeLayout(false);
             this.PerformLayout();
 
