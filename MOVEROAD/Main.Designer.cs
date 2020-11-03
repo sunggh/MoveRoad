@@ -36,9 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -173,21 +171,11 @@
             // 
             // MainPanel
             // 
-            this.MainPanel.Controls.Add(this.button6);
             this.MainPanel.Location = new System.Drawing.Point(55, 38);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(745, 412);
             this.MainPanel.TabIndex = 2;
             this.MainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPanel_Paint);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(225, 91);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(297, 207);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "지은아 잘보이니?";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -203,7 +191,6 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel2.ResumeLayout(false);
-            this.MainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -218,7 +205,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel MainPanel;
-        private System.Windows.Forms.Button button6;
     }
 }
 
