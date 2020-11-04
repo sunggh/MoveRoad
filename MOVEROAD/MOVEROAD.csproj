@@ -149,6 +149,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignForm.Designer.cs">
+      <DependentUpon>SignForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserSetting.cs">
       <SubType>Form</SubType>
@@ -175,6 +181,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignForm.resx">
+      <DependentUpon>SignForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserSetting.resx">
       <DependentUpon>UserSetting.cs</DependentUpon>
