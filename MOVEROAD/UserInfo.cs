@@ -15,8 +15,9 @@ namespace MOVEROAD
         public int grade { get; set; }
         public int depart { get; set; }
         public int gender { get; set; }
+        public string id { get; set; }
 
-        public UserInfo(int index ,string name, int age, int depart, int grade, string address,int gender)
+        public UserInfo(int index ,string name, int age, int depart, int grade, string address,int gender, string id)
         {
             this.index = index;
             this.name = name;
@@ -25,6 +26,7 @@ namespace MOVEROAD
             this.grade = grade;
             this.depart = depart;
             this.gender = gender;
+            this.id = id;
         }
     }
 }
