@@ -15,10 +15,17 @@ namespace MOVEROAD
     {
         private Point mousePoint;
         private UserInfo me;
+        private Form lastPanel;
         public MainForm(UserInfo me)
         {
             this.me = me;
             InitializeComponent();
+            DashBoard dashBoard = new DashBoard(me);
+            dashBoard.TopLevel = false;
+            dashBoard.Show();
+            this.MainPanel.Controls.Clear();
+            this.MainPanel.Controls.Add(dashBoard);
+            lastPanel = dashBoard;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -47,10 +54,11 @@ namespace MOVEROAD
 
         private void button1_Click(object sender, EventArgs e)
         {
+            lastPanel.Dispose();
             HRForm hR = new HRForm();
             hR.TopLevel = false;
             hR.Show();
-
+            lastPanel = hR;
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(hR);
         }
@@ -78,6 +86,23 @@ namespace MOVEROAD
         private void button6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.ExitThread();
+            Environment.Exit(0);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            lastPanel.Dispose();
+            DashBoard dashBoard = new DashBoard(me);
+            dashBoard.TopLevel = false;
+            dashBoard.Show();
+            this.MainPanel.Controls.Clear();
+            this.MainPanel.Controls.Add(dashBoard);
+            lastPanel = dashBoard;
         }
     }
 }
