@@ -49,17 +49,16 @@ namespace MOVEROAD
             switch (token)
             {
                 case 0:
-                    if (!rdr.Read())
+                    if(rdr.Read())
                     {
-                        thing = -1;
+                        UserInfo me = new UserInfo((int)rdr["index"], (string)rdr["name"],(int)rdr["age"], (int)rdr["depart"], (int)rdr["grade"], (string)rdr["address"], (int)rdr["gender"]);
+                        thing = me;
                         break;
                     }
-                    thing = (int)rdr["index"];
+                    thing = null;  
                     break;
                 case 1:
                     rdr.Read();
-                    UserInfo me = new UserInfo((string)rdr["name"], "s", (int)rdr["age"], 0, 0);
-                    thing = me;
                     break;
             }
             rdr.Close();
