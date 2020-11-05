@@ -109,8 +109,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs" />
-    <Compile Include="AddressFinder.cs" />
+    <Compile Include="InfoFile\Address.cs" />
+    <Compile Include="Provider\AddressFinder.cs" />
     <Compile Include="AddressFrom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,7 +123,7 @@
     <Compile Include="DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="DBConnetion.cs" />
+    <Compile Include="Provider\DBConnetion.cs" />
     <Compile Include="HRForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,7 +155,7 @@
     <Compile Include="SignForm.Designer.cs">
       <DependentUpon>SignForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserInfo.cs" />
+    <Compile Include="InfoFile\UserInfo.cs" />
     <Compile Include="UserSetting.cs">
       <SubType>Form</SubType>
     </Compile>
