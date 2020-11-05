@@ -66,9 +66,32 @@ namespace MOVEROAD
             return thing;
         }
 
+        public void Update(string sql)
+        {
+            MySqlConnection conn = getDBConnetion();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
 
+        }
+        public void Insert(string sql)
+        {
+            MySqlConnection conn = getDBConnetion();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
-
+        public void Delete(string sql)
+        {
+            MySqlConnection conn = getDBConnetion();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
     }
 }

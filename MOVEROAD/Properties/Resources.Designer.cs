@@ -143,6 +143,16 @@ namespace MOVEROAD.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap 검색 {
+            get {
+                object obj = ResourceManager.GetObject("검색", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 그림1 {
             get {
                 object obj = ResourceManager.GetObject("그림1", resourceCulture);
@@ -206,6 +216,16 @@ namespace MOVEROAD.Properties {
         internal static System.Drawing.Bitmap 집 {
             get {
                 object obj = ResourceManager.GetObject("집", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 화살표 {
+            get {
+                object obj = ResourceManager.GetObject("화살표", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
