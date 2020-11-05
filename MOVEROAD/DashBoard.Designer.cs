@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.gradeLabel = new System.Windows.Forms.Label();
+            this.departLabel = new System.Windows.Forms.Label();
+            this.ageLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,23 +47,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.ageLabel = new System.Windows.Forms.Label();
-            this.departLabel = new System.Windows.Forms.Label();
-            this.gradeLabel = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,6 +73,104 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(265, 353);
             this.panel1.TabIndex = 0;
+            // 
+            // gradeLabel
+            // 
+            this.gradeLabel.AutoSize = true;
+            this.gradeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.gradeLabel.ForeColor = System.Drawing.Color.White;
+            this.gradeLabel.Location = new System.Drawing.Point(147, 279);
+            this.gradeLabel.Name = "gradeLabel";
+            this.gradeLabel.Size = new System.Drawing.Size(56, 21);
+            this.gradeLabel.TabIndex = 10;
+            this.gradeLabel.Text = "Name";
+            // 
+            // departLabel
+            // 
+            this.departLabel.AutoSize = true;
+            this.departLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.departLabel.ForeColor = System.Drawing.Color.White;
+            this.departLabel.Location = new System.Drawing.Point(147, 249);
+            this.departLabel.Name = "departLabel";
+            this.departLabel.Size = new System.Drawing.Size(56, 21);
+            this.departLabel.TabIndex = 9;
+            this.departLabel.Text = "Name";
+            // 
+            // ageLabel
+            // 
+            this.ageLabel.AutoSize = true;
+            this.ageLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.ageLabel.ForeColor = System.Drawing.Color.White;
+            this.ageLabel.Location = new System.Drawing.Point(147, 219);
+            this.ageLabel.Name = "ageLabel";
+            this.ageLabel.Size = new System.Drawing.Size(56, 21);
+            this.ageLabel.TabIndex = 8;
+            this.ageLabel.Text = "Name";
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.nameLabel.ForeColor = System.Drawing.Color.White;
+            this.nameLabel.Location = new System.Drawing.Point(147, 189);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(56, 21);
+            this.nameLabel.TabIndex = 7;
+            this.nameLabel.Text = "Name";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(47, 279);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 21);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Grade";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(47, 249);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 21);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Depart";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(47, 219);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 21);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Age";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(47, 189);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 21);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Name";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::MOVEROAD.Properties.Resources.Untitled_11;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(51, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(153, 129);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -175,94 +273,6 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Lastest Message";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(47, 189);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 21);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Name";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(47, 219);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 21);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Age";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(47, 249);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 21);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Depart";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(47, 279);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 21);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Grade";
-            // 
-            // nameLabel
-            // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.nameLabel.ForeColor = System.Drawing.Color.White;
-            this.nameLabel.Location = new System.Drawing.Point(147, 189);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(56, 21);
-            this.nameLabel.TabIndex = 7;
-            this.nameLabel.Text = "Name";
-            // 
-            // ageLabel
-            // 
-            this.ageLabel.AutoSize = true;
-            this.ageLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.ageLabel.ForeColor = System.Drawing.Color.White;
-            this.ageLabel.Location = new System.Drawing.Point(147, 219);
-            this.ageLabel.Name = "ageLabel";
-            this.ageLabel.Size = new System.Drawing.Size(56, 21);
-            this.ageLabel.TabIndex = 8;
-            this.ageLabel.Text = "Name";
-            // 
-            // departLabel
-            // 
-            this.departLabel.AutoSize = true;
-            this.departLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.departLabel.ForeColor = System.Drawing.Color.White;
-            this.departLabel.Location = new System.Drawing.Point(147, 249);
-            this.departLabel.Name = "departLabel";
-            this.departLabel.Size = new System.Drawing.Size(56, 21);
-            this.departLabel.TabIndex = 9;
-            this.departLabel.Text = "Name";
-            // 
-            // gradeLabel
-            // 
-            this.gradeLabel.AutoSize = true;
-            this.gradeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.gradeLabel.ForeColor = System.Drawing.Color.White;
-            this.gradeLabel.Location = new System.Drawing.Point(147, 279);
-            this.gradeLabel.Name = "gradeLabel";
-            this.gradeLabel.Size = new System.Drawing.Size(56, 21);
-            this.gradeLabel.TabIndex = 10;
-            this.gradeLabel.Text = "Name";
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
@@ -274,16 +284,6 @@
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::MOVEROAD.Properties.Resources.Untitled_11;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(51, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(153, 129);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // DashBoard
             // 
@@ -302,6 +302,7 @@
             this.Load += new System.EventHandler(this.DashBoard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -311,7 +312,6 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

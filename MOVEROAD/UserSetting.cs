@@ -12,6 +12,7 @@ namespace MOVEROAD
 {
     public partial class UserSetting : Form
     {
+        private UserInfo me;
         public UserSetting(UserInfo me)
         {
             InitializeComponent();
@@ -19,7 +20,7 @@ namespace MOVEROAD
             this.pwTextBox.Text = "";
             this.pwTextBox2.Text = "";
             this.addTextbox.Text = me.address;
-
+            this.me = me;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -34,22 +35,15 @@ namespace MOVEROAD
                 MessageBox.Show("변경 할 ID를 입력해주세요.");
                 return;
             }
-            if (this.pwTextBox.Text == "")
-            {
-                MessageBox.Show("변경 할 비밀번호를 입력해주세요.");
-                return;
-            }
-            if (this.pwTextBox2.Text == this.pwTextBox.Text)
-            {
-                MessageBox.Show("비밀 번호 확인이 틀립니다.");
-                return;
-            }
             if (this.addTextbox.Text == "")
             {
                 MessageBox.Show("집 주소를 제대로 입력 해주세요.");
                 return;
             }
+            me.address = addTextbox.Text;
+            DBConnetion.getInstance().Update("UPDATE `project`.`user` SET `address` = '"+addTextbox.Text+ "' WHERE (`index` = '"+me.index+"');");
             MessageBox.Show("성공적으로 변경 되었습니다.");
+
             this.Dispose();
         }
 
@@ -58,6 +52,7 @@ namespace MOVEROAD
             using (AddressFrom af = new AddressFrom())
             {
                 af.ShowDialog();
+                addTextbox.Text = af.address[1];
             }
         }
     }

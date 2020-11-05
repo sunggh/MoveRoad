@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.pwTextBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.idTextbox = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(516, 312);
             this.panel1.TabIndex = 1;
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 3;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Gray;
+            this.button3.Location = new System.Drawing.Point(378, 192);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(108, 39);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "검색기";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label4
             // 
@@ -93,13 +107,14 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 32);
             this.label3.TabIndex = 15;
-            this.label3.Text = "우편";
+            this.label3.Text = "주소";
             // 
             // addTextbox
             // 
             this.addTextbox.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.addTextbox.Location = new System.Drawing.Point(111, 192);
             this.addTextbox.Name = "addTextbox";
+            this.addTextbox.ReadOnly = true;
             this.addTextbox.Size = new System.Drawing.Size(257, 39);
             this.addTextbox.TabIndex = 14;
             // 
@@ -178,22 +193,9 @@
             this.idTextbox.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.idTextbox.Location = new System.Drawing.Point(111, 56);
             this.idTextbox.Name = "idTextbox";
+            this.idTextbox.ReadOnly = true;
             this.idTextbox.Size = new System.Drawing.Size(375, 39);
             this.idTextbox.TabIndex = 0;
-            // 
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderSize = 3;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Gray;
-            this.button3.Location = new System.Drawing.Point(378, 192);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(108, 39);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "검색기";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // UserSetting
             // 
