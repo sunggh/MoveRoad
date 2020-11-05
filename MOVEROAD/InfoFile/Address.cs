@@ -10,11 +10,13 @@ namespace MOVEROAD
     {
         public int zonenumber { get; set; }
         public string placename { get; set; }
+        public string roadname { get; set; }
 
-        public Address (int zoneNumber, string placeName)
+        public Address (int zoneNumber, string placeName, string roadName)
         {
             this.zonenumber = zoneNumber;
             this.placename = placeName;
+            this.roadname = roadName;
         }
     }
 }

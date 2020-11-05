@@ -247,5 +247,11 @@
   <ItemGroup>
     <None Include="Resources\그림21.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\화살표.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\검색.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
