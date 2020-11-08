@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace MOVEROAD
 
         public MainForm(UserInfo me)
         {
+            instance_ = this;
             this.me = me;
             InitializeComponent();
             DashBoard dashBoard = new DashBoard(me, this);
