@@ -15,7 +15,7 @@ namespace MOVEROAD
     public partial class MainForm : Form
     {
         private Point mousePoint;
-        public UserInfo me;
+        public UserInfo me { get; set; }
         private Form lastPanel;
         private List<DepartmentInfo> departments = new List<DepartmentInfo>();
 
@@ -23,7 +23,7 @@ namespace MOVEROAD
         {
             this.me = me;
             InitializeComponent();
-            DashBoard dashBoard = new DashBoard(me);
+            DashBoard dashBoard = new DashBoard(me, this);
             dashBoard.TopLevel = false;
             dashBoard.Show();
             this.MainPanel.Controls.Clear();
@@ -106,7 +106,7 @@ namespace MOVEROAD
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             lastPanel.Dispose();
-            DashBoard dashBoard = new DashBoard(me);
+            DashBoard dashBoard = new DashBoard(me ,this);
             dashBoard.TopLevel = false;
             dashBoard.Show();
             this.MainPanel.Controls.Clear();
