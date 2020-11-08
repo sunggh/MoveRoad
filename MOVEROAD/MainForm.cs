@@ -36,7 +36,7 @@ namespace MOVEROAD
             string sql = "SELECT id, name, manager FROM department";
             departments = (List<DepartmentInfo>)DBConnetion.getInstance().Select(sql,2);
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
 
