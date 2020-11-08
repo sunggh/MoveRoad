@@ -49,10 +49,15 @@ namespace MOVEROAD
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
             using (AddressFrom af = new AddressFrom())
             {
+                
                 af.ShowDialog();
-                addTextbox.Text = af.address[1];
+                if (af.address[1] != "")
+                    addTextbox.Text = af.address[1];
+                else
+                    addTextbox.Text = me.address;
             }
         }
     }
