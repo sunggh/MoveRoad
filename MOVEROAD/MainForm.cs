@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,8 +17,19 @@ namespace MOVEROAD
         private Point mousePoint;
         public UserInfo me { get; set; }
         private Form lastPanel;
+
+        private static MainForm instance_ = new MainForm();
+
+        public static MainForm getinstance_()
+        {
+            return instance_;
+        }
+
+        public MainForm() { }
+
         public MainForm(UserInfo me)
         {
+            instance_ = this;
             this.me = me;
             InitializeComponent();
             DashBoard dashBoard = new DashBoard(me, this);

@@ -26,5 +26,14 @@ namespace MOVEROAD
         {
 
         }
+
+        private void btn_payment_Click(object sender, EventArgs e)
+        {
+            //lastPanel.Dispose();
+            PaymentForm.getinstance().TopLevel = false;
+            PaymentForm.getinstance().Show();
+            MainForm.getinstance_().MainPanel.Controls.Clear();
+            MainForm.getinstance_().Controls.Add(PaymentForm.getinstance());
+        }
     }
 }
