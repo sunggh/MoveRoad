@@ -115,6 +115,12 @@
     <Compile Include="123123.Designer.cs">
       <DependentUpon>123123.cs</DependentUpon>
     </Compile>
+    <Compile Include="HRmanagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRmanagement.Designer.cs">
+      <DependentUpon>HRmanagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="InfoFile\Address.cs" />
     <Compile Include="PaymentForm.cs">
       <SubType>Form</SubType>
