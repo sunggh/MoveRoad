@@ -53,6 +53,7 @@
             this.btn_department.TabIndex = 3;
             this.btn_department.Text = "\r\n부서 관리";
             this.btn_department.UseVisualStyleBackColor = false;
+            this.btn_department.Click += new System.EventHandler(this.btn_department_Click);
             // 
             // btn_payment
             // 
