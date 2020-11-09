@@ -22,7 +22,6 @@ namespace MOVEROAD
 
         public MainForm(UserInfo me)
         {
-            instance_ = this;
             this.me = me;
             InitializeComponent();
             DashBoard dashBoard = new DashBoard(me, this);
@@ -66,7 +65,7 @@ namespace MOVEROAD
         private void button1_Click(object sender, EventArgs e)
         {
             lastPanel.Dispose();
-            HRForm hR = new HRForm();
+            HRForm hR = new HRForm(this);
             hR.TopLevel = false;
             hR.Show();
             lastPanel = hR;

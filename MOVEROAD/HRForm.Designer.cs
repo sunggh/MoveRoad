@@ -94,6 +94,7 @@
             this.btn_HR.TabIndex = 0;
             this.btn_HR.Text = "\r\n인사 관리";
             this.btn_HR.UseVisualStyleBackColor = false;
+            this.btn_HR.Click += new System.EventHandler(this.btn_HR_Click);
             // 
             // HRForm
             // 
