@@ -109,6 +109,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HRmanagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRmanagement.Designer.cs">
+      <DependentUpon>HRmanagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="InfoFile\Address.cs" />
     <Compile Include="PaymentForm.cs">
       <SubType>Form</SubType>
