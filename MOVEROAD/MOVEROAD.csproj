@@ -157,6 +157,12 @@
       <DependentUpon>SignForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InfoFile\UserInfo.cs" />
+    <Compile Include="TaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskForm.Designer.cs">
+      <DependentUpon>TaskForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SignForm.resx">
       <DependentUpon>SignForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskForm.resx">
+      <DependentUpon>TaskForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserSetting.resx">
       <DependentUpon>UserSetting.cs</DependentUpon>
@@ -253,6 +262,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\검색.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\calendar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
