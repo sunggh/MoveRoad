@@ -117,16 +117,11 @@
       <DependentUpon>MessageBoxForm.cs</DependentUpon>
     </Compile>
     <Compile Include="daechung.cs">
+    <Compile Include="Departmanagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="daechung.Designer.cs">
-      <DependentUpon>daechung.cs</DependentUpon>
-    </Compile>
-    <Compile Include="12312311.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="12312311.Designer.cs">
-      <DependentUpon>12312311.cs</DependentUpon>
+    <Compile Include="Departmanagement.Designer.cs">
+      <DependentUpon>Departmanagement.cs</DependentUpon>
     </Compile>
     <Compile Include="HRmanagement.cs">
       <SubType>Form</SubType>
@@ -135,11 +130,11 @@
       <DependentUpon>HRmanagement.cs</DependentUpon>
     </Compile>
     <Compile Include="InfoFile\Address.cs" />
-    <Compile Include="PaymentForm.cs">
+    <Compile Include="Paymentmanagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PaymentForm.Designer.cs">
-      <DependentUpon>PaymentForm.cs</DependentUpon>
+    <Compile Include="Paymentmanagement.Designer.cs">
+      <DependentUpon>Paymentmanagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -218,6 +213,9 @@
     <EmbeddedResource Include="DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Departmanagement.resx">
+      <DependentUpon>Departmanagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HRForm.resx">
       <DependentUpon>HRForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MessageReceiveForm.resx">
       <DependentUpon>MessageReceiveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paymentmanagement.resx">
+      <DependentUpon>Paymentmanagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
