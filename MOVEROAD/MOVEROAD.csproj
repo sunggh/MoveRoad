@@ -115,6 +115,12 @@
     <Compile Include="123123.Designer.cs">
       <DependentUpon>123123.cs</DependentUpon>
     </Compile>
+    <Compile Include="daechung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="daechung.Designer.cs">
+      <DependentUpon>daechung.cs</DependentUpon>
+    </Compile>
     <Compile Include="HRmanagement.cs">
       <SubType>Form</SubType>
     </Compile>
