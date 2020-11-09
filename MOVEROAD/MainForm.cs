@@ -16,20 +16,10 @@ namespace MOVEROAD
     {
         private Point mousePoint;
         public UserInfo me { get; set; }
-        private Form lastPanel;
-
-        private static MainForm instance_ = new MainForm();
-
-        public static MainForm getinstance_()
-        {
-            return instance_;
-        }
-
-        public MainForm() { }
+        public Form lastPanel;
 
         public MainForm(UserInfo me)
         {
-            instance_ = this;
             this.me = me;
             InitializeComponent();
             DashBoard dashBoard = new DashBoard(me, this);
@@ -67,7 +57,7 @@ namespace MOVEROAD
         private void button1_Click(object sender, EventArgs e)
         {
             lastPanel.Dispose();
-            HRForm hR = new HRForm();
+            HRForm hR = new HRForm(this);
             hR.TopLevel = false;
             hR.Show();
             lastPanel = hR;

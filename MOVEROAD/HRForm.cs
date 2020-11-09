@@ -12,9 +12,12 @@ namespace MOVEROAD
 {
     public partial class HRForm : Form
     {
-        public HRForm()
+        MainForm main;
+
+        public HRForm(MainForm main)
         {
             InitializeComponent();
+            this.main = main;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -29,11 +32,16 @@ namespace MOVEROAD
 
         private void btn_payment_Click(object sender, EventArgs e)
         {
-            //lastPanel.Dispose();
+            main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
             PaymentForm.getinstance().TopLevel = false;
             PaymentForm.getinstance().Show();
-            MainForm.getinstance_().MainPanel.Controls.Clear();
-            MainForm.getinstance_().Controls.Add(PaymentForm.getinstance());
+            main.MainPanel.Controls.Clear();
+            main.Controls.Add(PaymentForm.getinstance());
+        }
+
+        private void btn_HR_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
