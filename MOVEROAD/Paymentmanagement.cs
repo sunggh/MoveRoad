@@ -12,14 +12,11 @@ namespace MOVEROAD
 {
     public partial class Paymentmanagement : Form
     {
-        private static Paymentmanagement instance_ = new Paymentmanagement();
+        HRForm hr;
 
-        public static Paymentmanagement getinstance()
+        public Paymentmanagement(HRForm hr)
         {
-            return instance_;
-        }
-        public Paymentmanagement()
-        {
+            this.hr = hr;
             InitializeComponent();
         }
     }
