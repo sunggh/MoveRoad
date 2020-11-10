@@ -221,6 +221,9 @@
     <EmbeddedResource Include="HRForm.resx">
       <DependentUpon>HRForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HRmanagement.resx">
+      <DependentUpon>HRmanagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
