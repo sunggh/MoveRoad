@@ -123,11 +123,29 @@
     <Compile Include="Departmanagement.Designer.cs">
       <DependentUpon>Departmanagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="HRmanagement.cs">
+    <Compile Include="AddUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HRmanagement.Designer.cs">
-      <DependentUpon>HRmanagement.cs</DependentUpon>
+    <Compile Include="AddUsers.Designer.cs">
+      <DependentUpon>AddUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUsers.Designer.cs">
+      <DependentUpon>EditUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HRManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRManagement.Designer.cs">
+      <DependentUpon>HRManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchUsers.Designer.cs">
+      <DependentUpon>SearchUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="InfoFile\Address.cs" />
     <Compile Include="Paymentmanagement.cs">
@@ -216,11 +234,17 @@
     <EmbeddedResource Include="Departmanagement.resx">
       <DependentUpon>Departmanagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditUsers.resx">
+      <DependentUpon>EditUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HRForm.resx">
       <DependentUpon>HRForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HRmanagement.resx">
-      <DependentUpon>HRmanagement.cs</DependentUpon>
+    <EmbeddedResource Include="AddUsers.resx">
+      <DependentUpon>AddUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HRManagement.resx">
+      <DependentUpon>HRManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -244,6 +268,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchUsers.resx">
+      <DependentUpon>SearchUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignForm.resx">
       <DependentUpon>SignForm.cs</DependentUpon>
