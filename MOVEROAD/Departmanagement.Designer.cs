@@ -46,10 +46,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(50, 38);
+            this.dataGridView1.Location = new System.Drawing.Point(50, 29);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(195, 238);
+            this.dataGridView1.Size = new System.Drawing.Size(195, 266);
             this.dataGridView1.TabIndex = 0;
             // 
             // btn_add
@@ -60,6 +60,7 @@
             this.btn_add.TabIndex = 1;
             this.btn_add.Text = "부서 등록";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_update
             // 
