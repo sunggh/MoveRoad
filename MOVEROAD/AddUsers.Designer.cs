@@ -50,9 +50,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxDepart = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonAddUsers = new System.Windows.Forms.Button();
+            this.buttonSearchUsers = new System.Windows.Forms.Button();
+            this.buttonEditUsers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -262,45 +262,45 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "부서";
             // 
-            // button1
+            // buttonAddUsers
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(255, 51);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "사원 등록";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonAddUsers.Location = new System.Drawing.Point(12, 12);
+            this.buttonAddUsers.Name = "buttonAddUsers";
+            this.buttonAddUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonAddUsers.TabIndex = 0;
+            this.buttonAddUsers.Text = "사원 등록";
+            this.buttonAddUsers.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonSearchUsers
             // 
-            this.button2.Location = new System.Drawing.Point(273, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(255, 51);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "사원 검색";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonSearchUsers.Location = new System.Drawing.Point(273, 12);
+            this.buttonSearchUsers.Name = "buttonSearchUsers";
+            this.buttonSearchUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonSearchUsers.TabIndex = 2;
+            this.buttonSearchUsers.Text = "사원 검색";
+            this.buttonSearchUsers.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonEditUsers
             // 
-            this.button3.Location = new System.Drawing.Point(534, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(255, 51);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "사원 정보 수정";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonEditUsers.Location = new System.Drawing.Point(534, 12);
+            this.buttonEditUsers.Name = "buttonEditUsers";
+            this.buttonEditUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonEditUsers.TabIndex = 3;
+            this.buttonEditUsers.Text = "사원 정보 수정";
+            this.buttonEditUsers.UseVisualStyleBackColor = true;
             // 
-            // HRaddUser
+            // AddUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonEditUsers);
+            this.Controls.Add(this.buttonSearchUsers);
+            this.Controls.Add(this.buttonAddUsers);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "HRaddUser";
-            this.Text = "HRaddUser";
+            this.Name = "AddUsers";
+            this.Text = "AddUser";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -314,9 +314,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBoxDepart;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonAddUsers;
+        private System.Windows.Forms.Button buttonSearchUsers;
+        private System.Windows.Forms.Button buttonEditUsers;
         private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.TextBox textBoxAddress;

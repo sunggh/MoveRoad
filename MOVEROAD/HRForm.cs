@@ -45,10 +45,10 @@ namespace MOVEROAD
         private void btn_HR_Click(object sender, EventArgs e)
         {
             main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
-            AddUsers.getInstance().TopLevel = false;
-            AddUsers.getInstance().Show();
+            HRManagement.getInstance().TopLevel = false;
+            HRManagement.getInstance().Show();
             main.MainPanel.Controls.Clear();
-            main.Controls.Add(AddUsers.getInstance());
+            main.Controls.Add(HRManagement.getInstance());
         }
 
         private void btn_department_Click(object sender, EventArgs e)
