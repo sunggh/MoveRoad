@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MOVEROAD
 {
-    public partial class HRManagement : Form
+    public partial class EditUsers : Form
     {
-        public HRManagement()
+        public EditUsers()
         {
             InitializeComponent();
         }
