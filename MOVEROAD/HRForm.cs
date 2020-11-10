@@ -35,29 +35,34 @@ namespace MOVEROAD
         private void btn_payment_Click(object sender, EventArgs e)
         {
             main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
-            Paymentmanagement pay = new Paymentmanagement(this);
+            Paymentmanagement pay = new Paymentmanagement();
             pay.TopLevel = false;
             pay.Show();
+            main.lastPanel = pay;
             main.MainPanel.Controls.Clear();
-            main.Controls.Add(pay);
+            main.MainPanel.Controls.Add(pay);
         }
 
         private void btn_HR_Click(object sender, EventArgs e)
         {
             main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
-            HRManagement.getInstance().TopLevel = false;
-            HRManagement.getInstance().Show();
+            HRManagement hRManagement = new HRManagement();
+            hRManagement.TopLevel = false;
+            hRManagement.Show();
+            main.lastPanel = hRManagement;
             main.MainPanel.Controls.Clear();
-            main.Controls.Add(HRManagement.getInstance());
+            main.MainPanel.Controls.Add(hRManagement);
         }
 
         private void btn_department_Click(object sender, EventArgs e)
         {
             main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
-            Departmanagement.getinstance().TopLevel = false;
-            Departmanagement.getinstance().Show();
+            Departmanagement departmanagement = new Departmanagement();
+            departmanagement.TopLevel = false;
+            departmanagement.Show();
+            main.lastPanel = departmanagement;
             main.MainPanel.Controls.Clear();
-            main.Controls.Add(Departmanagement.getinstance());
+            main.MainPanel.Controls.Add(departmanagement);
         }
     }
 }
