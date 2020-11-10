@@ -25,9 +25,9 @@ namespace MOVEROAD
         private void btn_add_Click(object sender, EventArgs e)
         {
             string depart_name = tb_depart_name.Text;
-            string depart_
+            string depart_boss = tb_depart_boss.Text;
+            string depart_memo = tb_depart_memo.Text;
             string add_query = "insert into department(name,manager) values ()"
-            DBConnetion
         }
     }
 }
