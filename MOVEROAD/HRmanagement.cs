@@ -12,6 +12,13 @@ namespace MOVEROAD
 {
     public partial class HRmanagement : Form
     {
+        private static HRmanagement instance = new HRmanagement();
+
+        public static HRmanagement getInstance()
+        {
+            return instance;
+        }
+
         public int depart;
         public int grade;
         public int age;
@@ -33,7 +40,7 @@ namespace MOVEROAD
             // TABLE, COLUMN은 ` ` VALUES는 ' ' 주의
             // INSERT INTO `TABLE`(`column`, `column`, ...) VALUES ('string', 숫자, ...);
             string query = "INSERT INTO `user`(`depart`, `grade`, `age`, `id`, `password`, `name`, `gender`, `phone`, `address`)" +
-                " VALUES ('" + depart + "', '" + grade + "', '" + age + "', '" + id + "', '" + password + "', '" + name + "', '" + gender + "', '" + phone + "', '" + address + "')";
+                " VALUES (" + depart + ", " + grade + ", " + age + ", '" + id + "', '" + password + "', '" + name + "', " + gender + ", '" + phone + "', '" + address + "')";
             DBConnetion.getInstance().Update(query);
             
         }
@@ -56,6 +63,7 @@ namespace MOVEROAD
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
+            // 주소 검색창
             using (AddressFrom af = new AddressFrom())
             {
 
