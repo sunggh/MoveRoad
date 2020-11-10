@@ -12,16 +12,8 @@ namespace MOVEROAD
 {
     public partial class Departmanagement : Form
     {
-        private static Departmanagement instance_ = new Departmanagement();
-
-        public static Departmanagement getinstance()
-        {
-            return instance_;
-        }
-
         public Departmanagement()
         {
-            instance_ = this;
             InitializeComponent();
         }
 

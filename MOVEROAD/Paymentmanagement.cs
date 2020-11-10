@@ -12,12 +12,15 @@ namespace MOVEROAD
 {
     public partial class Paymentmanagement : Form
     {
-        HRForm hr;
 
-        public Paymentmanagement(HRForm hr)
+        public Paymentmanagement()
         {
-            this.hr = hr;
             InitializeComponent();
+        }
+
+        private void btn_totalpay_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
