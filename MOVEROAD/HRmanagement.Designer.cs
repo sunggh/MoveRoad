@@ -28,46 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonAddUsers = new System.Windows.Forms.Button();
+            this.buttonSearchUsers = new System.Windows.Forms.Button();
+            this.buttonEditUsers = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonAddUsers
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(255, 51);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "사원 등록";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonAddUsers.Location = new System.Drawing.Point(12, 12);
+            this.buttonAddUsers.Name = "buttonAddUsers";
+            this.buttonAddUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonAddUsers.TabIndex = 1;
+            this.buttonAddUsers.Text = "사원 등록";
+            this.buttonAddUsers.UseVisualStyleBackColor = true;
+            this.buttonAddUsers.Click += new System.EventHandler(this.buttonAddUsers_Click);
             // 
-            // button2
+            // buttonSearchUsers
             // 
-            this.button2.Location = new System.Drawing.Point(273, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(255, 51);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "사원 검색";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonSearchUsers.Location = new System.Drawing.Point(273, 12);
+            this.buttonSearchUsers.Name = "buttonSearchUsers";
+            this.buttonSearchUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonSearchUsers.TabIndex = 3;
+            this.buttonSearchUsers.Text = "사원 검색";
+            this.buttonSearchUsers.UseVisualStyleBackColor = true;
+            this.buttonSearchUsers.Click += new System.EventHandler(this.buttonSearchUsers_Click);
             // 
-            // button3
+            // buttonEditUsers
             // 
-            this.button3.Location = new System.Drawing.Point(534, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(255, 51);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "사원 정보 수정";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonEditUsers.Location = new System.Drawing.Point(534, 12);
+            this.buttonEditUsers.Name = "buttonEditUsers";
+            this.buttonEditUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonEditUsers.TabIndex = 4;
+            this.buttonEditUsers.Text = "사원 정보 수정";
+            this.buttonEditUsers.UseVisualStyleBackColor = true;
+            this.buttonEditUsers.Click += new System.EventHandler(this.buttonEditUsers_Click);
             // 
             // HRManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonEditUsers);
+            this.Controls.Add(this.buttonSearchUsers);
+            this.Controls.Add(this.buttonAddUsers);
             this.Name = "HRManagement";
             this.Text = "HRManagement";
             this.ResumeLayout(false);
@@ -76,8 +79,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonAddUsers;
+        private System.Windows.Forms.Button buttonSearchUsers;
+        private System.Windows.Forms.Button buttonEditUsers;
     }
 }
