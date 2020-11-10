@@ -121,6 +121,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "depart_add_event";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "부서 등록";
             this.ResumeLayout(false);
             this.PerformLayout();
