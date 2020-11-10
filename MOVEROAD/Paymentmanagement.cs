@@ -17,5 +17,10 @@ namespace MOVEROAD
         {
             InitializeComponent();
         }
+
+        private void btn_totalpay_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
