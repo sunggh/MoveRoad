@@ -55,10 +55,10 @@
             // DGV_payment
             // 
             this.DGV_payment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_payment.Location = new System.Drawing.Point(58, 67);
+            this.DGV_payment.Location = new System.Drawing.Point(52, 67);
             this.DGV_payment.Name = "DGV_payment";
             this.DGV_payment.RowTemplate.Height = 23;
-            this.DGV_payment.Size = new System.Drawing.Size(439, 371);
+            this.DGV_payment.Size = new System.Drawing.Size(441, 333);
             this.DGV_payment.TabIndex = 2;
             // 
             // btn_totalpay
@@ -73,7 +73,7 @@
             this.btn_totalpay.Font = new System.Drawing.Font("함초롬바탕", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_totalpay.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_totalpay.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_totalpay.Location = new System.Drawing.Point(554, 154);
+            this.btn_totalpay.Location = new System.Drawing.Point(521, 136);
             this.btn_totalpay.Name = "btn_totalpay";
             this.btn_totalpay.Size = new System.Drawing.Size(192, 158);
             this.btn_totalpay.TabIndex = 4;
@@ -84,11 +84,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(745, 412);
             this.Controls.Add(this.btn_totalpay);
             this.Controls.Add(this.DGV_payment);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Paymentmanagement";
             this.Text = "PaymentForm";
             ((System.ComponentModel.ISupportInitialize)(this.DGV_payment)).EndInit();

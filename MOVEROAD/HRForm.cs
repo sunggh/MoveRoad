@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,7 @@ namespace MOVEROAD
     public partial class HRForm : Form
     {
         MainForm main;
+
 
         public HRForm(MainForm main)
         {
@@ -33,10 +35,11 @@ namespace MOVEROAD
         private void btn_payment_Click(object sender, EventArgs e)
         {
             main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
-            Paymentmanagement.getinstance().TopLevel = false;
-            Paymentmanagement.getinstance().Show();
+            Paymentmanagement pay = new Paymentmanagement(this);
+            pay.TopLevel = false;
+            pay.Show();
             main.MainPanel.Controls.Clear();
-            main.Controls.Add(Paymentmanagement.getinstance());
+            main.Controls.Add(pay);
         }
 
         private void btn_HR_Click(object sender, EventArgs e)
