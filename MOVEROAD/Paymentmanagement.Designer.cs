@@ -79,6 +79,7 @@
             this.btn_totalpay.TabIndex = 4;
             this.btn_totalpay.Text = "급여 내역서 수정 및 출력";
             this.btn_totalpay.UseVisualStyleBackColor = false;
+            this.btn_totalpay.Click += new System.EventHandler(this.btn_totalpay_Click);
             // 
             // Paymentmanagement
             // 
