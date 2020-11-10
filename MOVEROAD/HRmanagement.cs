@@ -12,11 +12,6 @@ namespace MOVEROAD
 {
     public partial class HRManagement : Form
     {
-        private static HRManagement instance = new HRManagement();
-        public static HRManagement getInstance()
-        {
-            return instance;
-        }
 
         public HRManagement()
         {
