@@ -21,6 +21,7 @@ namespace MOVEROAD
 
         public Departmanagement()
         {
+            instance_ = this;
             InitializeComponent();
         }
 
