@@ -10,17 +10,23 @@ using System.Windows.Forms;
 
 namespace MOVEROAD
 {
-    public partial class PaymentForm : Form
+    public partial class Departmanagement : Form
     {
-        private static PaymentForm instance_ = new PaymentForm();
+        private static Departmanagement instance_ = new Departmanagement();
 
-        public static PaymentForm getinstance()
+        public static Departmanagement getinstance()
         {
             return instance_;
         }
-        public PaymentForm()
+
+        public Departmanagement()
         {
             InitializeComponent();
+        }
+
+        public void departGDV()
+        {
+            //user 테이블 이용해서 그리드뷰 만들기
         }
     }
 }
