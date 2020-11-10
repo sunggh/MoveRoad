@@ -129,6 +129,12 @@
     <Compile Include="AddUsers.Designer.cs">
       <DependentUpon>AddUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="depart_add_event.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="depart_add_event.Designer.cs">
+      <DependentUpon>depart_add_event.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Departmanagement.resx">
       <DependentUpon>Departmanagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="depart_add_event.resx">
+      <DependentUpon>depart_add_event.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditUsers.resx">
       <DependentUpon>EditUsers.cs</DependentUpon>
