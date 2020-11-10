@@ -109,24 +109,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="123123.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="123123.Designer.cs">
-      <DependentUpon>123123.cs</DependentUpon>
-    </Compile>
-    <Compile Include="12312311.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="12312311.Designer.cs">
-      <DependentUpon>12312311.cs</DependentUpon>
-    </Compile>
-    <Compile Include="daechung.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="daechung.Designer.cs">
-      <DependentUpon>daechung.cs</DependentUpon>
-    </Compile>
     <Compile Include="HRmanagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HRForm.resx">
       <DependentUpon>HRForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HRmanagement.resx">
+      <DependentUpon>HRmanagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
