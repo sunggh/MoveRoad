@@ -27,7 +27,7 @@ namespace MOVEROAD
             string depart_name = tb_depart_name.Text;
             string depart_boss = tb_depart_boss.Text;
             string depart_memo = tb_depart_memo.Text;
-            string add_query = "insert into department(name,manager) values ()"
+            string add_query = "insert into department(name,manager) values ()";
         }
     }
 }
