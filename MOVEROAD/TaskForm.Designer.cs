@@ -32,7 +32,6 @@ namespace MOVEROAD
         {
             this.tabControlTask = new System.Windows.Forms.TabControl();
             this.tabPageRegistraion = new System.Windows.Forms.TabPage();
-            this.tabPageManagement = new System.Windows.Forms.TabPage();
             this.buttonRegistration = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBoxEndTime = new System.Windows.Forms.TextBox();
@@ -47,6 +46,7 @@ namespace MOVEROAD
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPageManagement = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -59,6 +59,10 @@ namespace MOVEROAD
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPageMaster = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.tabControlTask.SuspendLayout();
             this.tabPageRegistraion.SuspendLayout();
             this.tabPageManagement.SuspendLayout();
@@ -68,6 +72,7 @@ namespace MOVEROAD
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTaskKewordSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPageMaster.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlTask
@@ -104,22 +109,6 @@ namespace MOVEROAD
             this.tabPageRegistraion.TabIndex = 0;
             this.tabPageRegistraion.Text = "일일 업무 등록";
             this.tabPageRegistraion.UseVisualStyleBackColor = true;
-            // 
-            // tabPageManagement
-            // 
-            this.tabPageManagement.Controls.Add(this.button1);
-            this.tabPageManagement.Controls.Add(this.button2);
-            this.tabPageManagement.Controls.Add(this.groupBox2);
-            this.tabPageManagement.Controls.Add(this.groupBox1);
-            this.tabPageManagement.Controls.Add(this.label8);
-            this.tabPageManagement.Controls.Add(this.dataGridView1);
-            this.tabPageManagement.Location = new System.Drawing.Point(4, 25);
-            this.tabPageManagement.Name = "tabPageManagement";
-            this.tabPageManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageManagement.Size = new System.Drawing.Size(737, 383);
-            this.tabPageManagement.TabIndex = 1;
-            this.tabPageManagement.Text = "일일 업무 관리";
-            this.tabPageManagement.UseVisualStyleBackColor = true;
             // 
             // buttonRegistration
             // 
@@ -263,6 +252,22 @@ namespace MOVEROAD
             this.label1.TabIndex = 21;
             this.label1.Text = "일일 업무 등록";
             // 
+            // tabPageManagement
+            // 
+            this.tabPageManagement.Controls.Add(this.button1);
+            this.tabPageManagement.Controls.Add(this.button2);
+            this.tabPageManagement.Controls.Add(this.groupBox2);
+            this.tabPageManagement.Controls.Add(this.groupBox1);
+            this.tabPageManagement.Controls.Add(this.label8);
+            this.tabPageManagement.Controls.Add(this.dataGridView1);
+            this.tabPageManagement.Location = new System.Drawing.Point(4, 25);
+            this.tabPageManagement.Name = "tabPageManagement";
+            this.tabPageManagement.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageManagement.Size = new System.Drawing.Size(737, 383);
+            this.tabPageManagement.TabIndex = 1;
+            this.tabPageManagement.Text = "일일 업무 관리";
+            this.tabPageManagement.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
@@ -380,6 +385,10 @@ namespace MOVEROAD
             // 
             // tabPageMaster
             // 
+            this.tabPageMaster.Controls.Add(this.button5);
+            this.tabPageMaster.Controls.Add(this.button3);
+            this.tabPageMaster.Controls.Add(this.checkedListBox1);
+            this.tabPageMaster.Controls.Add(this.label9);
             this.tabPageMaster.Location = new System.Drawing.Point(4, 25);
             this.tabPageMaster.Name = "tabPageMaster";
             this.tabPageMaster.Padding = new System.Windows.Forms.Padding(3);
@@ -388,13 +397,58 @@ namespace MOVEROAD
             this.tabPageMaster.Text = "업무 마스터 관리";
             this.tabPageMaster.UseVisualStyleBackColor = true;
             // 
-            // TaskMainForm
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label9.Font = new System.Drawing.Font("굴림", 10F);
+            this.label9.ForeColor = System.Drawing.SystemColors.Control;
+            this.label9.Location = new System.Drawing.Point(26, 16);
+            this.label9.Name = "label9";
+            this.label9.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label9.Size = new System.Drawing.Size(157, 27);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "업무 마스터 관리";
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(87, 99);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(589, 264);
+            this.checkedListBox1.TabIndex = 26;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.button3.Font = new System.Drawing.Font("굴림", 10F);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(590, 57);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(86, 36);
+            this.button3.TabIndex = 30;
+            this.button3.Text = "삭제";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.button5.Font = new System.Drawing.Font("굴림", 10F);
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(487, 57);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(86, 36);
+            this.button5.TabIndex = 31;
+            this.button5.Text = "추가";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // TaskForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(745, 412);
             this.Controls.Add(this.tabControlTask);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "TaskMainForm";
+            this.Name = "TaskForm";
             this.Text = "TaskForm";
             this.tabControlTask.ResumeLayout(false);
             this.tabPageRegistraion.ResumeLayout(false);
@@ -409,6 +463,8 @@ namespace MOVEROAD
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTaskKewordSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPageMaster.ResumeLayout(false);
+            this.tabPageMaster.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -444,5 +500,9 @@ namespace MOVEROAD
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPageMaster;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Label label9;
     }
 }
