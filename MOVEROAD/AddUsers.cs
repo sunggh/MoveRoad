@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +32,7 @@ namespace MOVEROAD
         public AddUsers()
         {
             InitializeComponent();
+            DataShow();
         }
 
         private void AddNewcomer()
@@ -42,24 +44,35 @@ namespace MOVEROAD
                 " VALUES (" + depart + ", " + grade + ", " + age + ", '" + id + "', '" + password + "', '" + name + "', " + gender + ", '" + phone + "', '" + address + "')";
             DBConnetion.getInstance().Insert(query);
         }
+        
+        private void DataShow()
+        {
+            string query = "SELECT depart, grade, name, age, gender, phone, address FROM `user`";
+            DataTable table = DBConnetion.getInstance().getDBTable(query);
+            dataGridView1.DataSource = table;
+            dataGridView1.Columns[0].HeaderText = "부서명";
+            dataGridView1.Columns[1].HeaderText = "직위";
+            dataGridView1.Columns[2].HeaderText = "이름";
+            dataGridView1.Columns[3].HeaderText = "나이";
+            dataGridView1.Columns[4].HeaderText = "성별";
+            dataGridView1.Columns[5].HeaderText = "H.P";
+            dataGridView1.Columns[6].HeaderText = "주소";
+        }
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            this.depart = Convert.ToInt32(textBoxDepart.Text);
-            this.grade = Convert.ToInt32(textBoxGrade.Text);
+            this.depart = comboBoxDepart.SelectedIndex;
+            this.grade = comboBoxGrade.SelectedIndex;
             this.age = Convert.ToInt32(textBoxAge.Text);
             this.id = textBoxId.Text;
             this.password = textBoxPassword.Text;
             this.name = textBoxName.Text;
-            if (comboBoxGender.Text.Equals("남자"))
-                this.gender = 0;
-            else if (comboBoxGender.Text.Equals("여자"))
-                this.gender = 1;
+            this.gender = comboBoxGender.SelectedIndex;
             this.phone = textBoxPhone.Text;
             this.address = textBoxAddress.Text;
 
             AddNewcomer(); // 사원 추가
-            // 데이터 그리드 뷰 갱신한번 해주셈
+            DataShow(); // 데이터 그리드뷰 갱신
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -74,6 +87,11 @@ namespace MOVEROAD
                 else
                     textBoxAddress.Text = address;
             }
+        }
+
+        private void textBoxPhone_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBoxPhone.Text = "";
         }
     }
 }
