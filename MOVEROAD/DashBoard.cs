@@ -40,9 +40,11 @@ namespace MOVEROAD
             using (UserSetting us = new UserSetting(this.user))
             {
                 us.ShowDialog();
-                
             }
+            
             main.Opacity = 1;
         }
+
+
     }
 }

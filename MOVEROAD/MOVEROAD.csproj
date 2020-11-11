@@ -170,11 +170,17 @@
       <DependentUpon>SignForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InfoFile\UserInfo.cs" />
-    <Compile Include="TaskForm.cs">
+    <Compile Include="TaskMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TaskForm.Designer.cs">
-      <DependentUpon>TaskForm.cs</DependentUpon>
+    <Compile Include="TaskMainForm.Designer.cs">
+      <DependentUpon>TaskMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskRegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskRegistrationForm.Designer.cs">
+      <DependentUpon>TaskRegistrationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserSetting.cs">
       <SubType>Form</SubType>
@@ -211,8 +217,11 @@
     <EmbeddedResource Include="SignForm.resx">
       <DependentUpon>SignForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TaskForm.resx">
-      <DependentUpon>TaskForm.cs</DependentUpon>
+    <EmbeddedResource Include="TaskMainForm.resx">
+      <DependentUpon>TaskMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskRegistrationForm.resx">
+      <DependentUpon>TaskRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserSetting.resx">
       <DependentUpon>UserSetting.cs</DependentUpon>
@@ -284,6 +293,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\calendar.png" />
+    <Content Include="Resources\search.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
