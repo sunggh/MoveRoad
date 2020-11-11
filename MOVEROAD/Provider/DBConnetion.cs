@@ -67,6 +67,18 @@ namespace MOVEROAD
             return thing;
         }
 
+        public DataTable getDBTable(string sql) // 사원정보 데이터 그리드뷰에 넣는거
+        {
+            using(MySqlConnection conn = getDBConnetion())
+            {
+                conn.Open();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, conn);
+                MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+        }
         public void Update(string sql)
         {
             MySqlConnection conn = getDBConnetion();
