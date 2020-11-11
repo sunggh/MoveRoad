@@ -46,18 +46,18 @@
             // 
             // buttonEditUsers
             // 
-            this.buttonEditUsers.Location = new System.Drawing.Point(534, 12);
+            this.buttonEditUsers.Location = new System.Drawing.Point(498, 12);
             this.buttonEditUsers.Name = "buttonEditUsers";
-            this.buttonEditUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonEditUsers.Size = new System.Drawing.Size(235, 51);
             this.buttonEditUsers.TabIndex = 7;
             this.buttonEditUsers.Text = "사원 정보 수정";
             this.buttonEditUsers.UseVisualStyleBackColor = true;
             // 
             // buttonSearchUsers
             // 
-            this.buttonSearchUsers.Location = new System.Drawing.Point(273, 12);
+            this.buttonSearchUsers.Location = new System.Drawing.Point(253, 12);
             this.buttonSearchUsers.Name = "buttonSearchUsers";
-            this.buttonSearchUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonSearchUsers.Size = new System.Drawing.Size(235, 51);
             this.buttonSearchUsers.TabIndex = 6;
             this.buttonSearchUsers.Text = "사원 검색";
             this.buttonSearchUsers.UseVisualStyleBackColor = true;
@@ -66,7 +66,7 @@
             // 
             this.buttonAddUsers.Location = new System.Drawing.Point(12, 12);
             this.buttonAddUsers.Name = "buttonAddUsers";
-            this.buttonAddUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonAddUsers.Size = new System.Drawing.Size(235, 51);
             this.buttonAddUsers.TabIndex = 5;
             this.buttonAddUsers.Text = "사원 등록";
             this.buttonAddUsers.UseVisualStyleBackColor = true;
@@ -149,19 +149,20 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 145);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 293);
+            this.dataGridView1.Size = new System.Drawing.Size(721, 255);
             this.dataGridView1.TabIndex = 8;
             // 
             // SearchUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(745, 412);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonEditUsers);
             this.Controls.Add(this.buttonSearchUsers);
             this.Controls.Add(this.buttonAddUsers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SearchUsers";
             this.Text = "SearchUsers";
             this.groupBox1.ResumeLayout(false);
