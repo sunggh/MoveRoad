@@ -27,7 +27,7 @@ namespace MOVEROAD
         {
             try
             {
-                string con = "Server=" + dbip + ";Database=" + dbid + ";Uid=" + dbname + ";Pwd=" + dbpass + ";Charset=euckr";
+                string con = "Server=" + dbip + ";Database=" + dbid + ";Uid=" + dbname + ";Pwd=" + dbpass + ";Charset=utf8";
                 MySqlConnection conn = new MySqlConnection(con);
                 conn.Open();
                 conn.Close();
@@ -72,10 +72,11 @@ namespace MOVEROAD
             using(MySqlConnection conn = getDBConnetion())
             {
                 conn.Open();
-                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, conn);
-                MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
                 DataTable table = new DataTable();
-                adapter.Fill(table);
+                
+                table.Load(rdr);
                 return table;
             }
         }
