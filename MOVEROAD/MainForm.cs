@@ -27,7 +27,6 @@ namespace MOVEROAD
             this.MainPanel.Controls.Add(dashBoard);
             lastPanel = dashBoard;
         }
-        
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -73,9 +72,15 @@ namespace MOVEROAD
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonTask_Click(object sender, EventArgs e)
         {
-   
+            lastPanel.Dispose();
+            TaskMainForm task = new TaskMainForm(this);
+            task.TopLevel = false;
+            task.Show();
+            lastPanel = task;
+            this.MainPanel.Controls.Clear();
+            this.MainPanel.Controls.Add(task);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
