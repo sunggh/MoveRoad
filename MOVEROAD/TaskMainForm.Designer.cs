@@ -2,7 +2,7 @@
 
 namespace MOVEROAD
 {
-    partial class TaskForm
+    partial class TaskMainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,25 +30,22 @@ namespace MOVEROAD
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskForm));
             this.buttonRegistration = new System.Windows.Forms.Button();
             this.buttonManagement = new System.Windows.Forms.Button();
             this.buttonMasterManagement = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBoxTaskKewordSearch = new System.Windows.Forms.PictureBox();
             this.textBoxTaskKeword = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBoxRegistrantSearch = new System.Windows.Forms.PictureBox();
             this.textBoxRegistrant = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBoxRegistrantSearch = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTaskKewordSearch = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTaskKewordSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistrantSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTaskKewordSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonRegistration
@@ -62,6 +59,7 @@ namespace MOVEROAD
             this.buttonRegistration.TabIndex = 0;
             this.buttonRegistration.Text = "일일 업무등록";
             this.buttonRegistration.UseVisualStyleBackColor = false;
+            this.buttonRegistration.Click += new System.EventHandler(this.buttonRegistration_Click);
             // 
             // buttonManagement
             // 
@@ -91,23 +89,12 @@ namespace MOVEROAD
             // 
             this.groupBox1.Controls.Add(this.pictureBoxTaskKewordSearch);
             this.groupBox1.Controls.Add(this.textBoxTaskKeword);
-            this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Location = new System.Drawing.Point(256, 64);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(408, 228);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            // 
-            // pictureBoxTaskKewordSearch
-            // 
-            this.pictureBoxTaskKewordSearch.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxTaskKewordSearch.Image")));
-            this.pictureBoxTaskKewordSearch.Location = new System.Drawing.Point(255, 183);
-            this.pictureBoxTaskKewordSearch.Name = "pictureBoxTaskKewordSearch";
-            this.pictureBoxTaskKewordSearch.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxTaskKewordSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxTaskKewordSearch.TabIndex = 3;
-            this.pictureBoxTaskKewordSearch.TabStop = false;
             // 
             // textBoxTaskKeword
             // 
@@ -118,25 +105,6 @@ namespace MOVEROAD
             this.textBoxTaskKeword.Text = "업무 키워드 입력";
             this.textBoxTaskKeword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(68, 24);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(313, 150);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(17, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 34);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.pictureBoxRegistrantSearch);
@@ -146,16 +114,6 @@ namespace MOVEROAD
             this.groupBox2.Size = new System.Drawing.Size(408, 67);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
-            // 
-            // pictureBoxRegistrantSearch
-            // 
-            this.pictureBoxRegistrantSearch.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRegistrantSearch.Image")));
-            this.pictureBoxRegistrantSearch.Location = new System.Drawing.Point(255, 18);
-            this.pictureBoxRegistrantSearch.Name = "pictureBoxRegistrantSearch";
-            this.pictureBoxRegistrantSearch.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxRegistrantSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxRegistrantSearch.TabIndex = 7;
-            this.pictureBoxRegistrantSearch.TabStop = false;
             // 
             // textBoxRegistrant
             // 
@@ -179,7 +137,37 @@ namespace MOVEROAD
             this.label1.TabIndex = 6;
             this.label1.Text = "일일 업무 검색";
             // 
-            // TaskForm
+            // pictureBoxRegistrantSearch
+            // 
+            this.pictureBoxRegistrantSearch.Image = global::MOVEROAD.Properties.Resources.search;
+            this.pictureBoxRegistrantSearch.Location = new System.Drawing.Point(255, 18);
+            this.pictureBoxRegistrantSearch.Name = "pictureBoxRegistrantSearch";
+            this.pictureBoxRegistrantSearch.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxRegistrantSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxRegistrantSearch.TabIndex = 7;
+            this.pictureBoxRegistrantSearch.TabStop = false;
+            // 
+            // pictureBoxTaskKewordSearch
+            // 
+            this.pictureBoxTaskKewordSearch.Image = global::MOVEROAD.Properties.Resources.search;
+            this.pictureBoxTaskKewordSearch.Location = new System.Drawing.Point(255, 183);
+            this.pictureBoxTaskKewordSearch.Name = "pictureBoxTaskKewordSearch";
+            this.pictureBoxTaskKewordSearch.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxTaskKewordSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxTaskKewordSearch.TabIndex = 3;
+            this.pictureBoxTaskKewordSearch.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MOVEROAD.Properties.Resources.calendar;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(17, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 34);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // TaskHomeForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(745, 412);
@@ -190,16 +178,15 @@ namespace MOVEROAD
             this.Controls.Add(this.buttonManagement);
             this.Controls.Add(this.buttonRegistration);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "TaskForm";
+            this.Name = "TaskHomeForm";
             this.Text = "TaskForm";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTaskKewordSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistrantSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTaskKewordSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,13 +198,12 @@ namespace MOVEROAD
         private System.Windows.Forms.Button buttonManagement;
         private System.Windows.Forms.Button buttonMasterManagement;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBoxTaskKeword;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBoxTaskKewordSearch;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox pictureBoxRegistrantSearch;
         private System.Windows.Forms.TextBox textBoxRegistrant;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
