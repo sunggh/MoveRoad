@@ -287,6 +287,7 @@
             this.buttonAddUsers.TabIndex = 0;
             this.buttonAddUsers.Text = "사원 등록";
             this.buttonAddUsers.UseVisualStyleBackColor = true;
+            this.buttonAddUsers.Click += new System.EventHandler(this.buttonAddUsers_Click);
             // 
             // buttonSearchUsers
             // 
