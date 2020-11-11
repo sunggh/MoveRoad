@@ -63,7 +63,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 198);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 240);
+            this.dataGridView1.Size = new System.Drawing.Size(721, 202);
             this.dataGridView1.TabIndex = 0;
             // 
             // groupBox1
@@ -90,7 +90,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 69);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(777, 123);
+            this.groupBox1.Size = new System.Drawing.Size(721, 123);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -129,6 +129,9 @@
             // comboBoxGender
             // 
             this.comboBoxGender.FormattingEnabled = true;
+            this.comboBoxGender.Items.AddRange(new object[] {
+            "남자",
+            "여자"});
             this.comboBoxGender.Location = new System.Drawing.Point(182, 61);
             this.comboBoxGender.Name = "comboBoxGender";
             this.comboBoxGender.Size = new System.Drawing.Size(100, 20);
@@ -177,7 +180,7 @@
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(128, 21);
             this.textBoxPhone.TabIndex = 11;
-            this.textBoxPhone.Text = "하이픈(\'-\') 없이 입력";
+            this.textBoxPhone.Text = "하이픈(\'-\') 까지 입력";
             this.textBoxPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
@@ -266,25 +269,25 @@
             // 
             this.buttonAddUsers.Location = new System.Drawing.Point(12, 12);
             this.buttonAddUsers.Name = "buttonAddUsers";
-            this.buttonAddUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonAddUsers.Size = new System.Drawing.Size(235, 51);
             this.buttonAddUsers.TabIndex = 0;
             this.buttonAddUsers.Text = "사원 등록";
             this.buttonAddUsers.UseVisualStyleBackColor = true;
             // 
             // buttonSearchUsers
             // 
-            this.buttonSearchUsers.Location = new System.Drawing.Point(273, 12);
+            this.buttonSearchUsers.Location = new System.Drawing.Point(253, 12);
             this.buttonSearchUsers.Name = "buttonSearchUsers";
-            this.buttonSearchUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonSearchUsers.Size = new System.Drawing.Size(235, 51);
             this.buttonSearchUsers.TabIndex = 2;
             this.buttonSearchUsers.Text = "사원 검색";
             this.buttonSearchUsers.UseVisualStyleBackColor = true;
             // 
             // buttonEditUsers
             // 
-            this.buttonEditUsers.Location = new System.Drawing.Point(534, 12);
+            this.buttonEditUsers.Location = new System.Drawing.Point(498, 12);
             this.buttonEditUsers.Name = "buttonEditUsers";
-            this.buttonEditUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonEditUsers.Size = new System.Drawing.Size(235, 51);
             this.buttonEditUsers.TabIndex = 3;
             this.buttonEditUsers.Text = "사원 정보 수정";
             this.buttonEditUsers.UseVisualStyleBackColor = true;
@@ -293,12 +296,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(745, 412);
             this.Controls.Add(this.buttonEditUsers);
             this.Controls.Add(this.buttonSearchUsers);
             this.Controls.Add(this.buttonAddUsers);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddUsers";
             this.Text = "AddUser";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

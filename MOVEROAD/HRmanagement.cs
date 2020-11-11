@@ -12,15 +12,24 @@ namespace MOVEROAD
 {
     public partial class HRManagement : Form
     {
-
-        public HRManagement()
+        MainForm main;
+        
+        public HRManagement(MainForm main)
         {
             InitializeComponent();
+            this.main = main;
         }
 
         private void buttonAddUsers_Click(object sender, EventArgs e)
         {
             // AddUsers 창으로 넘어가기
+            main.lastPanel.Dispose();
+            AddUsers addUsers = new AddUsers();
+            addUsers.TopLevel = false;
+            addUsers.Show();
+            main.lastPanel = addUsers;
+            main.MainPanel.Controls.Clear();
+            main.MainPanel.Controls.Add(addUsers);
         }
 
         private void buttonSearchUsers_Click(object sender, EventArgs e)
