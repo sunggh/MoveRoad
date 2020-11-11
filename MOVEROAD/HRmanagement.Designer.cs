@@ -31,6 +31,7 @@
             this.buttonAddUsers = new System.Windows.Forms.Button();
             this.buttonSearchUsers = new System.Windows.Forms.Button();
             this.buttonEditUsers = new System.Windows.Forms.Button();
+            this.HRpanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // buttonAddUsers
@@ -63,11 +64,20 @@
             this.buttonEditUsers.UseVisualStyleBackColor = true;
             this.buttonEditUsers.Click += new System.EventHandler(this.buttonEditUsers_Click);
             // 
+            // HRpanel
+            // 
+            this.HRpanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.HRpanel.Location = new System.Drawing.Point(0, 72);
+            this.HRpanel.Name = "HRpanel";
+            this.HRpanel.Size = new System.Drawing.Size(745, 340);
+            this.HRpanel.TabIndex = 5;
+            // 
             // HRManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 412);
+            this.Controls.Add(this.HRpanel);
             this.Controls.Add(this.buttonEditUsers);
             this.Controls.Add(this.buttonSearchUsers);
             this.Controls.Add(this.buttonAddUsers);
@@ -83,5 +93,6 @@
         private System.Windows.Forms.Button buttonAddUsers;
         private System.Windows.Forms.Button buttonSearchUsers;
         private System.Windows.Forms.Button buttonEditUsers;
+        private System.Windows.Forms.Panel HRpanel;
     }
 }
