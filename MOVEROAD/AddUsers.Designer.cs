@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxGrade = new System.Windows.Forms.ComboBox();
@@ -50,19 +53,45 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonAddUsers = new System.Windows.Forms.Button();
-            this.buttonSearchUsers = new System.Windows.Forms.Button();
-            this.buttonEditUsers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 198);
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.Black;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 132);
             this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(721, 202);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -88,7 +117,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 69);
+            this.groupBox1.Location = new System.Drawing.Point(12, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(721, 123);
             this.groupBox1.TabIndex = 1;
@@ -188,6 +217,7 @@
             // 
             this.textBoxAddress.Location = new System.Drawing.Point(41, 88);
             this.textBoxAddress.Name = "textBoxAddress";
+            this.textBoxAddress.ReadOnly = true;
             this.textBoxAddress.Size = new System.Drawing.Size(378, 21);
             this.textBoxAddress.TabIndex = 13;
             // 
@@ -279,42 +309,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "부서";
             // 
-            // buttonAddUsers
-            // 
-            this.buttonAddUsers.Location = new System.Drawing.Point(12, 12);
-            this.buttonAddUsers.Name = "buttonAddUsers";
-            this.buttonAddUsers.Size = new System.Drawing.Size(235, 51);
-            this.buttonAddUsers.TabIndex = 0;
-            this.buttonAddUsers.Text = "사원 등록";
-            this.buttonAddUsers.UseVisualStyleBackColor = true;
-            this.buttonAddUsers.Click += new System.EventHandler(this.buttonAddUsers_Click);
-            // 
-            // buttonSearchUsers
-            // 
-            this.buttonSearchUsers.Location = new System.Drawing.Point(253, 12);
-            this.buttonSearchUsers.Name = "buttonSearchUsers";
-            this.buttonSearchUsers.Size = new System.Drawing.Size(235, 51);
-            this.buttonSearchUsers.TabIndex = 2;
-            this.buttonSearchUsers.Text = "사원 검색";
-            this.buttonSearchUsers.UseVisualStyleBackColor = true;
-            // 
-            // buttonEditUsers
-            // 
-            this.buttonEditUsers.Location = new System.Drawing.Point(498, 12);
-            this.buttonEditUsers.Name = "buttonEditUsers";
-            this.buttonEditUsers.Size = new System.Drawing.Size(235, 51);
-            this.buttonEditUsers.TabIndex = 3;
-            this.buttonEditUsers.Text = "사원 정보 수정";
-            this.buttonEditUsers.UseVisualStyleBackColor = true;
-            // 
             // AddUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 412);
-            this.Controls.Add(this.buttonEditUsers);
-            this.Controls.Add(this.buttonSearchUsers);
-            this.Controls.Add(this.buttonAddUsers);
+            this.ClientSize = new System.Drawing.Size(745, 340);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -332,9 +331,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonAddUsers;
-        private System.Windows.Forms.Button buttonSearchUsers;
-        private System.Windows.Forms.Button buttonEditUsers;
         private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.TextBox textBoxAddress;
