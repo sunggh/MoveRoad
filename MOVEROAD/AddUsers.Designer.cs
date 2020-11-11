@@ -30,6 +30,8 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxGrade = new System.Windows.Forms.ComboBox();
+            this.comboBoxDepart = new System.Windows.Forms.ComboBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxId = new System.Windows.Forms.TextBox();
@@ -46,9 +48,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxAge = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxGrade = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxDepart = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonAddUsers = new System.Windows.Forms.Button();
             this.buttonSearchUsers = new System.Windows.Forms.Button();
@@ -68,6 +68,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBoxGrade);
+            this.groupBox1.Controls.Add(this.comboBoxDepart);
             this.groupBox1.Controls.Add(this.textBoxPassword);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.textBoxId);
@@ -84,15 +86,40 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBoxAge);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBoxGrade);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBoxDepart);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 69);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(721, 123);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // comboBoxGrade
+            // 
+            this.comboBoxGrade.FormattingEnabled = true;
+            this.comboBoxGrade.Items.AddRange(new object[] {
+            "미지정",
+            "사원",
+            "부서장",
+            "사장"});
+            this.comboBoxGrade.Location = new System.Drawing.Point(182, 35);
+            this.comboBoxGrade.Name = "comboBoxGrade";
+            this.comboBoxGrade.Size = new System.Drawing.Size(100, 20);
+            this.comboBoxGrade.TabIndex = 21;
+            // 
+            // comboBoxDepart
+            // 
+            this.comboBoxDepart.FormattingEnabled = true;
+            this.comboBoxDepart.Items.AddRange(new object[] {
+            "미지정",
+            "인사",
+            "홍보",
+            "생산",
+            "경영"});
+            this.comboBoxDepart.Location = new System.Drawing.Point(41, 35);
+            this.comboBoxDepart.Name = "comboBoxDepart";
+            this.comboBoxDepart.Size = new System.Drawing.Size(100, 20);
+            this.comboBoxDepart.TabIndex = 22;
             // 
             // textBoxPassword
             // 
@@ -176,12 +203,13 @@
             // textBoxPhone
             // 
             this.textBoxPhone.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxPhone.Location = new System.Drawing.Point(319, 61);
+            this.textBoxPhone.Location = new System.Drawing.Point(323, 61);
             this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(128, 21);
+            this.textBoxPhone.Size = new System.Drawing.Size(122, 21);
             this.textBoxPhone.TabIndex = 11;
-            this.textBoxPhone.Text = "하이픈(\'-\') 까지 입력";
+            this.textBoxPhone.Text = "하이픈(-)까지 입력";
             this.textBoxPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxPhone.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBoxPhone_MouseClick);
             // 
             // label6
             // 
@@ -233,13 +261,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "나이";
             // 
-            // textBoxGrade
-            // 
-            this.textBoxGrade.Location = new System.Drawing.Point(182, 34);
-            this.textBoxGrade.Name = "textBoxGrade";
-            this.textBoxGrade.Size = new System.Drawing.Size(100, 21);
-            this.textBoxGrade.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -248,13 +269,6 @@
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "직위";
-            // 
-            // textBoxDepart
-            // 
-            this.textBoxDepart.Location = new System.Drawing.Point(41, 34);
-            this.textBoxDepart.Name = "textBoxDepart";
-            this.textBoxDepart.Size = new System.Drawing.Size(100, 21);
-            this.textBoxDepart.TabIndex = 1;
             // 
             // label1
             // 
@@ -316,7 +330,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBoxDepart;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonAddUsers;
         private System.Windows.Forms.Button buttonSearchUsers;
@@ -332,12 +345,13 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxAge;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxGrade;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxGender;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBoxGrade;
+        private System.Windows.Forms.ComboBox comboBoxDepart;
     }
 }
