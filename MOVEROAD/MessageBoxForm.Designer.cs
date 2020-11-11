@@ -29,30 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageBoxForm));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.pictureBoxRegistrantSearch = new System.Windows.Forms.PictureBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.받은쪽지ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.보낸쪽지ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.전체쪽지ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnRead = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistrantSearch)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "받은 쪽지",
-            "보낸 쪽지",
-            "전체 쪽지"});
-            this.comboBox1.Location = new System.Drawing.Point(21, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 0;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(21, 56);
+            this.textBox1.Location = new System.Drawing.Point(21, 47);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(121, 25);
             this.textBox1.TabIndex = 1;
@@ -60,7 +55,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(148, 56);
+            this.textBox2.Location = new System.Drawing.Point(148, 47);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(121, 25);
             this.textBox2.TabIndex = 2;
@@ -68,7 +63,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(275, 56);
+            this.textBox3.Location = new System.Drawing.Point(275, 47);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(177, 25);
             this.textBox3.TabIndex = 3;
@@ -76,7 +71,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(458, 56);
+            this.textBox4.Location = new System.Drawing.Point(458, 47);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(177, 25);
             this.textBox4.TabIndex = 4;
@@ -85,40 +80,113 @@
             // pictureBoxRegistrantSearch
             // 
             this.pictureBoxRegistrantSearch.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRegistrantSearch.Image")));
-            this.pictureBoxRegistrantSearch.Location = new System.Drawing.Point(641, 56);
+            this.pictureBoxRegistrantSearch.Location = new System.Drawing.Point(641, 47);
             this.pictureBoxRegistrantSearch.Name = "pictureBoxRegistrantSearch";
             this.pictureBoxRegistrantSearch.Size = new System.Drawing.Size(39, 25);
             this.pictureBoxRegistrantSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxRegistrantSearch.TabIndex = 8;
             this.pictureBoxRegistrantSearch.TabStop = false;
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(21, 111);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(687, 274);
+            this.listView1.TabIndex = 9;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.받은쪽지ToolStripMenuItem,
+            this.보낸쪽지ToolStripMenuItem,
+            this.전체쪽지ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(745, 28);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 받은쪽지ToolStripMenuItem
+            // 
+            this.받은쪽지ToolStripMenuItem.Name = "받은쪽지ToolStripMenuItem";
+            this.받은쪽지ToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.받은쪽지ToolStripMenuItem.Text = "받은 쪽지";
+            // 
+            // 보낸쪽지ToolStripMenuItem
+            // 
+            this.보낸쪽지ToolStripMenuItem.Name = "보낸쪽지ToolStripMenuItem";
+            this.보낸쪽지ToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.보낸쪽지ToolStripMenuItem.Text = "보낸 쪽지";
+            // 
+            // 전체쪽지ToolStripMenuItem
+            // 
+            this.전체쪽지ToolStripMenuItem.Name = "전체쪽지ToolStripMenuItem";
+            this.전체쪽지ToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.전체쪽지ToolStripMenuItem.Text = "전체 쪽지";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(21, 78);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(82, 27);
+            this.btnDelete.TabIndex = 11;
+            this.btnDelete.Text = "삭제";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnRead
+            // 
+            this.btnRead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btnRead.ForeColor = System.Drawing.Color.White;
+            this.btnRead.Location = new System.Drawing.Point(109, 78);
+            this.btnRead.Name = "btnRead";
+            this.btnRead.Size = new System.Drawing.Size(82, 27);
+            this.btnRead.TabIndex = 12;
+            this.btnRead.Text = "읽음";
+            this.btnRead.UseVisualStyleBackColor = false;
+            // 
             // MessageBoxForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 365);
+            this.ClientSize = new System.Drawing.Size(745, 412);
+            this.Controls.Add(this.btnRead);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.pictureBoxRegistrantSearch);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MessageBoxForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistrantSearch)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.PictureBox pictureBoxRegistrantSearch;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 받은쪽지ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 보낸쪽지ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 전체쪽지ToolStripMenuItem;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnRead;
     }
 }
