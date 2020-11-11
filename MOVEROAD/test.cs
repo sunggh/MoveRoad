@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MOVEROAD
 {
-    public partial class TaskForm : Form
+    public partial class test : Form
     {
-        public TaskForm()
+        public test()
         {
             InitializeComponent();
         }
