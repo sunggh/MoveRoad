@@ -123,6 +123,12 @@
     <Compile Include="MessageForm.Designer.cs">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageReceiveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageReceiveForm.Designer.cs">
+      <DependentUpon>MessageReceiveForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Provider\AddressFinder.cs" />
     <Compile Include="AddressFrom.cs">
       <SubType>Form</SubType>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageReceiveForm.resx">
+      <DependentUpon>MessageReceiveForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
