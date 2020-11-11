@@ -37,7 +37,7 @@
             // 
             this.buttonAddUsers.Location = new System.Drawing.Point(12, 12);
             this.buttonAddUsers.Name = "buttonAddUsers";
-            this.buttonAddUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonAddUsers.Size = new System.Drawing.Size(235, 51);
             this.buttonAddUsers.TabIndex = 1;
             this.buttonAddUsers.Text = "사원 등록";
             this.buttonAddUsers.UseVisualStyleBackColor = true;
@@ -45,9 +45,9 @@
             // 
             // buttonSearchUsers
             // 
-            this.buttonSearchUsers.Location = new System.Drawing.Point(273, 12);
+            this.buttonSearchUsers.Location = new System.Drawing.Point(253, 12);
             this.buttonSearchUsers.Name = "buttonSearchUsers";
-            this.buttonSearchUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonSearchUsers.Size = new System.Drawing.Size(235, 51);
             this.buttonSearchUsers.TabIndex = 3;
             this.buttonSearchUsers.Text = "사원 검색";
             this.buttonSearchUsers.UseVisualStyleBackColor = true;
@@ -55,9 +55,9 @@
             // 
             // buttonEditUsers
             // 
-            this.buttonEditUsers.Location = new System.Drawing.Point(534, 12);
+            this.buttonEditUsers.Location = new System.Drawing.Point(498, 12);
             this.buttonEditUsers.Name = "buttonEditUsers";
-            this.buttonEditUsers.Size = new System.Drawing.Size(255, 51);
+            this.buttonEditUsers.Size = new System.Drawing.Size(235, 51);
             this.buttonEditUsers.TabIndex = 4;
             this.buttonEditUsers.Text = "사원 정보 수정";
             this.buttonEditUsers.UseVisualStyleBackColor = true;
@@ -67,10 +67,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(745, 412);
             this.Controls.Add(this.buttonEditUsers);
             this.Controls.Add(this.buttonSearchUsers);
             this.Controls.Add(this.buttonAddUsers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HRManagement";
             this.Text = "HRManagement";
             this.ResumeLayout(false);

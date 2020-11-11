@@ -13,7 +13,6 @@ namespace MOVEROAD
     public partial class AddUsers : Form
     {
         private static AddUsers instance = new AddUsers();
-
         public static AddUsers getInstance()
         {
             return instance;
@@ -41,8 +40,7 @@ namespace MOVEROAD
             // INSERT INTO `TABLE`(`column`, `column`, ...) VALUES ('string', 숫자, ...);
             string query = "INSERT INTO `user`(`depart`, `grade`, `age`, `id`, `password`, `name`, `gender`, `phone`, `address`)" +
                 " VALUES (" + depart + ", " + grade + ", " + age + ", '" + id + "', '" + password + "', '" + name + "', " + gender + ", '" + phone + "', '" + address + "')";
-            DBConnetion.getInstance().Update(query);
-            
+            DBConnetion.getInstance().Insert(query);
         }
 
         private void buttonRegister_Click(object sender, EventArgs e)
@@ -53,7 +51,10 @@ namespace MOVEROAD
             this.id = textBoxId.Text;
             this.password = textBoxPassword.Text;
             this.name = textBoxName.Text;
-            this.gender = Convert.ToInt32(comboBoxGender.Text);
+            if (comboBoxGender.Text.Equals("남자"))
+                this.gender = 0;
+            else if (comboBoxGender.Text.Equals("여자"))
+                this.gender = 1;
             this.phone = textBoxPhone.Text;
             this.address = textBoxAddress.Text;
 
