@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace MOVEROAD
 {
-    public partial class TaskMainForm : Form
+    public partial class TaskForm : Form
     {
         MainForm main;
-        public TaskMainForm(MainForm main)
+        public TaskForm(MainForm main)
         {
             InitializeComponent();
             this.main = main;
@@ -26,6 +26,15 @@ namespace MOVEROAD
             TR.Show();
             main.MainPanel.Controls.Clear();
             main.MainPanel.Controls.Add(TR);
+        }
+
+        private void buttonManagement_Click(object sender, EventArgs e)
+        {
+            Form TM = new TaskManagementForm();
+            TM.TopLevel = false;
+            TM.Show();
+            main.MainPanel.Controls.Clear();
+            main.MainPanel.Controls.Add(TM);
         }
     }
 }
