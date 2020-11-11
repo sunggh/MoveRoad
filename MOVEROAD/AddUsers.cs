@@ -47,16 +47,12 @@ namespace MOVEROAD
         
         private void DataShow()
         {
-            string query = "SELECT depart, grade, name, age, gender, phone, address FROM `user`";
+            string query = "SELECT `index` AS `Index`, depart AS 부서명, grade AS 직위, name AS 이름, age AS 나이, gender AS 성별, phone AS `H.P`, address AS 주소 FROM `user`";
             DataTable table = DBConnetion.getInstance().getDBTable(query);
+
+  
             dataGridView1.DataSource = table;
-            dataGridView1.Columns[0].HeaderText = "부서명";
-            dataGridView1.Columns[1].HeaderText = "직위";
-            dataGridView1.Columns[2].HeaderText = "이름";
-            dataGridView1.Columns[3].HeaderText = "나이";
-            dataGridView1.Columns[4].HeaderText = "성별";
-            dataGridView1.Columns[5].HeaderText = "H.P";
-            dataGridView1.Columns[6].HeaderText = "주소";
+
         }
 
         private void buttonRegister_Click(object sender, EventArgs e)
@@ -91,10 +87,18 @@ namespace MOVEROAD
 
         private void textBoxPhone_MouseClick(object sender, MouseEventArgs e)
         {
-            textBoxPhone.Text = "";
+            if(textBoxPhone.Text == "하이픈(-)까지 입력")
+            {
+                textBoxPhone.Text = "";
+            } 
         }
 
         private void buttonAddUsers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSearchUsers_Click(object sender, EventArgs e)
         {
 
         }

@@ -72,10 +72,11 @@ namespace MOVEROAD
             using(MySqlConnection conn = getDBConnetion())
             {
                 conn.Open();
-                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, conn);
-                MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
                 DataTable table = new DataTable();
-                adapter.Fill(table);
+                
+                table.Load(rdr);
                 return table;
             }
         }
