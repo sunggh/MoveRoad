@@ -18,7 +18,6 @@ namespace MOVEROAD
 
         public int part { get; set; }
 
-        string connection = "Server=211.229.51.172;Database=project;Uid=move;Pwd=road;Charset=euckr";
         public SignForm()
         {
             InitializeComponent();
@@ -27,20 +26,20 @@ namespace MOVEROAD
 
         public void InitValue() //초기화
         {
-            MySqlConnection conn = new MySqlConnection(connection);
-            conn.Open(); //DB연결
+            //MySqlConnection conn = new MySqlConnection(connection);
+            //conn.Open(); //DB연결
 
-            string query = "SELECT name FROM department";
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            MySqlDataReader rdr = cmd.ExecuteReader(); //DB로부터 값 받아오기
+            //string query = "SELECT name FROM department";
+            //MySqlCommand cmd = new MySqlCommand(query, conn);
+            //MySqlDataReader rdr = cmd.ExecuteReader(); //DB로부터 값 받아오기
 
-            while(rdr.Read()) //업무콤보박스 업무추가
-            {
-                string sub_class = rdr.GetString("name");
-                comboBoxWork.Items.Add(sub_class);
-            }
+            //while(rdr.Read()) //업무콤보박스 업무추가
+            //{
+            //    string sub_class = rdr.GetString("name");
+            //    comboBoxWork.Items.Add(sub_class);
+            //}
 
-            rdr.Close();
+            //rdr.Close();
 
             //결재자콤보박스 직급추가
             comboBoxDrafter.Items.Add("사원");
@@ -55,19 +54,19 @@ namespace MOVEROAD
             string content = textBoxContent.Text;
             string comment = textBoxComment.Text;
 
-            MySqlConnection conn = new MySqlConnection(connection);
-            conn.Open(); //DB연결
+            //MySqlConnection conn = new MySqlConnection(connection);
+            //conn.Open(); //DB연결
 
-            string query = "SELECT index AS part FROM sub_class WHERE name = '" + sub_class + "'";
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            MySqlDataReader rdr = cmd.ExecuteReader(); //DB로부터 값 받아오기
+            //string query = "SELECT index AS part FROM sub_class WHERE name = '" + sub_class + "'";
+            //MySqlCommand cmd = new MySqlCommand(query, conn);
+            //MySqlDataReader rdr = cmd.ExecuteReader(); //DB로부터 값 받아오기
 
-            while (rdr.Read())
-            {
-                part = Int32.Parse(rdr["part"].ToString());
-            }
+            //while (rdr.Read())
+            //{
+            //    part = Int32.Parse(rdr["part"].ToString());
+            //}
 
-            rdr.Close();
+            //rdr.Close();
 
             worker = Convert.ToInt32(comboBoxDrafter.Text);
 

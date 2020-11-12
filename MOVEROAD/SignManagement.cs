@@ -9,7 +9,6 @@ namespace MOVEROAD
 {
     class SignManagement
     {
-        string con = "Server=211.229.51.172;Database=project;Uid=move;Pwd=road;Charset=euckr";
         public SignManagement()
         {
             //생성자
@@ -32,17 +31,17 @@ namespace MOVEROAD
 
         public void addSign()
         {
-            string query = "SELECT id FROM department";
+            //string query = "SELECT id FROM department";
 
-            MySqlConnection conn = new MySqlConnection(con);
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
+            //MySqlConnection conn = new MySqlConnection(con);
+            //conn.Open();
+            //MySqlCommand cmd = new MySqlCommand(query, conn);
+            //MySqlDataReader rdr = cmd.ExecuteReader();
 
-            while (rdr.Read())
-            {
-                sub_class = Convert.ToInt32(rdr["id"]);
-            }
+            //while (rdr.Read())
+            //{
+            //    sub_class = Convert.ToInt32(rdr["id"]);
+            //}
 
             //string query = "INSERT INTO sign(sub_class, comment, drafter, progress) VALUES(
         }
