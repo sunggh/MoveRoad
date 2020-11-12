@@ -104,5 +104,16 @@ namespace MOVEROAD
             this.MainPanel.Controls.Add(dashBoard);
             lastPanel = dashBoard;
         }
+
+        private void button4_Click(object sender, EventArgs e) //결재 버튼 클릭 시
+        {
+            lastPanel.Dispose();
+            SignForm SF = new SignForm();
+            SF.TopLevel = false;
+            SF.Show();
+            lastPanel = SF;
+            this.MainPanel.Controls.Clear();
+            this.MainPanel.Controls.Add(SF);
+        }
     }
 }
