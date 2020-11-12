@@ -14,9 +14,9 @@ namespace MOVEROAD
     public class DBConnetion
     {
         private string dbip = "211.229.51.172";
-        private string dbid = "move";
+        private string dbid = "project";
         private string dbpass = "road";
-        private string dbname = "project";
+        private string dbname = "move";
         private static DBConnetion instance_ = new DBConnetion();
 
         public static DBConnetion getInstance()
@@ -73,7 +73,9 @@ namespace MOVEROAD
                     break;
                 case 3:
                     //SELECT `name` FROM `user` where `depart` = 'user.depart' AND `grade` = '1';
+
                     string str = "";
+                    rdr.Read();
                     str = (string)rdr["name"];
                     thing = str;
                     break;

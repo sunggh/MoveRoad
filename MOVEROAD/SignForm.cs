@@ -24,8 +24,8 @@ namespace MOVEROAD
             InitializeComponent();
             this.main = main;
             string sql = "SELECT `name` FROM `user` where `depart` = '"+main.me.depart+"' AND `grade` = '1'";
-           // comboBoxDrafter.Items.Add((string)DBConnetion.getInstance().Select("sql",3));
-           InitValue();
+            comboBoxDrafter.Items.Add((string)DBConnetion.getInstance().Select(sql,3));
+           //InitValue();
         }
 
         public void InitValue() //초기화
@@ -77,15 +77,15 @@ namespace MOVEROAD
 
             MessageBox.Show("결재가 등록되었습니다.", "확인");
         }
-
+/*
         private void buttonInsert_Click(object sender, EventArgs e)
         {
             string title = textBoxTitle.Text;
-            string sub_class = comboBoxSubClass.Text;
+            //string sub_class = comboBoxSubClass.Text;
             string drafter = comboBoxDrafter.Text;
             string content = textBoxContent.Text;
             string comment = textBoxComment.Text;
 
-        }
+        }*/
     }
 }
