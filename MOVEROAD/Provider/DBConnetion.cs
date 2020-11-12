@@ -67,6 +67,41 @@ namespace MOVEROAD
             return thing;
         }
 
+        public List<string> revise_userlist(string sql)
+        {
+            List<string> list = new List<string>();
+            MySqlConnection conn = getDBConnetion();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                list.Add(string.Format("{0}", rdr["name"]));
+                list.Add(string.Format("{0}", rdr["manager"]));
+                list.Add(string.Format("{0}", rdr["description"]));
+            }
+            rdr.Close();
+            conn.Close();
+            return list;
+        }
+
+        public List<string> search_userlist(string sql)
+        {
+            List<string> list = new List<string>();
+            MySqlConnection conn = getDBConnetion();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                list.Add(string.Format("{0}",rdr["name"]));
+                list.Add(string.Format("{0}", rdr["index"]));
+            }
+            rdr.Close();
+            conn.Close();
+            return list;
+        }
+
         public DataTable getDBTable(string sql) // 사원정보 데이터 그리드뷰에 넣는거
         {
             using(MySqlConnection conn = getDBConnetion())
