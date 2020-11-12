@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MOVEROAD.InfoFile;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,18 +15,26 @@ namespace MOVEROAD
     public partial class MainForm : Form
     {
         private Point mousePoint;
-        private UserInfo me;
+        public UserInfo me { get; set; }
         private Form lastPanel;
+        private List<DepartmentInfo> departments = new List<DepartmentInfo>();
+
         public MainForm(UserInfo me)
         {
             this.me = me;
             InitializeComponent();
-            DashBoard dashBoard = new DashBoard(me);
+            DashBoard dashBoard = new DashBoard(me, this);
             dashBoard.TopLevel = false;
             dashBoard.Show();
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(dashBoard);
             lastPanel = dashBoard;
+            importDepartmentInfo();
+        }
+        private void importDepartmentInfo()
+        {
+            string sql = "SELECT * FROM department";
+            departments = (List<DepartmentInfo>)DBConnetion.getInstance().Select(sql,2);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -73,9 +82,15 @@ namespace MOVEROAD
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonTask_Click(object sender, EventArgs e)
         {
-   
+            lastPanel.Dispose();
+            TaskForm task = new TaskForm(this);
+            task.TopLevel = false;
+            task.Show();
+            lastPanel = task;
+            this.MainPanel.Controls.Clear();
+            this.MainPanel.Controls.Add(task);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -97,7 +112,7 @@ namespace MOVEROAD
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             lastPanel.Dispose();
-            DashBoard dashBoard = new DashBoard(me);
+            DashBoard dashBoard = new DashBoard(me ,this);
             dashBoard.TopLevel = false;
             dashBoard.Show();
             this.MainPanel.Controls.Clear();
@@ -108,7 +123,7 @@ namespace MOVEROAD
         private void button4_Click(object sender, EventArgs e) //결재 버튼 클릭 시
         {
             lastPanel.Dispose();
-            SignForm SF = new SignForm();
+            SignForm SF = new SignForm(this);
             SF.TopLevel = false;
             SF.Show();
             lastPanel = SF;

@@ -45,7 +45,7 @@ namespace MOVEROAD
                 item = new ListViewItem(Convert.ToString(address.zonenumber));
                 item.SubItems.Add(address.roadname+" ("+address.placename+")");
                 listView1.Items.Add(item);
-            }//road_address_name
+            }
             listView1.EndUpdate();
         }
 
@@ -86,6 +86,11 @@ namespace MOVEROAD
             address[1] = listView1.FocusedItem.SubItems[1].Text;
             this.Dispose();
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
