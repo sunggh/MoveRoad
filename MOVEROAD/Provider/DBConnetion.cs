@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -12,8 +13,8 @@ namespace MOVEROAD
     public class DBConnetion
     {
         private string dbip = "211.229.51.172";
-        private string dbid = "project";
-        private string dbpass = "root";
+        private string dbid = "move";
+        private string dbpass = "road";
         private string dbname = "project";
         private static DBConnetion instance_ = new DBConnetion();
 
