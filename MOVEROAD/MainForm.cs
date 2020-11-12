@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MOVEROAD.InfoFile;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,8 +15,10 @@ namespace MOVEROAD
     public partial class MainForm : Form
     {
         private Point mousePoint;
-        private UserInfo me;
+        public UserInfo me;
         private Form lastPanel;
+        private List<DepartmentInfo> departments = new List<DepartmentInfo>();
+
         public MainForm(UserInfo me)
         {
             this.me = me;
@@ -26,6 +29,12 @@ namespace MOVEROAD
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(dashBoard);
             lastPanel = dashBoard;
+            importDepartmentInfo();
+        }
+        private void importDepartmentInfo()
+        {
+            string sql = "SELECT * FROM department";
+            departments = (List<DepartmentInfo>)DBConnetion.getInstance().Select(sql,2);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -108,7 +117,7 @@ namespace MOVEROAD
         private void button4_Click(object sender, EventArgs e) //결재 버튼 클릭 시
         {
             lastPanel.Dispose();
-            SignForm SF = new SignForm();
+            SignForm SF = new SignForm(this);
             SF.TopLevel = false;
             SF.Show();
             lastPanel = SF;
