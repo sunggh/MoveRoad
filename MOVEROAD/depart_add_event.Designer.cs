@@ -32,15 +32,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_depart_name = new System.Windows.Forms.TextBox();
-            this.tb_depart_boss = new System.Windows.Forms.TextBox();
+            this.tb_depart_head = new System.Windows.Forms.TextBox();
             this.tb_depart_memo = new System.Windows.Forms.TextBox();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_search_head = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(26, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 12);
@@ -50,6 +52,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(26, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 12);
@@ -59,6 +62,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(26, 85);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 12);
@@ -67,17 +71,18 @@
             // 
             // tb_depart_name
             // 
-            this.tb_depart_name.Location = new System.Drawing.Point(107, 18);
+            this.tb_depart_name.Location = new System.Drawing.Point(98, 16);
             this.tb_depart_name.Name = "tb_depart_name";
-            this.tb_depart_name.Size = new System.Drawing.Size(170, 21);
+            this.tb_depart_name.Size = new System.Drawing.Size(122, 21);
             this.tb_depart_name.TabIndex = 8;
             // 
-            // tb_depart_boss
+            // tb_depart_head
             // 
-            this.tb_depart_boss.Location = new System.Drawing.Point(107, 51);
-            this.tb_depart_boss.Name = "tb_depart_boss";
-            this.tb_depart_boss.Size = new System.Drawing.Size(170, 21);
-            this.tb_depart_boss.TabIndex = 9;
+            this.tb_depart_head.Location = new System.Drawing.Point(98, 48);
+            this.tb_depart_head.Name = "tb_depart_head";
+            this.tb_depart_head.ReadOnly = true;
+            this.tb_depart_head.Size = new System.Drawing.Size(122, 21);
+            this.tb_depart_head.TabIndex = 9;
             // 
             // tb_depart_memo
             // 
@@ -107,15 +112,27 @@
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
+            // btn_search_head
+            // 
+            this.btn_search_head.Location = new System.Drawing.Point(227, 48);
+            this.btn_search_head.Name = "btn_search_head";
+            this.btn_search_head.Size = new System.Drawing.Size(50, 21);
+            this.btn_search_head.TabIndex = 13;
+            this.btn_search_head.Text = "검색";
+            this.btn_search_head.UseVisualStyleBackColor = true;
+            this.btn_search_head.Click += new System.EventHandler(this.button1_Click);
+            // 
             // depart_add_event
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.ClientSize = new System.Drawing.Size(298, 282);
+            this.Controls.Add(this.btn_search_head);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.tb_depart_memo);
-            this.Controls.Add(this.tb_depart_boss);
+            this.Controls.Add(this.tb_depart_head);
             this.Controls.Add(this.tb_depart_name);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -134,9 +151,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tb_depart_name;
-        private System.Windows.Forms.TextBox tb_depart_boss;
         private System.Windows.Forms.TextBox tb_depart_memo;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.Button btn_search_head;
+        public System.Windows.Forms.TextBox tb_depart_head;
     }
 }
