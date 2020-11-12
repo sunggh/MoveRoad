@@ -69,6 +69,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.ForeColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(11, 29);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(265, 353);
@@ -298,6 +299,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DashBoard";
+            this.Opacity = 0.7D;
             this.Text = "DashBoard";
             this.Load += new System.EventHandler(this.DashBoard_Load);
             this.panel1.ResumeLayout(false);

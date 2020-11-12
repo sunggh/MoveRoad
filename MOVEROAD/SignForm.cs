@@ -17,11 +17,15 @@ namespace MOVEROAD
         public int worker { get; set; } //직급 (0:사원, 1:부장, 2:사장)
 
         public int part { get; set; }
-
-        public SignForm()
+        MainForm main;
+        string connection = "Server=211.229.51.172;Database=project;Uid=move;Pwd=road;Charset=euckr";
+        public SignForm(MainForm main)
         {
             InitializeComponent();
-            InitValue();
+            this.main = main;
+            string sql = "SELECT `name` FROM `user` where `depart` = '"+main.me.depart+"' AND `grade` = '1'";
+           // comboBoxDrafter.Items.Add((string)DBConnetion.getInstance().Select("sql",3));
+           InitValue();
         }
 
         public void InitValue() //초기화
@@ -43,8 +47,7 @@ namespace MOVEROAD
 
             //결재자콤보박스 직급추가
             comboBoxDrafter.Items.Add("사원");
-            comboBoxDrafter.Items.Add("부장");
-            comboBoxDrafter.Items.Add("사장");
+
         }
         private void buttonInsert_Click(object sender, EventArgs e)
         {
@@ -73,6 +76,16 @@ namespace MOVEROAD
             DBConnetion.getInstance().Insert("INSERT INTO sign (sub_class, comment, drafter, progress) VALUES ('" + part + "', '" + comment + "', '" + worker + "', '" + "결재 전" + "')");
 
             MessageBox.Show("결재가 등록되었습니다.", "확인");
+        }
+
+        private void buttonInsert_Click(object sender, EventArgs e)
+        {
+            string title = textBoxTitle.Text;
+            string sub_class = comboBoxSubClass.Text;
+            string drafter = comboBoxDrafter.Text;
+            string content = textBoxContent.Text;
+            string comment = textBoxComment.Text;
+
         }
     }
 }
