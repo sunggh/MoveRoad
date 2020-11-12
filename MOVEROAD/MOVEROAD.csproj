@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InfoFile\Address.cs" />
+    <Compile Include="InfoFile\DepartmentInfo.cs" />
     <Compile Include="Provider\AddressFinder.cs" />
     <Compile Include="AddressFrom.cs">
       <SubType>Form</SubType>
