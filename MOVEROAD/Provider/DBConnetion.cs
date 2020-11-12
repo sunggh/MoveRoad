@@ -27,7 +27,7 @@ namespace MOVEROAD
         {
             try
             {
-                string con = "Server=" + dbip + ";Database=" + dbid + ";Uid=" + dbname + ";Pwd=" + dbpass + ";Charset=euckr";
+                string con = "Server=" + dbip + ";Database=" + dbname + ";Uid=" + dbid + ";Pwd=" + dbpass + ";Charset=euckr";
                 MySqlConnection conn = new MySqlConnection(con);
                 conn.Open();
                 conn.Close();
