@@ -49,11 +49,9 @@ namespace MOVEROAD
             string head_to_index = "SELECT * FROM user where `name`= '" + revise_head + "'";
             user2 = (UserInfo)DBConnetion.getInstance().Select(head_to_index, 0);
 
-            string update_query = "update `department` set `name` = '"+ revise_name + "',`manager` = "+ user2.index + "," +
-                "`description` = '"+ revise_description + "' where `name` = '" + og_name + "' and `manager` = " + user.index + "and " +
-                "`description` = '" + og_description + "'" ;
+            string update_query = "update project.`department` set `name` = '"+ revise_name + "',`manager` = '"+ user2.index + "', `description` = '"+ revise_description + "' where `name` = '" + og_name + "' and `manager` = '" + user.index + "' and `description` = '" + og_description + "'" ;
             DBConnetion.getInstance().Update(update_query);
-            Application.OpenForms["rivise_depart"].Close();
+            Application.OpenForms["depart_revise_event"].Close();
         }
 
         private void btn_search_Click(object sender, EventArgs e)
