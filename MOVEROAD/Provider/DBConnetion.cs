@@ -14,9 +14,9 @@ namespace MOVEROAD
     public class DBConnetion
     {
         private string dbip = "211.229.51.172";
-        private string dbname = "project";
-        private string dbpass = "road";
         private string dbid = "move";
+        private string dbpass = "road";
+        private string dbname = "project";
         private static DBConnetion instance_ = new DBConnetion();
 
         public static DBConnetion getInstance()
@@ -28,7 +28,7 @@ namespace MOVEROAD
         {
             try
             {
-                string con = "Server=" + dbip + ";Database=" + dbname + ";Uid=" + dbid + ";Pwd=" + dbpass + ";Charset=utf8";
+                string con = "Server=" + dbip + ";Database=" + dbname + ";Uid=" + dbid + ";Pwd=" + dbpass + ";Charset=euckr";
                 MySqlConnection conn = new MySqlConnection(con);
                 conn.Open();
                 conn.Close();
