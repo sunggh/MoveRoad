@@ -134,12 +134,6 @@
     <Compile Include="depart_add_event.Designer.cs">
       <DependentUpon>depart_add_event.cs</DependentUpon>
     </Compile>
-    <Compile Include="depart_delete_event.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="depart_delete_event.Designer.cs">
-      <DependentUpon>depart_delete_event.cs</DependentUpon>
-    </Compile>
     <Compile Include="depart_revise_event.cs">
       <SubType>Form</SubType>
     </Compile>
