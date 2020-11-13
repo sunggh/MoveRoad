@@ -28,7 +28,7 @@ namespace MOVEROAD
             //대분류
             //중분류
             //소분류     
-            
+            /*
             treeViewTaskMaster.Nodes.Add("음식");
 
             treeViewTaskMaster.Nodes[0].Nodes.Add("바나나");
@@ -50,6 +50,12 @@ namespace MOVEROAD
             treeViewTaskMaster.Nodes[1].Nodes[0].Nodes.Add("삶은바나나");
             // 모든 트리 노드를 보여준다
             treeViewTaskMaster.ExpandAll();
+            */
+            string query = "SELCT * FROM department";
+            //DBConnetion.getInstance().Select(query, 5);
+
+            
+
         }
 
         private void treeViewTaskMaster_AfterSelect(object sender, TreeViewEventArgs e)
