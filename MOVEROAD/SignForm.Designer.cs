@@ -104,7 +104,6 @@
             this.buttonInsert.TabIndex = 10;
             this.buttonInsert.Text = "등록하기";
             this.buttonInsert.UseVisualStyleBackColor = true;
-            this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
             // 
             // comboBoxDrafter
             // 
@@ -123,6 +122,7 @@
             this.comboBoxWork.Name = "comboBoxWork";
             this.comboBoxWork.Size = new System.Drawing.Size(121, 23);
             this.comboBoxWork.TabIndex = 8;
+            this.comboBoxWork.SelectedIndexChanged += new System.EventHandler(this.comboBoxWork_SelectedIndexChanged);
             // 
             // textBoxComment
             // 
