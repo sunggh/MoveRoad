@@ -122,7 +122,6 @@
             this.comboBoxWork.Name = "comboBoxWork";
             this.comboBoxWork.Size = new System.Drawing.Size(121, 23);
             this.comboBoxWork.TabIndex = 8;
-            this.comboBoxWork.SelectedIndexChanged += new System.EventHandler(this.comboBoxWork_SelectedIndexChanged);
             // 
             // textBoxComment
             // 
