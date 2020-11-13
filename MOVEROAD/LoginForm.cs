@@ -63,5 +63,13 @@ namespace MOVEROAD
         {
 
         }
+        //pw에서 enter눌렀을 때 로그인
+        private void LoginPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                login_button_Click(sender, e);
+            }
+        }
     }
 }
