@@ -33,6 +33,8 @@ namespace MOVEROAD
         {
             InitializeComponent();
             DataShow();
+            comboBoxDepart.SelectedIndex = 0;
+            comboBoxGrade.SelectedIndex = 0;
         }
 
         private void AddNewcomer()
@@ -43,6 +45,16 @@ namespace MOVEROAD
             string query = "INSERT INTO `user`(`depart`, `grade`, `age`, `id`, `password`, `name`, `gender`, `phone`, `address`)" +
                 " VALUES (" + depart + ", " + grade + ", " + age + ", '" + id + "', '" + password + "', '" + name + "', " + gender + ", '" + phone + "', '" + address + "')";
             DBConnetion.getInstance().Insert(query);
+
+            comboBoxDepart.SelectedIndex = 0;
+            comboBoxGrade.SelectedIndex = 0;
+            textBoxAge.Text = "";
+            textBoxId.Text = "";
+            textBoxPassword.Text = "";
+            textBoxName.Text = "";
+            comboBoxGender.Text = "";
+            textBoxPhone.Text = "";
+            textBoxAddress.Text = "";
         }
         
         private void DataShow()
