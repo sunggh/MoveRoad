@@ -28,7 +28,7 @@ namespace MOVEROAD
         {
             try
             {
-                string con = "Server=" + dbip + ";Database=" + dbname + ";Uid=" + dbid + ";Pwd=" + dbpass + ";Charset=euckr";
+                string con = "Server=" + dbip + ";Database=" + dbname + ";Uid=" + dbid + ";Pwd=" + dbpass + ";Charset=utf8";
                 MySqlConnection conn = new MySqlConnection(con);
                 conn.Open();
                 conn.Close();
@@ -51,13 +51,13 @@ namespace MOVEROAD
             switch (token)
             {
                 case 0:
-                    if(rdr.Read())
+                    if (rdr.Read())
                     {
-                        UserInfo me = new UserInfo((int)rdr["index"], (string)rdr["name"],(int)rdr["age"], (int)rdr["depart"], (int)rdr["grade"], (string)rdr["address"], (int)rdr["gender"], (string)rdr["id"]);
+                        UserInfo me = new UserInfo((int)rdr["index"], (string)rdr["name"], (int)rdr["age"], (int)rdr["depart"], (int)rdr["grade"], (string)rdr["address"], (int)rdr["gender"], (string)rdr["id"]);
                         thing = me;
                         break;
                     }
-                    thing = null;  
+                    thing = null;
                     break;
                 case 1:
                     rdr.Read();
@@ -66,7 +66,7 @@ namespace MOVEROAD
                     List<DepartmentInfo> departments = new List<DepartmentInfo>();
                     while (rdr.Read())
                     {
-                        DepartmentInfo department = new DepartmentInfo((int)rdr["id"],(string)rdr["name"],(int)rdr["manager"]);
+                        DepartmentInfo department = new DepartmentInfo((int)rdr["id"], (string)rdr["name"], (int)rdr["manager"]);
                         departments.Add(department);
                     }
                     thing = departments;
@@ -109,7 +109,7 @@ namespace MOVEROAD
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                list.Add(string.Format("{0}",rdr["name"]));
+                list.Add(string.Format("{0}", rdr["name"]));
                 list.Add(string.Format("{0}", rdr["index"]));
             }
             rdr.Close();
@@ -119,13 +119,13 @@ namespace MOVEROAD
 
         public DataTable getDBTable(string sql) // 사원정보 데이터 그리드뷰에 넣는거
         {
-            using(MySqlConnection conn = getDBConnetion())
+            using (MySqlConnection conn = getDBConnetion())
             {
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 DataTable table = new DataTable();
-                
+
                 table.Load(rdr);
                 return table;
             }
