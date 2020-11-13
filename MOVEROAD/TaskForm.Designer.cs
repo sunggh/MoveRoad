@@ -59,10 +59,9 @@ namespace MOVEROAD
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPageMaster = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.checkedListBoxMaster = new System.Windows.Forms.CheckedListBox();
             this.tabControlTask.SuspendLayout();
             this.tabPageRegistraion.SuspendLayout();
             this.tabPageManagement.SuspendLayout();
@@ -385,9 +384,8 @@ namespace MOVEROAD
             // 
             // tabPageMaster
             // 
+            this.tabPageMaster.Controls.Add(this.checkedListBoxMaster);
             this.tabPageMaster.Controls.Add(this.button5);
-            this.tabPageMaster.Controls.Add(this.button3);
-            this.tabPageMaster.Controls.Add(this.checkedListBox1);
             this.tabPageMaster.Controls.Add(this.label9);
             this.tabPageMaster.Location = new System.Drawing.Point(4, 25);
             this.tabPageMaster.Name = "tabPageMaster";
@@ -396,6 +394,18 @@ namespace MOVEROAD
             this.tabPageMaster.TabIndex = 2;
             this.tabPageMaster.Text = "업무 마스터 관리";
             this.tabPageMaster.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.button5.Font = new System.Drawing.Font("굴림", 10F);
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(590, 46);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(86, 36);
+            this.button5.TabIndex = 31;
+            this.button5.Text = "추가";
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // label9
             // 
@@ -410,37 +420,16 @@ namespace MOVEROAD
             this.label9.TabIndex = 25;
             this.label9.Text = "업무 마스터 관리";
             // 
-            // checkedListBox1
+            // checkedListBoxMaster
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(87, 99);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(589, 264);
-            this.checkedListBox1.TabIndex = 26;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.button3.Font = new System.Drawing.Font("굴림", 10F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(590, 57);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(86, 36);
-            this.button3.TabIndex = 30;
-            this.button3.Text = "삭제";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.button5.Font = new System.Drawing.Font("굴림", 10F);
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(487, 57);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(86, 36);
-            this.button5.TabIndex = 31;
-            this.button5.Text = "추가";
-            this.button5.UseVisualStyleBackColor = false;
+            this.checkedListBoxMaster.FormattingEnabled = true;
+            this.checkedListBoxMaster.Items.AddRange(new object[] {
+            "대분류",
+            "소분류"});
+            this.checkedListBoxMaster.Location = new System.Drawing.Point(64, 97);
+            this.checkedListBoxMaster.Name = "checkedListBoxMaster";
+            this.checkedListBoxMaster.Size = new System.Drawing.Size(612, 264);
+            this.checkedListBoxMaster.TabIndex = 32;
             // 
             // TaskForm
             // 
@@ -501,8 +490,7 @@ namespace MOVEROAD
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPageMaster;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckedListBox checkedListBoxMaster;
     }
 }
