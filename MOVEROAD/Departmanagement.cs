@@ -35,5 +35,11 @@ namespace MOVEROAD
             depart_revise_event revise = new depart_revise_event();
             revise.ShowDialog();
         }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            depart_delete_event delete = new depart_delete_event();
+            delete.ShowDialog();
+        }
     }
 }
