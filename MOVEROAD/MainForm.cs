@@ -17,7 +17,7 @@ namespace MOVEROAD
         private Point mousePoint;
         public UserInfo me { get; set; }
         private Form lastPanel;
-        private List<DepartmentInfo> departments = new List<DepartmentInfo>();
+        public List<DepartmentInfo> departments = new List<DepartmentInfo>();
 
         public MainForm(UserInfo me)
         {
@@ -33,7 +33,7 @@ namespace MOVEROAD
         }
         private void importDepartmentInfo()
         {
-            string sql = "SELECT * FROM department";
+            string sql = "SELECT id, name, manager FROM department";
             departments = (List<DepartmentInfo>)DBConnetion.getInstance().Select(sql,2);
         }
 
