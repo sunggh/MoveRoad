@@ -113,15 +113,15 @@
     <Compile Include="Departmanagement.cs">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="Departmanagement.Designer.cs">
-		  <DependentUpon>Departmanagement.cs</DependentUpon>
-	  </Compile>
-	<Compile Include="MessageBoxForm.cs">
-		<SubType>Form</SubType>
-	</Compile>
-	<Compile Include="MessageBoxForm.Designer.cs">
-		<DependentUpon>MessageBoxForm.cs</DependentUpon>
-	</Compile>
+    <Compile Include="Departmanagement.Designer.cs">
+      <DependentUpon>Departmanagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBoxForm.Designer.cs">
+      <DependentUpon>MessageBoxForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +161,7 @@
     <Compile Include="PaymentForm.Designer.cs">
       <DependentUpon>PaymentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Provider\DBConnection.cs" />
     <Compile Include="rivise_depart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,18 +190,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-	  <Compile Include="MessageForm.cs">
-		  <SubType>Form</SubType>
-	  </Compile>
-	  <Compile Include="MessageForm.Designer.cs">
-		  <DependentUpon>MessageForm.cs</DependentUpon>
-	  </Compile>
-	  <Compile Include="MessageReceiveForm.cs">
-		  <SubType>Form</SubType>
-	  </Compile>
-	  <Compile Include="MessageReceiveForm.Designer.cs">
-		  <DependentUpon>MessageReceiveForm.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageReceiveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageReceiveForm.Designer.cs">
+      <DependentUpon>MessageReceiveForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Provider\AddressFinder.cs" />
     <Compile Include="AddressFrom.cs">
       <SubType>Form</SubType>
@@ -214,7 +215,6 @@
     <Compile Include="DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Provider\DBConnetion.cs" />
     <Compile Include="HRForm.cs">
       <SubType>Form</SubType>
     </Compile>
