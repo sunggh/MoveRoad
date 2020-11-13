@@ -77,10 +77,6 @@ namespace MOVEROAD
                 //}
                 TreeNode node = treeViewTaskMaster.GetNodeAt(e.X, e.Y);
                 treeViewTaskMaster.SelectedNode = node;
-                if (!string.IsNullOrEmpty(nodeKey))
-                {
-                    Console.WriteLine("선택된 노드 키 : " + nodeKey);
-                }
 
                 //오른쪽 메뉴를 만듭니다
                 ContextMenu menu = new ContextMenu();
