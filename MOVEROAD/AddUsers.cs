@@ -59,12 +59,11 @@ namespace MOVEROAD
         
         private void DataShow()
         {
-            string query = "SELECT `index` AS `Index`, depart AS 부서명, grade AS 직위, name AS 이름, age AS 나이, gender AS 성별, phone AS `H.P`, address AS 주소 FROM `user`";
+            string query = "SELECT `index` AS `No.`, depart AS 부서명, grade AS 직위, name AS 이름, age AS 나이, gender AS 성별, phone AS `H.P`, address AS 주소 FROM `user`";
             DataTable table = DBConnetion.getInstance().getDBTable(query);
 
   
             dataGridView1.DataSource = table;
-
         }
 
         private void buttonRegister_Click(object sender, EventArgs e)
@@ -105,12 +104,7 @@ namespace MOVEROAD
             } 
         }
 
-        private void buttonAddUsers_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonSearchUsers_Click(object sender, EventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
