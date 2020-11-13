@@ -237,9 +237,10 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
-        public System.Windows.Forms.Panel MainPanel;
+        private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.Panel MainPanel;
     }
 }
 

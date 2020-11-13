@@ -61,7 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSignList)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControlSign
+            // label1
             // 
             this.tabControlSign.Controls.Add(this.tabPage1);
             this.tabControlSign.Controls.Add(this.tabPage2);
@@ -213,12 +213,11 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(64, 274);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 15);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "메모";
+            this.textBox2.Location = new System.Drawing.Point(98, 281);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(121, 47);
+            this.textBox2.TabIndex = 8;
             // 
             // textBoxMemo
             // 

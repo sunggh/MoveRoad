@@ -59,10 +59,9 @@ namespace MOVEROAD
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPageMaster = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.treeViewTaskMaster = new System.Windows.Forms.TreeView();
             this.button5 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControlTask.SuspendLayout();
             this.tabPageRegistraion.SuspendLayout();
             this.tabPageManagement.SuspendLayout();
@@ -296,9 +295,9 @@ namespace MOVEROAD
             // 
             this.groupBox2.Controls.Add(this.textBoxRegistrant);
             this.groupBox2.Controls.Add(this.pictureBoxRegistrantSearch);
-            this.groupBox2.Location = new System.Drawing.Point(298, 41);
+            this.groupBox2.Location = new System.Drawing.Point(298, 46);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(235, 62);
+            this.groupBox2.Size = new System.Drawing.Size(235, 57);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             // 
@@ -326,9 +325,9 @@ namespace MOVEROAD
             this.groupBox1.Controls.Add(this.textBoxTaskKeword);
             this.groupBox1.Controls.Add(this.pictureBoxTaskKewordSearch);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(21, 41);
+            this.groupBox1.Location = new System.Drawing.Point(21, 46);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(271, 62);
+            this.groupBox1.Size = new System.Drawing.Size(271, 57);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             // 
@@ -385,9 +384,8 @@ namespace MOVEROAD
             // 
             // tabPageMaster
             // 
+            this.tabPageMaster.Controls.Add(this.treeViewTaskMaster);
             this.tabPageMaster.Controls.Add(this.button5);
-            this.tabPageMaster.Controls.Add(this.button3);
-            this.tabPageMaster.Controls.Add(this.checkedListBox1);
             this.tabPageMaster.Controls.Add(this.label9);
             this.tabPageMaster.Location = new System.Drawing.Point(4, 25);
             this.tabPageMaster.Name = "tabPageMaster";
@@ -396,6 +394,27 @@ namespace MOVEROAD
             this.tabPageMaster.TabIndex = 2;
             this.tabPageMaster.Text = "업무 마스터 관리";
             this.tabPageMaster.UseVisualStyleBackColor = true;
+            // 
+            // treeViewTaskMaster
+            // 
+            this.treeViewTaskMaster.Location = new System.Drawing.Point(62, 101);
+            this.treeViewTaskMaster.Name = "treeViewTaskMaster";
+            this.treeViewTaskMaster.Size = new System.Drawing.Size(614, 246);
+            this.treeViewTaskMaster.TabIndex = 33;
+            this.treeViewTaskMaster.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewTaskMaster_AfterSelect);
+            this.treeViewTaskMaster.MouseClick += new System.Windows.Forms.MouseEventHandler(this.treeViewTaskMaster_MouseClick);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.button5.Font = new System.Drawing.Font("굴림", 10F);
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(590, 46);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(86, 36);
+            this.button5.TabIndex = 31;
+            this.button5.Text = "추가";
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // label9
             // 
@@ -409,38 +428,6 @@ namespace MOVEROAD
             this.label9.Size = new System.Drawing.Size(157, 27);
             this.label9.TabIndex = 25;
             this.label9.Text = "업무 마스터 관리";
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(87, 99);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(589, 264);
-            this.checkedListBox1.TabIndex = 26;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.button3.Font = new System.Drawing.Font("굴림", 10F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(590, 57);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(86, 36);
-            this.button3.TabIndex = 30;
-            this.button3.Text = "삭제";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.button5.Font = new System.Drawing.Font("굴림", 10F);
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(487, 57);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(86, 36);
-            this.button5.TabIndex = 31;
-            this.button5.Text = "추가";
-            this.button5.UseVisualStyleBackColor = false;
             // 
             // TaskForm
             // 
@@ -501,8 +488,7 @@ namespace MOVEROAD
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPageMaster;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TreeView treeViewTaskMaster;
     }
 }
