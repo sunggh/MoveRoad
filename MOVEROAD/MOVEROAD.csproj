@@ -116,7 +116,6 @@
     <Compile Include="MessageBoxForm.Designer.cs">
       <DependentUpon>MessageBoxForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="daechung.cs">
     <Compile Include="Departmanagement.cs">
       <SubType>Form</SubType>
     </Compile>
