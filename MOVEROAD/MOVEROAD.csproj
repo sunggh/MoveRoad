@@ -146,6 +146,12 @@
     <Compile Include="HRManagement.Designer.cs">
       <DependentUpon>HRManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Paymentmanagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paymentmanagement.Designer.cs">
+      <DependentUpon>Paymentmanagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="SearchUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,12 +159,6 @@
       <DependentUpon>SearchUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="InfoFile\Address.cs" />
-    <Compile Include="Paymentmanagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Paymentmanagement.Designer.cs">
-      <DependentUpon>Paymentmanagement.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -177,17 +177,6 @@
       <DependentUpon>MessageReceiveForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InfoFile\DepartmentInfo.cs" />
-    <Compile Include="Paymentmanagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Paymentmanagement.Designer.cs">
-      <DependentUpon>Paymentmanagement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Provider\AddressFinder.cs" />
     <Compile Include="AddressFrom.cs">
       <SubType>Form</SubType>
@@ -293,9 +282,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MessageReceiveForm.resx">
       <DependentUpon>MessageReceiveForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Paymentmanagement.resx">
-      <DependentUpon>Paymentmanagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

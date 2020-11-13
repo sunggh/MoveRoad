@@ -12,15 +12,9 @@ namespace MOVEROAD
 {
     public partial class Paymentmanagement : Form
     {
-
         public Paymentmanagement()
         {
             InitializeComponent();
-        }
-
-        private void btn_totalpay_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

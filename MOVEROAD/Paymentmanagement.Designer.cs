@@ -28,82 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.DGV_payment = new System.Windows.Forms.DataGridView();
-            this.btn_totalpay = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_payment)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("함초롬바탕", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(200, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 27);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "지급 급여 확인";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(170, 40);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker1.TabIndex = 1;
-            // 
-            // DGV_payment
-            // 
-            this.DGV_payment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_payment.Location = new System.Drawing.Point(52, 67);
-            this.DGV_payment.Name = "DGV_payment";
-            this.DGV_payment.RowTemplate.Height = 23;
-            this.DGV_payment.Size = new System.Drawing.Size(441, 333);
-            this.DGV_payment.TabIndex = 2;
-            // 
-            // btn_totalpay
-            // 
-            this.btn_totalpay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.btn_totalpay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_totalpay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_totalpay.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn_totalpay.FlatAppearance.BorderSize = 2;
-            this.btn_totalpay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.btn_totalpay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_totalpay.Font = new System.Drawing.Font("함초롬바탕", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn_totalpay.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_totalpay.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_totalpay.Location = new System.Drawing.Point(521, 136);
-            this.btn_totalpay.Name = "btn_totalpay";
-            this.btn_totalpay.Size = new System.Drawing.Size(192, 158);
-            this.btn_totalpay.TabIndex = 4;
-            this.btn_totalpay.Text = "급여 내역서 수정 및 출력";
-            this.btn_totalpay.UseVisualStyleBackColor = false;
-            this.btn_totalpay.Click += new System.EventHandler(this.btn_totalpay_Click);
-            // 
-            // Paymentmanagement
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 412);
-            this.Controls.Add(this.btn_totalpay);
-            this.Controls.Add(this.DGV_payment);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Paymentmanagement";
-            this.Text = "PaymentForm";
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_payment)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "Paymentmanagement";
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataGridView DGV_payment;
-        private System.Windows.Forms.Button btn_totalpay;
     }
 }
