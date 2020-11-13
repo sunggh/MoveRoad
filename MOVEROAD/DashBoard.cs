@@ -23,7 +23,7 @@ namespace MOVEROAD
             this.nameLabel.Text = user.name;
             this.ageLabel.Text = user.age + " 살";
             this.departLabel.Text = depart[user.depart-1];
-            this.gradeLabel.Text = grade[user.grade-1];
+            this.gradeLabel.Text = grade[user.grade];
             this.user = user;
             this.main = main;
         }
