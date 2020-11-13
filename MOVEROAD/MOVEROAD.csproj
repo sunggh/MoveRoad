@@ -151,6 +151,9 @@
     <Compile Include="HRManagement.Designer.cs">
       <DependentUpon>HRManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="PaymentForm.Designer.cs">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="rivise_depart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +169,8 @@
     <Compile Include="InfoFile\Address.cs" />
     <Compile Include="InfoFile\DepartmentInfo.cs" />
     <Compile Include="PaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Paymentmanagement.cs">
       <SubType>Form</SubType>
     </Compile>

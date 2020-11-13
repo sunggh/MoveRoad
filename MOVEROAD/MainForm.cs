@@ -17,9 +17,9 @@ namespace MOVEROAD
     {
         private Point mousePoint;
         public UserInfo me { get; set; }
-        private Form lastPanel;
+        public Form lastPanel;
         public List<DepartmentInfo> departments = new List<DepartmentInfo>();
-
+        
         public MainForm(UserInfo me)
         {
             this.me = me;
