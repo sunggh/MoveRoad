@@ -47,33 +47,37 @@
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox1.Location = new System.Drawing.Point(21, 47);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 25);
+            this.textBox1.Size = new System.Drawing.Size(121, 22);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "보낸 사람";
             // 
             // textBox2
             // 
+            this.textBox2.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox2.Location = new System.Drawing.Point(148, 47);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 25);
+            this.textBox2.Size = new System.Drawing.Size(121, 22);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "받은 사람";
             // 
             // textBox3
             // 
+            this.textBox3.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox3.Location = new System.Drawing.Point(275, 47);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(177, 25);
+            this.textBox3.Size = new System.Drawing.Size(177, 22);
             this.textBox3.TabIndex = 3;
             this.textBox3.Text = "제목";
             // 
             // textBox4
             // 
+            this.textBox4.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox4.Location = new System.Drawing.Point(458, 47);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(177, 25);
+            this.textBox4.Size = new System.Drawing.Size(177, 22);
             this.textBox4.TabIndex = 4;
             this.textBox4.Text = "내용";
             // 
@@ -105,31 +109,35 @@
             this.전체쪽지ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(745, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(745, 30);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // 받은쪽지ToolStripMenuItem
             // 
+            this.받은쪽지ToolStripMenuItem.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.받은쪽지ToolStripMenuItem.Name = "받은쪽지ToolStripMenuItem";
-            this.받은쪽지ToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.받은쪽지ToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.받은쪽지ToolStripMenuItem.Text = "받은 쪽지";
             // 
             // 보낸쪽지ToolStripMenuItem
             // 
+            this.보낸쪽지ToolStripMenuItem.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.보낸쪽지ToolStripMenuItem.Name = "보낸쪽지ToolStripMenuItem";
-            this.보낸쪽지ToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.보낸쪽지ToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.보낸쪽지ToolStripMenuItem.Text = "보낸 쪽지";
             // 
             // 전체쪽지ToolStripMenuItem
             // 
+            this.전체쪽지ToolStripMenuItem.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.전체쪽지ToolStripMenuItem.Name = "전체쪽지ToolStripMenuItem";
-            this.전체쪽지ToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.전체쪽지ToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.전체쪽지ToolStripMenuItem.Text = "전체 쪽지";
             // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btnDelete.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Location = new System.Drawing.Point(21, 78);
             this.btnDelete.Name = "btnDelete";
@@ -141,6 +149,7 @@
             // btnRead
             // 
             this.btnRead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btnRead.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnRead.ForeColor = System.Drawing.Color.White;
             this.btnRead.Location = new System.Drawing.Point(109, 78);
             this.btnRead.Name = "btnRead";
