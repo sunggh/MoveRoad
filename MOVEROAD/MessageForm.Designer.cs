@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSend = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ToBox = new System.Windows.Forms.TextBox();
+            this.TotitleBox = new System.Windows.Forms.TextBox();
+            this.TotextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -72,27 +72,31 @@
             this.btnSend.Text = "전송";
             this.btnSend.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // ToBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(98, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(480, 25);
-            this.textBox1.TabIndex = 3;
+            this.ToBox.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ToBox.Location = new System.Drawing.Point(98, 26);
+            this.ToBox.Name = "ToBox";
+            this.ToBox.Size = new System.Drawing.Size(480, 22);
+            this.ToBox.TabIndex = 3;
             // 
-            // textBox2
+            // TotitleBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(98, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(480, 25);
-            this.textBox2.TabIndex = 4;
+            this.TotitleBox.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TotitleBox.Location = new System.Drawing.Point(98, 65);
+            this.TotitleBox.Name = "TotitleBox";
+            this.TotitleBox.Size = new System.Drawing.Size(480, 22);
+            this.TotitleBox.TabIndex = 4;
+            this.TotitleBox.TextChanged += new System.EventHandler(this.TotitleBox_TextChanged);
             // 
-            // textBox3
+            // TotextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(23, 109);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(683, 239);
-            this.textBox3.TabIndex = 5;
+            this.TotextBox.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TotextBox.Location = new System.Drawing.Point(23, 109);
+            this.TotextBox.Multiline = true;
+            this.TotextBox.Name = "TotextBox";
+            this.TotextBox.Size = new System.Drawing.Size(683, 239);
+            this.TotextBox.TabIndex = 5;
             // 
             // MessageForm
             // 
@@ -100,9 +104,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(745, 412);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TotextBox);
+            this.Controls.Add(this.TotitleBox);
+            this.Controls.Add(this.ToBox);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -119,8 +123,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox ToBox;
+        private System.Windows.Forms.TextBox TotitleBox;
+        private System.Windows.Forms.TextBox TotextBox;
     }
 }

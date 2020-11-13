@@ -16,5 +16,10 @@ namespace MOVEROAD
         {
             InitializeComponent();
         }
+
+        private void TotitleBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
