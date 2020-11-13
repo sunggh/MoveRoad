@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageBoxForm));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Fromsearch = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -45,14 +45,14 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // Fromsearch
             // 
-            this.textBox1.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox1.Location = new System.Drawing.Point(21, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "보낸 사람";
+            this.Fromsearch.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Fromsearch.Location = new System.Drawing.Point(21, 47);
+            this.Fromsearch.Name = "Fromsearch";
+            this.Fromsearch.Size = new System.Drawing.Size(121, 22);
+            this.Fromsearch.TabIndex = 1;
+            this.Fromsearch.Text = "보낸 사람";
             // 
             // textBox2
             // 
@@ -93,6 +93,7 @@
             // 
             // listView1
             // 
+            this.listView1.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(21, 111);
             this.listView1.Name = "listView1";
@@ -170,7 +171,7 @@
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Fromsearch);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
@@ -185,7 +186,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Fromsearch;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
