@@ -23,7 +23,6 @@ namespace MOVEROAD
             this.main = main;
 
             //업무선택 콤보박스
-            string sql_work = "SELECT name FROM department;";
             foreach (DepartmentInfo department in main.departments)
             {
                 comboBoxWork.Items.Add(department.name);
