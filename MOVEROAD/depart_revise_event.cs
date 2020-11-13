@@ -59,5 +59,10 @@ namespace MOVEROAD
             search_head search = new search_head(1);
             search.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms["depart_revise_event"].Close();
+        }
     }
 }
