@@ -240,7 +240,7 @@
         public System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        public System.Windows.Forms.Panel MainPanel;
+       
     }
 }
 
