@@ -14,7 +14,6 @@ namespace MOVEROAD
 {
     public partial class LoginForm : Form
     {
-        public MySqlConnection conn = DBConnetion.getInstance().getDBConnetion();
         public LoginForm()
         {
            
