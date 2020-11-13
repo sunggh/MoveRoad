@@ -43,13 +43,16 @@
             this.tb_revise_description = new System.Windows.Forms.TextBox();
             this.btn_revise = new System.Windows.Forms.Button();
             this.btn_search = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(29, 26);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(20, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 12);
             this.label1.TabIndex = 2;
@@ -58,8 +61,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(29, 64);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(20, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 12);
             this.label2.TabIndex = 3;
@@ -68,8 +71,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(29, 99);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(20, 94);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 12);
             this.label4.TabIndex = 8;
@@ -77,7 +80,7 @@
             // 
             // tb_original_name
             // 
-            this.tb_original_name.Location = new System.Drawing.Point(121, 23);
+            this.tb_original_name.Location = new System.Drawing.Point(112, 18);
             this.tb_original_name.Name = "tb_original_name";
             this.tb_original_name.ReadOnly = true;
             this.tb_original_name.Size = new System.Drawing.Size(122, 21);
@@ -85,7 +88,7 @@
             // 
             // tb_original_head
             // 
-            this.tb_original_head.Location = new System.Drawing.Point(121, 61);
+            this.tb_original_head.Location = new System.Drawing.Point(112, 56);
             this.tb_original_head.Name = "tb_original_head";
             this.tb_original_head.ReadOnly = true;
             this.tb_original_head.Size = new System.Drawing.Size(122, 21);
@@ -93,7 +96,7 @@
             // 
             // tb_original_description
             // 
-            this.tb_original_description.Location = new System.Drawing.Point(31, 123);
+            this.tb_original_description.Location = new System.Drawing.Point(22, 118);
             this.tb_original_description.Multiline = true;
             this.tb_original_description.Name = "tb_original_description";
             this.tb_original_description.ReadOnly = true;
@@ -102,7 +105,7 @@
             // 
             // btn_search_head
             // 
-            this.btn_search_head.Location = new System.Drawing.Point(268, 64);
+            this.btn_search_head.Location = new System.Drawing.Point(256, 94);
             this.btn_search_head.Name = "btn_search_head";
             this.btn_search_head.Size = new System.Drawing.Size(87, 96);
             this.btn_search_head.TabIndex = 14;
@@ -113,8 +116,8 @@
             // lb_depart_name
             // 
             this.lb_depart_name.AutoSize = true;
-            this.lb_depart_name.ForeColor = System.Drawing.Color.White;
-            this.lb_depart_name.Location = new System.Drawing.Point(370, 26);
+            this.lb_depart_name.ForeColor = System.Drawing.Color.Black;
+            this.lb_depart_name.Location = new System.Drawing.Point(361, 21);
             this.lb_depart_name.Name = "lb_depart_name";
             this.lb_depart_name.Size = new System.Drawing.Size(45, 12);
             this.lb_depart_name.TabIndex = 15;
@@ -124,8 +127,8 @@
             // lb_depart_head
             // 
             this.lb_depart_head.AutoSize = true;
-            this.lb_depart_head.ForeColor = System.Drawing.Color.White;
-            this.lb_depart_head.Location = new System.Drawing.Point(370, 61);
+            this.lb_depart_head.ForeColor = System.Drawing.Color.Black;
+            this.lb_depart_head.Location = new System.Drawing.Point(361, 56);
             this.lb_depart_head.Name = "lb_depart_head";
             this.lb_depart_head.Size = new System.Drawing.Size(45, 12);
             this.lb_depart_head.TabIndex = 16;
@@ -135,8 +138,8 @@
             // lb_depart_description
             // 
             this.lb_depart_description.AutoSize = true;
-            this.lb_depart_description.ForeColor = System.Drawing.Color.White;
-            this.lb_depart_description.Location = new System.Drawing.Point(370, 99);
+            this.lb_depart_description.ForeColor = System.Drawing.Color.Black;
+            this.lb_depart_description.Location = new System.Drawing.Point(361, 94);
             this.lb_depart_description.Name = "lb_depart_description";
             this.lb_depart_description.Size = new System.Drawing.Size(57, 12);
             this.lb_depart_description.TabIndex = 17;
@@ -145,7 +148,7 @@
             // 
             // tb_revise_name
             // 
-            this.tb_revise_name.Location = new System.Drawing.Point(439, 23);
+            this.tb_revise_name.Location = new System.Drawing.Point(430, 18);
             this.tb_revise_name.Name = "tb_revise_name";
             this.tb_revise_name.Size = new System.Drawing.Size(145, 21);
             this.tb_revise_name.TabIndex = 18;
@@ -153,7 +156,7 @@
             // 
             // tb_revise_head
             // 
-            this.tb_revise_head.Location = new System.Drawing.Point(439, 61);
+            this.tb_revise_head.Location = new System.Drawing.Point(430, 56);
             this.tb_revise_head.Name = "tb_revise_head";
             this.tb_revise_head.Size = new System.Drawing.Size(88, 21);
             this.tb_revise_head.TabIndex = 19;
@@ -161,7 +164,7 @@
             // 
             // tb_revise_description
             // 
-            this.tb_revise_description.Location = new System.Drawing.Point(372, 123);
+            this.tb_revise_description.Location = new System.Drawing.Point(363, 118);
             this.tb_revise_description.Multiline = true;
             this.tb_revise_description.Name = "tb_revise_description";
             this.tb_revise_description.Size = new System.Drawing.Size(212, 113);
@@ -170,7 +173,7 @@
             // 
             // btn_revise
             // 
-            this.btn_revise.Location = new System.Drawing.Point(614, 64);
+            this.btn_revise.Location = new System.Drawing.Point(607, 94);
             this.btn_revise.Name = "btn_revise";
             this.btn_revise.Size = new System.Drawing.Size(87, 96);
             this.btn_revise.TabIndex = 21;
@@ -181,7 +184,7 @@
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(533, 61);
+            this.btn_search.Location = new System.Drawing.Point(524, 56);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(51, 23);
             this.btn_search.TabIndex = 22;
@@ -190,32 +193,59 @@
             this.btn_search.Visible = false;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btn_search);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btn_revise);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.tb_revise_description);
+            this.panel1.Controls.Add(this.tb_original_name);
+            this.panel1.Controls.Add(this.tb_revise_head);
+            this.panel1.Controls.Add(this.tb_original_head);
+            this.panel1.Controls.Add(this.tb_revise_name);
+            this.panel1.Controls.Add(this.tb_original_description);
+            this.panel1.Controls.Add(this.lb_depart_description);
+            this.panel1.Controls.Add(this.btn_search_head);
+            this.panel1.Controls.Add(this.lb_depart_head);
+            this.panel1.Controls.Add(this.lb_depart_name);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(718, 259);
+            this.panel1.TabIndex = 23;
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 3;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.DarkRed;
+            this.button2.Location = new System.Drawing.Point(608, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 53);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Close";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // depart_revise_event
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.ClientSize = new System.Drawing.Size(732, 259);
-            this.Controls.Add(this.btn_search);
-            this.Controls.Add(this.btn_revise);
-            this.Controls.Add(this.tb_revise_description);
-            this.Controls.Add(this.tb_revise_head);
-            this.Controls.Add(this.tb_revise_name);
-            this.Controls.Add(this.lb_depart_description);
-            this.Controls.Add(this.lb_depart_head);
-            this.Controls.Add(this.lb_depart_name);
-            this.Controls.Add(this.btn_search_head);
-            this.Controls.Add(this.tb_original_description);
-            this.Controls.Add(this.tb_original_head);
-            this.Controls.Add(this.tb_original_name);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(723, 263);
+            this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "depart_revise_event";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "부서 수정";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -236,5 +266,7 @@
         public System.Windows.Forms.TextBox tb_revise_head;
         public System.Windows.Forms.Button btn_revise;
         public System.Windows.Forms.Button btn_search;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
     }
 }
