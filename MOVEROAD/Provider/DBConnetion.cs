@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MOVEROAD.InfoFile;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -60,6 +61,21 @@ namespace MOVEROAD
                     break;
                 case 1:
                     rdr.Read();
+                    break;
+                case 2:
+                    List<DepartmentInfo> departments = new List<DepartmentInfo>();
+                    while (rdr.Read())
+                    {
+                        DepartmentInfo department = new DepartmentInfo((int)rdr["id"],(string)rdr["name"],(int)rdr["manager"]);
+                        departments.Add(department);
+                    }
+                    thing = departments;
+                    break;
+                case 3:
+                    rdr.Read();
+                    String str = ((string)rdr["name"]);
+                    
+                    thing = str;
                     break;
             }
             rdr.Close();

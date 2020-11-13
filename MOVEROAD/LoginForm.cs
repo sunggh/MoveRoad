@@ -14,7 +14,6 @@ namespace MOVEROAD
 {
     public partial class LoginForm : Form
     {
-        public MySqlConnection conn = DBConnetion.getInstance().getDBConnetion();
         public LoginForm()
         {
            
@@ -62,6 +61,14 @@ namespace MOVEROAD
         private void autoSave_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+        //pw에서 enter눌렀을 때 로그인
+        private void LoginPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                login_button_Click(sender, e);
+            }
         }
     }
 }

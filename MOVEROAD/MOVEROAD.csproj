@@ -76,6 +76,7 @@
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
@@ -109,6 +110,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBoxForm.Designer.cs">
+      <DependentUpon>MessageBoxForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Departmanagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,12 +152,6 @@
     <Compile Include="HRManagement.Designer.cs">
       <DependentUpon>HRManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="rivise_depart.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="rivise_depart.Designer.cs">
-      <DependentUpon>rivise_depart.cs</DependentUpon>
-    </Compile>
     <Compile Include="SearchUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +159,30 @@
       <DependentUpon>SearchUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="InfoFile\Address.cs" />
+    <Compile Include="Paymentmanagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paymentmanagement.Designer.cs">
+      <DependentUpon>Paymentmanagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageReceiveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageReceiveForm.Designer.cs">
+      <DependentUpon>MessageReceiveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoFile\DepartmentInfo.cs" />
     <Compile Include="Paymentmanagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +242,13 @@
       <DependentUpon>SignForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InfoFile\UserInfo.cs" />
+    <Compile Include="TaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskForm.Designer.cs">
+      <DependentUpon>TaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignManagement.cs" />
     <Compile Include="UserSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +288,15 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MessageBoxForm.resx">
+      <DependentUpon>MessageBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageReceiveForm.resx">
+      <DependentUpon>MessageReceiveForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Paymentmanagement.resx">
       <DependentUpon>Paymentmanagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SignForm.resx">
       <DependentUpon>SignForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskForm.resx">
+      <DependentUpon>TaskForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserSetting.resx">
       <DependentUpon>UserSetting.cs</DependentUpon>
@@ -355,6 +399,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\payment01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\calendar.png" />
+    <Content Include="Resources\search.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
