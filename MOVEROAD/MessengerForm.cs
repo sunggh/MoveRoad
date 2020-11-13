@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace MOVEROAD
 {
-    public partial class MessageForm : Form
+    public partial class MessengerForm : Form
     {
-        public MessageForm()
+        public MessengerForm()
         {
             InitializeComponent();
-        }
-
-        private void TotitleBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
