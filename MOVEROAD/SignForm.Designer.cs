@@ -48,10 +48,10 @@
             this.buttonSign = new System.Windows.Forms.Button();
             this.dataGridViewRequest = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewSignDone = new System.Windows.Forms.DataGridView();
             this.dataGridViewSignList = new System.Windows.Forms.DataGridView();
+            this.checkBoxSignList = new System.Windows.Forms.CheckBox();
+            this.checkBoxSignDone = new System.Windows.Forms.CheckBox();
             this.tabControlSign.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -104,6 +104,7 @@
             this.buttonInsert.TabIndex = 10;
             this.buttonInsert.Text = "등록하기";
             this.buttonInsert.UseVisualStyleBackColor = true;
+            this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
             // 
             // comboBoxDrafter
             // 
@@ -262,8 +263,8 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.label8);
-            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.checkBoxSignDone);
+            this.tabPage3.Controls.Add(this.checkBoxSignList);
             this.tabPage3.Controls.Add(this.dataGridViewSignDone);
             this.tabPage3.Controls.Add(this.dataGridViewSignList);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
@@ -274,24 +275,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "내가 등록한 결재";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 228);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 15);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "결재 완료";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 31);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 15);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "결재 내역";
             // 
             // dataGridViewSignDone
             // 
@@ -314,6 +297,26 @@
             this.dataGridViewSignList.RowTemplate.Height = 27;
             this.dataGridViewSignList.Size = new System.Drawing.Size(760, 146);
             this.dataGridViewSignList.TabIndex = 0;
+            // 
+            // checkBoxSignList
+            // 
+            this.checkBoxSignList.AutoSize = true;
+            this.checkBoxSignList.Location = new System.Drawing.Point(24, 34);
+            this.checkBoxSignList.Name = "checkBoxSignList";
+            this.checkBoxSignList.Size = new System.Drawing.Size(94, 19);
+            this.checkBoxSignList.TabIndex = 4;
+            this.checkBoxSignList.Text = "결재 내역";
+            this.checkBoxSignList.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSignDone
+            // 
+            this.checkBoxSignDone.AutoSize = true;
+            this.checkBoxSignDone.Location = new System.Drawing.Point(24, 232);
+            this.checkBoxSignDone.Name = "checkBoxSignDone";
+            this.checkBoxSignDone.Size = new System.Drawing.Size(94, 19);
+            this.checkBoxSignDone.TabIndex = 5;
+            this.checkBoxSignDone.Text = "결재 완료";
+            this.checkBoxSignDone.UseVisualStyleBackColor = true;
             // 
             // SignForm
             // 
@@ -361,9 +364,9 @@
         private System.Windows.Forms.Button buttonSign;
         private System.Windows.Forms.DataGridView dataGridViewRequest;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridViewSignDone;
         private System.Windows.Forms.DataGridView dataGridViewSignList;
+        private System.Windows.Forms.CheckBox checkBoxSignDone;
+        private System.Windows.Forms.CheckBox checkBoxSignList;
     }
 }
