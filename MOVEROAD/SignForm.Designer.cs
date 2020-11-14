@@ -48,10 +48,11 @@
             this.buttonSign = new System.Windows.Forms.Button();
             this.dataGridViewRequest = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.checkBoxSignDone = new System.Windows.Forms.CheckBox();
+            this.checkBoxSignList = new System.Windows.Forms.CheckBox();
             this.dataGridViewSignDone = new System.Windows.Forms.DataGridView();
             this.dataGridViewSignList = new System.Windows.Forms.DataGridView();
-            this.checkBoxSignList = new System.Windows.Forms.CheckBox();
-            this.checkBoxSignDone = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabControlSign.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -61,7 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSignList)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // tabControlSign
             // 
             this.tabControlSign.Controls.Add(this.tabPage1);
             this.tabControlSign.Controls.Add(this.tabPage2);
@@ -198,6 +199,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.textBoxMemo);
             this.tabPage2.Controls.Add(this.buttonTurn);
@@ -214,7 +216,10 @@
             // 
             // label6
             // 
-
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(100, 23);
+            this.label6.TabIndex = 0;
             // 
             // textBoxMemo
             // 
@@ -271,6 +276,27 @@
             this.tabPage3.Text = "내가 등록한 결재";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // checkBoxSignDone
+            // 
+            this.checkBoxSignDone.AutoSize = true;
+            this.checkBoxSignDone.Location = new System.Drawing.Point(24, 232);
+            this.checkBoxSignDone.Name = "checkBoxSignDone";
+            this.checkBoxSignDone.Size = new System.Drawing.Size(94, 19);
+            this.checkBoxSignDone.TabIndex = 5;
+            this.checkBoxSignDone.Text = "결재 완료";
+            this.checkBoxSignDone.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSignList
+            // 
+            this.checkBoxSignList.AutoSize = true;
+            this.checkBoxSignList.Location = new System.Drawing.Point(24, 34);
+            this.checkBoxSignList.Name = "checkBoxSignList";
+            this.checkBoxSignList.Size = new System.Drawing.Size(94, 19);
+            this.checkBoxSignList.TabIndex = 4;
+            this.checkBoxSignList.Text = "결재 내역";
+            this.checkBoxSignList.UseVisualStyleBackColor = true;
+            this.checkBoxSignList.CheckedChanged += new System.EventHandler(this.checkBoxSignList_CheckedChanged);
+            // 
             // dataGridViewSignDone
             // 
             this.dataGridViewSignDone.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -293,25 +319,14 @@
             this.dataGridViewSignList.Size = new System.Drawing.Size(760, 146);
             this.dataGridViewSignList.TabIndex = 0;
             // 
-            // checkBoxSignList
+            // label7
             // 
-            this.checkBoxSignList.AutoSize = true;
-            this.checkBoxSignList.Location = new System.Drawing.Point(24, 34);
-            this.checkBoxSignList.Name = "checkBoxSignList";
-            this.checkBoxSignList.Size = new System.Drawing.Size(94, 19);
-            this.checkBoxSignList.TabIndex = 4;
-            this.checkBoxSignList.Text = "결재 내역";
-            this.checkBoxSignList.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSignDone
-            // 
-            this.checkBoxSignDone.AutoSize = true;
-            this.checkBoxSignDone.Location = new System.Drawing.Point(24, 232);
-            this.checkBoxSignDone.Name = "checkBoxSignDone";
-            this.checkBoxSignDone.Size = new System.Drawing.Size(94, 19);
-            this.checkBoxSignDone.TabIndex = 5;
-            this.checkBoxSignDone.Text = "결재 완료";
-            this.checkBoxSignDone.UseVisualStyleBackColor = true;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(54, 293);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 15);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "메모";
             // 
             // SignForm
             // 
@@ -363,5 +378,6 @@
         private System.Windows.Forms.DataGridView dataGridViewSignList;
         private System.Windows.Forms.CheckBox checkBoxSignDone;
         private System.Windows.Forms.CheckBox checkBoxSignList;
+        private System.Windows.Forms.Label label7;
     }
 }

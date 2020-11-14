@@ -54,5 +54,10 @@ namespace MOVEROAD
 
             MessageBox.Show("결재가 등록되었습니다.", "확인");
         }
+
+        private void checkBoxSignList_CheckedChanged(object sender, EventArgs e) //내가 등록한 결재 내역을 보려면
+        {
+            
+        }
     }
 }
