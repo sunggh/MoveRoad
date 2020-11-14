@@ -117,6 +117,24 @@ namespace MOVEROAD
             return list;
         }
 
+        public List<string> get_departlist(string query)
+        {
+            List<string> list = new List<string>();
+            MySqlConnection conn = getDBConnetion();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                list.Add(string.Format("{0}", rdr["departname"]));
+                list.Add(string.Format("{0}", rdr["name"]));
+                list.Add(string.Format("{0}", rdr["description"]));
+            }
+            rdr.Close();
+            conn.Close();
+            return list;
+        }
+
         public DataTable getDBTable(string sql) // 사원정보 데이터 그리드뷰에 넣는거
         {
             using(MySqlConnection conn = getDBConnetion())

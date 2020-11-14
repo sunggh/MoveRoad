@@ -35,10 +35,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(745, 412);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "depart_delete_event";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "depart_delete_event";
             this.ResumeLayout(false);
 
