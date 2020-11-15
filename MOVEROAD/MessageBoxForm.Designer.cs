@@ -41,6 +41,7 @@
             this.전체쪽지ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnRead = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistrantSearch)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -140,7 +141,7 @@
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.btnDelete.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(21, 78);
+            this.btnDelete.Location = new System.Drawing.Point(109, 78);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(82, 27);
             this.btnDelete.TabIndex = 11;
@@ -152,18 +153,31 @@
             this.btnRead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.btnRead.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnRead.ForeColor = System.Drawing.Color.White;
-            this.btnRead.Location = new System.Drawing.Point(109, 78);
+            this.btnRead.Location = new System.Drawing.Point(197, 78);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(82, 27);
             this.btnRead.TabIndex = 12;
             this.btnRead.Text = "읽음";
             this.btnRead.UseVisualStyleBackColor = false;
             // 
+            // btnNew
+            // 
+            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btnNew.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnNew.ForeColor = System.Drawing.Color.White;
+            this.btnNew.Location = new System.Drawing.Point(21, 78);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(82, 27);
+            this.btnNew.TabIndex = 13;
+            this.btnNew.Text = "쪽지 쓰기";
+            this.btnNew.UseVisualStyleBackColor = false;
+            // 
             // MessageBoxForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 412);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnRead);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.listView1);
@@ -198,5 +212,6 @@
         private System.Windows.Forms.ToolStripMenuItem 전체쪽지ToolStripMenuItem;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnRead;
+        private System.Windows.Forms.Button btnNew;
     }
 }

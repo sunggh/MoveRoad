@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelFromtime = new System.Windows.Forms.Label();
+            this.btnReply = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FromtextBox
@@ -67,7 +68,7 @@
             this.btndelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.btndelete.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btndelete.ForeColor = System.Drawing.Color.White;
-            this.btndelete.Location = new System.Drawing.Point(32, 353);
+            this.btndelete.Location = new System.Drawing.Point(125, 355);
             this.btndelete.Name = "btndelete";
             this.btndelete.Size = new System.Drawing.Size(96, 34);
             this.btndelete.TabIndex = 8;
@@ -110,12 +111,25 @@
             this.labelFromtime.TabIndex = 12;
             this.labelFromtime.Text = "보낸 시간";
             // 
+            // btnReply
+            // 
+            this.btnReply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btnReply.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnReply.ForeColor = System.Drawing.Color.White;
+            this.btnReply.Location = new System.Drawing.Point(23, 355);
+            this.btnReply.Name = "btnReply";
+            this.btnReply.Size = new System.Drawing.Size(96, 34);
+            this.btnReply.TabIndex = 13;
+            this.btnReply.Text = "답장";
+            this.btnReply.UseVisualStyleBackColor = false;
+            // 
             // MessageReceiveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(745, 412);
+            this.Controls.Add(this.btnReply);
             this.Controls.Add(this.labelFromtime);
             this.Controls.Add(this.FromtextBox);
             this.Controls.Add(this.FromtitleBox);
@@ -140,5 +154,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelFromtime;
+        private System.Windows.Forms.Button btnReply;
     }
 }
