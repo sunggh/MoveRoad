@@ -33,52 +33,61 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.pictureBoxRegistrantSearch = new System.Windows.Forms.PictureBox();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.받은쪽지ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.보낸쪽지ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.전체쪽지ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnRead = new System.Windows.Forms.Button();
+            this.pictureBoxRegistrantSearch = new System.Windows.Forms.PictureBox();
+            this.checkbox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listView1 = new System.Windows.Forms.ListView();
             this.btnNew = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistrantSearch)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistrantSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // Fromsearch
             // 
-            this.Fromsearch.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Fromsearch.Location = new System.Drawing.Point(21, 47);
+            this.Fromsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Fromsearch.Location = new System.Drawing.Point(18, 38);
+            this.Fromsearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Fromsearch.Name = "Fromsearch";
-            this.Fromsearch.Size = new System.Drawing.Size(121, 22);
+            this.Fromsearch.Size = new System.Drawing.Size(106, 21);
             this.Fromsearch.TabIndex = 1;
             this.Fromsearch.Text = "보낸 사람";
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.Location = new System.Drawing.Point(148, 47);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox2.Location = new System.Drawing.Point(130, 38);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 22);
+            this.textBox2.Size = new System.Drawing.Size(106, 21);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "받은 사람";
             // 
             // textBox3
             // 
-            this.textBox3.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox3.Location = new System.Drawing.Point(275, 47);
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox3.Location = new System.Drawing.Point(241, 38);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(177, 22);
+            this.textBox3.Size = new System.Drawing.Size(155, 21);
             this.textBox3.TabIndex = 3;
             this.textBox3.Text = "제목";
             // 
             // textBox4
             // 
-            this.textBox4.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox4.Location = new System.Drawing.Point(458, 47);
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox4.Location = new System.Drawing.Point(401, 38);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(177, 22);
+            this.textBox4.Size = new System.Drawing.Size(155, 21);
             this.textBox4.TabIndex = 4;
             this.textBox4.Text = "내용";
             // 
@@ -111,7 +120,8 @@
             this.전체쪽지ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(745, 30);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(745, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -128,6 +138,7 @@
             this.보낸쪽지ToolStripMenuItem.Name = "보낸쪽지ToolStripMenuItem";
             this.보낸쪽지ToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.보낸쪽지ToolStripMenuItem.Text = "보낸 쪽지";
+            this.보낸쪽지ToolStripMenuItem.Click += new System.EventHandler(this.보낸쪽지ToolStripMenuItem_Click);
             // 
             // 전체쪽지ToolStripMenuItem
             // 
@@ -159,6 +170,72 @@
             this.btnRead.TabIndex = 12;
             this.btnRead.Text = "읽음";
             this.btnRead.UseVisualStyleBackColor = false;
+            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
+            // 
+            // pictureBoxRegistrantSearch
+            // 
+            this.pictureBoxRegistrantSearch.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRegistrantSearch.Image")));
+            this.pictureBoxRegistrantSearch.Location = new System.Drawing.Point(561, 38);
+            this.pictureBoxRegistrantSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxRegistrantSearch.Name = "pictureBoxRegistrantSearch";
+            this.pictureBoxRegistrantSearch.Size = new System.Drawing.Size(34, 20);
+            this.pictureBoxRegistrantSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxRegistrantSearch.TabIndex = 8;
+            this.pictureBoxRegistrantSearch.TabStop = false;
+            // 
+            // checkbox
+            // 
+            this.checkbox.Text = "";
+            this.checkbox.Width = 22;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "보낸사람";
+            this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader1.Width = 67;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "제목";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 440;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "상태";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader3.Width = 80;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "날짜";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader4.Width = 114;
+            // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.Color.White;
+            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView1.CheckBoxes = true;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.checkbox,
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.listView1.FullRowSelect = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(18, 89);
+            this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(715, 312);
+            this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.listView1.TabIndex = 9;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.listView1_DrawColumnHeader);
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // btnNew
             // 
@@ -174,7 +251,7 @@
             // 
             // MessageBoxForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 412);
             this.Controls.Add(this.btnNew);
@@ -189,11 +266,12 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MessageBoxForm";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistrantSearch)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistrantSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,13 +283,18 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.PictureBox pictureBoxRegistrantSearch;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 받은쪽지ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 보낸쪽지ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 전체쪽지ToolStripMenuItem;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnRead;
+        private System.Windows.Forms.ColumnHeader checkbox;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button btnNew;
     }
 }
