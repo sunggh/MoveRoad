@@ -19,7 +19,7 @@ namespace MOVEROAD
             InitializeComponent();
             this.main = main;
             string sql = "SELECT * FROM message where mto = '" + main.me.name + "'";
-            messages = (List<Message>)DBConnetion.getInstance().Select(sql, 5);
+            messages = (List<Message>)DBConnetion.getInstance().Select(sql, 6);
             viewMessageList();
             //  colorListViewHeader(ref listView1, Color.FromArgb(70, 71, 117), Color.White);
 
