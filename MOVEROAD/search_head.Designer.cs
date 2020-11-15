@@ -54,6 +54,7 @@
             this.lv_searching.TabIndex = 4;
             this.lv_searching.UseCompatibleStateImageBehavior = false;
             this.lv_searching.View = System.Windows.Forms.View.Details;
+            this.lv_searching.SelectedIndexChanged += new System.EventHandler(this.lv_searching_SelectedIndexChanged);
             this.lv_searching.DoubleClick += new System.EventHandler(this.lv_searching_DoubleClick);
             // 
             // username

@@ -13,19 +13,19 @@ namespace MOVEROAD
 {
     public partial class Departmanagement : Form
     {
-        public Departmanagement()
+        //private depart_add_event depart_add_event;
+
+        private MainForm mf;
+
+        public Departmanagement(MainForm mf)
         {
             InitializeComponent();
+
+            this.mf = mf;
             listview_departlist();
         }
 
-        public void departGDV()
-        {
-            // 리스트 뷰 만들기
-            // 클릭 이벤트 이용해서 부서에 대한 정보 표기하기
-        }
-
-        private void listview_departlist()
+        public void listview_departlist()
         {
             string query = "SELECT department.name as departname,user.name,department.description " +
                 "FROM project.user,project.department " +
@@ -53,8 +53,10 @@ namespace MOVEROAD
         private void btn_add_Click(object sender, EventArgs e)
         {
             //새 폼 띄우고 ShowDialog로 다른행동 못하게 금지
-            depart_add_event add = new depart_add_event();
-            add.ShowDialog();
+            using (depart_add_event add = new depart_add_event(mf))
+            {
+                add.ShowDialog();
+            }
         }
 
         private void btn_update_Click(object sender, EventArgs e)

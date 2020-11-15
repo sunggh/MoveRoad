@@ -58,7 +58,7 @@ namespace MOVEROAD
             }
 
             main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
-            Departmanagement departmanagement = new Departmanagement();
+            Departmanagement departmanagement = new Departmanagement(main);
             departmanagement.TopLevel = false;
             departmanagement.Show();
             main.lastPanel = departmanagement;

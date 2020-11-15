@@ -76,6 +76,10 @@ namespace MOVEROAD
                     String str = ((string)rdr["name"]);
                     thing = str;
                     break;
+                case 10:
+                    rdr.Read();
+                    thing = (int)rdr["id"];
+                    break;
             }
             rdr.Close();
             conn.Close();

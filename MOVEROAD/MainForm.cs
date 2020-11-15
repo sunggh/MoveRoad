@@ -32,6 +32,7 @@ namespace MOVEROAD
             lastPanel = dashBoard;
             importDepartmentInfo();
         }
+
         private void importDepartmentInfo()
         {
             string sql = "SELECT id, name, manager FROM department";
