@@ -76,6 +76,18 @@ namespace MOVEROAD
                     String str = ((string)rdr["name"]);
                     thing = str;
                     break;
+                case 4:
+                    if (rdr.Read()) thing = true;
+                    else thing= false;
+                    break;
+                case 5:
+                    List<Message> messages = new List<Message>();
+                    while (rdr.Read())
+                    {
+                        messages.Add(new Message((string)rdr["mfrom"], (string)rdr["mto"], (string)rdr["title"], (string)rdr["text"], (int)rdr["id"], (DateTime)rdr["date"], (int)rdr["reads"]));
+                    }
+                    thing = messages;
+                    break;
             }
             rdr.Close();
             conn.Close();

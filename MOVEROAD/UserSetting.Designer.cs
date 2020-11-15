@@ -59,7 +59,6 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.nameLabel);
             this.panel1.Controls.Add(this.idTextbox);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(8, 8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(516, 312);
