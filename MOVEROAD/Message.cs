@@ -17,7 +17,7 @@ namespace MOVEROAD
         public int reads { get; set; }
 
 
-        public Message(string from, string to,string title, string messege, int index,DateTime date , int read)
+        public Message(string from, string to, string title, string messege, int index, DateTime date, int read)
         {
             this.from_name = from;
             this.to_name = to;
