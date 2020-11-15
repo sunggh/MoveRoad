@@ -18,14 +18,14 @@ namespace MOVEROAD
         {
             InitializeComponent();
             this.main = main;
+            string sql = "SELECT * FROM message where mto = '" + main.me.name + "'";
+            messages = (List<Message>)DBConnetion.getInstance().Select(sql, 5);
             viewMessageList();
-          //  colorListViewHeader(ref listView1, Color.FromArgb(70, 71, 117), Color.White);
+            //  colorListViewHeader(ref listView1, Color.FromArgb(70, 71, 117), Color.White);
 
         }
         private void viewMessageList()
         {
-            string sql = "SELECT * FROM message where mto = '" + main.me.name + "'";
-            messages = (List<Message>)DBConnetion.getInstance().Select(sql, 5);
             listView1.Items.Clear();
             listView1.BeginUpdate();
             ListViewItem item;
@@ -113,6 +113,29 @@ namespace MOVEROAD
                 message.ShowDialog();
             }
                 
+        }
+
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int row = listView1.SelectedItems[0].Index;
+
+            using (MessageReceiveForm receiveForm = new MessageReceiveForm(messages[row]))
+            {
+                receiveForm.ShowDialog();
+            }
+            if(messages[row].reads == 0)
+            {
+                string sql = "UPDATE `message` SET `reads` = '1' WHERE (`id` = '"+ messages[row].index+ "')";
+                DBConnetion.getInstance().Update(sql);
+            }
+            messages[row].reads = 1;
+            viewMessageList();
+        }
+
+        private void listView1_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.NewWidth = listView1.Columns[e.ColumnIndex].Width;
+            e.Cancel = true;
         }
     }
 }
