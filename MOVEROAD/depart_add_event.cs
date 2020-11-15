@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MOVEROAD.InfoFile;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,21 +14,18 @@ namespace MOVEROAD
 {
     public partial class depart_add_event : Form
     {
-        private static depart_add_event instance = new depart_add_event();
+        private MainForm mf;
 
-        public static depart_add_event getinstance()
+        public depart_add_event(MainForm mf)
         {
-            return instance;
-        }
-        public depart_add_event()
-        {
-            instance = this;
             InitializeComponent();
+
+            this.mf = mf;
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
-            Application.OpenForms["depart_add_event"].Close();
+            this.Dispose();
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -43,14 +41,24 @@ namespace MOVEROAD
             string add_query = "insert into department(`name`,`manager`,`description`) values ('"+depart_name+"',"+user.index+",'"+depart_memo+"')";
             DBConnetion.getInstance().Insert(add_query);
 
-            MessageBox.Show("정상적으로 등록되었습니다.","확인");
-            Application.OpenForms["depart_add_event"].Close();
+            string id_search = "select id from department where name = '"+depart_name+"'";
+
+            int department_id = (int)DBConnetion.getInstance().Select(id_search, 10);
+
+            mf.departments.Add(new DepartmentInfo(department_id, depart_name, user.index , depart_memo));
+
+            MessageBox.Show("정상적으로 등록되었습니다.");
+
+            this.Dispose();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            search_head search = new search_head(0);
-            search.ShowDialog();
+            using (search_head search = new search_head())
+            {
+                search.ShowDialog();
+                tb_depart_head.Text = search.name_;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)

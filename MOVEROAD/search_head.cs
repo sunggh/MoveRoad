@@ -13,12 +13,14 @@ namespace MOVEROAD
 {
     public partial class search_head : Form
     {
-        int set = 9999;
-        public search_head(int set)
+        //int set = 9999;
+
+        public string name_;
+        public search_head()
         {
             InitializeComponent();
             print_search_users();
-            this.set = set;
+            //this.set = set;
         }
 
         public void print_search_users()
@@ -46,21 +48,25 @@ namespace MOVEROAD
 
         private void lv_searching_DoubleClick(object sender, EventArgs e)
         {
-            if(lv_searching.SelectedItems.Count == 1)
+            if (lv_searching.SelectedItems.Count == 1)
             {
                 ListView.SelectedListViewItemCollection items = lv_searching.SelectedItems;
                 ListViewItem item = items[0];
                 string name = item.SubItems[0].Text;
 
-                if (set == 0)
-                {
-                    depart_add_event.getinstance().tb_depart_head.Text = name;
-                } else if(set == 1)
-                {
-                    depart_revise_event.getinstance().tb_revise_head.Text = name;
-                }
-                Application.OpenForms["search_head"].Close();
+
+                //depart_add_event.getinstance().tb_depart_head.Text = name;
+                name_ = name;
+
+                //depart_revise_event.getinstance().tb_revise_head.Text = name;
+
+                this.Dispose();
             }
+        }
+
+        private void lv_searching_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

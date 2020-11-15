@@ -56,8 +56,11 @@ namespace MOVEROAD
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            search_head search = new search_head(1);
-            search.ShowDialog();
+            using (search_head search = new search_head())
+            {
+                search.ShowDialog();
+                tb_revise_head.Text = search.name_;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
