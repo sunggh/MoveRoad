@@ -12,9 +12,20 @@ namespace MOVEROAD
 {
     public partial class MessageReceiveForm : Form
     {
-        public MessageReceiveForm()
+        Message Message;
+        public MessageReceiveForm(Message message)
         {
             InitializeComponent();
+            Message = message;
+            FromBox.Text = message.from_name;
+            FromtitleBox.Text = message.title;
+            FromtextBox.Text = message.messege;
+            time.Text = message.date.ToString();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

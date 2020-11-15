@@ -29,24 +29,26 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.MainPanel = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.buttonTask = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.MainPanel = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Message = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.panel1.Controls.Add(this.Message);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -57,28 +59,6 @@
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::MOVEROAD.Properties.Resources.집;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(7, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 38);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::MOVEROAD.Properties.Resources.X;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(764, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 38);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel2
             // 
@@ -95,6 +75,14 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // MainPanel
+            // 
+            this.MainPanel.Location = new System.Drawing.Point(55, 38);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(745, 412);
+            this.MainPanel.TabIndex = 2;
+            this.MainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPanel_Paint);
+            // 
             // button5
             // 
             this.button5.CausesValidation = false;
@@ -102,7 +90,7 @@
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.button5.ForeColor = System.Drawing.Color.White;
             this.button5.Image = global::MOVEROAD.Properties.Resources._5;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -114,6 +102,7 @@
             this.button5.Text = "메신저";
             this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -122,7 +111,7 @@
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = global::MOVEROAD.Properties.Resources._4;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -143,7 +132,7 @@
             this.buttonTask.FlatAppearance.BorderSize = 0;
             this.buttonTask.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.buttonTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTask.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.buttonTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.buttonTask.ForeColor = System.Drawing.Color.White;
             this.buttonTask.Image = global::MOVEROAD.Properties.Resources._3;
             this.buttonTask.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -164,7 +153,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = global::MOVEROAD.Properties.Resources._2;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -185,7 +174,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = global::MOVEROAD.Properties.Resources._1;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -199,13 +188,42 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // MainPanel
+            // pictureBox2
             // 
-            this.MainPanel.Location = new System.Drawing.Point(55, 38);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(745, 412);
-            this.MainPanel.TabIndex = 2;
-            this.MainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPanel_Paint);
+            this.pictureBox2.BackgroundImage = global::MOVEROAD.Properties.Resources.집;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(7, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 38);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::MOVEROAD.Properties.Resources.X;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox1.Location = new System.Drawing.Point(764, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 38);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // Message
+            // 
+            this.Message.BackgroundImage = global::MOVEROAD.Properties.Resources.그림11;
+            this.Message.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Message.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Message.FlatAppearance.BorderSize = 0;
+            this.Message.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Message.Location = new System.Drawing.Point(724, 0);
+            this.Message.Name = "Message";
+            this.Message.Size = new System.Drawing.Size(40, 38);
+            this.Message.TabIndex = 1;
+            this.Message.UseVisualStyleBackColor = true;
+            this.Message.Click += new System.EventHandler(this.button3_Click);
             // 
             // MainForm
             // 
@@ -221,9 +239,9 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -240,6 +258,7 @@
         public System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button Message;
     }
 }
 

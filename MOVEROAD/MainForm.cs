@@ -19,7 +19,9 @@ namespace MOVEROAD
         public UserInfo me { get; set; }
         public Form lastPanel;
         public List<DepartmentInfo> departments = new List<DepartmentInfo>();
-        
+        private BackgroundWorker backgroundWorker;
+        public int messagecheck = 0;
+
         public MainForm(UserInfo me)
         {
             this.me = me;
@@ -30,7 +32,35 @@ namespace MOVEROAD
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(dashBoard);
             lastPanel = dashBoard;
+            backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorkerDoWork);
+            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerRunWorkerCompleted);
+            backgroundWorker.RunWorkerAsync();
             importDepartmentInfo();
+        }
+        private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
+        {
+            string sql = "SELECT `reads` FROM `message` where `mto` = '" + this.me.name + "' AND `reads` = '0'";
+            if ((bool)DBConnetion.getInstance().Select(sql, 4))
+            {
+                e.Result = (bool)true;
+                
+            } else
+            {
+                e.Result = (bool)false;
+            }
+            Thread.Sleep(500);
+        }
+        private void BackgroundWorkerRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if((bool)e.Result)
+            {
+                Message.BackgroundImage = Properties.Resources.그림22;
+            } else
+            {
+                Message.BackgroundImage = Properties.Resources.그림11;
+            }
+            backgroundWorker.RunWorkerAsync();
         }
         private void importDepartmentInfo()
         {
@@ -130,6 +160,21 @@ namespace MOVEROAD
             lastPanel = SF;
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(SF);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBoxForm message = new MessageBoxForm(this);
+            message.TopLevel = false;
+            message.Show();
+            lastPanel = message;
+            this.MainPanel.Controls.Clear();
+            this.MainPanel.Controls.Add(message);
         }
     }
 }
