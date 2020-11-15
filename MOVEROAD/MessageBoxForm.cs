@@ -105,5 +105,14 @@ namespace MOVEROAD
         {
             
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            using (MessageForm message = new MessageForm(main))
+            {
+                message.ShowDialog();
+            }
+                
+        }
     }
 }

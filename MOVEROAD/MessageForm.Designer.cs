@@ -34,6 +34,8 @@
             this.ToBox = new System.Windows.Forms.TextBox();
             this.TotitleBox = new System.Windows.Forms.TextBox();
             this.TotextBox = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -103,12 +105,25 @@
             this.TotextBox.Size = new System.Drawing.Size(713, 283);
             this.TotextBox.TabIndex = 5;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.pictureBox1.BackgroundImage = global::MOVEROAD.Properties.Resources.X;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(719, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // MessageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(745, 412);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.TotextBox);
             this.Controls.Add(this.TotitleBox);
             this.Controls.Add(this.ToBox);
@@ -119,6 +134,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MessageForm";
             this.Text = "MessageForm";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +148,6 @@
         private System.Windows.Forms.TextBox ToBox;
         private System.Windows.Forms.TextBox TotitleBox;
         private System.Windows.Forms.TextBox TotextBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

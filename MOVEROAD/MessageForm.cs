@@ -29,6 +29,12 @@ namespace MOVEROAD
             string sql = "INSERT INTO `message`(`mfrom`,`mto`,`title`,`text`,`date`,`reads`) VALUES('" + ToBox.Text + "','" + this.main.me.name + "','" + TotitleBox.Text + "', '" + TotextBox.Text + "','" +DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+ "', '0')";
             DBConnetion.getInstance().Insert(sql);
             MessageBox.Show("성공적으로 전송 되었습니다.");
+            this.Dispose();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

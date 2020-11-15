@@ -91,26 +91,6 @@
             this.textBox4.TabIndex = 4;
             this.textBox4.Text = "내용";
             // 
-            // pictureBoxRegistrantSearch
-            // 
-            this.pictureBoxRegistrantSearch.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRegistrantSearch.Image")));
-            this.pictureBoxRegistrantSearch.Location = new System.Drawing.Point(641, 47);
-            this.pictureBoxRegistrantSearch.Name = "pictureBoxRegistrantSearch";
-            this.pictureBoxRegistrantSearch.Size = new System.Drawing.Size(39, 25);
-            this.pictureBoxRegistrantSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxRegistrantSearch.TabIndex = 8;
-            this.pictureBoxRegistrantSearch.TabStop = false;
-            // 
-            // listView1
-            // 
-            this.listView1.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(21, 111);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(687, 274);
-            this.listView1.TabIndex = 9;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -127,30 +107,32 @@
             // 
             // 받은쪽지ToolStripMenuItem
             // 
-            this.받은쪽지ToolStripMenuItem.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.받은쪽지ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.받은쪽지ToolStripMenuItem.Name = "받은쪽지ToolStripMenuItem";
-            this.받은쪽지ToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
+            this.받은쪽지ToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.받은쪽지ToolStripMenuItem.Text = "받은 쪽지";
             // 
             // 보낸쪽지ToolStripMenuItem
             // 
-            this.보낸쪽지ToolStripMenuItem.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.보낸쪽지ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.보낸쪽지ToolStripMenuItem.Name = "보낸쪽지ToolStripMenuItem";
-            this.보낸쪽지ToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
+            this.보낸쪽지ToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.보낸쪽지ToolStripMenuItem.Text = "보낸 쪽지";
             this.보낸쪽지ToolStripMenuItem.Click += new System.EventHandler(this.보낸쪽지ToolStripMenuItem_Click);
             // 
             // 전체쪽지ToolStripMenuItem
             // 
-            this.전체쪽지ToolStripMenuItem.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.전체쪽지ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.전체쪽지ToolStripMenuItem.Name = "전체쪽지ToolStripMenuItem";
-            this.전체쪽지ToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
+            this.전체쪽지ToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.전체쪽지ToolStripMenuItem.Text = "전체 쪽지";
             // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.btnDelete.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Location = new System.Drawing.Point(109, 78);
             this.btnDelete.Name = "btnDelete";
@@ -162,7 +144,9 @@
             // btnRead
             // 
             this.btnRead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.btnRead.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnRead.FlatAppearance.BorderSize = 0;
+            this.btnRead.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRead.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnRead.ForeColor = System.Drawing.Color.White;
             this.btnRead.Location = new System.Drawing.Point(197, 78);
             this.btnRead.Name = "btnRead";
@@ -226,10 +210,10 @@
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(18, 89);
+            this.listView1.Location = new System.Drawing.Point(18, 110);
             this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(715, 312);
+            this.listView1.Size = new System.Drawing.Size(715, 291);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -240,7 +224,9 @@
             // btnNew
             // 
             this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.btnNew.Font = new System.Drawing.Font("서울남산 장체B", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnNew.ForeColor = System.Drawing.Color.White;
             this.btnNew.Location = new System.Drawing.Point(21, 78);
             this.btnNew.Name = "btnNew";
@@ -248,6 +234,7 @@
             this.btnNew.TabIndex = 13;
             this.btnNew.Text = "쪽지 쓰기";
             this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // MessageBoxForm
             // 

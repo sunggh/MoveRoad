@@ -40,7 +40,6 @@ namespace MOVEROAD
         }
         private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
         {
-            int rows = 0;
             string sql = "SELECT `reads` FROM `message` where `mto` = '" + this.me.name + "' AND `reads` = '0'";
             if ((bool)DBConnetion.getInstance().Select(sql, 4))
             {
@@ -165,12 +164,7 @@ namespace MOVEROAD
 
         private void button5_Click(object sender, EventArgs e)
         {
-            MessageForm message = new MessageForm(this);
-            message.TopLevel = false;
-            message.Show();
-            lastPanel = message;
-            this.MainPanel.Controls.Clear();
-            this.MainPanel.Controls.Add(message);
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
