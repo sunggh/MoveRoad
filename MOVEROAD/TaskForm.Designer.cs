@@ -60,7 +60,6 @@ namespace MOVEROAD
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPageMaster = new System.Windows.Forms.TabPage();
             this.treeViewTaskMaster = new System.Windows.Forms.TreeView();
-            this.button5 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tabControlTask.SuspendLayout();
             this.tabPageRegistraion.SuspendLayout();
@@ -385,7 +384,6 @@ namespace MOVEROAD
             // tabPageMaster
             // 
             this.tabPageMaster.Controls.Add(this.treeViewTaskMaster);
-            this.tabPageMaster.Controls.Add(this.button5);
             this.tabPageMaster.Controls.Add(this.label9);
             this.tabPageMaster.Location = new System.Drawing.Point(4, 25);
             this.tabPageMaster.Name = "tabPageMaster";
@@ -397,24 +395,13 @@ namespace MOVEROAD
             // 
             // treeViewTaskMaster
             // 
-            this.treeViewTaskMaster.Location = new System.Drawing.Point(62, 101);
+            this.treeViewTaskMaster.Location = new System.Drawing.Point(62, 66);
             this.treeViewTaskMaster.Name = "treeViewTaskMaster";
-            this.treeViewTaskMaster.Size = new System.Drawing.Size(614, 246);
+            this.treeViewTaskMaster.Size = new System.Drawing.Size(614, 281);
             this.treeViewTaskMaster.TabIndex = 33;
+            this.treeViewTaskMaster.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeViewTaskMaster_AfterLabelEdit);
             this.treeViewTaskMaster.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewTaskMaster_AfterSelect);
             this.treeViewTaskMaster.MouseClick += new System.Windows.Forms.MouseEventHandler(this.treeViewTaskMaster_MouseClick);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.button5.Font = new System.Drawing.Font("굴림", 10F);
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(590, 46);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(86, 36);
-            this.button5.TabIndex = 31;
-            this.button5.Text = "추가";
-            this.button5.UseVisualStyleBackColor = false;
             // 
             // label9
             // 
@@ -487,7 +474,6 @@ namespace MOVEROAD
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPageMaster;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TreeView treeViewTaskMaster;
     }

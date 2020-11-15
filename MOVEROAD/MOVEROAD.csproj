@@ -116,6 +116,7 @@
     <Compile Include="Departmanagement.Designer.cs">
       <DependentUpon>Departmanagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoFile\TaskClassInfo.cs" />
     <Compile Include="MessageBoxForm.cs">
       <SubType>Form</SubType>
     </Compile>

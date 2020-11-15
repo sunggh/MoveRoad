@@ -76,6 +76,20 @@ namespace MOVEROAD
                     String str = ((string)rdr["name"]);
                     thing = str;
                     break;
+                case 4:
+                    DataTable taskClassInfo = new DataTable();
+                    //열 생성
+                    taskClassInfo.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
+                    taskClassInfo.Columns.Add("Name", typeof(string));    //이름
+                    taskClassInfo.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
+                    taskClassInfo.Columns.Add("Level", typeof(int));          //대분류 = 1 중분류 = 2 소분류 = 3
+
+                    while (rdr.Read())
+                    {
+                        taskClassInfo.Rows.Add((int)rdr["id"], (string)rdr["name"], (int)rdr["parent_id"], (int)rdr["level"]);
+                    }
+                    thing = taskClassInfo;
+                    break;
             }
             rdr.Close();
             conn.Close();
