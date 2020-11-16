@@ -76,6 +76,11 @@ namespace MOVEROAD
                     String str = ((string)rdr["name"]);
                     thing = str;
                     break;
+                case 4:
+                    rdr.Read();
+                    String Userid = ((string)rdr["id"]);
+                    thing = Userid;
+                    break;
                 case 10:
                     rdr.Read();
                     thing = (int)rdr["id"];
@@ -138,6 +143,7 @@ namespace MOVEROAD
             conn.Close();
             return list;
         }
+
 
         public DataTable getDBTable(string sql) // 사원정보 데이터 그리드뷰에 넣는거
         {
