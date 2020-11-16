@@ -80,7 +80,17 @@ namespace MOVEROAD
                     rdr.Read();
                     String Userid = ((string)rdr["id"]);
                     thing = Userid;
-                    break;              
+                    break;
+                case 5:
+                    rdr.Read();
+                    String startTime = ((string)rdr["startTime"]);
+                    thing = startTime;
+                    break;
+                case 6:
+                    rdr.Read();
+                    String finishTime = ((string)rdr["finishTime"]);
+                    thing = finishTime;
+                    break;
                 case 10:
                     rdr.Read();
                     thing = (int)rdr["id"];
@@ -143,8 +153,8 @@ namespace MOVEROAD
             conn.Close();
             return list;
         }
-
     
+
         public DataTable getDBTable(string sql) // 사원정보 데이터 그리드뷰에 넣는거
         {
             using(MySqlConnection conn = getDBConnetion())
