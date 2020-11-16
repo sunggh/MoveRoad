@@ -17,8 +17,8 @@ namespace MOVEROAD
         public attendance_card(MainForm main)
         {
             InitializeComponent();
-            Today.Text = DateTime.Now.ToString("yyyy년 MM월 dd일");
-           
+            Today.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            label2.Text = DateTime.Now.ToString("yyyy-MM");
             this.main = main;
         }
 
@@ -59,7 +59,7 @@ namespace MOVEROAD
         {
             DateTime dt;
             dt = Convert.ToDateTime(label2.Text);      
-            label2.Text = dt.AddMonths(1).ToString("yyyy년 MM월");
+            label2.Text = dt.AddMonths(1).ToString("yyyy-MM");
 
         }
 
@@ -67,15 +67,23 @@ namespace MOVEROAD
         {
             DateTime dt;
             dt = Convert.ToDateTime(label2.Text);
-            label2.Text = dt.AddMonths(-1).ToString("yyyy년 MM월");
+            label2.Text = dt.AddMonths(-1).ToString("yyyy-MM");
         }
 
         private void button5_Click(object sender, EventArgs e) //출근부 조회
         {
-            label2.Text = DateTime.Now.ToString("yyyy년 MM월");
+            DateTime dt;
+            dt = Convert.ToDateTime(label2.Text);
+            string a = dt.ToString("yyyy-MM");
+            
+
+
+            // 출근부를 조회 현재 년-월을 like문으로 설정하여 년-월 별로 출근부를 조회 할수 있음 
             DataTable tb = DBConnetion.getInstance().getDBTable("SELECT DATE_FORMAT(date, '%d') AS 일, name AS 사용자이름,startTime AS 출근시간 ,finishTime AS 퇴근시간"
-                       + " FROM attendance_card join user on attendance_card.id = user.id Where user.id='" + main.me.id + "'");
+                       + " FROM attendance_card join user on attendance_card.id = user.id Where user.id='" + main.me.id + "' and date like '" + a + "%' " );
             dataGridView1.DataSource = tb;
+
+            
         }
 
        
