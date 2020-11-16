@@ -76,7 +76,13 @@ namespace MOVEROAD
 
         private void button2_Click(object sender, EventArgs e)
         {
+            lastPanel.Dispose();
+            attendance_card AC = new attendance_card(this);
+            AC.TopLevel = false;
+            AC.Show();
+            lastPanel = AC;
             this.MainPanel.Controls.Clear();
+            this.MainPanel.Controls.Add(AC);
         }
 
         private void MainPanel_Paint(object sender, PaintEventArgs e)
@@ -131,6 +137,11 @@ namespace MOVEROAD
             lastPanel = SF;
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(SF);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
