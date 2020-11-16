@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace MOVEROAD
 {
@@ -17,11 +18,10 @@ namespace MOVEROAD
         {
             InitializeComponent();
             Today.Text = DateTime.Now.ToString("yyyy년 MM월 dd일");
+           
             this.main = main;
-          
         }
 
-       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -34,8 +34,6 @@ namespace MOVEROAD
 
             MessageBox.Show("현재시각" + DateTime.Now.ToString("HH시 mm분") + "출근 완료");
           
-
-
             
         }
 
@@ -46,7 +44,7 @@ namespace MOVEROAD
 
             if ((string)b != null)
             {// 만약 출근을 눌렀다면 정상적으로 종료시간 업데이트
-                DBConnetion.getInstance().Update("UPDATE attendance_card SET finishTime ='" + DateTime.Now.ToString("HH시mm분") + "' " +
+                DBConnetion.getInstance().Update("UPDATE attendance_card SET finishTime ='" + DateTime.Now.ToString("HH시 mm분") + "' " +
                     "WHERE id='" + a + "' and startTime != 'null' ");
 
                 MessageBox.Show("현재시각" + DateTime.Now.ToString("HH시 mm분") + "퇴근 완료");
@@ -56,5 +54,30 @@ namespace MOVEROAD
 
 
         }
+
+        private void button3_Click(object sender, EventArgs e) // 한달추가
+        {
+            DateTime dt;
+            dt = Convert.ToDateTime(label2.Text);      
+            label2.Text = dt.AddMonths(1).ToString("yyyy년 MM월");
+
+        }
+
+        private void button4_Click(object sender, EventArgs e) //한달감소
+        {
+            DateTime dt;
+            dt = Convert.ToDateTime(label2.Text);
+            label2.Text = dt.AddMonths(-1).ToString("yyyy년 MM월");
+        }
+
+        private void button5_Click(object sender, EventArgs e) //출근부 조회
+        {
+            label2.Text = DateTime.Now.ToString("yyyy년 MM월");
+            DataTable tb = DBConnetion.getInstance().getDBTable("SELECT DATE_FORMAT(date, '%d') AS 일, name AS 사용자이름,startTime AS 출근시간 ,finishTime AS 퇴근시간"
+                       + " FROM attendance_card join user on attendance_card.id = user.id Where user.id='" + main.me.id + "'");
+            dataGridView1.DataSource = tb;
+        }
+
+       
     }
 }
