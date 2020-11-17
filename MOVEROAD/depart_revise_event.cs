@@ -13,16 +13,12 @@ namespace MOVEROAD
 {
     public partial class depart_revise_event : Form
     {
-        private static depart_revise_event instance = new depart_revise_event();
+        private MainForm mf;
 
-        public static depart_revise_event getinstance()
+        public depart_revise_event(MainForm mf)
         {
-            return instance;
-        }
-        public depart_revise_event()
-        {
-            instance = this;
             InitializeComponent();
+            this.mf = mf;
         }
 
         private void btn_search_head_Click(object sender, EventArgs e)
@@ -51,7 +47,9 @@ namespace MOVEROAD
 
             string update_query = "update project.`department` set `name` = '"+ revise_name + "',`manager` = '"+ user2.index + "', `description` = '"+ revise_description + "' where `name` = '" + og_name + "' and `manager` = '" + user.index + "' and `description` = '" + og_description + "'" ;
             DBConnetion.getInstance().Update(update_query);
-            Application.OpenForms["depart_revise_event"].Close();
+
+            this.DialogResult = DialogResult.OK;
+            this.Dispose();
         }
 
         private void btn_search_Click(object sender, EventArgs e)
@@ -65,7 +63,7 @@ namespace MOVEROAD
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Application.OpenForms["depart_revise_event"].Close();
+            this.Dispose();
         }
     }
 }

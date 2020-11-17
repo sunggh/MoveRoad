@@ -49,6 +49,7 @@ namespace MOVEROAD
 
             MessageBox.Show("정상적으로 등록되었습니다.");
 
+            this.DialogResult = DialogResult.OK;
             this.Dispose();
         }
 

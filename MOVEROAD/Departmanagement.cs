@@ -38,7 +38,7 @@ namespace MOVEROAD
             lv_depart.Items.Clear();
             lv_depart.BeginUpdate();
 
-            ListViewItem item = new ListViewItem();
+            ListViewItem item;
 
             for (int i = 0; i < list.Count; i = i + 3)
             {
@@ -55,20 +55,44 @@ namespace MOVEROAD
             //새 폼 띄우고 ShowDialog로 다른행동 못하게 금지
             using (depart_add_event add = new depart_add_event(mf))
             {
-                add.ShowDialog();
+                if (add.ShowDialog() == DialogResult.OK)
+                {
+                    //refresh
+                    listview_departlist();
+                }
             }
         }
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            depart_revise_event revise = new depart_revise_event();
-            revise.ShowDialog();
+            using (depart_revise_event revise = new depart_revise_event(mf))
+            {
+                if (revise.ShowDialog() == DialogResult.OK)
+                {
+                    //refresh
+                    listview_departlist();
+                }
+            }
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            depart_delete_event delete = new depart_delete_event();
-            delete.ShowDialog();
+            if (lv_depart.SelectedItems.Count == 1)
+            {
+                ListView.SelectedListViewItemCollection items = lv_depart.SelectedItems;
+                ListViewItem item = items[0]; // 클릭 한거
+                string dpt_name = item.SubItems[0].Text;
+                string manager = item.SubItems[1].Text;
+                string description = item.SubItems[2].Text;
+
+                string manager_to_index = "SELECT * from project.user where name ='"+manager+"'";
+                UserInfo user = (UserInfo)DBConnetion.getInstance().Select(manager_to_index, 0);
+
+                string delete_query = "delete from department where `name` ='" + dpt_name + "' and `manager` = " + user.index + " and `description` = '" + description + "'";
+                DBConnetion.getInstance().Delete(delete_query);
+            }
+            //depart_delete_event delete = new depart_delete_event();
+            //delete.ShowDialog();
         }
 
         private void lv_depart_Click(object sender, EventArgs e)
