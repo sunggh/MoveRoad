@@ -32,8 +32,6 @@ namespace MOVEROAD
             this.main = main;
             DataShow();
             init();
-//            comboBoxDepart.SelectedIndex = 0;
-//            comboBoxGrade.SelectedIndex = 0;
         }
 
         private void init()
