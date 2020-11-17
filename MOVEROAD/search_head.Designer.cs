@@ -49,7 +49,6 @@
             this.lv_searching.HoverSelection = true;
             this.lv_searching.Location = new System.Drawing.Point(0, 0);
             this.lv_searching.Name = "lv_searching";
-            this.lv_searching.Scrollable = false;
             this.lv_searching.Size = new System.Drawing.Size(196, 186);
             this.lv_searching.TabIndex = 4;
             this.lv_searching.UseCompatibleStateImageBehavior = false;

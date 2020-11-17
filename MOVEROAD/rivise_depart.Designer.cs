@@ -30,9 +30,9 @@
         {
             this.lv_rivise = new System.Windows.Forms.ListView();
             this.depart_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btn_cancel = new System.Windows.Forms.Button();
-            this.memo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.depart_head = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.memo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lv_rivise
@@ -51,7 +51,6 @@
             this.lv_rivise.HoverSelection = true;
             this.lv_rivise.Location = new System.Drawing.Point(0, 0);
             this.lv_rivise.Name = "lv_rivise";
-            this.lv_rivise.Scrollable = false;
             this.lv_rivise.Size = new System.Drawing.Size(277, 186);
             this.lv_rivise.TabIndex = 5;
             this.lv_rivise.UseCompatibleStateImageBehavior = false;
@@ -63,6 +62,16 @@
             this.depart_name.Text = "부서 명";
             this.depart_name.Width = 70;
             // 
+            // depart_head
+            // 
+            this.depart_head.Text = "부서 장(코드)";
+            this.depart_head.Width = 81;
+            // 
+            // memo
+            // 
+            this.memo.Text = "설명(간략)";
+            this.memo.Width = 161;
+            // 
             // btn_cancel
             // 
             this.btn_cancel.Location = new System.Drawing.Point(0, 185);
@@ -72,16 +81,6 @@
             this.btn_cancel.Text = "종료하기";
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
-            // 
-            // memo
-            // 
-            this.memo.Text = "설명(간략)";
-            this.memo.Width = 161;
-            // 
-            // depart_head
-            // 
-            this.depart_head.Text = "부서 장(코드)";
-            this.depart_head.Width = 81;
             // 
             // rivise_depart
             // 

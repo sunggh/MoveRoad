@@ -90,6 +90,8 @@ namespace MOVEROAD
 
                 string delete_query = "delete from department where `name` ='" + dpt_name + "' and `manager` = " + user.index + " and `description` = '" + description + "'";
                 DBConnetion.getInstance().Delete(delete_query);
+
+                listview_departlist();
             }
             //depart_delete_event delete = new depart_delete_event();
             //delete.ShowDialog();
