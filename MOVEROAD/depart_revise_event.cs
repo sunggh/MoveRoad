@@ -23,7 +23,7 @@ namespace MOVEROAD
 
         private void btn_search_head_Click(object sender, EventArgs e)
         {
-            rivise_depart rivise = new rivise_depart();
+            rivise_depart rivise = new rivise_depart(this);
             rivise.ShowDialog();
         }
 
