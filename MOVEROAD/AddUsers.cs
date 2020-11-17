@@ -33,8 +33,14 @@ namespace MOVEROAD
         {
             InitializeComponent();
             DataShow();
+            init();
+        }
+
+        private void init()
+        {
             comboBoxDepart.SelectedIndex = 0;
             comboBoxGrade.SelectedIndex = 0;
+            
         }
 
         private void AddNewcomer()
