@@ -16,12 +16,6 @@ namespace MOVEROAD
     {
         MainForm main;
         
-        private static AddUsers instance = new AddUsers();
-        public static AddUsers getInstance()
-        {
-            return instance;
-        }
-
         public int depart;
         public int grade;
         public int age;
@@ -32,9 +26,10 @@ namespace MOVEROAD
         public string phone;
         public string address;
         
-        public AddUsers()
+        public AddUsers(MainForm main)
         {
             InitializeComponent();
+            this.main = main;
             DataShow();
             init();
 //            comboBoxDepart.SelectedIndex = 0;
@@ -46,12 +41,8 @@ namespace MOVEROAD
             List<DepartmentInfo> departs = main.departments;
             foreach (var departname in departs)
             {
-                if (departname.id.Equals(99999)) return;
-                else
-                {
-                    string name = departname.name;
-                    comboBoxDepart.Items.Add(name);
-                }
+                string name = departname.name;
+                comboBoxDepart.Items.Add(name);
             }
         }
 

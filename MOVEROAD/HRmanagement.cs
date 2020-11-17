@@ -23,7 +23,7 @@ namespace MOVEROAD
         private void buttonAddUsers_Click(object sender, EventArgs e)
         {
             // AddUsers 창으로 넘어가기
-            AddUsers addUsers = new AddUsers();
+            AddUsers addUsers = new AddUsers(main);
             addUsers.TopLevel = false;
             addUsers.Show();
             HRpanel.Controls.Clear();

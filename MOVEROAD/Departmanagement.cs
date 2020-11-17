@@ -29,7 +29,7 @@ namespace MOVEROAD
         {
             string query = "SELECT department.name as departname,user.name,department.description " +
                 "FROM project.user,project.department " +
-                "where user.index = department.manager";
+                "where user.index = department.manager AND department.id != 99999";
 
             List<string> list;
 
