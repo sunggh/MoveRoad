@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MOVEROAD.InfoFile;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,8 @@ namespace MOVEROAD
 {
     public partial class AddUsers : Form
     {
+        MainForm main;
+        
         private static AddUsers instance = new AddUsers();
         public static AddUsers getInstance()
         {
@@ -34,13 +37,22 @@ namespace MOVEROAD
             InitializeComponent();
             DataShow();
             init();
+//            comboBoxDepart.SelectedIndex = 0;
+//            comboBoxGrade.SelectedIndex = 0;
         }
 
         private void init()
         {
-            comboBoxDepart.SelectedIndex = 0;
-            comboBoxGrade.SelectedIndex = 0;
-            
+            List<DepartmentInfo> departs = main.departments;
+            foreach (var departname in departs)
+            {
+                if (departname.id.Equals(99999)) return;
+                else
+                {
+                    string name = departname.name;
+                    comboBoxDepart.Items.Add(name);
+                }
+            }
         }
 
         private void AddNewcomer()
