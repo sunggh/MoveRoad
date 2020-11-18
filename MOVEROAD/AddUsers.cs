@@ -52,9 +52,9 @@ namespace MOVEROAD
             string query = "INSERT INTO `user`(`depart`, `grade`, `age`, `id`, `password`, `name`, `gender`, `phone`, `address`)" +
                 " VALUES (" + depart + ", " + grade + ", " + age + ", '" + id + "', '" + password + "', '" + name + "', " + gender + ", '" + phone + "', '" + address + "')";
             DBConnetion.getInstance().Insert(query);
-
-            comboBoxDepart.SelectedIndex = 0;
-            comboBoxGrade.SelectedIndex = 0;
+            
+            comboBoxDepart.Text = "";
+            comboBoxGrade.Text = "";
             textBoxAge.Text = "";
             textBoxId.Text = "";
             textBoxPassword.Text = "";
@@ -65,8 +65,11 @@ namespace MOVEROAD
         }
         
         private void DataShow()
-        {
-            string query = "SELECT `index` AS `No.`, depart AS 부서명, grade AS 직위, name AS 이름, age AS 나이, gender AS 성별, phone AS `H.P`, address AS 주소 FROM `user`";
+        { 
+            string query = "SELECT user.index AS 'No.', department.name AS '부서명', " +
+                "CASE user.grade WHEN 0 THEN '사장' WHEN 1 THEN '부서장' WHEN 2 THEN '사원' END AS '직위', user.name AS '이름', user.age AS '나이', " +
+                "CASE user.gender WHEN 0 THEN '남자' WHEN 1 THEN '여자' END AS '성별', user.phone AS 'H.P', user.address AS '주소' " +
+                "FROM project.user, project.department WHERE user.depart = department.id";
             DataTable table = DBConnetion.getInstance().getDBTable(query);
 
   

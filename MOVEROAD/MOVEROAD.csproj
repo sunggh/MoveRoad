@@ -145,6 +145,12 @@
     <Compile Include="EditUsers.Designer.cs">
       <DependentUpon>EditUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditUsers_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUsers_form.Designer.cs">
+      <DependentUpon>EditUsers_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="HRManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditUsers.resx">
       <DependentUpon>EditUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUsers_form.resx">
+      <DependentUpon>EditUsers_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HRForm.resx">
       <DependentUpon>HRForm.cs</DependentUpon>
