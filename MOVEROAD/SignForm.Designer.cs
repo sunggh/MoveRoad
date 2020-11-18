@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tabControlSign = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPageNewInsert = new System.Windows.Forms.TabPage();
             this.buttonInsert = new System.Windows.Forms.Button();
             this.comboBoxDrafter = new System.Windows.Forms.ComboBox();
             this.comboBoxWork = new System.Windows.Forms.ComboBox();
@@ -41,60 +41,59 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageToMe = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxMemo = new System.Windows.Forms.TextBox();
             this.buttonTurn = new System.Windows.Forms.Button();
             this.buttonSign = new System.Windows.Forms.Button();
             this.dataGridViewRequest = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.checkBoxSignDone = new System.Windows.Forms.CheckBox();
-            this.checkBoxSignList = new System.Windows.Forms.CheckBox();
-            this.dataGridViewSignDone = new System.Windows.Forms.DataGridView();
+            this.tabPageFromMe = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
             this.dataGridViewSignList = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControlSign.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPageNewInsert.SuspendLayout();
+            this.tabPageToMe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRequest)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSignDone)).BeginInit();
+            this.tabPageFromMe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSignList)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlSign
             // 
-            this.tabControlSign.Controls.Add(this.tabPage1);
-            this.tabControlSign.Controls.Add(this.tabPage2);
-            this.tabControlSign.Controls.Add(this.tabPage3);
+            this.tabControlSign.Controls.Add(this.tabPageNewInsert);
+            this.tabControlSign.Controls.Add(this.tabPageToMe);
+            this.tabControlSign.Controls.Add(this.tabPageFromMe);
             this.tabControlSign.Location = new System.Drawing.Point(13, 12);
             this.tabControlSign.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControlSign.Name = "tabControlSign";
             this.tabControlSign.SelectedIndex = 0;
             this.tabControlSign.Size = new System.Drawing.Size(825, 489);
             this.tabControlSign.TabIndex = 0;
+            this.tabControlSign.SelectedIndexChanged += new System.EventHandler(this.tabControlSign_SelectedIndexChanged);
             // 
-            // tabPage1
+            // tabPageNewInsert
             // 
-            this.tabPage1.Controls.Add(this.buttonInsert);
-            this.tabPage1.Controls.Add(this.comboBoxDrafter);
-            this.tabPage1.Controls.Add(this.comboBoxWork);
-            this.tabPage1.Controls.Add(this.textBoxComment);
-            this.tabPage1.Controls.Add(this.textBoxContent);
-            this.tabPage1.Controls.Add(this.textBoxTitle);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(817, 460);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "신규 결재 등록";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPageNewInsert.Controls.Add(this.buttonInsert);
+            this.tabPageNewInsert.Controls.Add(this.comboBoxDrafter);
+            this.tabPageNewInsert.Controls.Add(this.comboBoxWork);
+            this.tabPageNewInsert.Controls.Add(this.textBoxComment);
+            this.tabPageNewInsert.Controls.Add(this.textBoxContent);
+            this.tabPageNewInsert.Controls.Add(this.textBoxTitle);
+            this.tabPageNewInsert.Controls.Add(this.label5);
+            this.tabPageNewInsert.Controls.Add(this.label4);
+            this.tabPageNewInsert.Controls.Add(this.label3);
+            this.tabPageNewInsert.Controls.Add(this.label2);
+            this.tabPageNewInsert.Controls.Add(this.label1);
+            this.tabPageNewInsert.Location = new System.Drawing.Point(4, 25);
+            this.tabPageNewInsert.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageNewInsert.Name = "tabPageNewInsert";
+            this.tabPageNewInsert.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageNewInsert.Size = new System.Drawing.Size(817, 460);
+            this.tabPageNewInsert.TabIndex = 0;
+            this.tabPageNewInsert.Text = "신규 결재 등록";
+            this.tabPageNewInsert.UseVisualStyleBackColor = true;
             // 
             // buttonInsert
             // 
@@ -197,22 +196,32 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "제목";
             // 
-            // tabPage2
+            // tabPageToMe
             // 
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.textBoxMemo);
-            this.tabPage2.Controls.Add(this.buttonTurn);
-            this.tabPage2.Controls.Add(this.buttonSign);
-            this.tabPage2.Controls.Add(this.dataGridViewRequest);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(817, 460);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "결재 요청 내역";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageToMe.Controls.Add(this.label9);
+            this.tabPageToMe.Controls.Add(this.label7);
+            this.tabPageToMe.Controls.Add(this.label6);
+            this.tabPageToMe.Controls.Add(this.textBoxMemo);
+            this.tabPageToMe.Controls.Add(this.buttonTurn);
+            this.tabPageToMe.Controls.Add(this.buttonSign);
+            this.tabPageToMe.Controls.Add(this.dataGridViewRequest);
+            this.tabPageToMe.Location = new System.Drawing.Point(4, 25);
+            this.tabPageToMe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageToMe.Name = "tabPageToMe";
+            this.tabPageToMe.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageToMe.Size = new System.Drawing.Size(817, 460);
+            this.tabPageToMe.TabIndex = 1;
+            this.tabPageToMe.Text = "결재 요청 내역";
+            this.tabPageToMe.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(55, 331);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 15);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "메모";
             // 
             // label6
             // 
@@ -223,7 +232,7 @@
             // 
             // textBoxMemo
             // 
-            this.textBoxMemo.Location = new System.Drawing.Point(106, 271);
+            this.textBoxMemo.Location = new System.Drawing.Point(107, 309);
             this.textBoxMemo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxMemo.Multiline = true;
             this.textBoxMemo.Name = "textBoxMemo";
@@ -232,7 +241,7 @@
             // 
             // buttonTurn
             // 
-            this.buttonTurn.Location = new System.Drawing.Point(424, 354);
+            this.buttonTurn.Location = new System.Drawing.Point(425, 392);
             this.buttonTurn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTurn.Name = "buttonTurn";
             this.buttonTurn.Size = new System.Drawing.Size(214, 48);
@@ -242,7 +251,7 @@
             // 
             // buttonSign
             // 
-            this.buttonSign.Location = new System.Drawing.Point(161, 354);
+            this.buttonSign.Location = new System.Drawing.Point(162, 392);
             this.buttonSign.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSign.Name = "buttonSign";
             this.buttonSign.Size = new System.Drawing.Size(214, 48);
@@ -253,80 +262,55 @@
             // dataGridViewRequest
             // 
             this.dataGridViewRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRequest.Location = new System.Drawing.Point(43, 54);
+            this.dataGridViewRequest.Location = new System.Drawing.Point(17, 39);
             this.dataGridViewRequest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewRequest.Name = "dataGridViewRequest";
             this.dataGridViewRequest.RowHeadersWidth = 51;
             this.dataGridViewRequest.RowTemplate.Height = 27;
-            this.dataGridViewRequest.Size = new System.Drawing.Size(725, 201);
+            this.dataGridViewRequest.Size = new System.Drawing.Size(777, 253);
             this.dataGridViewRequest.TabIndex = 0;
             // 
-            // tabPage3
+            // tabPageFromMe
             // 
-            this.tabPage3.Controls.Add(this.checkBoxSignDone);
-            this.tabPage3.Controls.Add(this.checkBoxSignList);
-            this.tabPage3.Controls.Add(this.dataGridViewSignDone);
-            this.tabPage3.Controls.Add(this.dataGridViewSignList);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(817, 460);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "내가 등록한 결재";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPageFromMe.Controls.Add(this.label8);
+            this.tabPageFromMe.Controls.Add(this.dataGridViewSignList);
+            this.tabPageFromMe.Location = new System.Drawing.Point(4, 25);
+            this.tabPageFromMe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageFromMe.Name = "tabPageFromMe";
+            this.tabPageFromMe.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageFromMe.Size = new System.Drawing.Size(817, 460);
+            this.tabPageFromMe.TabIndex = 2;
+            this.tabPageFromMe.Text = "내가 등록한 결재";
+            this.tabPageFromMe.UseVisualStyleBackColor = true;
             // 
-            // checkBoxSignDone
+            // label8
             // 
-            this.checkBoxSignDone.AutoSize = true;
-            this.checkBoxSignDone.Location = new System.Drawing.Point(24, 232);
-            this.checkBoxSignDone.Name = "checkBoxSignDone";
-            this.checkBoxSignDone.Size = new System.Drawing.Size(94, 19);
-            this.checkBoxSignDone.TabIndex = 5;
-            this.checkBoxSignDone.Text = "결재 완료";
-            this.checkBoxSignDone.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSignList
-            // 
-            this.checkBoxSignList.AutoSize = true;
-            this.checkBoxSignList.Location = new System.Drawing.Point(24, 34);
-            this.checkBoxSignList.Name = "checkBoxSignList";
-            this.checkBoxSignList.Size = new System.Drawing.Size(94, 19);
-            this.checkBoxSignList.TabIndex = 4;
-            this.checkBoxSignList.Text = "결재 내역";
-            this.checkBoxSignList.UseVisualStyleBackColor = true;
-            this.checkBoxSignList.CheckedChanged += new System.EventHandler(this.checkBoxSignList_CheckedChanged);
-            // 
-            // dataGridViewSignDone
-            // 
-            this.dataGridViewSignDone.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSignDone.Location = new System.Drawing.Point(24, 256);
-            this.dataGridViewSignDone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridViewSignDone.Name = "dataGridViewSignDone";
-            this.dataGridViewSignDone.RowHeadersWidth = 51;
-            this.dataGridViewSignDone.RowTemplate.Height = 27;
-            this.dataGridViewSignDone.Size = new System.Drawing.Size(760, 148);
-            this.dataGridViewSignDone.TabIndex = 1;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(25, 35);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 15);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "결재 내역";
             // 
             // dataGridViewSignList
             // 
             this.dataGridViewSignList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSignList.Location = new System.Drawing.Point(24, 58);
+            this.dataGridViewSignList.Location = new System.Drawing.Point(25, 55);
             this.dataGridViewSignList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewSignList.Name = "dataGridViewSignList";
             this.dataGridViewSignList.RowHeadersWidth = 51;
             this.dataGridViewSignList.RowTemplate.Height = 27;
-            this.dataGridViewSignList.Size = new System.Drawing.Size(760, 146);
+            this.dataGridViewSignList.Size = new System.Drawing.Size(760, 367);
             this.dataGridViewSignList.TabIndex = 0;
             // 
-            // label7
+            // label9
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(54, 293);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 15);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "메모";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(14, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(72, 15);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "결재 내역";
             // 
             // SignForm
             // 
@@ -339,14 +323,13 @@
             this.Name = "SignForm";
             this.Text = "SignForm";
             this.tabControlSign.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabPageNewInsert.ResumeLayout(false);
+            this.tabPageNewInsert.PerformLayout();
+            this.tabPageToMe.ResumeLayout(false);
+            this.tabPageToMe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRequest)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSignDone)).EndInit();
+            this.tabPageFromMe.ResumeLayout(false);
+            this.tabPageFromMe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSignList)).EndInit();
             this.ResumeLayout(false);
 
@@ -355,7 +338,7 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControlSign;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPageNewInsert;
         private System.Windows.Forms.Button buttonInsert;
         private System.Windows.Forms.ComboBox comboBoxDrafter;
         private System.Windows.Forms.ComboBox comboBoxWork;
@@ -367,17 +350,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPageToMe;
+        private System.Windows.Forms.TabPage tabPageFromMe;
         private System.Windows.Forms.TextBox textBoxMemo;
         private System.Windows.Forms.Button buttonTurn;
         private System.Windows.Forms.Button buttonSign;
         private System.Windows.Forms.DataGridView dataGridViewRequest;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridViewSignDone;
         private System.Windows.Forms.DataGridView dataGridViewSignList;
-        private System.Windows.Forms.CheckBox checkBoxSignDone;
-        private System.Windows.Forms.CheckBox checkBoxSignList;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }
