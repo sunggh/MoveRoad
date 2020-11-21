@@ -34,13 +34,14 @@ namespace MOVEROAD
         {
             comboBoxDrafter.Items.Clear(); //결재자 초기화
 
-            string sql_drafter = "SELECT `name` FROM `project`.`user` WHERE `index` = " + main.departments[comboBoxWork.SelectedIndex].manager + "";
+            //콤보박스에서 선택된 업무의 부서장만 SELECT할 수 있게
+            string sql_drafter = "SELECT name FROM user WHERE grade = 1 AND depart = " + main.departments[comboBoxWork.SelectedIndex].id + "";
             string drafter = (string)DBConnetion.getInstance().Select(sql_drafter, 3);
             comboBoxDrafter.Items.Add(drafter);
         }
 
 
-        private void buttonInsert_Click(object sender, EventArgs e) //결재 신규 등록
+        private void buttonInsert_Click(object sender, EventArgs e) //결재 신규 등록할 때 (미완 : 기안자, 결재자를 사장으로 못하게 해야함)
         {
             string title = textBoxTitle.Text;
             string drafter = comboBoxDrafter.Text;
@@ -48,31 +49,105 @@ namespace MOVEROAD
             string comment = textBoxComment.Text;
 
             //progress = 진행사항 (0:결재 전, 1:결재 중, 2:결재 완료, 3:반려) 등록할때는 항상 progress = 0
-            string query = "INSERT INTO sign(title, text, comment, sub_class, drafter, drafter_to, progress) " +
+            //사원만 신규 결재 등록 가능
+            if(main.me.grade == 2)
+            {
+                string sql = "INSERT INTO sign(title, text, comment, sub_class, drafter, drafter_to, progress) " +
                 "VALUES('" + title + "', '" + content + "', '" + comment + "', '" + main.departments[comboBoxWork.SelectedIndex].id + "', '" + main.me.index + "', '" + drafter + "', 0)";
-            DBConnetion.getInstance().Insert(query);
 
-            MessageBox.Show("결재가 등록되었습니다.", "확인");
+                DBConnetion.getInstance().Insert(sql);
+
+                MessageBox.Show("결재가 등록되었습니다.", "확인");
+            }
+            else
+            {
+                MessageBox.Show("기안자가 될 수 없습니다.", "확인"); //미완 : 멘트 변경해야할듯
+            }
         }
 
         private void tabControlSign_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(tabControlSign.SelectedTab == tabPageToMe) //나에게 온 결재 요청 내역 tab을 클릭하면
             {
-                string sql = "SELECT title AS 제목, text AS 내용, comment AS 코멘트 FROM sign WHERE drafter_to = '" + main.me.name + "'"; //미완성이무니다
+                string sql = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, user.name AS 기안자 " +
+                    "FROM sign JOIN user ON drafter_to = '" + main.me.name + "' AND sign.drafter = user.index AND sign.progress != 3"; //<No> <제목> <내용> <코멘트> <기안자>
 
                 DataTable table = DBConnetion.getInstance().getDBTable(sql);
 
                 dataGridViewRequest.DataSource = table;
             }
-            else if(tabControlSign.SelectedTab == tabPageFromMe) //내가 결재 등록한 내역 tab을 클릭하면
+            //내가 등록한 결재 내역 tab을 클릭하면
+            //미완 : 진행 상황 string으로 바꿔야함
+            else if (tabControlSign.SelectedTab == tabPageFromMe)
             {
-                string sql = "SELECT title AS 제목, text AS 내용, comment AS 코멘트 FROM sign WHERE drafter = '" + main.me.index + "'";
+                string sql_done = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, progress AS 진행상황 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress != 3";
 
-                DataTable table = DBConnetion.getInstance().getDBTable(sql);
+                DataTable table_DoneList = DBConnetion.getInstance().getDBTable(sql_done);
+                dataGridViewSignList.DataSource = table_DoneList;
 
-                dataGridViewSignList.DataSource = table;
+                string sql_turn = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress = 3";
+
+                DataTable table_TurnList = DBConnetion.getInstance().getDBTable(sql_turn);
+                dataGridViewSignTurnList.DataSource = table_TurnList;
             }
+        }
+
+        private void buttonSign_Click(object sender, EventArgs e) //결재하기 (시간기록 미완)
+        {
+            int rowIndex = dataGridViewRequest.CurrentRow.Index;
+
+            string cnt_ = dataGridViewRequest.Rows[rowIndex].Cells[0].Value.ToString();
+            int cnt = Convert.ToInt32(cnt_.ToString());
+
+            //uesr가 부서장이면 결재자를 사장으로 바꿔주고 진행 상황을 1(결재 중)로 바꾸기
+            if (main.me.grade == 1)
+            {
+                string sql = "UPDATE sign SET sign.progress = 1, sign.drafter_to = '" + "이동길" + "' WHERE sign.index = '" + cnt + "'";
+
+                DBConnetion.getInstance().Update(sql);
+            }
+
+            //user가 사장이면 진행 상황을 2(결재 완료)로 바꾸기
+            else if(main.me.grade == 0)
+            {
+                string sql = "UPDATE sign SET sign.progress = 2 WHERE sign.index = '" + cnt + "'";
+
+                DBConnetion.getInstance().Update(sql);
+            }
+
+            MessageBox.Show("결재되었습니다.", "확인");
+        }
+
+        private void buttonTurn_Click(object sender, EventArgs e) //반려하기
+        {
+            string memo = textBoxMemo.Text;
+
+            int rowIndex = dataGridViewRequest.CurrentRow.Index;
+
+            string cnt_ = dataGridViewRequest.Rows[rowIndex].Cells[0].Value.ToString();
+            int cnt = Convert.ToInt32(cnt_.ToString());
+
+            string sql = "INSERT INTO sign_turn(sign_turn.index, memo) VALUES('" + cnt + "', '" + memo + "')";
+
+            DBConnetion.getInstance().Insert(sql);
+
+            string query = "UPDATE sign SET sign.progress = 3 WHERE sign.index = '" + cnt + "'";
+
+            DBConnetion.getInstance().Update(query);
+
+            MessageBox.Show("반려되었습니다.", "확인");
+        }
+
+        private void dataGridViewSignTurnList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = dataGridViewSignTurnList.CurrentRow.Index;
+
+            string cnt_ = dataGridViewSignTurnList.Rows[rowIndex].Cells[0].Value.ToString();
+            int cnt = Convert.ToInt32(cnt_.ToString());
+
+            string sql = "SELECT memo FROM sign_turn WHERE sign_turn.index = '" + cnt + "'";
+
+            textBoxSignTurnMemo.Text = (string)DBConnetion.getInstance().Select(sql, 7);
         }
     }
 }
