@@ -31,7 +31,10 @@ namespace MOVEROAD
             this.MainPanel.Controls.Add(dashBoard);
             lastPanel = dashBoard;
             importDepartmentInfo();
+            
+        
         }
+   
 
         private void importDepartmentInfo()
         {
