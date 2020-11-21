@@ -12,15 +12,24 @@ namespace MOVEROAD
 {
     public partial class Paymentmanagement : Form
     {
+        MainForm main;
 
-        public Paymentmanagement()
+        public Paymentmanagement(MainForm main)
         {
             InitializeComponent();
+            this.main = main;
         }
 
-        private void btn_totalpay_Click(object sender, EventArgs e)
+        private void btn_overtime_Click(object sender, EventArgs e)
         {
-
+            // 초과근무 창 띄우기
+            using(PaymentForm payment = new PaymentForm(main))
+            {
+                if(payment.ShowDialog() == DialogResult.OK)
+                {
+                    //refresh
+                }
+            }
         }
     }
 }

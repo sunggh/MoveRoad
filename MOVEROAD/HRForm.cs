@@ -69,7 +69,7 @@ namespace MOVEROAD
         private void btn_payment_Click(object sender, EventArgs e)
         {
             main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
-            Paymentmanagement pay = new Paymentmanagement();
+            Paymentmanagement pay = new Paymentmanagement(main);
             pay.TopLevel = false;
             pay.Show();
             main.lastPanel = pay;
