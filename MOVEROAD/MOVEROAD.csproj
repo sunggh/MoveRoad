@@ -288,6 +288,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Paymentmanagement.resx">
       <DependentUpon>Paymentmanagement.cs</DependentUpon>
     </EmbeddedResource>
