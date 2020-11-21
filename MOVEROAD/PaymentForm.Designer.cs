@@ -33,6 +33,7 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.textBoxTime = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label2
@@ -83,12 +84,20 @@
             this.textBoxTime.Size = new System.Drawing.Size(73, 21);
             this.textBoxTime.TabIndex = 6;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(23, 12);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(231, 21);
+            this.dateTimePicker1.TabIndex = 7;
+            // 
             // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(291, 142);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBoxTime);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonAdd);
@@ -108,5 +117,6 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.TextBox textBoxTime;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
