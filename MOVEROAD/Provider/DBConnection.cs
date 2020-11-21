@@ -76,6 +76,18 @@ namespace MOVEROAD
                     String str = ((string)rdr["name"]);
                     thing = str;
                     break;
+                case 7:
+                    try
+                    {
+                        rdr.Read();
+                        String memo = ((string)rdr["memo"]);
+                        thing = memo;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("반려 내역이 없습니다.", "확인");
+                    }
+                    break;
             }
             rdr.Close();
             conn.Close();
