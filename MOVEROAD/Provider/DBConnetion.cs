@@ -91,6 +91,9 @@ namespace MOVEROAD
                     String finishTime = ((string)rdr["finishTime"]);
                     thing = finishTime;
                     break;
+                case 8:
+                    if (rdr.Read()) return 1;
+                    else return 0;
                 case 10:
                     rdr.Read();
                     thing = (int)rdr["id"];
