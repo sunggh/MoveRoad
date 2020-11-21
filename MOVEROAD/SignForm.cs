@@ -69,12 +69,26 @@ namespace MOVEROAD
         {
             if(tabControlSign.SelectedTab == tabPageToMe) //나에게 온 결재 요청 내역 tab을 클릭하면
             {
-                string sql = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, user.name AS 기안자 " +
-                    "FROM sign JOIN user ON drafter_to = '" + main.me.name + "' AND sign.drafter = user.index AND sign.progress != 3"; //<No> <제목> <내용> <코멘트> <기안자>
+                //user가 사장이면 결재 중인 내역만 보이게
+                if(main.me.grade == 0)
+                {
+                    string sql = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, user.name AS 기안자 " +
+                    "FROM sign JOIN user ON drafter_to = '" + main.me.name + "' AND sign.drafter = user.index AND sign.progress = 1";
 
-                DataTable table = DBConnetion.getInstance().getDBTable(sql);
+                    DataTable table = DBConnetion.getInstance().getDBTable(sql);
 
-                dataGridViewRequest.DataSource = table;
+                    dataGridViewRequest.DataSource = table;
+                }
+                //user가 부서장이면 결재 전인 내역만 보이게
+                else if(main.me.grade == 1)
+                {
+                    string sql = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, user.name AS 기안자 " +
+                    "FROM sign JOIN user ON drafter_to = '" + main.me.name + "' AND sign.drafter = user.index AND sign.progress = 0";
+
+                    DataTable table = DBConnetion.getInstance().getDBTable(sql);
+
+                    dataGridViewRequest.DataSource = table;
+                }
             }
             //내가 등록한 결재 내역 tab을 클릭하면
             //미완 : 진행 상황 string으로 바꿔야함
@@ -115,7 +129,7 @@ namespace MOVEROAD
                 DBConnetion.getInstance().Update(sql);
             }
 
-            MessageBox.Show("결재되었습니다.", "확인");
+            MessageBox.Show("00시 00분에 결재되었습니다.", "확인");
         }
 
         private void buttonTurn_Click(object sender, EventArgs e) //반려하기
