@@ -19,6 +19,8 @@ namespace MOVEROAD
         DataTable taskClass;
         TaskClassInfo TaskClassInfo;
 
+        List<DepartmentInfo> departmentInfos = new List<DepartmentInfo>();   //부서들 저장해 두는 리스트
+
         public TaskForm(MainForm main)
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace MOVEROAD
         }
         private void CreateTree()
         {
-            // ID | Name | ParentID | Level
+            // ID | Name | ParentID | Level | DepartID
             string query = "SELECT * FROM task_class";
             taskClass = (DBConnetion.getInstance().Select(query, 4)) as DataTable;
 
@@ -37,7 +39,7 @@ namespace MOVEROAD
             //pid가 0인 최상위 노드 검색 -> 부서
             DataRow[] rows = taskClass.Select("ParentID = 0");
             rootNode.Text = rows[0]["Name"].ToString();
-            rootNode.Tag = rows[0]["ID"].ToString();
+            rootNode.Tag = rows[0]["ID"].ToString();                      
 
             //하위 노드가 있는지 확인하도록 메소드 호출
             rootNode = ChkHasSubNode(rootNode);
@@ -57,8 +59,18 @@ namespace MOVEROAD
             // 여러개일 수 있으므로 for문으로 실행
             for (int i = 0; i < rowCollection.Length; i++)
             {
+                int id = Convert.ToInt32(rowCollection[i]["ID"]);
+                string name = rowCollection[i]["Name"].ToString();
+                int level = Convert.ToInt32(rowCollection[i]["level"]);
+                int departID = Convert.ToInt32(rowCollection[i]["DepartID"]);
+                if( level == 1)
+                {
+                    DepartmentInfo departmentInfo = new DepartmentInfo(id, name, departID, 1);
+                    departmentInfos.Add(departmentInfo);
+                    Console.WriteLine("부서 아이디 : " + departmentInfo.subID);    //subID -> department table에서의 부서 id
+                }
                 // 노드 추가 매소드 호출
-                parentNode = AddTreeNode(parentNode, Convert.ToInt32(rowCollection[i]["ID"]), rowCollection[i]["Name"].ToString());
+                parentNode = AddTreeNode(parentNode, id,name );
             }
 
             // 하위 노드가 없을경우 또는 for문을 완료한 경우 상위 노드 return
@@ -82,14 +94,15 @@ namespace MOVEROAD
         }
         private void treeViewTaskMaster_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            nodeKey = e.Node.Text;
-            if (!string.IsNullOrEmpty(nodeKey))
-            {
-                Console.WriteLine("선택된 노드 키 : " + nodeKey);
-                Console.WriteLine("선택된 노드 태그 : " + e.Node.Tag);
-                Console.WriteLine("선택된 노드 레벨 : " + e.Node.Level);
-                Console.WriteLine("선택된 노드 부모노드 : " + e.Node.Parent);
-            }
+            //nodeKey = e.Node.Text;
+            //if (!string.IsNullOrEmpty(nodeKey))
+            //{
+            //    Console.WriteLine("선택된 노드 키 : " + nodeKey);
+            //    Console.WriteLine("선택된 노드 태그 : " + e.Node.Tag);
+            //    Console.WriteLine("선택된 노드 레벨 : " + e.Node.Level);
+            //    Console.WriteLine("선택된 노드 부모노드 : " + e.Node.Parent);
+            //}
+            SelectedNode = treeViewTaskMaster.SelectedNode;
         }
         private void treeViewTaskMaster_MouseClick(object sender, MouseEventArgs e)
         {
@@ -141,6 +154,8 @@ namespace MOVEROAD
         //ToDoList
         //1. 추가 했을 때 바뀐 이름으로 저장이 안됨.
         //2. 자칫 잘못해서 부서(root)가 삭제되는 경우 예외처리 확실히 하기
+        //insert / update해야하는 위치 (label이 편집되고 나서 db에 접근해야 하는데 그전에 먼저 insert가 되는 상황 발생) 알아보기
+        //일단 진도가 너무 안나가니까 다른거부터 하기
 
         private void AddNewNode(object sender, EventArgs e)
         {
@@ -159,16 +174,24 @@ namespace MOVEROAD
             TreeNode newNode = new TreeNode();  //새 노드
             newNode.Text = "입력하시오";        //임시 이름
             SelectedNode.Nodes.Add(newNode);    //선택된 노드 하위에 추가
-            
 
-            TaskClassInfo = new TaskClassInfo("", pid, level);  //새로운 노드의 정보 저장해두기
-            SelectedNode = newNode; //선택된 노드를 새로운 노드로 대입
+            DepartmentInfo department = departmentInfos.Find(d => d.id == pid); //id -> taskclass에서의 id
+            int departID = department.subID;                                    //subID -> department에서의 id
+
+            TaskClassInfo = new TaskClassInfo("", pid, level, departID);  //새로운 노드의 정보 저장해두기
+            treeViewTaskMaster.SelectedNode = newNode; //선택된 노드를 새로운 노드로 대입
+            Console.WriteLine("AddNewNode : 선택된 노드의 이름 : " + SelectedNode.Name);
             ReviseNodeText(sender, e);          //노드의 name 정하기
-
-            TaskClassInfo.name = SelectedNode.Text;
-            //추가된 정보 DB INSERT하기
-            string query = "INSERT INTO task_class(name,parent_id,level) VALUES('" + TaskClassInfo.name + "','" + TaskClassInfo.pid + "','" + TaskClassInfo.level + "')";
-            DBConnetion.getInstance().Insert(query);
+            
+            if (SelectedNode.IsEditing)
+            {
+                TaskClassInfo.name = SelectedNode.Text;
+                Console.WriteLine("선택된 노드의 text : " + SelectedNode.Text);
+                Console.WriteLine("업무 노드의 이름 : " + TaskClassInfo.name);
+                //추가된 정보 DB INSERT하기
+                string query = "INSERT INTO task_class(name,parent_id,level,depart_id) VALUES('" + TaskClassInfo.name + "','" + TaskClassInfo.pid + "','" + TaskClassInfo.level + "','" + TaskClassInfo.did + "')";
+                DBConnetion.getInstance().Insert(query);
+            }
         }
         private void ReviseNodeText(object sender, EventArgs e)
         {
@@ -218,9 +241,9 @@ namespace MOVEROAD
                     e.Node.BeginEdit();
                 }
             }
-            ////바뀐 정보 DB UPDATE하기
-            //string query = "UPDATE task_class SET name = '" + SelectedNode.Text + "' WHERE id = '" + SelectedNode.Tag + "'";
-            //DBConnetion.getInstance().Update(query);
+            //바뀐 정보 DB UPDATE하기
+            string query = "UPDATE task_class SET name = '" + SelectedNode.Text + "' WHERE id = '" + SelectedNode.Tag + "'";
+            DBConnetion.getInstance().Update(query);
         }
         private void DeleteNode(object sender, EventArgs e)
         {

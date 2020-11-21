@@ -13,7 +13,7 @@ namespace MOVEROAD
 {
     public class DBConnetion
     {
-        private string dbip = "211.229.51.172";
+        private string dbip = "220.122.52.172 ";
         private string dbname = "project";
         private string dbpass = "road";
         private string dbid = "move";
@@ -83,10 +83,11 @@ namespace MOVEROAD
                     taskClassInfo.Columns.Add("Name", typeof(string));    //이름
                     taskClassInfo.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
                     taskClassInfo.Columns.Add("Level", typeof(int));          //대분류 = 1 중분류 = 2 소분류 = 3
+                    taskClassInfo.Columns.Add("DepartID", typeof(int));
 
                     while (rdr.Read())
                     {
-                        taskClassInfo.Rows.Add((int)rdr["id"], (string)rdr["name"], (int)rdr["parent_id"], (int)rdr["level"]);
+                        taskClassInfo.Rows.Add((int)rdr["id"], (string)rdr["name"], (int)rdr["parent_id"], (int)rdr["level"], (int)rdr["depart_id"]);                        
                     }
                     thing = taskClassInfo;
                     break;
