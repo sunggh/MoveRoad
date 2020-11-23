@@ -151,18 +151,14 @@ namespace MOVEROAD
         }
         
         private void btnDelete_Click(object sender, EventArgs e) // 삭제
-        {
-            
-            int row = listView1.CheckedItems[0].Index;
-            
+        {            
             for (int i = listView1.Items.Count - 1; i >= 0; i--)
-            {
+            {                       
                 if (listView1.Items[i].Checked == true )
-                {
-                 
-                    string sql = "DELETE FROM `message` WHERE (`id` = '" + messages[row].index + "')";
+                {                
+                    string sql = "DELETE FROM `message` WHERE (`id` = '" + messages[i].index + "')";
 
-                    MessageBox.Show(Convert.ToString(messages[row].index));
+                    MessageBox.Show(Convert.ToString(messages[i].index));
 
                     DBConnetion.getInstance().Delete(sql);
                     listView1.Items[i].Remove();
@@ -170,9 +166,6 @@ namespace MOVEROAD
                 }
                 
             }
-
-
-
        
         }
         
