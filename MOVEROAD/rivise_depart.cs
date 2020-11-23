@@ -31,6 +31,7 @@ namespace MOVEROAD
             string query = "select * from department";
             List<string> list;
             list = (List<string>)DBConnetion.getInstance().revise_userlist(query);
+            
             lv_rivise.Items.Clear();
             lv_rivise.BeginUpdate();
             ListViewItem item = new ListViewItem();

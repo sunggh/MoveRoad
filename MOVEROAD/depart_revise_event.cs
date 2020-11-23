@@ -40,13 +40,31 @@ namespace MOVEROAD
 
 
             string index_to_head = "SELECT * FROM user where `name`= '" + og_head + "'";
-            user = (UserInfo)DBConnetion.getInstance().Select(index_to_head, 0);
+            user = (UserInfo)DBConnetion.getInstance().Select(index_to_head, 0); // og의 유저값
 
             string head_to_index = "SELECT * FROM user where `name`= '" + revise_head + "'";
-            user2 = (UserInfo)DBConnetion.getInstance().Select(head_to_index, 0);
+            user2 = (UserInfo)DBConnetion.getInstance().Select(head_to_index, 0); // 수정할 유저값
 
-            string update_query = "update project.`department` set `name` = '"+ revise_name + "',`manager` = '"+ user2.index + "', `description` = '"+ revise_description + "' where `name` = '" + og_name + "' and `manager` = '" + user.index + "' and `description` = '" + og_description + "'" ;
+            string update_query = "update project.`department` " +
+                "set `name` = '"+ revise_name + "',`manager` = '"+ user2.index + "', `description` = '"+ revise_description + "' " +
+                "where `name` = '" + og_name + "' and `manager` = '" + user.index + "' and `description` = '" + og_description + "'" ;
             DBConnetion.getInstance().Update(update_query);
+            //이까지는 보이는 부서의 수정
+
+            string up_query,up_query2;
+
+            //이후부터는 예외를 처리해주어야함.
+            //예외1: 만약에 수정하려는 부서장과, 수정되어지는 부서장이 다르다면 직급세팅필요
+            if (!og_head.Equals(revise_head))
+            {
+                //수정전 유저값을이용하기
+                up_query = "update `user` set `grade` = 2 where `index` = '"+user.index+"' ";
+                DBConnetion.getInstance().Update(up_query);
+
+                //수정하는 유저의 값 이용하기
+                up_query2 = "update `user` set `depart` = '" + user.depart + "', `grade` = 1 where `depart` = '" + user.index + "'";
+                DBConnetion.getInstance().Update(up_query2);
+            }
 
             this.DialogResult = DialogResult.OK;
             this.Dispose();

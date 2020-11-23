@@ -63,7 +63,7 @@
             // 
             // userindex
             // 
-            this.userindex.Text = "사원코드";
+            this.userindex.Text = "직급";
             this.userindex.Width = 100;
             // 
             // btn_cancel

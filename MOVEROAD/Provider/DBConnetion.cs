@@ -129,7 +129,7 @@ namespace MOVEROAD
             while (rdr.Read())
             {
                 list.Add(string.Format("{0}",rdr["name"]));
-                list.Add(string.Format("{0}", rdr["index"]));
+                list.Add(string.Format("{0}", rdr["grade"]));
             }
             rdr.Close();
             conn.Close();
