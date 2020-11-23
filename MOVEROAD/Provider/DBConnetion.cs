@@ -105,10 +105,63 @@ namespace MOVEROAD
                     rdr.Read();
                     thing = (int)rdr["id"];
                     break;
+                case 87:
+                    rdr.Read();
+                    thing = string.Format("{0}",rdr["id"]);
+                    break;
+                case 88:
+                    DepartmentInfo department_ = new DepartmentInfo(0, "", 0);
+                    while (rdr.Read())
+                    {
+                        department_ = new DepartmentInfo((int)rdr["id"], (string)rdr["name"], (int)rdr["manager"]);
+                    }
+                    return department_;
             }
             rdr.Close();
             conn.Close();
             return thing;
+        }
+
+        public List<string> dpt_id_and_name(string query,int token)
+        {
+            List<string> list = new List<string>();
+            MySqlConnection conn = getDBConnetion();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                switch (token)
+                {
+                    case 0:
+                        list.Add(string.Format("{0}", rdr["name"]));
+                        list.Add(string.Format("{0}", rdr["depart"]));
+
+                        break;
+                    case 1:
+                        list.Add(string.Format("{0}", rdr["name"]));
+                        break;
+                }
+            }
+            rdr.Close();
+            conn.Close();
+
+            return list;
+        }
+
+        public string get_department_countid(string query)
+        {
+            string count = "";
+            MySqlConnection conn = getDBConnetion();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                count = string.Format("{0}", rdr["id"]);
+            }
+
+            return count;
         }
 
         public List<string> revise_userlist(string sql)

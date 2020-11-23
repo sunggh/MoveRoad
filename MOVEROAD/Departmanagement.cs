@@ -85,11 +85,24 @@ namespace MOVEROAD
                 string manager = item.SubItems[1].Text;
                 string description = item.SubItems[2].Text;
 
+                //부서 삭제 시 부서장의 직급은 사원으로 내리고 그 부서에 속한 모든 부서원들은 미지정 부서로 이동하게 됨
+
                 string manager_to_index = "SELECT * from project.user where name ='"+manager+"'";
                 UserInfo user = (UserInfo)DBConnetion.getInstance().Select(manager_to_index, 0);
 
+                //지금 삭제되는 부서 id값 찾아서 user index 조건으로
+                string get_depart_id = "select * from department where `name` = '" + dpt_name + "'";
+                DepartmentInfo dpt_info = (DepartmentInfo)DBConnetion.getInstance().Select(get_depart_id, 88);
+
+                //이제 삭제되는 부서에 속한 모든 부서원들을 미지정 부서로 이동
+                string update_query = "update `user` set `depart` = 0 where depart = '" + dpt_info.id + "'";
+                DBConnetion.getInstance().Update(update_query);
+
+                //department 테이블에서 지정된 부서의 정보를 delete함.
                 string delete_query = "delete from department where `name` ='" + dpt_name + "' and `manager` = " + user.index + " and `description` = '" + description + "'";
                 DBConnetion.getInstance().Delete(delete_query);
+
+                
 
                 listview_departlist();
             }
@@ -110,6 +123,18 @@ namespace MOVEROAD
                 tb_depart_name.Text = dpt_name;
                 tb_depart_head.Text = name;
                 tb_depart_description.Text = description;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (internal_mobility im = new internal_mobility(mf))
+            {
+                if (im.ShowDialog() == DialogResult.OK)
+                {
+                    //refresh
+                    listview_departlist();
+                }
             }
         }
     }

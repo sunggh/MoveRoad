@@ -28,7 +28,7 @@ namespace MOVEROAD
 
         public void print_revising_users()
         {
-            string query = "select * from department";
+            string query = "select * from department where id<99999";
             List<string> list;
             list = (List<string>)DBConnetion.getInstance().revise_userlist(query);
             

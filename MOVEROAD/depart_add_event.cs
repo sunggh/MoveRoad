@@ -39,8 +39,13 @@ namespace MOVEROAD
 
             string depart_memo = tb_depart_memo.Text; // 입력한 설명
 
+            //department 테이블의 id 개수를 세어서 index를 수동으로 올려줘야함(더미 포함이라 count개수 대로)
+            string get_index_query = "select count(`id`) as `id` from department";
+            string count_id = DBConnetion.getInstance().get_department_countid(get_index_query);
+
+
             //그 사람의 인덱스로 검색하기
-            string add_query = "insert into department(`name`,`manager`,`description`) values ('"+depart_name+"',"+user.index+",'"+depart_memo+"')";
+            string add_query = "insert into department values ('"+count_id+"','"+depart_name+"',"+user.index+",'"+depart_memo+"')";
             DBConnetion.getInstance().Insert(add_query);
 
             //user.depart하면 부서 인덱스 쓸수있음.
