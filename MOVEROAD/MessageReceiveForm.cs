@@ -32,5 +32,10 @@ namespace MOVEROAD
         {
 
         }
+
+        private void btndelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

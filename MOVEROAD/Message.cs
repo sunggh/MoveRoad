@@ -18,13 +18,13 @@ namespace MOVEROAD
         
         
 
-        public Message(string from, string to, string title, string messege,  DateTime date, int read)
+        public Message(string from, string to, string title, string messege, int index, DateTime date, int read)
         {
             this.from_id = from;
             this.to_id = to;
             this.title = title;
             this.messege = messege;
-            //this.index = index;
+            this.index = index;
             this.date = date;
             this.reads = read;
         }

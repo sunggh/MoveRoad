@@ -84,6 +84,7 @@
             this.btndelete.TabIndex = 8;
             this.btndelete.Text = "삭제";
             this.btndelete.UseVisualStyleBackColor = false;
+            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
             // 
             // label2
             // 

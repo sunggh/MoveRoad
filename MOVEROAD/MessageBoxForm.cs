@@ -97,13 +97,24 @@ namespace MOVEROAD
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
         }
 
-        private void btnRead_Click(object sender, EventArgs e)
+        private void btnRead_Click(object sender, EventArgs e)  // 직접 메시지를 수신하지 않아도 읽음처리 가능
         {
+            int row = listView1.CheckedItems[0].Index;
+
             
-        }
+            if (messages[row].reads == 0)
+            {
+                string sql = "UPDATE `message` SET `reads` = '1' WHERE (`id` = '" + messages[row].index + "')";
+                DBConnetion.getInstance().Update(sql);
+
+            }
+            messages[row].reads = 1;
+
+            viewMessageList();
+        }  
 
         private void btnNew_Click(object sender, EventArgs e)
         {
@@ -117,7 +128,7 @@ namespace MOVEROAD
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             int row = listView1.SelectedItems[0].Index;
-
+            
             using (MessageReceiveForm receiveForm = new MessageReceiveForm(messages[row]))
             {
                 receiveForm.ShowDialog();
@@ -138,57 +149,84 @@ namespace MOVEROAD
             e.NewWidth = listView1.Columns[e.ColumnIndex].Width;
             e.Cancel = true;
         }
-
-        private void btnDelete_Click(object sender, EventArgs e)
+        
+        private void btnDelete_Click(object sender, EventArgs e) // 삭제
         {
+            
+            int row = listView1.CheckedItems[0].Index;
+            
+            for (int i = listView1.Items.Count - 1; i >= 0; i--)
+            {
+                if (listView1.Items[i].Checked == true )
+                {
+                    listView1.Items[i].Remove();
+                    string sql = "DELETE FROM `message` WHERE (`id` = '" + messages[row].index + "')";
+                    DBConnetion.getInstance().Delete(sql);
 
+                }
+            }
+
+
+
+       
         }
         
         private void pictureBoxRegistrantSearch_Click(object sender, EventArgs e) // 검색
         {
+
             string id = main.me.id;             //현재 유저 id 값
             string from = Fromsearch.Text;      //보낸사람 
             string title = titlesearch.Text;    //제목
             string text = textsearch.Text;      //내용
             string sql = "";
+            string empty = "";
 
-            if(from ==null && title==null && text == null) // 셋다 입력 되지않았을때 (모두검색)
+
+
+            if (from == empty && title == empty && text == empty) // 셋다 입력 되지않았을때 (모두검색)
             {
-                sql = "SELECT * FROM message where mto = '" + main.me.id + "'";
+                sql = "SELECT * FROM message where mto = '" + id + "'";
+                MessageBox.Show("0");
             }
-            if (from != null && title != null && text != null) // 셋다 입력 되었을때
+            if (from != empty && title != empty && text != empty) // 셋다 입력 되었을때
             {
-                 sql = "SELECT * FROM message where mto = '" + id + "' and mfrom='" + from + "'" +
-                    "and title like '%" + title + "%' and text like '%" + text + "%'";
+                sql = "SELECT * FROM message where mto = '" + id + "' and mfrom='" + from + "'" +
+                   "and title like '%" + title + "%' and text like '%" + text + "%'";
+                MessageBox.Show("1");
             }
-            if(from == null) // 보낸사람 입력하지 않았을때
+            if (from == empty && title != empty && text != empty) // 보낸사람 입력하지 않았을때
             {
                 sql = "SELECT * FROM message where mto = '" + id + "' and " +
                    "and title like '%" + title + "%' and text like '%" + text + "%'";
+                MessageBox.Show("2");
             }
-            if(title == null)// 제목 입력 하지 않았을때
+            if (title == empty && from != empty && text != empty)// 제목 입력 하지 않았을때
             {
                 sql = "SELECT * FROM message where mto = '" + id + "' and mfrom='" + from + "'" +
                    "and  text like '%" + text + "%'";
+                MessageBox.Show("3");
             }
-            if(text == null)// 내용 입력 하지 않았을때
+            if (text == empty && from != empty && title != empty)// 내용 입력 하지 않았을때
             {
                 sql = "SELECT * FROM message where mto = '" + id + "' and mfrom='" + from + "'" +
                    "and title like '%" + title + "%' ";
+                MessageBox.Show("4");
             }
-            if(from == null && title == null) // 내용만 입력했을때
+            if (from == empty && title == empty && text != empty) // 내용만 입력했을때
             {
                 sql = "SELECT * FROM message where mto = '" + id + "' and text like '%" + text + "%'";
+                MessageBox.Show("5");
             }
-            if(from == null && text == null) // 제목만 입력했을때
+           if (from == empty && text == empty && title != empty) // 제목만 입력했을때
             {
                 sql = "SELECT * FROM message where mto = '" + id + "' and title like '%" + title + "%'";
+                MessageBox.Show("6");
             }
-            if (title == null && text == null)// 보낸사람만 입력했을때
+            if (title == empty && text == empty && from != empty)// 보낸사람만 입력했을때
             {
                 sql = "SELECT * FROM message where mto = '" + id + "' and mfrom='" + from + "'";
+                MessageBox.Show("7");
             }
-
 
             messages = (List<Message>)DBConnetion.getInstance().Select(sql, 6);
             viewMessageList();
