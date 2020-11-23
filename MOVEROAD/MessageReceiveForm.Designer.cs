@@ -133,6 +133,7 @@
             this.btnReply.TabIndex = 13;
             this.btnReply.Text = "답장";
             this.btnReply.UseVisualStyleBackColor = false;
+            this.btnReply.Click += new System.EventHandler(this.btnReply_Click);
             // 
             // time
             // 

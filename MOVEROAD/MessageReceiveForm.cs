@@ -17,7 +17,7 @@ namespace MOVEROAD
         {
             InitializeComponent();
             Message = message;
-            FromBox.Text = message.from_name;
+            FromBox.Text = message.from_id;
             FromtitleBox.Text = message.title;
             FromtextBox.Text = message.messege;
             time.Text = message.date.ToString();
@@ -26,6 +26,11 @@ namespace MOVEROAD
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnReply_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

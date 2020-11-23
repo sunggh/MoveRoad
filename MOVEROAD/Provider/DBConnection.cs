@@ -98,7 +98,7 @@ namespace MOVEROAD
                     List<Message> messages = new List<Message>();
                     while (rdr.Read())
                     {
-                        messages.Add(new Message((string)rdr["mfrom"], (string)rdr["mto"], (string)rdr["title"], (string)rdr["text"],(int)rdr["id"], (DateTime)rdr["date"], (int)rdr["reads"]));
+                        messages.Add(new Message((string)rdr["mfrom"], (string)rdr["mto"], (string)rdr["title"], (string)rdr["text"], (DateTime)rdr["date"], (int)rdr["reads"]));
                     }
                     thing = messages;
                     break;
