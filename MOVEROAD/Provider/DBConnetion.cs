@@ -78,19 +78,29 @@ namespace MOVEROAD
                     break;
                 case 4:
                     rdr.Read();
-                    String Userid = ((string)rdr["id"]);
-                    thing = Userid;
+                    thing = ((string)rdr["id"]);
                     break;
                 case 5:
-                    rdr.Read();
-                    String startTime = ((string)rdr["startTime"]);
-                    thing = startTime;
+                    if (!rdr.Read())
+                        thing = null;
+                    else
+                    {
+                        String startTime = ((string)rdr["startTime"]);
+                        thing = startTime;
+                    }
                     break;
                 case 6:
-                    rdr.Read();
-                    String finishTime = ((string)rdr["finishTime"]);
-                    thing = finishTime;
+                    if (!rdr.Read())
+                        thing = null;
+                    else
+                    {
+                        String finishTime = ((string)rdr["finishTime"]);
+                        thing = finishTime;
+                    }
                     break;
+                case 8:
+                    if (rdr.Read()) return 1;
+                    else return 0;
                 case 10:
                     rdr.Read();
                     thing = (int)rdr["id"];
