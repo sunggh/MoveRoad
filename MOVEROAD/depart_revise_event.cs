@@ -57,14 +57,22 @@ namespace MOVEROAD
             //예외1: 만약에 수정하려는 부서장과, 수정되어지는 부서장이 다르다면 직급세팅필요
             if (!og_head.Equals(revise_head))
             {
-                //수정전 유저값을이용하기
+                //수정전 유저 부서는 그대로 직급은 사원으로
                 up_query = "update `user` set `grade` = 2 where `index` = '"+user.index+"' ";
                 DBConnetion.getInstance().Update(up_query);
 
-                //수정하는 유저의 값 이용하기
-                up_query2 = "update `user` set `depart` = '" + user.depart + "', `grade` = 1 where `depart` = '" + user.index + "'";
+                //수정되어지는 유저 직급, 부서 변경
+                up_query2 = "update `user` set `depart` = '" + user.depart + "', `grade` = 1 where `index` = '" + user2.index + "'";
                 DBConnetion.getInstance().Update(up_query2);
             }
+
+            // [[[[[[[[[[[[[[[[[[[[[[[[[중요]]]]]]]]]]]]]]]]]]]]]]]]] //
+            //
+            //         수정된대로 객체로 넣어주는 작업도 해야함
+            //
+            // [[[[[[[[[[[[[[[[[[[[[[[[[중요]]]]]]]]]]]]]]]]]]]]]]]]] //
+
+
 
             this.DialogResult = DialogResult.OK;
             this.Dispose();

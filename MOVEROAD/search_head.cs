@@ -16,6 +16,7 @@ namespace MOVEROAD
         //int set = 9999;
 
         public string name_;
+
         public search_head()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace MOVEROAD
 
         public void print_search_users()
         {
-            string first_query = "select `name`, `grade` from project.user where ";
+            //string first_query = "select `name`, `grade` from project.user where ";
 
             string query = "SELECT `name`, CASE `grade` WHEN 0 THEN '사장' WHEN 1 THEN '부서장' WHEN 2 THEN '사원' END AS `grade` FROM project.user where `grade` = 2";
             List<string> list;

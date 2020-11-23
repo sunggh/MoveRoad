@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
@@ -46,15 +46,16 @@
             this.depart_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.depart_head = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.memo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_depart)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(50, 311);
+            this.btn_add.Location = new System.Drawing.Point(13, 312);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(195, 50);
+            this.btn_add.Size = new System.Drawing.Size(166, 50);
             this.btn_add.TabIndex = 1;
             this.btn_add.Text = "부서 등록";
             this.btn_add.UseVisualStyleBackColor = true;
@@ -62,9 +63,9 @@
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(289, 312);
+            this.btn_update.Location = new System.Drawing.Point(199, 312);
             this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(195, 50);
+            this.btn_update.Size = new System.Drawing.Size(166, 50);
             this.btn_update.TabIndex = 2;
             this.btn_update.Text = "부서 수정";
             this.btn_update.UseVisualStyleBackColor = true;
@@ -72,9 +73,9 @@
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(522, 312);
+            this.btn_delete.Location = new System.Drawing.Point(567, 312);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(195, 50);
+            this.btn_delete.Size = new System.Drawing.Size(166, 50);
             this.btn_delete.TabIndex = 3;
             this.btn_delete.Text = "부서 삭제";
             this.btn_delete.UseVisualStyleBackColor = true;
@@ -152,32 +153,32 @@
             this.DGV_depart.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DGV_depart.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.DGV_depart.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_depart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_depart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGV_depart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_depart.EnableHeadersVisualStyles = false;
             this.DGV_depart.GridColor = System.Drawing.Color.Black;
             this.DGV_depart.Location = new System.Drawing.Point(12, 23);
             this.DGV_depart.MultiSelect = false;
             this.DGV_depart.Name = "DGV_depart";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_depart.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_depart.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DGV_depart.RowHeadersVisible = false;
             this.DGV_depart.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.DGV_depart.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.DGV_depart.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DGV_depart.RowTemplate.Height = 23;
             this.DGV_depart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DGV_depart.Size = new System.Drawing.Size(270, 266);
@@ -220,11 +221,22 @@
             this.memo.Text = "설명";
             this.memo.Width = 161;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(382, 312);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(166, 50);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "부서 이동";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Departmanagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 412);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lv_depart);
             this.Controls.Add(this.DGV_depart);
             this.Controls.Add(this.groupBox1);
@@ -257,5 +269,6 @@
         private System.Windows.Forms.ColumnHeader depart_name;
         private System.Windows.Forms.ColumnHeader depart_head;
         private System.Windows.Forms.ColumnHeader memo;
+        private System.Windows.Forms.Button button1;
     }
 }

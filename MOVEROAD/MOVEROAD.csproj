@@ -115,6 +115,18 @@
     <Compile Include="attendance_card.Designer.cs">
       <DependentUpon>attendance_card.cs</DependentUpon>
     </Compile>
+    <Compile Include="search_departname.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="search_departname.Designer.cs">
+      <DependentUpon>search_departname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="search_username.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="search_username.Designer.cs">
+      <DependentUpon>search_username.cs</DependentUpon>
+    </Compile>
     <Compile Include="Departmanagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +168,12 @@
     </Compile>
     <Compile Include="HRManagement.Designer.cs">
       <DependentUpon>HRManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="internal_mobility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="internal_mobility.Designer.cs">
+      <DependentUpon>internal_mobility.cs</DependentUpon>
     </Compile>
     <Compile Include="PaymentForm.Designer.cs">
       <DependentUpon>PaymentForm.cs</DependentUpon>
@@ -255,6 +273,12 @@
     <EmbeddedResource Include="attendance_card.resx">
       <DependentUpon>attendance_card.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="search_departname.resx">
+      <DependentUpon>search_departname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="search_username.resx">
+      <DependentUpon>search_username.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HRManagement.resx">
       <DependentUpon>HRManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="internal_mobility.resx">
+      <DependentUpon>internal_mobility.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
