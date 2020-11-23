@@ -31,7 +31,6 @@
             this.FromtextBox = new System.Windows.Forms.TextBox();
             this.FromtitleBox = new System.Windows.Forms.TextBox();
             this.FromBox = new System.Windows.Forms.TextBox();
-            this.btndelete = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelFromtime = new System.Windows.Forms.Label();
@@ -71,20 +70,6 @@
             this.FromBox.ReadOnly = true;
             this.FromBox.Size = new System.Drawing.Size(420, 21);
             this.FromBox.TabIndex = 9;
-            // 
-            // btndelete
-            // 
-            this.btndelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.btndelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btndelete.ForeColor = System.Drawing.Color.White;
-            this.btndelete.Location = new System.Drawing.Point(109, 284);
-            this.btndelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btndelete.Name = "btndelete";
-            this.btndelete.Size = new System.Drawing.Size(84, 27);
-            this.btndelete.TabIndex = 8;
-            this.btndelete.Text = "삭제";
-            this.btndelete.UseVisualStyleBackColor = false;
-            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
             // 
             // label2
             // 
@@ -170,7 +155,6 @@
             this.Controls.Add(this.FromtextBox);
             this.Controls.Add(this.FromtitleBox);
             this.Controls.Add(this.FromBox);
-            this.Controls.Add(this.btndelete);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -188,7 +172,6 @@
         private System.Windows.Forms.TextBox FromtextBox;
         private System.Windows.Forms.TextBox FromtitleBox;
         private System.Windows.Forms.TextBox FromBox;
-        private System.Windows.Forms.Button btndelete;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelFromtime;

@@ -12,6 +12,7 @@ namespace MOVEROAD
 {
     public partial class MessageReceiveForm : Form
     {
+        MainForm main;
         Message Message;
         public MessageReceiveForm(Message message)
         {
@@ -30,12 +31,14 @@ namespace MOVEROAD
 
         private void btnReply_Click(object sender, EventArgs e)
         {
-
+            this.Dispose();
+            using (MessageForm message = new MessageForm(main))
+            {
+                message.ShowDialog();
+            }
+            
         }
 
-        private void btndelete_Click(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }

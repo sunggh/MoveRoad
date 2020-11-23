@@ -159,11 +159,16 @@ namespace MOVEROAD
             {
                 if (listView1.Items[i].Checked == true )
                 {
-                    listView1.Items[i].Remove();
+                 
                     string sql = "DELETE FROM `message` WHERE (`id` = '" + messages[row].index + "')";
-                    DBConnetion.getInstance().Delete(sql);
 
+                    MessageBox.Show(Convert.ToString(messages[row].index));
+
+                    DBConnetion.getInstance().Delete(sql);
+                    listView1.Items[i].Remove();
+                   
                 }
+                
             }
 
 
@@ -183,49 +188,46 @@ namespace MOVEROAD
 
 
 
-            if (from == empty && title == empty && text == empty) // 셋다 입력 되지않았을때 (모두검색)
+            if (from == empty && title == empty && text == empty) // 모두검색(세개다 입력 X)
             {
                 sql = "SELECT * FROM message where mto = '" + id + "'";
-                MessageBox.Show("0");
             }
-            if (from != empty && title != empty && text != empty) // 셋다 입력 되었을때
+            if (from != empty && title != empty && text != empty) // 보낸사람+제목+내용 검색
             {
                 sql = "SELECT * FROM message where mto = '" + id + "' and mfrom='" + from + "'" +
                    "and title like '%" + title + "%' and text like '%" + text + "%'";
-                MessageBox.Show("1");
             }
-            if (from == empty && title != empty && text != empty) // 보낸사람 입력하지 않았을때
+
+
+            if (from == empty && title != empty && text != empty) // 제목 + 내용 검색
             {
                 sql = "SELECT * FROM message where mto = '" + id + "' and " +
-                   "and title like '%" + title + "%' and text like '%" + text + "%'";
-                MessageBox.Show("2");
+                   " title like '%" + title + "%' and text like '%" + text + "%'";
             }
-            if (title == empty && from != empty && text != empty)// 제목 입력 하지 않았을때
+            if (title == empty && from != empty && text != empty)// 보낸사람 + 내용 검색
             {
                 sql = "SELECT * FROM message where mto = '" + id + "' and mfrom='" + from + "'" +
                    "and  text like '%" + text + "%'";
-                MessageBox.Show("3");
             }
-            if (text == empty && from != empty && title != empty)// 내용 입력 하지 않았을때
+            if (text == empty && from != empty && title != empty)// 보낸사람 + 제목 검색
             {
                 sql = "SELECT * FROM message where mto = '" + id + "' and mfrom='" + from + "'" +
                    "and title like '%" + title + "%' ";
-                MessageBox.Show("4");
             }
-            if (from == empty && title == empty && text != empty) // 내용만 입력했을때
+
+
+
+            if (from == empty && title == empty && text != empty) // 내용검색
             {
                 sql = "SELECT * FROM message where mto = '" + id + "' and text like '%" + text + "%'";
-                MessageBox.Show("5");
             }
-           if (from == empty && text == empty && title != empty) // 제목만 입력했을때
+           if (from == empty && text == empty && title != empty)  // 제목검색
             {
                 sql = "SELECT * FROM message where mto = '" + id + "' and title like '%" + title + "%'";
-                MessageBox.Show("6");
             }
-            if (title == empty && text == empty && from != empty)// 보낸사람만 입력했을때
+            if (title == empty && text == empty && from != empty)// 보낸사람검색
             {
                 sql = "SELECT * FROM message where mto = '" + id + "' and mfrom='" + from + "'";
-                MessageBox.Show("7");
             }
 
             messages = (List<Message>)DBConnetion.getInstance().Select(sql, 6);
