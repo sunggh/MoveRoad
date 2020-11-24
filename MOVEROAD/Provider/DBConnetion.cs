@@ -105,6 +105,11 @@ namespace MOVEROAD
                     rdr.Read();
                     thing = (int)rdr["id"];
                     break;
+                case 86://퇴근-현재시간 초로 가져오기
+                    rdr.Read();
+                    string get_sectime = string.Format("{0}", rdr["sectime"]);
+                    thing = get_sectime;
+                    break;
                 case 87:
                     rdr.Read();
                     thing = string.Format("{0}",rdr["id"]);
