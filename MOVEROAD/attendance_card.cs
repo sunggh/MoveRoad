@@ -73,7 +73,7 @@ namespace MOVEROAD
             if((string)start==null ) // 만약 출근버튼을 먼저 누르지 않았다면
                 MessageBox.Show("먼저 출근버튼을 눌러주십시오.");
 
-            if ((string)finish != "\"")
+            if ((string)finish != "\"" && (string)finish !=null)
                 MessageBox.Show("이미 퇴근처리가 되었습니다.");
         }
 
