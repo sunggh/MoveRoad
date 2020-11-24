@@ -54,40 +54,40 @@
             // Fromsearch
             // 
             this.Fromsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Fromsearch.Location = new System.Drawing.Point(18, 38);
+            this.Fromsearch.Location = new System.Drawing.Point(21, 48);
             this.Fromsearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Fromsearch.Name = "Fromsearch";
-            this.Fromsearch.Size = new System.Drawing.Size(106, 21);
+            this.Fromsearch.Size = new System.Drawing.Size(121, 24);
             this.Fromsearch.TabIndex = 1;
             this.Fromsearch.Text = "보낸 사람";
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.Location = new System.Drawing.Point(130, 38);
+            this.textBox2.Location = new System.Drawing.Point(149, 48);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(106, 21);
+            this.textBox2.Size = new System.Drawing.Size(121, 24);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "받은 사람";
             // 
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox3.Location = new System.Drawing.Point(241, 38);
+            this.textBox3.Location = new System.Drawing.Point(275, 48);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(155, 21);
+            this.textBox3.Size = new System.Drawing.Size(177, 24);
             this.textBox3.TabIndex = 3;
             this.textBox3.Text = "제목";
             // 
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox4.Location = new System.Drawing.Point(401, 38);
+            this.textBox4.Location = new System.Drawing.Point(458, 48);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(155, 21);
+            this.textBox4.Size = new System.Drawing.Size(177, 24);
             this.textBox4.TabIndex = 4;
             this.textBox4.Text = "내용";
             // 
@@ -100,8 +100,8 @@
             this.전체쪽지ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(745, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(851, 30);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -109,14 +109,14 @@
             // 
             this.받은쪽지ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.받은쪽지ToolStripMenuItem.Name = "받은쪽지ToolStripMenuItem";
-            this.받은쪽지ToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.받은쪽지ToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
             this.받은쪽지ToolStripMenuItem.Text = "받은 쪽지";
             // 
             // 보낸쪽지ToolStripMenuItem
             // 
             this.보낸쪽지ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.보낸쪽지ToolStripMenuItem.Name = "보낸쪽지ToolStripMenuItem";
-            this.보낸쪽지ToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.보낸쪽지ToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
             this.보낸쪽지ToolStripMenuItem.Text = "보낸 쪽지";
             this.보낸쪽지ToolStripMenuItem.Click += new System.EventHandler(this.보낸쪽지ToolStripMenuItem_Click);
             // 
@@ -124,7 +124,7 @@
             // 
             this.전체쪽지ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.전체쪽지ToolStripMenuItem.Name = "전체쪽지ToolStripMenuItem";
-            this.전체쪽지ToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.전체쪽지ToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
             this.전체쪽지ToolStripMenuItem.Text = "전체 쪽지";
             // 
             // btnDelete
@@ -134,9 +134,10 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(109, 78);
+            this.btnDelete.Location = new System.Drawing.Point(125, 98);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(82, 27);
+            this.btnDelete.Size = new System.Drawing.Size(94, 34);
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "삭제";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -148,9 +149,10 @@
             this.btnRead.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRead.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnRead.ForeColor = System.Drawing.Color.White;
-            this.btnRead.Location = new System.Drawing.Point(197, 78);
+            this.btnRead.Location = new System.Drawing.Point(225, 98);
+            this.btnRead.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(82, 27);
+            this.btnRead.Size = new System.Drawing.Size(94, 34);
             this.btnRead.TabIndex = 12;
             this.btnRead.Text = "읽음";
             this.btnRead.UseVisualStyleBackColor = false;
@@ -159,10 +161,10 @@
             // pictureBoxRegistrantSearch
             // 
             this.pictureBoxRegistrantSearch.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRegistrantSearch.Image")));
-            this.pictureBoxRegistrantSearch.Location = new System.Drawing.Point(561, 38);
+            this.pictureBoxRegistrantSearch.Location = new System.Drawing.Point(641, 48);
             this.pictureBoxRegistrantSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxRegistrantSearch.Name = "pictureBoxRegistrantSearch";
-            this.pictureBoxRegistrantSearch.Size = new System.Drawing.Size(34, 20);
+            this.pictureBoxRegistrantSearch.Size = new System.Drawing.Size(39, 25);
             this.pictureBoxRegistrantSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxRegistrantSearch.TabIndex = 8;
             this.pictureBoxRegistrantSearch.TabStop = false;
@@ -210,10 +212,10 @@
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(18, 110);
+            this.listView1.Location = new System.Drawing.Point(21, 138);
             this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(715, 291);
+            this.listView1.Size = new System.Drawing.Size(817, 364);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -230,9 +232,10 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnNew.ForeColor = System.Drawing.Color.White;
-            this.btnNew.Location = new System.Drawing.Point(21, 78);
+            this.btnNew.Location = new System.Drawing.Point(24, 98);
+            this.btnNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(82, 27);
+            this.btnNew.Size = new System.Drawing.Size(94, 34);
             this.btnNew.TabIndex = 13;
             this.btnNew.Text = "쪽지 쓰기";
             this.btnNew.UseVisualStyleBackColor = false;
@@ -240,9 +243,9 @@
             // 
             // MessageBoxForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 412);
+            this.ClientSize = new System.Drawing.Size(851, 515);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnRead);
             this.Controls.Add(this.btnDelete);
