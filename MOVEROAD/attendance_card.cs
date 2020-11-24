@@ -48,6 +48,13 @@ namespace MOVEROAD
 
         private void buttonFinish_Click(object sender, EventArgs e) //퇴근 버튼
         {
+            att_finish();
+            check_overtime();
+        }
+
+        #region 퇴근 확인
+        private void att_finish()
+        {
             string ID = main.me.id;
             DateTime dt;
             dt = Convert.ToDateTime(Today.Text);
@@ -56,13 +63,13 @@ namespace MOVEROAD
 
             object start = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
                 "WHERE id='" + ID + "' and date='" + DateTime.Now.ToString("yyyy-MM-dd") + "' ", 5); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
-           
+
             object finish = DBConnetion.getInstance().Select("SELECT finishTime FROM attendance_card " +
                 "WHERE id='" + ID + "' and date='" + DateTime.Now.ToString("yyyy-MM-dd") + "' ", 6); // 퇴근을 눌렀는지 확인
 
 
 
-            if ((string)start != null && (string)finish =="\"") // 출근을 누르고 퇴근을 누르지 않았을때 (정상적인 상황)
+            if ((string)start != null && (string)finish == "\"") // 출근을 누르고 퇴근을 누르지 않았을때 (정상적인 상황)
             {// 만약 출근을 눌렀다면 정상적으로 종료시간 업데이트 종료시간 업데이트시 당일날만 업데이트 하기위해 like문으로 date의 값을 당일날이라는 조건으로 걸어둔다
                 DBConnetion.getInstance().Update("UPDATE attendance_card SET finishTime ='" + DateTime.Now.ToString("HH:mm") + "' " +
                     "WHERE id='" + ID + "' and startTime != 'null' and  finishTime = '\"' and date like '%" + today + "%'");
@@ -70,12 +77,32 @@ namespace MOVEROAD
                 MessageBox.Show("현재시각" + DateTime.Now.ToString("HH:mm") + "퇴근 완료");
                 workTime(); // 퇴근과 동시에 업무시간 업데이트
             }
-            if((string)start==null ) // 만약 출근버튼을 먼저 누르지 않았다면
+            if ((string)start == null) // 만약 출근버튼을 먼저 누르지 않았다면
                 MessageBox.Show("먼저 출근버튼을 눌러주십시오.");
 
-            if ((string)finish != "\"" && (string)finish !=null)
+            if ((string)finish != "\"" && (string)finish != null)
                 MessageBox.Show("이미 퇴근처리가 되었습니다.");
         }
+        #endregion
+
+        #region 퇴근 시 추가수당을 위한 계산
+        private void check_overtime()
+        {
+            //현재 날짜
+            DateTime dt = Convert.ToDateTime(Today.Text);
+            string today = dt.ToString("yyyy-MM-dd");
+
+            //현재 접속중인 아이디
+            string ID = main.me.id;
+
+            //퇴근-출근 시간 초로 변환
+            string test = "select TIME_TO_SEC(timediff(`finishTime`,`startTime`)) as `sectime` from `attendance_card` where `id` = '"+ID+"' and `date` = '" + today+"'";
+            int get_sectime = Convert.ToInt32((string)DBConnetion.getInstance().Select(test, 86));
+            
+            // 36000초 이상이면 10시간 이상 근무한 거
+            
+        }
+        #endregion
 
         private void workTime() // 업무시간 업데이트 (시작시간과 종료시간값을 받아와 DateTime형식으로 변환후 TimeSpan으로 두값을 빼준후 시간을 얻어옴 얻어온 시간값을 Int 형식으로 Convert후 DB에 저장)
         {
