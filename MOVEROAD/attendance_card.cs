@@ -95,12 +95,43 @@ namespace MOVEROAD
             //현재 접속중인 아이디
             string ID = main.me.id;
 
+            //현재 접속중인 유저의 index
+            UserInfo user;
+            string get_index = "select * from `user` where `id` = '" + ID + "'";
+            user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
+            // user.index로 쓰기
+
+            #region 10시간 이상 근무 일 때
             //퇴근-출근 시간 초로 변환
-            string test = "select TIME_TO_SEC(timediff(`finishTime`,`startTime`)) as `sectime` from `attendance_card` where `id` = '"+ID+"' and `date` = '" + today+"'";
-            int get_sectime = Convert.ToInt32((string)DBConnetion.getInstance().Select(test, 86));
-            
+            string sec_query = "select TIME_TO_SEC(timediff(`finishTime`,`startTime`)) as `sectime` " +
+                "from `attendance_card` " +
+                "where `id` = '"+ID+"' and `date` = '" + today+"'";
+            int get_overtime_sec = Convert.ToInt32((string)DBConnetion.getInstance().Select(sec_query, 86));
+
             // 36000초 이상이면 10시간 이상 근무한 거
-            
+            if (get_overtime_sec > 36000)
+            {
+                string insert_basicpay = "insert into salary(`index`,`date`,`basicpay`) values ('"+user.index+"','"+today+"','" + 100000 + "')";
+                DBConnetion.getInstance().Insert(insert_basicpay);
+            }
+
+            #endregion
+
+            #region 오후 10시 이후 야간 근무 일 때
+            // 만약 오후 10시 이후이면 10시부터 출근시간까지 빼기
+            string up_night = "SELECT TIME_TO_SEC(timediff('22:00',`startTime`)) as `sectime` " +
+                "FROM project.attendance_card " +
+                "where `id` = '"+ID+"' and `finishTime`> '22:00' and `date` = '" + today+"'";
+            // 10시에서 뺀 시간
+            int get_nighttime_sec = Convert.ToInt32((string)DBConnetion.getInstance().Select(up_night, 86))/3600;
+
+            int nighttime_pay = get_nighttime_sec * 10000;
+            string insert_basicpay2 = "insert into salary(`index`,`date`,`basicpay`) values ('" + user.index + "','" + today + "','" + nighttime_pay + "')";
+            DBConnetion.getInstance().Insert(insert_basicpay2);
+            #endregion
+
+
+
         }
         #endregion
 
