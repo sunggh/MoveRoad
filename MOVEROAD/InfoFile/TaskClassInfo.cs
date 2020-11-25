@@ -12,6 +12,7 @@ namespace MOVEROAD.InfoFile
         public string name;
         public int pid; //parent_id
         public int level;
+        public int did; //depart_id
         
         public TaskClassInfo(int id, string name, int pid, int level)
         {
@@ -20,11 +21,12 @@ namespace MOVEROAD.InfoFile
             this.pid = pid;
             this.level = level;
         }
-        public TaskClassInfo(string name, int pid, int level)
+        public TaskClassInfo(string name, int pid, int level, int did)
         {
             this.name = name;
             this.pid = pid;
             this.level = level;
+            this.did = did;
         }
     }
 }

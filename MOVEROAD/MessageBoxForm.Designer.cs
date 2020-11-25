@@ -30,16 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageBoxForm));
             this.Fromsearch = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.titlesearch = new System.Windows.Forms.TextBox();
+            this.textsearch = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.받은쪽지ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.보낸쪽지ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.전체쪽지ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnRead = new System.Windows.Forms.Button();
-            this.pictureBoxRegistrantSearch = new System.Windows.Forms.PictureBox();
             this.checkbox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -47,6 +45,10 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listView1 = new System.Windows.Forms.ListView();
             this.btnNew = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBoxRegistrantSearch = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistrantSearch)).BeginInit();
             this.SuspendLayout();
@@ -59,9 +61,8 @@
             this.Fromsearch.Name = "Fromsearch";
             this.Fromsearch.Size = new System.Drawing.Size(121, 24);
             this.Fromsearch.TabIndex = 1;
-            this.Fromsearch.Text = "보낸 사람";
             // 
-            // textBox2
+            // titlesearch
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox2.Location = new System.Drawing.Point(149, 48);
@@ -71,7 +72,7 @@
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "받은 사람";
             // 
-            // textBox3
+            // textsearch
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox3.Location = new System.Drawing.Point(275, 48);
@@ -118,7 +119,6 @@
             this.보낸쪽지ToolStripMenuItem.Name = "보낸쪽지ToolStripMenuItem";
             this.보낸쪽지ToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
             this.보낸쪽지ToolStripMenuItem.Text = "보낸 쪽지";
-            this.보낸쪽지ToolStripMenuItem.Click += new System.EventHandler(this.보낸쪽지ToolStripMenuItem_Click);
             // 
             // 전체쪽지ToolStripMenuItem
             // 
@@ -141,6 +141,7 @@
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "삭제";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnRead
             // 
@@ -241,6 +242,45 @@
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "보낸사람";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(185, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "제목";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(359, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "내용";
+            // 
+            // pictureBoxRegistrantSearch
+            // 
+            this.pictureBoxRegistrantSearch.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRegistrantSearch.Image")));
+            this.pictureBoxRegistrantSearch.Location = new System.Drawing.Point(452, 52);
+            this.pictureBoxRegistrantSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxRegistrantSearch.Name = "pictureBoxRegistrantSearch";
+            this.pictureBoxRegistrantSearch.Size = new System.Drawing.Size(34, 20);
+            this.pictureBoxRegistrantSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxRegistrantSearch.TabIndex = 8;
+            this.pictureBoxRegistrantSearch.TabStop = false;
+            this.pictureBoxRegistrantSearch.Click += new System.EventHandler(this.pictureBoxRegistrantSearch_Click);
+            // 
             // MessageBoxForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -251,9 +291,8 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.pictureBoxRegistrantSearch);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textsearch);
+            this.Controls.Add(this.titlesearch);
             this.Controls.Add(this.Fromsearch);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -270,10 +309,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox Fromsearch;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.PictureBox pictureBoxRegistrantSearch;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 받은쪽지ToolStripMenuItem;
@@ -288,5 +323,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox Fromsearch;
+        public System.Windows.Forms.TextBox titlesearch;
+        public System.Windows.Forms.TextBox textsearch;
     }
 }

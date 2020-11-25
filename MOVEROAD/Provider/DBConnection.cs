@@ -83,10 +83,11 @@ namespace MOVEROAD
                     taskClassInfo.Columns.Add("Name", typeof(string));    //이름
                     taskClassInfo.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
                     taskClassInfo.Columns.Add("Level", typeof(int));          //대분류 = 1 중분류 = 2 소분류 = 3
+                    taskClassInfo.Columns.Add("DepartID", typeof(int));
 
                     while (rdr.Read())
                     {
-                        taskClassInfo.Rows.Add((int)rdr["id"], (string)rdr["name"], (int)rdr["parent_id"], (int)rdr["level"]);
+                        taskClassInfo.Rows.Add((int)rdr["id"], (string)rdr["name"], (int)rdr["parent_id"], (int)rdr["level"], (int)rdr["depart_id"]);                        
                     }
                     thing = taskClassInfo;
                     break;
@@ -97,7 +98,7 @@ namespace MOVEROAD
                     List<Message> messages = new List<Message>();
                     while (rdr.Read())
                     {
-                        messages.Add(new Message((string)rdr["mfrom"], (string)rdr["mto"], (string)rdr["title"], (string)rdr["text"],(int)rdr["id"], (DateTime)rdr["date"], (int)rdr["reads"]));
+                        messages.Add(new Message((string)rdr["mfrom"], (string)rdr["mto"], (string)rdr["title"], (string)rdr["text"], (int)rdr["id"], (DateTime)rdr["date"], (int)rdr["reads"]));
                     }
                     thing = messages;
                     break;
