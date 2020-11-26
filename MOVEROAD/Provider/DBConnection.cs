@@ -15,7 +15,7 @@ namespace MOVEROAD
     {
         private string dbip = "220.122.52.172";
         private string dbname = "project";
-`        private string dbpass = "road";
+        private string dbpass = "road";
         private string dbid = "move";
         private static DBConnetion instance_ = new DBConnetion();
 

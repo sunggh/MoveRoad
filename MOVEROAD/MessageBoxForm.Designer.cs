@@ -64,33 +64,24 @@
             // 
             // titlesearch
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.Location = new System.Drawing.Point(149, 48);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 24);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "받은 사람";
+            this.titlesearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.titlesearch.Location = new System.Drawing.Point(149, 48);
+            this.titlesearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.titlesearch.Name = "textBox2";
+            this.titlesearch.Size = new System.Drawing.Size(121, 24);
+            this.titlesearch.TabIndex = 2;
+            this.titlesearch.Text = "받은 사람";
             // 
             // textsearch
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox3.Location = new System.Drawing.Point(275, 48);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(177, 24);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "제목";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox4.Location = new System.Drawing.Point(458, 48);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(177, 24);
-            this.textBox4.TabIndex = 4;
-            this.textBox4.Text = "내용";
+            this.textsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textsearch.Location = new System.Drawing.Point(275, 48);
+            this.textsearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textsearch.Name = "textBox3";
+            this.textsearch.Size = new System.Drawing.Size(177, 24);
+            this.textsearch.TabIndex = 3;
+            this.textsearch.Text = "제목";
+
             // 
             // menuStrip1
             // 
