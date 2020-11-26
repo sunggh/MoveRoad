@@ -49,7 +49,7 @@ namespace MOVEROAD
             importDepartmentInfo();
             try 
             {
-            clientSocket.Connect("220.122.52.172", 80);//220.122.52.172
+            clientSocket.Connect("127.0.0.1", 80);//220.122.52.172
             stream = clientSocket.GetStream();
             message = "1|"+me.index;
             byte[] buffer = Encoding.Unicode.GetBytes(message);
@@ -109,7 +109,7 @@ namespace MOVEROAD
                     user = (UserInfo)DBConnetion.getInstance().Select(sql, 0);
                     onlines.Add(user_id,user);
                     break;
-                case 2: // 로그아웃 (1|유저아이디)
+                case 2: // 로그아웃 (2|유저아이디)
                     user_id = int.Parse(str[1]);
                     onlines.Remove(user_id);
                     break;
@@ -129,6 +129,11 @@ namespace MOVEROAD
                     to_id = int.Parse(str[2]);
                     msg = str[3];
                     string mss="";
+                    if (!room.ContainsKey(room_id))
+                    {
+                        room.Add(room_id, to_id);
+                        room_msg.Add(onlines[to_id], new List<string>());
+                    }
                     mss = onlines[room[room_id]].name + "|" + msg;
                     room_msg[onlines[to_id]].Add(mss);
                     if(ms.nameBOX.Text == onlines[to_id].name)
@@ -246,10 +251,6 @@ namespace MOVEROAD
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -292,7 +293,6 @@ namespace MOVEROAD
             MessageBoxForm message = new MessageBoxForm(this);
             message.TopLevel = false;
             message.Show();
-           // message.Text = "show";
             lastPanel = message;
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(message);

@@ -44,25 +44,24 @@ namespace MOVEROAD
         {
             if (e.KeyCode == Keys.Enter)
             {
+                flowLayoutPanel1.Controls.Clear();
                 if (nameBOX.Text == "")
                 {
-                    flowLayoutPanel1.Controls.Clear();
                     return;
                 }
-                if (to_user == null)
-                {
-                    flowLayoutPanel1.Controls.Clear();
-                }
+                int check = 0;
                 foreach (var user in main.onlines.Values)
                 {
                     if(user.name == nameBOX.Text)
                     {
                         to_user = user;
+                        check = 1;
                     }
                 }
-                if(to_user == null)
+                if(check ==0)
                 {
                     MessageBox.Show("해당 인원은 오프라인입니다.");
+                    to_user = null;
                     return;
                 }
                 if(!main.room_msg.ContainsKey(to_user))
@@ -119,7 +118,13 @@ namespace MOVEROAD
             {
                 if (to_user == null)
                 {
-                    MessageBox.Show("상대방부터 찾아.");
+                    MessageBox.Show("상대방이 오프라인입니다.");
+                    text.Text = "";
+                    return;
+                }
+                if (!main.onlines.ContainsKey(to_user.index))
+                {
+                    MessageBox.Show("상대방이 오프라인입니다.");
                     text.Text = "";
                     return;
                 }
