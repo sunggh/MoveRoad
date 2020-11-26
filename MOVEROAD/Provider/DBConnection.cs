@@ -13,7 +13,7 @@ namespace MOVEROAD
 {
     public class DBConnetion
     {
-        private string dbip = "220.122.52.172 ";
+        private string dbip = "220.122.52.172";
         private string dbname = "project";
         private string dbpass = "road";
         private string dbid = "move";
@@ -39,6 +39,7 @@ namespace MOVEROAD
                 MessageBox.Show("DB서버 연결오류");
                 return null;
             }
+
         }
 
         public object Select(string sql, int token)

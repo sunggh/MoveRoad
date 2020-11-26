@@ -29,7 +29,6 @@ namespace MOVEROAD
         private void login_button_Click(object sender, EventArgs e)
         {
             string sql = "SELECT * FROM user where id = '" + Loginid.Text + "' and password = '" +LoginPass.Text+"'";
-
             UserInfo me = (UserInfo)DBConnetion.getInstance().Select(sql, 0);
             if (me != null)
             {

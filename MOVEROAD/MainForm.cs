@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
@@ -20,8 +21,14 @@ namespace MOVEROAD
         public Form lastPanel;
         public List<DepartmentInfo> departments = new List<DepartmentInfo>();
         private BackgroundWorker backgroundWorker;
+        private static Messenger ms;
         public int messagecheck = 0;
-
+        TcpClient clientSocket = new TcpClient();
+        public NetworkStream stream = default(NetworkStream);
+        string message = string.Empty;
+        public Dictionary<int,UserInfo> onlines = new Dictionary<int,UserInfo>();
+        public Dictionary<int, int> room = new Dictionary<int, int>();
+        public Dictionary<UserInfo, List<string>> room_msg = new Dictionary<UserInfo, List<string>>();
         public MainForm(UserInfo me)
         {
             this.me = me;
@@ -31,13 +38,123 @@ namespace MOVEROAD
             dashBoard.Show();
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(dashBoard);
+            ms = new Messenger(this);
+            ms.TopLevel = false;
+            ms.Hide();
             lastPanel = dashBoard;
             backgroundWorker = new BackgroundWorker();
             backgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorkerDoWork);
             backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerRunWorkerCompleted);
             backgroundWorker.RunWorkerAsync();
             importDepartmentInfo();
+            try 
+            {
+            clientSocket.Connect("220.122.52.172", 80);//220.122.52.172
+            stream = clientSocket.GetStream();
+            message = "1|"+me.index;
+            byte[] buffer = Encoding.Unicode.GetBytes(message);
+            stream.Write(buffer, 0, buffer.Length);
+            stream.Flush();
+            Thread t_handler = new Thread(GetMessage);
+            t_handler.IsBackground = true;
+            t_handler.Start();
+            }
+            catch (Exception e2)
+            {
+                MessageBox.Show("채팅서버가 오프라인입니다.");
+            } 
         }
+        private void GetMessage()
+        {
+            message = "1|" + me.index;
+            byte[] buffers = Encoding.Unicode.GetBytes(message);
+            stream.Write(buffers, 0, buffers.Length);
+            stream.Flush();
+            while (true)
+            {
+                stream = clientSocket.GetStream();
+                int BUFFERSIZE = clientSocket.ReceiveBufferSize;
+                byte[] buffer = new byte[BUFFERSIZE];
+                int bytes = stream.Read(buffer, 0, buffer.Length);
+                string message = Encoding.Unicode.GetString(buffer, 0, bytes);
+                chathandler(message);
+            }
+        }
+        public int room_id;
+        private void chathandler(string message)
+        {
+            string[] str = message.Split(new string[] { "|" }, StringSplitOptions.None);
+            int opcode = int.Parse(str[0]);
+            
+            int user_id;
+            int to_id;
+            UserInfo user;
+            string msg;
+            string sql;
+            switch (opcode)
+            {
+                case 0: // 기존에 있던 유저 등록
+                    int count = int.Parse(str[1]);
+                    for(int i = 2; i<count+2; i++)
+                    {
+                        user_id = int.Parse(str[i]);
+                        sql = "SELECT * FROM user where `index` = '" + user_id + "'";
+                        user = (UserInfo)DBConnetion.getInstance().Select(sql, 0);
+                        onlines.Add(user_id, user);
+                    }
+                    break;
+                case 1: // 접속 (1|유저아이디)
+                    user_id = int.Parse(str[1]);
+                    sql = "SELECT * FROM user where `index` = '"+ user_id + "'";
+                    user = (UserInfo)DBConnetion.getInstance().Select(sql, 0);
+                    onlines.Add(user_id,user);
+                    break;
+                case 2: // 로그아웃 (1|유저아이디)
+                    user_id = int.Parse(str[1]);
+                    onlines.Remove(user_id);
+                    break;
+                case 3:
+                    room_id = int.Parse(str[1]);
+                    to_id = int.Parse(str[2]);
+                    if (room.ContainsKey(room_id))
+                    {
+                        break;
+                    }
+                    room.Add(room_id, to_id);
+                    ms.to_user = onlines[to_id];
+                    room_msg.Add(onlines[to_id], new List<string>());
+                    break;
+                case 4:
+                    room_id = int.Parse(str[1]);
+                    to_id = int.Parse(str[2]);
+                    msg = str[3];
+                    string mss="";
+                    mss = onlines[room[room_id]].name + "|" + msg;
+                    room_msg[onlines[to_id]].Add(mss);
+                    if(ms.nameBOX.Text == onlines[to_id].name)
+                    DisplayText(mss);
+                    break;
+            }
+        }
+
+        public void DisplayText(string text)
+        {
+            if (ms.flowLayoutPanel1.InvokeRequired)
+            {
+                ms.flowLayoutPanel1.BeginInvoke(new MethodInvoker(delegate
+                {
+                    ms.addchat(text);
+                }));
+            }
+            else
+            {
+                ms.flowLayoutPanel1.BeginInvoke(new MethodInvoker(delegate
+                {
+                    ms.addchat(text);
+                }));
+            }
+        }
+
         private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
         {
             string sql = "SELECT `reads` FROM `message` where `mto` = '" + this.me.name + "' AND `reads` = '0'";
@@ -161,10 +278,13 @@ namespace MOVEROAD
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(SF);
         }
-
+        
         private void button5_Click(object sender, EventArgs e)
         {
-            //test;
+           
+            ms.Show();
+            this.MainPanel.Controls.Clear();
+            this.MainPanel.Controls.Add(ms);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -172,6 +292,7 @@ namespace MOVEROAD
             MessageBoxForm message = new MessageBoxForm(this);
             message.TopLevel = false;
             message.Show();
+           // message.Text = "show";
             lastPanel = message;
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(message);
