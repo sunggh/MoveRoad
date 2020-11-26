@@ -185,11 +185,10 @@ namespace MOVEROAD
             string a = dt.ToString("yyyy-MM");
 
             // 출근부를 조회 현재 년-월을 like문으로 설정하여 년-월 별로 출근부를 조회 할수 있음 
-            DataTable tb = DBConnetion.getInstance().getDBTable("SELECT DATE_FORMAT(date, '%d') AS 일, name AS 사용자이름,startTime AS 출근시간 ,finishTime AS 퇴근시간, workTime AS 근무시간"
-                       + " FROM attendance_card join user on attendance_card.id = user.id Where user.id='" + main.me.id + "' and date like '" + a + "%' ");
+            string query = "SELECT DATE_FORMAT(date, '%d') AS 일, name AS 사용자이름,startTime AS 출근시간 ,finishTime AS 퇴근시간, workTime AS 근무시간"
+                       + " FROM attendance_card join user on attendance_card.id = user.id Where user.id='" + main.me.id + "' and date like '" + a + "%' ";
+            object tb = DBConnetion.getInstance().Select(query, 70);
             dataGridView1.DataSource = tb;
         }
-
-        
     }
 }

@@ -31,5 +31,10 @@ namespace MOVEROAD
                 }
             }
         }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            //급여 데이터 그리드뷰 새로고침
+        }
     }
 }

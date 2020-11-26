@@ -316,8 +316,6 @@
             // comboBoxEditDepart
             // 
             this.comboBoxEditDepart.FormattingEnabled = true;
-            this.comboBoxEditDepart.Items.AddRange(new object[] {
-            "-"});
             this.comboBoxEditDepart.Location = new System.Drawing.Point(190, 29);
             this.comboBoxEditDepart.Name = "comboBoxEditDepart";
             this.comboBoxEditDepart.Size = new System.Drawing.Size(100, 20);
