@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageToMe = new System.Windows.Forms.TabPage();
+            this.textBoxDetail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridViewSignList = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabControlSign.SuspendLayout();
             this.tabPageNewInsert.SuspendLayout();
             this.tabPageToMe.SuspendLayout();
@@ -202,6 +204,8 @@
             // 
             // tabPageToMe
             // 
+            this.tabPageToMe.Controls.Add(this.label11);
+            this.tabPageToMe.Controls.Add(this.textBoxDetail);
             this.tabPageToMe.Controls.Add(this.label9);
             this.tabPageToMe.Controls.Add(this.label7);
             this.tabPageToMe.Controls.Add(this.label6);
@@ -218,10 +222,19 @@
             this.tabPageToMe.Text = "결재 요청 내역";
             this.tabPageToMe.UseVisualStyleBackColor = true;
             // 
+            // textBoxDetail
+            // 
+            this.textBoxDetail.Location = new System.Drawing.Point(637, 25);
+            this.textBoxDetail.Multiline = true;
+            this.textBoxDetail.Name = "textBoxDetail";
+            this.textBoxDetail.ReadOnly = true;
+            this.textBoxDetail.Size = new System.Drawing.Size(174, 267);
+            this.textBoxDetail.TabIndex = 6;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 22);
+            this.label9.Location = new System.Drawing.Point(6, 8);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 15);
             this.label9.TabIndex = 5;
@@ -230,7 +243,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(55, 331);
+            this.label7.Location = new System.Drawing.Point(14, 331);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 15);
             this.label7.TabIndex = 4;
@@ -245,16 +258,16 @@
             // 
             // textBoxMemo
             // 
-            this.textBoxMemo.Location = new System.Drawing.Point(107, 309);
+            this.textBoxMemo.Location = new System.Drawing.Point(66, 309);
             this.textBoxMemo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxMemo.Multiline = true;
             this.textBoxMemo.Name = "textBoxMemo";
-            this.textBoxMemo.Size = new System.Drawing.Size(622, 62);
+            this.textBoxMemo.Size = new System.Drawing.Size(745, 62);
             this.textBoxMemo.TabIndex = 3;
             // 
             // buttonTurn
             // 
-            this.buttonTurn.Location = new System.Drawing.Point(425, 392);
+            this.buttonTurn.Location = new System.Drawing.Point(436, 393);
             this.buttonTurn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTurn.Name = "buttonTurn";
             this.buttonTurn.Size = new System.Drawing.Size(214, 48);
@@ -265,7 +278,7 @@
             // 
             // buttonSign
             // 
-            this.buttonSign.Location = new System.Drawing.Point(162, 392);
+            this.buttonSign.Location = new System.Drawing.Point(173, 393);
             this.buttonSign.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSign.Name = "buttonSign";
             this.buttonSign.Size = new System.Drawing.Size(214, 48);
@@ -276,16 +289,18 @@
             // 
             // dataGridViewRequest
             // 
+            this.dataGridViewRequest.AllowUserToAddRows = false;
             this.dataGridViewRequest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRequest.Location = new System.Drawing.Point(17, 39);
+            this.dataGridViewRequest.Location = new System.Drawing.Point(6, 25);
             this.dataGridViewRequest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewRequest.Name = "dataGridViewRequest";
             this.dataGridViewRequest.RowHeadersWidth = 51;
             this.dataGridViewRequest.RowTemplate.Height = 27;
             this.dataGridViewRequest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRequest.Size = new System.Drawing.Size(777, 253);
+            this.dataGridViewRequest.Size = new System.Drawing.Size(624, 267);
             this.dataGridViewRequest.TabIndex = 0;
+            this.dataGridViewRequest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRequest_CellClick);
             // 
             // tabPageFromMe
             // 
@@ -313,6 +328,7 @@
             // 
             // dataGridViewSignTurnList
             // 
+            this.dataGridViewSignTurnList.AllowUserToAddRows = false;
             this.dataGridViewSignTurnList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewSignTurnList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSignTurnList.Location = new System.Drawing.Point(9, 229);
@@ -343,6 +359,7 @@
             // 
             // dataGridViewSignList
             // 
+            this.dataGridViewSignList.AllowUserToAddRows = false;
             this.dataGridViewSignList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewSignList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSignList.Location = new System.Drawing.Point(6, 25);
@@ -353,6 +370,15 @@
             this.dataGridViewSignList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSignList.Size = new System.Drawing.Size(805, 177);
             this.dataGridViewSignList.TabIndex = 0;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(634, 7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(102, 15);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "내용 상세보기";
             // 
             // SignForm
             // 
@@ -407,5 +433,7 @@
         private System.Windows.Forms.TextBox textBoxSignTurnMemo;
         private System.Windows.Forms.DataGridView dataGridViewSignTurnList;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxDetail;
+        private System.Windows.Forms.Label label11;
     }
 }

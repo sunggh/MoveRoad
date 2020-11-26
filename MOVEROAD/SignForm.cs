@@ -106,7 +106,7 @@ namespace MOVEROAD
             }
         }
 
-        private void buttonSign_Click(object sender, EventArgs e) //결재하기 (시간기록 미완)
+        private void buttonSign_Click(object sender, EventArgs e) //결재하기
         {
             int rowIndex = dataGridViewRequest.CurrentRow.Index;
 
@@ -129,7 +129,12 @@ namespace MOVEROAD
                 DBConnetion.getInstance().Update(sql);
             }
 
-            MessageBox.Show("00시 00분에 결재되었습니다.", "확인");
+            string datetime = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
+
+            string query = "INSERT INTO sign_ok(sign_ok.num, date) VALUES('" + cnt + "', '" + datetime + "')";
+            DBConnetion.getInstance().Insert(query);
+
+            MessageBox.Show(datetime + "에 결재되었습니다.", "확인");
         }
 
         private void buttonTurn_Click(object sender, EventArgs e) //반려하기
@@ -162,6 +167,19 @@ namespace MOVEROAD
             string sql = "SELECT memo FROM sign_turn WHERE sign_turn.index = '" + cnt + "'";
 
             textBoxSignTurnMemo.Text = (string)DBConnetion.getInstance().Select(sql, 7);
+        }
+
+        //결재 내용 상세보기
+        private void dataGridViewRequest_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = dataGridViewRequest.CurrentRow.Index;
+
+            string cnt_ = dataGridViewRequest.Rows[rowIndex].Cells[0].Value.ToString();
+            int cnt = Convert.ToInt32(cnt_.ToString());
+
+            string sql = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
+
+            textBoxDetail.Text = (string)DBConnetion.getInstance().Select(sql, 9);
         }
     }
 }

@@ -88,6 +88,11 @@ namespace MOVEROAD
                         MessageBox.Show("반려 내역이 없습니다.", "확인");
                     }
                     break;
+                case 9:
+                    rdr.Read();
+                    String text = ((string)rdr["text"]);
+                    thing = text;
+                    break;
             }
             rdr.Close();
             conn.Close();
