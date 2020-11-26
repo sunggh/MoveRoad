@@ -46,6 +46,12 @@ namespace MOVEROAD
 
         private void AddNewcomer()
         {
+            if(comboBoxDepart.SelectedIndex == 0)
+            {
+                MessageBox.Show("미지정 부서는 등록할 수 없습니다.", "등록 오류");
+                return;
+            }
+
             // 현재 입력된 정보들을 DB에 추가하는 함수
             // TABLE, COLUMN은 ` ` VALUES는 ' ' 주의
             // INSERT INTO `TABLE`(`column`, `column`, ...) VALUES ('string', 숫자, ...);
@@ -70,7 +76,7 @@ namespace MOVEROAD
                 "CASE user.grade WHEN 0 THEN '사장' WHEN 1 THEN '부서장' WHEN 2 THEN '사원' END AS '직위', user.name AS '이름', user.age AS '나이', " +
                 "CASE user.gender WHEN 0 THEN '남자' WHEN 1 THEN '여자' END AS '성별', user.phone AS 'H.P', user.address AS '주소' " +
                 "FROM project.user, project.department WHERE user.depart = department.id";
-            DataTable table = DBConnetion.getInstance().getDBTable(query);
+            object table = DBConnetion.getInstance().Select(query, 70);
 
   
             dataGridView1.DataSource = table;
@@ -112,11 +118,6 @@ namespace MOVEROAD
             {
                 textBoxPhone.Text = "";
             } 
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

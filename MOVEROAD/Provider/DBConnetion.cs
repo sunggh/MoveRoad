@@ -105,6 +105,11 @@ namespace MOVEROAD
                     rdr.Read();
                     thing = (int)rdr["id"];
                     break;
+                case 70: //데이터 그리드뷰로 사원 불러오기
+                    DataTable table = new DataTable();
+
+                    table.Load(rdr);
+                    return table;
                 case 86://퇴근-현재시간 초로 가져오기
                     rdr.Read();
                     string get_sectime = string.Format("{0}", rdr["sectime"]);
@@ -221,22 +226,6 @@ namespace MOVEROAD
             conn.Close();
             return list;
         }
-    
-
-        public DataTable getDBTable(string sql) // 사원정보 데이터 그리드뷰에 넣는거
-        {
-            using(MySqlConnection conn = getDBConnetion())
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                DataTable table = new DataTable();
-                
-                table.Load(rdr);
-                return table;
-            }
-        }
-     
 
         public void Update(string sql)
         {
