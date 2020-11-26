@@ -23,15 +23,15 @@ namespace MOVEROAD
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             string query = "";
-            string ID = main.me.id;
+            string ID = main.me.id; // 현재 접속중인 아이디
             string date = dateTimePicker1.Value.ToShortDateString();
             int select = comboBoxSelect.SelectedIndex;
             int time = Convert.ToInt32(textBoxTime.Text);
             int userIndex = Convert.ToInt32(main.me.index);
 
             // 로그인한 사용자가 출근기록이 있는지 확인
-            query = "SELECT salary.date FROM project.salary " +
-                "WHERE salary.index = '" + ID + "' AND " + date;
+            query = "SELECT * FROM project.attendance_card " +
+                "WHERE attendance_card.date = '" + date + "'";
             object check = DBConnetion.getInstance().Select(query, 8);
 
             if (check.Equals(1)) // 출근한 기록이 있을때
