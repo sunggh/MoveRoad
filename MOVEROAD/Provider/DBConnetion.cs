@@ -111,8 +111,11 @@ namespace MOVEROAD
                     table.Load(rdr);
                     return table;
                 case 86://퇴근-현재시간 초로 가져오기
-                    rdr.Read();
-                    string get_sectime = string.Format("{0}", rdr["sectime"]);
+                    string get_sectime = "";
+                    while (rdr.Read())
+                    {
+                        get_sectime = string.Format("{0}", rdr["sectime"]);
+                    }
                     thing = get_sectime;
                     break;
                 case 87:

@@ -35,10 +35,19 @@ namespace MOVEROAD
             object start = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
                 "WHERE id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 5);  // 출근버튼을 클릭하였는지 확인
 
+            //현재 접속중인 유저의 index값 가져오기
+            UserInfo user;
+            string get_index = "select * from `user` where `id` = '" + ID + "'";
+            user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
+
             if ((string)start == null)   // 출근버튼을 누르지 않았더라면
             {
                 DBConnetion.getInstance().Insert("INSERT INTO attendance_card (id, date, startTime)" +
                         "VALUES('" + ID + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "','" + DateTime.Now.ToString("HH:mm") + "')");
+
+                //출근 시 salary 테이블에 기본값 배치
+                string insert_base = "insert into salary(`index`,`date`) values ('" + user.index + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "')";
+                DBConnetion.getInstance().Insert(insert_base);
 
                 MessageBox.Show("현재시각" + DateTime.Now.ToString("HH시 mm분") + "출근 완료");
             }
@@ -101,6 +110,7 @@ namespace MOVEROAD
             user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
             // user.index로 쓰기
 
+            /*
             #region 10시간 이상 근무 일 때
             //퇴근-출근 시간 초로 변환
             string sec_query = "select TIME_TO_SEC(timediff(`finishTime`,`startTime`)) as `sectime` " +
@@ -116,7 +126,9 @@ namespace MOVEROAD
             }
 
             #endregion
+            */
 
+            /* 이 부분 예외처리 오류 테스트 중
             #region 오후 10시 이후 야간 근무 일 때
             // 만약 오후 10시 이후이면 10시부터 출근시간까지 빼기
             string up_night = "SELECT TIME_TO_SEC(timediff('22:00',`startTime`)) as `sectime` " +
@@ -129,7 +141,7 @@ namespace MOVEROAD
             string insert_basicpay2 = "insert into salary(`index`,`date`,`basicpay`) values ('" + user.index + "','" + today + "','" + nighttime_pay + "')";
             DBConnetion.getInstance().Insert(insert_basicpay2);
             #endregion
-
+            */
 
 
         }
