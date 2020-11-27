@@ -116,24 +116,34 @@ namespace MOVEROAD
             int dayofweek = Convert.ToInt32((string)DBConnetion.getInstance().Select(get_dayofweek, 85));
             #endregion
 
-            if (dayofweek != 1 || dayofweek != 7){ //일요일=1, 토요일=7이 아닌경우
-            /*
-            #region 10시간 이상 근무 일 때
-            //퇴근-출근 시간 초로 변환
-            string sec_query = "select TIME_TO_SEC(timediff(`finishTime`,`startTime`)) as `sectime` " +
-                "from `attendance_card` " +
-                "where `id` = '"+ID+"' and `date` = '" + today+"'";
-            int get_overtime_sec = Convert.ToInt32((string)DBConnetion.getInstance().Select(sec_query, 86));
+            if (dayofweek != 1 || dayofweek != 7) { //일요일=1, 토요일=7이 아닌경우
 
-            // 36000초 이상이면 10시간 이상 근무한 거
-            if (get_overtime_sec > 36000)
-            {
-                string insert_basicpay = "insert into salary(`index`,`date`,`basicpay`) values ('"+user.index+"','"+today+"','" + 100000 + "')";
-                DBConnetion.getInstance().Insert(insert_basicpay);
-            }
+                // 비교를 위해 퇴근일 가져오기
+                string get_sf_date = "select finishTime from attendance_card where startTime = '" + today + "'";
+                string finishtime = (string)DBConnetion.getInstance().Select(get_sf_date, 89);
 
-            #endregion
-            */
+                // 출근일과 퇴근일이 다르다면 야간근무임, 그리고 퇴근일이 같아도 22시 이상이면 야간근무
+                if (!today.Equals(finishtime))
+                {
+                    // 야간근무임
+                }
+
+                #region 10시간 이상 근무 일 때
+                //퇴근-출근 시간 초로 변환
+                string sec_query = "select TIME_TO_SEC(timediff(`finishTime`,`startTime`)) as `sectime` " +
+                    "from `attendance_card` " +
+                    "where `id` = '" + ID + "' and `date` = '" + today + "'";
+                int get_overtime_sec = Convert.ToInt32((string)DBConnetion.getInstance().Select(sec_query, 86));
+
+                // 36000초 이상이면 10시간 이상 근무한 거
+                if (get_overtime_sec > 36000)
+                {
+                    string insert_basicpay = "insert into salary(`index`,`date`,`basicpay`) values ('" + user.index + "','" + today + "','" + 100000 + "')";
+                    DBConnetion.getInstance().Insert(insert_basicpay);
+                }
+
+                #endregion
+                
 
                 /* 이 부분 예외처리 오류 테스트 중
                 #region 오후 10시 이후 야간 근무 일 때

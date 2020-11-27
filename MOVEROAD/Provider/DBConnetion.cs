@@ -133,6 +133,10 @@ namespace MOVEROAD
                         department_ = new DepartmentInfo((int)rdr["id"], (string)rdr["name"], (int)rdr["manager"]);
                     }
                     return department_;
+                case 89:
+                    rdr.Read();
+                    thing = string.Format("{0}", rdr["finishTime"]);
+                    break;
             }
             rdr.Close();
             conn.Close();
