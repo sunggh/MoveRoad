@@ -71,17 +71,18 @@ namespace MOVEROAD
 
 
             object start = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date='" + DateTime.Now.ToString("yyyy-MM-dd") + "' ", 5); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
+                "WHERE id='" + ID + "' and date!= 'null' and finishTime ='\"' ", 5); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
 
             object finish = DBConnetion.getInstance().Select("SELECT finishTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date='" + DateTime.Now.ToString("yyyy-MM-dd") + "' ", 6); // 퇴근을 눌렀는지 확인
+                "WHERE id='" + ID + "' and date!= 'null' and finishTime = '\"' ", 6); // 퇴근을 눌렀는지 확인
 
-
+            MessageBox.Show((string)start);
+            MessageBox.Show((string)finish);
 
             if ((string)start != null && (string)finish == "\"") // 출근을 누르고 퇴근을 누르지 않았을때 (정상적인 상황)
             {// 만약 출근을 눌렀다면 정상적으로 종료시간 업데이트 종료시간 업데이트시 당일날만 업데이트 하기위해 like문으로 date의 값을 당일날이라는 조건으로 걸어둔다
-                DBConnetion.getInstance().Update("UPDATE attendance_card SET finishTime ='" + DateTime.Now.ToString("HH:mm") + "' " +
-                    "WHERE id='" + ID + "' and startTime != 'null' and  finishTime = '\"' and date like '%" + today + "%'");
+                DBConnetion.getInstance().Update("UPDATE attendance_card SET date2='" + DateTime.Now.ToString("yyyy-MM-dd") + "' , finishTime ='" + DateTime.Now.ToString("HH:mm") + "' " +
+                     "WHERE id='" + ID + "' and startTime != 'null' and  finishTime = '\"' ");
 
                 MessageBox.Show("현재시각" + DateTime.Now.ToString("HH:mm") + "퇴근 완료");
                 workTime(); // 퇴근과 동시에 업무시간 업데이트
@@ -204,7 +205,7 @@ namespace MOVEROAD
             string a = dt.ToString("yyyy-MM");
 
             // 출근부를 조회 현재 년-월을 like문으로 설정하여 년-월 별로 출근부를 조회 할수 있음 
-            string query = "SELECT DATE_FORMAT(date, '%d') AS 일, name AS 사용자이름,startTime AS 출근시간 ,finishTime AS 퇴근시간, workTime AS 근무시간"
+            string query = "SELECT DATE_FORMAT(date, '%d') AS 출근일, name AS 사용자이름,startTime AS 출근시간 ,DATE_FORMAT(date2, '%d') AS 퇴근일,finishTime AS 퇴근시간, workTime AS 근무시간"
                        + " FROM attendance_card join user on attendance_card.id = user.id Where user.id='" + main.me.id + "' and date like '" + a + "%' ";
             object tb = DBConnetion.getInstance().Select(query, 70);
             dataGridView1.DataSource = tb;
