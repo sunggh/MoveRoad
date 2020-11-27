@@ -110,6 +110,10 @@ namespace MOVEROAD
 
                     table.Load(rdr);
                     return table;
+                case 85: //주말인지 아닌지 알아내기
+                    rdr.Read();
+                    thing = string.Format("{0}", rdr["dayofweek"]);
+                    break;
                 case 86://퇴근-현재시간 초로 가져오기
                     string get_sectime = "";
                     while (rdr.Read())
