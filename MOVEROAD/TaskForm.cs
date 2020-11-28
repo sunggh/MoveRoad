@@ -297,7 +297,7 @@ namespace MOVEROAD
             subClass.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
             subClass.Columns.Add("Name", typeof(string));    //이름
             subClass.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
-
+            
             for (int i = 0; i < taskClass.Rows.Count; i++)
             {
                 DataRow row = taskClass.Rows[i];
@@ -314,14 +314,27 @@ namespace MOVEROAD
                 {
                     subClass.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
 
-                }                
+                }
+                Console.WriteLine((int)row["ID"] + (string)row["Name"] + (int)row["ParentID"]);
             }
         }
         private void comboBoxDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
             classflag = 1;
-            int departID = comboBoxDepartment.SelectedIndex + 2;    //index는 0부터 시작 & 부서 제외
-            setMiddleCbItem(departID);
+            //int departID = comboBoxDepartment.SelectedIndex + 2;    //index는 0부터 시작 & 부서 제외
+            //setMiddleCbItem(departID);
+            string depart = comboBoxDepartment.SelectedItem as string;
+            try
+            {
+                DataRow[] rows = department.Select("Name = '" + depart + "'");
+                int departID = Convert.ToInt32(rows[0]["ID"]);
+                setMiddleCbItem(departID);
+
+            }
+            catch (EvaluateException ee)
+            {
+                Console.WriteLine("오류 : " + ee);
+            }
         }
         private void comboBoxMiddleClass_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -331,8 +344,8 @@ namespace MOVEROAD
                 string middleclass =  comboBoxMiddleClass.SelectedItem as string;
                 try
                 {
-                    DataRow[] rows = middleClass.Select("Name =" + middleclass);
-                    int middleID = Convert.ToInt32(rows[0]["id"]);
+                    DataRow[] rows = middleClass.Select("Name = '" + middleclass + "'");
+                    int middleID = Convert.ToInt32(rows[0]["ID"]);
                     setSubCbItem(middleID);
 
                 }
@@ -348,8 +361,15 @@ namespace MOVEROAD
             {
                 classflag = 3;
                 string subclass = comboBoxSubClass.SelectedItem as string;
-                DataRow[] rows = subClass.Select("Name =" + subclass);
-                int subID = Convert.ToInt32(rows[0]["id"]);
+                try
+                {
+                    DataRow[] rows = subClass.Select("Name = '" + subclass + "'");
+                    int subID = Convert.ToInt32(rows[0]["id"]);
+                }
+                catch (EvaluateException ee)
+                {
+                    Console.WriteLine("오류 : " + ee);
+                }
             }
         }
 
@@ -379,7 +399,7 @@ namespace MOVEROAD
             if (classflag == 2)
             {
                 comboBoxSubClass.Items.Clear();
-                for (int i = 0; i < taskClass.Rows.Count; i++)
+                for (int i = 0; i < subClass.Rows.Count; i++)
                 {
                     int pid = Convert.ToInt32(subClass.Rows[i]["ParentID"]);
                     if (pid == middleID)
