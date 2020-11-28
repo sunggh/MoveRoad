@@ -14,10 +14,14 @@ namespace MOVEROAD
     public partial class TaskForm : Form
     {
         MainForm main;
+        UserInfo me;
         private string nodeKey; //업무 마스터에서 클릭된 노드(업무)의 이름
         TreeNode SelectedNode;  //업무 마스터에서 선택된 노드
         DataTable taskClass;    //select에서 datatable 받아온 것
         TaskClassInfo TaskClassInfo;    //id | name | parent_id | level | dapartment_id
+        int subID;
+        string startTime;
+        string finishTime;
 
         //대분류 -> 중분류 -> 소분류 dataTable
         DataTable department = new DataTable();
@@ -26,15 +30,18 @@ namespace MOVEROAD
 
         List<DepartmentInfo> departmentInfos = new List<DepartmentInfo>();   //부서들 저장해 두는 리스트
 
-        public TaskForm(MainForm main)
+        public TaskForm(MainForm main, UserInfo me)
         {
             InitializeComponent();
             this.main = main;
+            this.me = me;
 
             CreateTree();
 
             CreateClassficationTable();
             setDepartmentCbItem();
+
+            initDateTimepicker();
         }
         #region 업무마스터관리
         private void CreateTree()
@@ -315,7 +322,7 @@ namespace MOVEROAD
                     subClass.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
 
                 }
-                Console.WriteLine((int)row["ID"] + (string)row["Name"] + (int)row["ParentID"]);
+                //Console.WriteLine((int)row["ID"] + (string)row["Name"] + (int)row["ParentID"]);
             }
         }
         private void comboBoxDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -364,7 +371,7 @@ namespace MOVEROAD
                 try
                 {
                     DataRow[] rows = subClass.Select("Name = '" + subclass + "'");
-                    int subID = Convert.ToInt32(rows[0]["id"]);
+                    subID = Convert.ToInt32(rows[0]["ID"]);
                 }
                 catch (EvaluateException ee)
                 {
@@ -406,6 +413,68 @@ namespace MOVEROAD
                         comboBoxSubClass.Items.Add(subClass.Rows[i]["Name"].ToString());
                 }
             }
+        }
+        //endTime - startTime = 0 이하일 경우 등록 안되게하고
+        //디비에서 업무시간이 겹치는게 있을 때 안되게 해야 함.
+        private void initDateTimepicker()
+        {
+            dateTimePickerStartTime.ShowUpDown = true;
+            dateTimePickerFinshTime.ShowUpDown = true;
+        }
+        private void dateTimePickerStartTime_ValueChanged(object sender, EventArgs e)
+        {
+            //기본설정
+            DateTime dateTime = dateTimePickerStartTime.Value;
+            dateTime = dateTime.AddHours(1);
+            dateTimePickerFinshTime.Value = dateTime;
+        }
+
+        private void buttonRegistration_Click(object sender, EventArgs e)
+        {
+            DateTime st = dateTimePickerStartTime.Value;
+            DateTime ft = dateTimePickerFinshTime.Value;
+
+            //datetime에 시간만 넣고 싶은데 왜 안되는 것이냐
+            //startTime = string.Format("{0:g}", st.TimeOfDay); //->이거 나중에 시간 겹쳤는지 확인 할 때 쓰기
+            //finishTime = string.Format("{0:g}", ft.TimeOfDay);
+            startTime = string.Format("{0:yyyy-MM-dd HH:mm:ss}", st);
+            finishTime = string.Format("{0:yyyy-MM-dd HH:mm:ss}", ft);
+
+            //업무를 선택하지 않았을 경우
+            //업무 내용을 적지 않았을 경우?
+            // + 업무 시간이 겹치는 경우 && 종료시간이 시작시간보다 작은 경우)
+            if (classflag != 3)
+            {
+                MessageBox.Show("업무를 선택하시오.");
+            }
+            else if (DateTime.Compare(st,ft) == 1) // st 보다 ft가 더 작으면
+            {
+                MessageBox.Show("업무시간을 확인하시오.");
+            }
+            else
+            {
+                //같은 날짜 다른 업무시간과 겹칠때 확인
+                var result = MessageBox.Show("해당 업무를 등록하시겠습니까?", "업무 등록",MessageBoxButtons.YesNo);
+                
+                if (result == DialogResult.Yes)
+                {
+                    insertTask();
+                }
+            }
+        }
+        private void insertTask()
+        {
+            //업무    subID
+            //날짜    datetime.now -> string date = string.Format("{0:yyyy-MM-dd}", datetime);
+            //이름    me.name
+            //업무내용  textBoxTask.Text
+            //시작시간 종료시간 -> string.Format("{0:HH:mm:ss}", datetime
+
+            string date =  string.Format("{0:yyyy-MM-dd}", DateTime.Now);
+            string query = "INSERT INTO task(sub_id,date,name,text,startTime,finishTime) VALUES('"+ subID + "','"+ date +"','"+ me.name + "','" + textBoxTask.Text + "','" + startTime + "','" + finishTime + "')";
+            DBConnetion.getInstance().Insert(query);
+
+            MessageBox.Show("업무가 등록되었습니다.");
         }
         #endregion
         //일일 업무 마스터 treeview

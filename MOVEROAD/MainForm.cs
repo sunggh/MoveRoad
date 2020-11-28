@@ -238,7 +238,7 @@ namespace MOVEROAD
         private void buttonTask_Click(object sender, EventArgs e)
         {
             lastPanel.Dispose();
-            TaskForm task = new TaskForm(this);
+            TaskForm task = new TaskForm(this, me);
             task.TopLevel = false;
             task.Show();
             lastPanel = task;

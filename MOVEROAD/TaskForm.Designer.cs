@@ -33,10 +33,8 @@ namespace MOVEROAD
             this.tabControlTask = new System.Windows.Forms.TabControl();
             this.tabPageRegistraion = new System.Windows.Forms.TabPage();
             this.buttonRegistration = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBoxEndTime = new System.Windows.Forms.TextBox();
+            this.textBoxTask = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxStartTime = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxSubClass = new System.Windows.Forms.ComboBox();
@@ -61,6 +59,8 @@ namespace MOVEROAD
             this.tabPageMaster = new System.Windows.Forms.TabPage();
             this.treeViewTaskMaster = new System.Windows.Forms.TreeView();
             this.label9 = new System.Windows.Forms.Label();
+            this.dateTimePickerFinshTime = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerStartTime = new System.Windows.Forms.DateTimePicker();
             this.tabControlTask.SuspendLayout();
             this.tabPageRegistraion.SuspendLayout();
             this.tabPageManagement.SuspendLayout();
@@ -86,11 +86,11 @@ namespace MOVEROAD
             // 
             // tabPageRegistraion
             // 
+            this.tabPageRegistraion.Controls.Add(this.dateTimePickerStartTime);
+            this.tabPageRegistraion.Controls.Add(this.dateTimePickerFinshTime);
             this.tabPageRegistraion.Controls.Add(this.buttonRegistration);
-            this.tabPageRegistraion.Controls.Add(this.textBox1);
-            this.tabPageRegistraion.Controls.Add(this.textBoxEndTime);
+            this.tabPageRegistraion.Controls.Add(this.textBoxTask);
             this.tabPageRegistraion.Controls.Add(this.label7);
-            this.tabPageRegistraion.Controls.Add(this.textBoxStartTime);
             this.tabPageRegistraion.Controls.Add(this.label6);
             this.tabPageRegistraion.Controls.Add(this.label5);
             this.tabPageRegistraion.Controls.Add(this.comboBoxSubClass);
@@ -119,43 +119,30 @@ namespace MOVEROAD
             this.buttonRegistration.TabIndex = 34;
             this.buttonRegistration.Text = "등록";
             this.buttonRegistration.UseVisualStyleBackColor = false;
+            this.buttonRegistration.Click += new System.EventHandler(this.buttonRegistration_Click);
             // 
-            // textBox1
+            // textBoxTask
             // 
-            this.textBox1.Location = new System.Drawing.Point(29, 221);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(555, 145);
-            this.textBox1.TabIndex = 33;
-            this.textBox1.Text = "업무 내용 기재";
-            // 
-            // textBoxEndTime
-            // 
-            this.textBoxEndTime.Location = new System.Drawing.Point(590, 165);
-            this.textBoxEndTime.Name = "textBoxEndTime";
-            this.textBoxEndTime.Size = new System.Drawing.Size(121, 25);
-            this.textBoxEndTime.TabIndex = 32;
+            this.textBoxTask.Location = new System.Drawing.Point(29, 205);
+            this.textBoxTask.Multiline = true;
+            this.textBoxTask.Name = "textBoxTask";
+            this.textBoxTask.Size = new System.Drawing.Size(555, 161);
+            this.textBoxTask.TabIndex = 33;
+            this.textBoxTask.Text = "업무 내용 기재";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(507, 170);
+            this.label7.Location = new System.Drawing.Point(507, 149);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 15);
             this.label7.TabIndex = 31;
             this.label7.Text = "종료시간";
             // 
-            // textBoxStartTime
-            // 
-            this.textBoxStartTime.Location = new System.Drawing.Point(356, 165);
-            this.textBoxStartTime.Name = "textBoxStartTime";
-            this.textBoxStartTime.Size = new System.Drawing.Size(121, 25);
-            this.textBoxStartTime.TabIndex = 30;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(273, 170);
+            this.label6.Location = new System.Drawing.Point(273, 149);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 15);
             this.label6.TabIndex = 29;
@@ -166,7 +153,7 @@ namespace MOVEROAD
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label5.Font = new System.Drawing.Font("굴림", 9F);
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(26, 165);
+            this.label5.Location = new System.Drawing.Point(26, 144);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.label5.Size = new System.Drawing.Size(214, 25);
@@ -419,6 +406,23 @@ namespace MOVEROAD
             this.label9.TabIndex = 25;
             this.label9.Text = "업무 마스터 관리";
             // 
+            // dateTimePickerFinshTime
+            // 
+            this.dateTimePickerFinshTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerFinshTime.Location = new System.Drawing.Point(590, 144);
+            this.dateTimePickerFinshTime.Name = "dateTimePickerFinshTime";
+            this.dateTimePickerFinshTime.Size = new System.Drawing.Size(121, 25);
+            this.dateTimePickerFinshTime.TabIndex = 36;
+            // 
+            // dateTimePickerStartTime
+            // 
+            this.dateTimePickerStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerStartTime.Location = new System.Drawing.Point(356, 142);
+            this.dateTimePickerStartTime.Name = "dateTimePickerStartTime";
+            this.dateTimePickerStartTime.Size = new System.Drawing.Size(121, 25);
+            this.dateTimePickerStartTime.TabIndex = 37;
+            this.dateTimePickerStartTime.ValueChanged += new System.EventHandler(this.dateTimePickerStartTime_ValueChanged);
+            // 
             // TaskForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -452,10 +456,8 @@ namespace MOVEROAD
         private System.Windows.Forms.TabPage tabPageRegistraion;
         private System.Windows.Forms.TabPage tabPageManagement;
         private System.Windows.Forms.Button buttonRegistration;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBoxEndTime;
+        private System.Windows.Forms.TextBox textBoxTask;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxStartTime;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxSubClass;
@@ -479,5 +481,7 @@ namespace MOVEROAD
         private System.Windows.Forms.TabPage tabPageMaster;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TreeView treeViewTaskMaster;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFinshTime;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStartTime;
     }
 }
