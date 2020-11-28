@@ -76,9 +76,6 @@ namespace MOVEROAD
             object finish = DBConnetion.getInstance().Select("SELECT finishTime FROM attendance_card " +
                 "WHERE id='" + ID + "' and date!= 'null' and finishTime = '\"' ", 6); // 퇴근을 눌렀는지 확인
 
-            MessageBox.Show((string)start);
-            MessageBox.Show((string)finish);
-
             if ((string)start != null && (string)finish == "\"") // 출근을 누르고 퇴근을 누르지 않았을때 (정상적인 상황)
             {// 만약 출근을 눌렀다면 정상적으로 종료시간 업데이트 종료시간 업데이트시 당일날만 업데이트 하기위해 like문으로 date의 값을 당일날이라는 조건으로 걸어둔다
                 DBConnetion.getInstance().Update("UPDATE attendance_card SET date2='" + DateTime.Now.ToString("yyyy-MM-dd") + "' , finishTime ='" + DateTime.Now.ToString("HH:mm") + "' " +
@@ -113,22 +110,60 @@ namespace MOVEROAD
 
             #region 주말일 시
             // 만약 주말이라면 아예 예외로하기
-            string get_dayofweek = "select DAYOFWEEK(`date`) as `dayofweek` from attendance_card where `date` = '" + today + "'";
+            string get_dayofweek = "select DAYOFWEEK(`date`) as `dayofweek` from project.attendance_card where `id` = '"+ID+"' and `date` = '" + today + "'";
             int dayofweek = Convert.ToInt32((string)DBConnetion.getInstance().Select(get_dayofweek, 85));
             #endregion
 
-            if (dayofweek != 1 || dayofweek != 7) { //일요일=1, 토요일=7이 아닌경우
+            if (dayofweek > 0 && dayofweek < 8) { //일요일=1, 토요일=7이 아닌경우
 
                 // 비교를 위해 퇴근일 가져오기
-                string get_sf_date = "select finishTime from attendance_card where startTime = '" + today + "'";
+                string get_sf_date = "select finishTime from attendance_card where `id` = '" + ID + "' and `date` = '" + today + "'";
                 string finishtime = (string)DBConnetion.getInstance().Select(get_sf_date, 89);
 
-                // 출근일과 퇴근일이 다르다면 야간근무임, 그리고 퇴근일이 같아도 22시 이상이면 야간근무
-                if (!today.Equals(finishtime))
-                {
-                    // 야간근무임
-                }
+                // 출/퇴근일이 같을때 22시 이후인지 알기위함
+                string get_ot_date = "SELECT TIME_TO_SEC(timediff(`finishTime`,'00:00')) as `sectime` FROM project.attendance_card " +
+                    "where `id` = '" + ID + "' and `date` = '" + today+"'";
+                int check_ot = Convert.ToInt32(DBConnetion.getInstance().Select(get_ot_date, 86));
 
+
+                // if 22시-출근시간>=10시간 , 10시간 기본급
+                // else if 22시-출근시간<10시간, 그 시간만큼 기본급을 위한 계산
+                string up_night = "SELECT TIME_TO_SEC(timediff('22:00',`startTime`)) as `sectime` " +
+                "FROM project.attendance_card " +
+                "where `id` = '" + ID + "' and `date` = '" + today + "'";
+                // 10시에서 뺀 시간
+                int get_nighttime_sec = Convert.ToInt32((string)DBConnetion.getInstance().Select(up_night, 86));
+
+
+                // 출근일과 퇴근일이 다르다면 야간근무임, 그리고 퇴근일이 같아도 22시 이상이면 야간근무
+                if (!today.Equals(finishtime) || (today.Equals(finishtime)&&check_ot>=79200))
+                {
+                    // 10시간이 넘는다면(초과근무)
+                    if (get_nighttime_sec > 36000)
+                    {
+                        string insert_basicpay = "insert into salary(`index`,`date`,`basicpay`) values ('" + user.index + "','" + today + "','" + 100000 + "')";
+                        DBConnetion.getInstance().Insert(insert_basicpay);
+                    }
+                    else//초과근무가 아니지만 야간근무라면
+                    {
+                        string insert_basicpay = "insert into salary(`index`,`date`,`basicpay`) values ('" + user.index + "','" + today + "','" + (get_nighttime_sec/3600)*10000 + "')";
+                        DBConnetion.getInstance().Insert(insert_basicpay);
+                    }
+                }else if (today.Equals(finishtime) && check_ot < 79200)
+                {
+                    // 10시간이 넘는다면(초과근무)
+                    if (get_nighttime_sec > 36000)
+                    {
+                        string insert_basicpay = "insert into salary(`index`,`date`,`basicpay`) values ('" + user.index + "','" + today + "','" + 100000 + "')";
+                        DBConnetion.getInstance().Insert(insert_basicpay);
+                    }
+                    else//초과근무가 아니지만 야간근무라면
+                    {
+                        string insert_basicpay = "insert into salary(`index`,`date`,`basicpay`) values ('" + user.index + "','" + today + "','" + (get_nighttime_sec / 3600) * 10000 + "')";
+                        DBConnetion.getInstance().Insert(insert_basicpay);
+                    }
+                }
+                /*
                 #region 10시간 이상 근무 일 때
                 //퇴근-출근 시간 초로 변환
                 string sec_query = "select TIME_TO_SEC(timediff(`finishTime`,`startTime`)) as `sectime` " +
@@ -145,8 +180,8 @@ namespace MOVEROAD
 
                 #endregion
                 
-
-                /* 이 부분 예외처리 오류 테스트 중
+                
+                // 이 부분 예외처리 오류 테스트 중
                 #region 오후 10시 이후 야간 근무 일 때
                 // 만약 오후 10시 이후이면 10시부터 출근시간까지 빼기
                 string up_night = "SELECT TIME_TO_SEC(timediff('22:00',`startTime`)) as `sectime` " +
@@ -160,6 +195,7 @@ namespace MOVEROAD
                 DBConnetion.getInstance().Insert(insert_basicpay2);
                 #endregion
                 */
+                
 
             }
         }
