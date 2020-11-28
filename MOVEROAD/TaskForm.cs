@@ -14,10 +14,15 @@ namespace MOVEROAD
     public partial class TaskForm : Form
     {
         MainForm main;
-        private string nodeKey;
-        TreeNode SelectedNode;
-        DataTable taskClass;
-        TaskClassInfo TaskClassInfo;
+        private string nodeKey; //업무 마스터에서 클릭된 노드(업무)의 이름
+        TreeNode SelectedNode;  //업무 마스터에서 선택된 노드
+        DataTable taskClass;    //select에서 datatable 받아온 것
+        TaskClassInfo TaskClassInfo;    //id | name | parent_id | level | dapartment_id
+
+        //대분류 -> 중분류 -> 소분류 dataTable
+        DataTable department = new DataTable();
+        DataTable middleClass = new DataTable();
+        DataTable subClass = new DataTable();
 
         List<DepartmentInfo> departmentInfos = new List<DepartmentInfo>();   //부서들 저장해 두는 리스트
 
@@ -27,8 +32,11 @@ namespace MOVEROAD
             this.main = main;
 
             CreateTree();
-            //SetTaskMaster();
+
+            CreateClassficationTable();
+            setDepartmentCbItem();
         }
+        #region 업무마스터관리
         private void CreateTree()
         {
             // ID | Name | ParentID | Level | DepartID
@@ -266,6 +274,120 @@ namespace MOVEROAD
             }
 
         }
+        #endregion
+        #region 일일 업무 등록
+
+        //부서선택 -> 1 업무구분선택 -> 2 업무선택 -> 3        
+        int classflag = 0;  //아무것도 선택안 했을 때 1    
+        private void CreateClassficationTable()
+        {
+            // ID | Name | ParentID | Level | DepartID
+            string query = "SELECT * FROM task_class";
+            taskClass = (DBConnetion.getInstance().Select(query, 4)) as DataTable;
+
+            //대분류 생성
+            department.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
+            department.Columns.Add("Name", typeof(string));    //이름
+            department.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
+            //중분류 생성
+            middleClass.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
+            middleClass.Columns.Add("Name", typeof(string));    //이름
+            middleClass.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
+            //소분류 생성
+            subClass.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
+            subClass.Columns.Add("Name", typeof(string));    //이름
+            subClass.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
+
+            for (int i = 0; i < taskClass.Rows.Count; i++)
+            {
+                DataRow row = taskClass.Rows[i];
+                int level = Convert.ToInt32(row["Level"]);
+                if (level == 1)
+                {
+                    department.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
+                }
+                else if (level == 2)
+                {
+                    middleClass.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
+                }
+                else if (level == 3)
+                {
+                    subClass.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
+
+                }                
+            }
+        }
+        private void comboBoxDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            classflag = 1;
+            int departID = comboBoxDepartment.SelectedIndex + 2;    //index는 0부터 시작 & 부서 제외
+            setMiddleCbItem(departID);
+        }
+        private void comboBoxMiddleClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (classflag == 1)
+            {
+                classflag = 2;
+                string middleclass =  comboBoxMiddleClass.SelectedItem as string;
+                try
+                {
+                    DataRow[] rows = middleClass.Select("Name =" + middleclass);
+                    int middleID = Convert.ToInt32(rows[0]["id"]);
+                    setSubCbItem(middleID);
+
+                }
+                catch(EvaluateException ee)
+                {
+                    Console.WriteLine("오류 : " + ee);
+                }
+            }
+        }
+        private void comboBoxSubClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (classflag == 2)
+            {
+                classflag = 3;
+                string subclass = comboBoxSubClass.SelectedItem as string;
+                DataRow[] rows = subClass.Select("Name =" + subclass);
+                int subID = Convert.ToInt32(rows[0]["id"]);
+            }
+        }
+
+        private void setDepartmentCbItem()
+        {
+            for (int i = 0; i < department.Rows.Count; i++)
+            {
+                DataRow row = department.Rows[i];
+                comboBoxDepartment.Items.Add(row["Name"].ToString());
+            }
+        }
+        private void setMiddleCbItem(int departID)
+        {
+            if(classflag == 1)
+            {
+                comboBoxMiddleClass.Items.Clear();
+                for (int i = 0; i < middleClass.Rows.Count; i++)
+                {
+                    int pid = Convert.ToInt32(middleClass.Rows[i]["ParentID"]);
+                    if (pid == departID)
+                        comboBoxMiddleClass.Items.Add(middleClass.Rows[i]["Name"].ToString());
+                }
+            }            
+        }
+        private void setSubCbItem(int middleID)
+        {
+            if (classflag == 2)
+            {
+                comboBoxSubClass.Items.Clear();
+                for (int i = 0; i < taskClass.Rows.Count; i++)
+                {
+                    int pid = Convert.ToInt32(subClass.Rows[i]["ParentID"]);
+                    if (pid == middleID)
+                        comboBoxSubClass.Items.Add(subClass.Rows[i]["Name"].ToString());
+                }
+            }
+        }
+        #endregion
         //일일 업무 마스터 treeview
         /*
         private void SetTaskMaster()

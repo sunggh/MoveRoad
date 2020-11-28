@@ -39,11 +39,11 @@ namespace MOVEROAD
             this.textBoxStartTime = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSubClass = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxMiddleClass = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxDepartment = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageManagement = new System.Windows.Forms.TabPage();
@@ -93,11 +93,11 @@ namespace MOVEROAD
             this.tabPageRegistraion.Controls.Add(this.textBoxStartTime);
             this.tabPageRegistraion.Controls.Add(this.label6);
             this.tabPageRegistraion.Controls.Add(this.label5);
-            this.tabPageRegistraion.Controls.Add(this.comboBox3);
+            this.tabPageRegistraion.Controls.Add(this.comboBoxSubClass);
             this.tabPageRegistraion.Controls.Add(this.label4);
-            this.tabPageRegistraion.Controls.Add(this.comboBox2);
+            this.tabPageRegistraion.Controls.Add(this.comboBoxMiddleClass);
             this.tabPageRegistraion.Controls.Add(this.label3);
-            this.tabPageRegistraion.Controls.Add(this.comboBox1);
+            this.tabPageRegistraion.Controls.Add(this.comboBoxDepartment);
             this.tabPageRegistraion.Controls.Add(this.label2);
             this.tabPageRegistraion.Controls.Add(this.label1);
             this.tabPageRegistraion.Location = new System.Drawing.Point(4, 25);
@@ -174,13 +174,14 @@ namespace MOVEROAD
             this.label5.Text = "업무 시작/종료 시간";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox3
+            // comboBoxSubClass
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(590, 82);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 23);
-            this.comboBox3.TabIndex = 27;
+            this.comboBoxSubClass.FormattingEnabled = true;
+            this.comboBoxSubClass.Location = new System.Drawing.Point(590, 82);
+            this.comboBoxSubClass.Name = "comboBoxSubClass";
+            this.comboBoxSubClass.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxSubClass.TabIndex = 27;
+            this.comboBoxSubClass.SelectedIndexChanged += new System.EventHandler(this.comboBoxSubClass_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -195,13 +196,14 @@ namespace MOVEROAD
             this.label4.Text = "업무";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox2
+            // comboBoxMiddleClass
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(356, 82);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 25;
+            this.comboBoxMiddleClass.FormattingEnabled = true;
+            this.comboBoxMiddleClass.Location = new System.Drawing.Point(356, 82);
+            this.comboBoxMiddleClass.Name = "comboBoxMiddleClass";
+            this.comboBoxMiddleClass.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxMiddleClass.TabIndex = 25;
+            this.comboBoxMiddleClass.SelectedIndexChanged += new System.EventHandler(this.comboBoxMiddleClass_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -216,13 +218,14 @@ namespace MOVEROAD
             this.label3.TabIndex = 24;
             this.label3.Text = "업무구분";
             // 
-            // comboBox1
+            // comboBoxDepartment
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(119, 82);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 23;
+            this.comboBoxDepartment.FormattingEnabled = true;
+            this.comboBoxDepartment.Location = new System.Drawing.Point(119, 82);
+            this.comboBoxDepartment.Name = "comboBoxDepartment";
+            this.comboBoxDepartment.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxDepartment.TabIndex = 23;
+            this.comboBoxDepartment.SelectedIndexChanged += new System.EventHandler(this.comboBoxDepartment_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -455,11 +458,11 @@ namespace MOVEROAD
         private System.Windows.Forms.TextBox textBoxStartTime;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBoxSubClass;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxMiddleClass;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxDepartment;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
