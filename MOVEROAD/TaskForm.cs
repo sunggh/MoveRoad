@@ -15,7 +15,6 @@ namespace MOVEROAD
     {
         MainForm main;
         UserInfo me;
-        private string nodeKey; //업무 마스터에서 클릭된 노드(업무)의 이름
         TreeNode SelectedNode;  //업무 마스터에서 선택된 노드
         DataTable taskClass;    //select에서 datatable 받아온 것
         TaskClassInfo TaskClassInfo;    //id | name | parent_id | level | dapartment_id
@@ -47,6 +46,7 @@ namespace MOVEROAD
 
             //일일 업무 검색
             setTaskKeyword();
+            setRegistrant();
         }
         private void CreateClassficationTable()
         {
@@ -541,6 +541,42 @@ namespace MOVEROAD
             {
                 comboBoxTaskKeword.Items.Add(subClass.Rows[i]["Name"].ToString());
             }
+        }
+        private void setRegistrant()
+        {
+            string query = "SELECT * FROM user";
+            List<UserInfo> userInfos = (DBConnetion.getInstance().Select(query, 14)) as List<UserInfo>;
+
+            comboBoxRegistrant.Items.Clear();
+            foreach(UserInfo user in userInfos)
+            {
+                comboBoxRegistrant.Items.Add(user.name);
+            }
+        }
+        private void searchTask(string query)
+        {
+
+        }
+        private void comboBoxTaskKeword_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //날짜 + 키워드
+            string date = string.Format("{0:yyyy-MM-dd}", dateTimePickerSearchTask.Value);
+
+            //선택된 아이템의 id 찾기
+            string name = comboBoxTaskKeword.SelectedItem as string;
+            DataRow[] rows = subClass.Select("Name = '" + name + "'");
+            int taskID = Convert.ToInt32(rows[0]["ID"]);
+
+            string query = "SELECT * FROM task WHERE sub_id = '" + taskID + "' AND date = '" + date + "'";
+            DataTable table = DBConnetion.getInstance().Select(query, 15) as DataTable;
+
+            dataGridViewTask.DataSource = table;
+            dataGridViewTask.Columns[0].Width = 50;
+        }
+
+        private void comboBoxRegistrant_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
         #endregion
         //일일 업무 마스터 treeview

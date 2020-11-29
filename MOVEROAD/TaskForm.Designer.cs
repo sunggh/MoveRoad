@@ -47,27 +47,27 @@ namespace MOVEROAD
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageManagement = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBoxRegistrant = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dateTimePickerSearchTask = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxTaskKeword = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTask = new System.Windows.Forms.DataGridView();
             this.tabPageMaster = new System.Windows.Forms.TabPage();
             this.treeViewTaskMaster = new System.Windows.Forms.TreeView();
             this.label9 = new System.Windows.Forms.Label();
-            this.dateTimePickerSearchTask = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxRegistrant = new System.Windows.Forms.ComboBox();
-            this.comboBoxTaskKeword = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabControlTask.SuspendLayout();
             this.tabPageRegistraion.SuspendLayout();
             this.tabPageManagement.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabPageMaster.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).BeginInit();
+            this.tabPageMaster.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlTask
@@ -262,7 +262,7 @@ namespace MOVEROAD
             this.tabPageManagement.Controls.Add(this.button2);
             this.tabPageManagement.Controls.Add(this.groupBox1);
             this.tabPageManagement.Controls.Add(this.label8);
-            this.tabPageManagement.Controls.Add(this.dataGridView1);
+            this.tabPageManagement.Controls.Add(this.dataGridViewTask);
             this.tabPageManagement.Location = new System.Drawing.Point(4, 25);
             this.tabPageManagement.Name = "tabPageManagement";
             this.tabPageManagement.Padding = new System.Windows.Forms.Padding(3);
@@ -270,6 +270,25 @@ namespace MOVEROAD
             this.tabPageManagement.TabIndex = 1;
             this.tabPageManagement.Text = "일일 업무 관리";
             this.tabPageManagement.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.comboBoxRegistrant);
+            this.groupBox2.Location = new System.Drawing.Point(284, 46);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(135, 57);
+            this.groupBox2.TabIndex = 30;
+            this.groupBox2.TabStop = false;
+            // 
+            // comboBoxRegistrant
+            // 
+            this.comboBoxRegistrant.FormattingEnabled = true;
+            this.comboBoxRegistrant.Location = new System.Drawing.Point(7, 26);
+            this.comboBoxRegistrant.Name = "comboBoxRegistrant";
+            this.comboBoxRegistrant.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxRegistrant.TabIndex = 29;
+            this.comboBoxRegistrant.Text = "등록자";
+            this.comboBoxRegistrant.SelectedIndexChanged += new System.EventHandler(this.comboBoxRegistrant_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -282,6 +301,16 @@ namespace MOVEROAD
             this.button1.TabIndex = 28;
             this.button1.Text = "삭제";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MOVEROAD.Properties.Resources.calendar;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(684, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 34);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // button2
             // 
@@ -305,15 +334,23 @@ namespace MOVEROAD
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             // 
-            // pictureBox1
+            // dateTimePickerSearchTask
             // 
-            this.pictureBox1.Image = global::MOVEROAD.Properties.Resources.calendar;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(684, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 34);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            this.dateTimePickerSearchTask.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerSearchTask.Location = new System.Drawing.Point(8, 24);
+            this.dateTimePickerSearchTask.Name = "dateTimePickerSearchTask";
+            this.dateTimePickerSearchTask.Size = new System.Drawing.Size(112, 25);
+            this.dateTimePickerSearchTask.TabIndex = 29;
+            // 
+            // comboBoxTaskKeword
+            // 
+            this.comboBoxTaskKeword.FormattingEnabled = true;
+            this.comboBoxTaskKeword.Location = new System.Drawing.Point(126, 26);
+            this.comboBoxTaskKeword.Name = "comboBoxTaskKeword";
+            this.comboBoxTaskKeword.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxTaskKeword.TabIndex = 30;
+            this.comboBoxTaskKeword.Text = "업무 키워드";
+            this.comboBoxTaskKeword.SelectedIndexChanged += new System.EventHandler(this.comboBoxTaskKeword_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -328,14 +365,14 @@ namespace MOVEROAD
             this.label8.TabIndex = 24;
             this.label8.Text = "일일 업무 관리";
             // 
-            // dataGridView1
+            // dataGridViewTask
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 112);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(694, 267);
-            this.dataGridView1.TabIndex = 23;
+            this.dataGridViewTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTask.Location = new System.Drawing.Point(21, 112);
+            this.dataGridViewTask.Name = "dataGridViewTask";
+            this.dataGridViewTask.RowTemplate.Height = 27;
+            this.dataGridViewTask.Size = new System.Drawing.Size(694, 267);
+            this.dataGridViewTask.TabIndex = 23;
             // 
             // tabPageMaster
             // 
@@ -372,41 +409,6 @@ namespace MOVEROAD
             this.label9.TabIndex = 25;
             this.label9.Text = "업무 마스터 관리";
             // 
-            // dateTimePickerSearchTask
-            // 
-            this.dateTimePickerSearchTask.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerSearchTask.Location = new System.Drawing.Point(8, 24);
-            this.dateTimePickerSearchTask.Name = "dateTimePickerSearchTask";
-            this.dateTimePickerSearchTask.Size = new System.Drawing.Size(112, 25);
-            this.dateTimePickerSearchTask.TabIndex = 29;
-            // 
-            // comboBoxRegistrant
-            // 
-            this.comboBoxRegistrant.FormattingEnabled = true;
-            this.comboBoxRegistrant.Location = new System.Drawing.Point(7, 26);
-            this.comboBoxRegistrant.Name = "comboBoxRegistrant";
-            this.comboBoxRegistrant.Size = new System.Drawing.Size(121, 23);
-            this.comboBoxRegistrant.TabIndex = 29;
-            this.comboBoxRegistrant.Text = "등록자";
-            // 
-            // comboBoxTaskKeword
-            // 
-            this.comboBoxTaskKeword.FormattingEnabled = true;
-            this.comboBoxTaskKeword.Location = new System.Drawing.Point(126, 26);
-            this.comboBoxTaskKeword.Name = "comboBoxTaskKeword";
-            this.comboBoxTaskKeword.Size = new System.Drawing.Size(121, 23);
-            this.comboBoxTaskKeword.TabIndex = 30;
-            this.comboBoxTaskKeword.Text = "업무 키워드";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.comboBoxRegistrant);
-            this.groupBox2.Location = new System.Drawing.Point(284, 46);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(135, 57);
-            this.groupBox2.TabIndex = 30;
-            this.groupBox2.TabStop = false;
-            // 
             // TaskForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -420,12 +422,12 @@ namespace MOVEROAD
             this.tabPageRegistraion.PerformLayout();
             this.tabPageManagement.ResumeLayout(false);
             this.tabPageManagement.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).EndInit();
             this.tabPageMaster.ResumeLayout(false);
             this.tabPageMaster.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -452,7 +454,7 @@ namespace MOVEROAD
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewTask;
         private System.Windows.Forms.TabPage tabPageMaster;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TreeView treeViewTaskMaster;

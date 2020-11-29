@@ -106,8 +106,8 @@ namespace MOVEROAD
                 case 13:
                     DataTable taskHours = new DataTable();
                     //열 생성
-                    taskHours.Columns.Add("StartTime", typeof(int));  
-                    taskHours.Columns.Add("FinishTime", typeof(int));    
+                    taskHours.Columns.Add("StartTime", typeof(int));
+                    taskHours.Columns.Add("FinishTime", typeof(int));
 
                     while (rdr.Read())
                     {
@@ -122,6 +122,37 @@ namespace MOVEROAD
                     }
                     thing = taskHours;
                     break;
+                case 14:
+                    List<UserInfo> userInfos = new List<UserInfo>();
+
+                    while (rdr.Read())
+                    {
+                        UserInfo user = new UserInfo((int)rdr["index"], (string)rdr["name"]);
+                        userInfos.Add(user);
+                    }
+                    thing = userInfos;
+                    break;
+                case 15:
+                    DataTable task = new DataTable();
+                    //열 생성
+                    task.Columns.Add("ID", typeof(int));
+                    task.Columns.Add("업무", typeof(int));    //이거 이따가 string으로 바꿔야 함
+                    task.Columns.Add("날짜", typeof(string));
+                    task.Columns.Add("이름", typeof(string));
+                    task.Columns.Add("업무내용", typeof(string));
+                    task.Columns.Add("시작시간", typeof(string));
+                    task.Columns.Add("종료시간", typeof(string));
+
+                    while (rdr.Read())
+                    {
+                        Console.WriteLine("sub_id");
+                        string startTime = string.Format("{0:HH:mm:ss}", rdr["startTime"]);
+                        string finishTime = string.Format("{0:HH:mm:ss}", rdr["finishTime"]);
+                        task.Rows.Add((int)rdr["id"], (int)rdr["sub_id"], string.Format("{0:yyyy-MM-dd}",rdr["date"]), (string)rdr["name"], (string)rdr["text"], startTime, finishTime);
+                    }
+                    thing = task;
+                    break;
+
             }
             rdr.Close();
             conn.Close();
