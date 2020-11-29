@@ -28,6 +28,7 @@ namespace MOVEROAD
         DataTable subClass = new DataTable();
 
         List<DepartmentInfo> departmentInfos = new List<DepartmentInfo>();   //부서들 저장해 두는 리스트
+        List<UserInfo> userInfos;                                            //시원들 저장해 두는 리스트
 
         public TaskForm(MainForm main, UserInfo me)
         {
@@ -126,7 +127,7 @@ namespace MOVEROAD
                 {
                     DepartmentInfo departmentInfo = new DepartmentInfo(id, name, departID, 1);
                     departmentInfos.Add(departmentInfo);
-                    Console.WriteLine("부서 아이디 : " + departmentInfo.subID);    //subID -> department table에서의 부서 id
+                    //Console.WriteLine("부서 아이디 : " + departmentInfo.subID);    //subID -> department table에서의 부서 id
                 }
                 // 노드 추가 매소드 호출
                 parentNode = AddTreeNode(parentNode, id,name );
@@ -545,7 +546,7 @@ namespace MOVEROAD
         private void setRegistrant()
         {
             string query = "SELECT * FROM user";
-            List<UserInfo> userInfos = (DBConnetion.getInstance().Select(query, 14)) as List<UserInfo>;
+            userInfos = (DBConnetion.getInstance().Select(query, 14)) as List<UserInfo>;
 
             comboBoxRegistrant.Items.Clear();
             foreach(UserInfo user in userInfos)
@@ -553,31 +554,91 @@ namespace MOVEROAD
                 comboBoxRegistrant.Items.Add(user.name);
             }
         }
-        private void searchTask(string query)
-        {
-
-        }
         private void comboBoxTaskKeword_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {            
             //날짜 + 키워드
             string date = string.Format("{0:yyyy-MM-dd}", dateTimePickerSearchTask.Value);
+            try
+            {
+                //선택된 아이템의 id 찾기
+                string name = comboBoxTaskKeword.SelectedItem as string;
+                DataRow[] rows = subClass.Select("Name = '" + name + "'");
+                int taskID = Convert.ToInt32(rows[0]["ID"]);
 
-            //선택된 아이템의 id 찾기
-            string name = comboBoxTaskKeword.SelectedItem as string;
-            DataRow[] rows = subClass.Select("Name = '" + name + "'");
-            int taskID = Convert.ToInt32(rows[0]["ID"]);
+                string query = "SELECT * FROM task WHERE sub_id = '" + taskID + "' AND date = '" + date + "'";
+                DataTable table = DBConnetion.getInstance().Select(query, 15) as DataTable;
 
-            string query = "SELECT * FROM task WHERE sub_id = '" + taskID + "' AND date = '" + date + "'";
-            DataTable table = DBConnetion.getInstance().Select(query, 15) as DataTable;
-
-            dataGridViewTask.DataSource = table;
-            dataGridViewTask.Columns[0].Width = 50;
+                dataGridViewTask.DataSource = table;
+                dataGridViewTask.Columns[0].Width = 50;
+                dataGridViewTask.Columns[0].ReadOnly = true;
+                dataGridViewTask.Columns[1].ReadOnly = true;
+                dataGridViewTask.Columns[2].ReadOnly = true;
+                dataGridViewTask.Columns[3].ReadOnly = true;
+            }
+            catch(IndexOutOfRangeException re)
+            {
+                Console.WriteLine("예외 : " + re);
+            }
         }
-
         private void comboBoxRegistrant_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //선택된 아이템의 id 찾기
+            string name = comboBoxRegistrant.SelectedItem.ToString();
 
+            string query = "SELECT * FROM task WHERE name = '" + name + "'";
+            DataTable table = DBConnetion.getInstance().Select(query, 15) as DataTable;
+            
+            dataGridViewTask.DataSource = table;
+            dataGridViewTask.Columns[0].Width = 50;
+            dataGridViewTask.Columns[0].ReadOnly = true;
+            dataGridViewTask.Columns[1].ReadOnly = true;
+            dataGridViewTask.Columns[2].ReadOnly = true;
+            dataGridViewTask.Columns[3].ReadOnly = true;
         }
+
+        private void buttonReviseTask_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Application.UseWaitCursor = false;
+
+                DataTable dtChanges = new DataTable();
+                DataTable dtProcessFlag = (DataTable)dataGridViewTask.DataSource;
+
+                //Added 하면 젠체애들 다 업데이트 해주긴 함
+                dtChanges = dtProcessFlag.GetChanges(DataRowState.Modified);
+
+                string revisedIndex = "";
+                if(dtChanges != null)
+                {
+                    for(int i = 0; i < dtChanges.Rows.Count; i++)
+                    {
+                        int id = (int)dtChanges.Rows[i]["ID"];
+                        string text = dtChanges.Rows[i]["업무내용"] as string;
+                        string date = dtChanges.Rows[i]["날짜"] as string;
+
+                        string st = date + " " + dtChanges.Rows[i]["시작시간"];
+                        string ft = date + " " + dtChanges.Rows[i]["종료시간"];
+
+                        Console.WriteLine("시작시간 : " + st);
+                        string query = "UPDATE task SET text = '" + text +"', startTime ='" + st + "', finishTime = '" + ft + "' WHERE id = '" + id + "'";
+                        DBConnetion.getInstance().Update(query);
+
+                        revisedIndex += id + " ";
+                    }
+                }
+                MessageBox.Show("[ " +revisedIndex + " ] 업무 수정이 완료 되었습니다.");
+                dtChanges = null;
+
+                Cursor.Current = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("오류 : " + ex);
+                MessageBox.Show("입력 형식이 잘못되었습니다. 확인하고 다시 시도하십시오.");
+            }
+        }
+
         #endregion
         //일일 업무 마스터 treeview
         /*

@@ -152,7 +152,6 @@ namespace MOVEROAD
                     }
                     thing = task;
                     break;
-
             }
             rdr.Close();
             conn.Close();
