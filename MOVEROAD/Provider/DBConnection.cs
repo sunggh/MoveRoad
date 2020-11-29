@@ -103,6 +103,25 @@ namespace MOVEROAD
                     }
                     thing = messages;
                     break;
+                case 13:
+                    DataTable taskHours = new DataTable();
+                    //열 생성
+                    taskHours.Columns.Add("StartTime", typeof(int));  
+                    taskHours.Columns.Add("FinishTime", typeof(int));    
+
+                    while (rdr.Read())
+                    {
+                        DateTime st = Convert.ToDateTime(rdr["startTime"]);
+                        DateTime ft = Convert.ToDateTime(rdr["finishTime"]);
+                        TimeSpan startTime = st.TimeOfDay;
+                        TimeSpan finishTime = ft.TimeOfDay;
+                        int stSec = (int)startTime.TotalSeconds;
+                        int ftSec = (int)finishTime.TotalSeconds;
+
+                        taskHours.Rows.Add(stSec, ftSec);
+                    }
+                    thing = taskHours;
+                    break;
             }
             rdr.Close();
             conn.Close();

@@ -20,8 +20,8 @@ namespace MOVEROAD
         DataTable taskClass;    //select에서 datatable 받아온 것
         TaskClassInfo TaskClassInfo;    //id | name | parent_id | level | dapartment_id
         int subID;
-        string startTime;
-        string finishTime;
+        DateTime startTime;
+        DateTime finishTime;
 
         //대분류 -> 중분류 -> 소분류 dataTable
         DataTable department = new DataTable();
@@ -36,12 +36,56 @@ namespace MOVEROAD
             this.main = main;
             this.me = me;
 
+            //업무 마스터 등록
             CreateTree();
 
+            //일일 업무 등록
             CreateClassficationTable();
             setDepartmentCbItem();
 
             initDateTimepicker();
+
+            //일일 업무 검색
+            setTaskKeyword();
+        }
+        private void CreateClassficationTable()
+        {
+            // ID | Name | ParentID | Level | DepartID
+            string query = "SELECT * FROM task_class";
+            taskClass = (DBConnetion.getInstance().Select(query, 4)) as DataTable;
+
+            //대분류 생성
+            department.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
+            department.Columns.Add("Name", typeof(string));    //이름
+            department.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
+            //중분류 생성
+            middleClass.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
+            middleClass.Columns.Add("Name", typeof(string));    //이름
+            middleClass.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
+            //소분류 생성
+            subClass.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
+            subClass.Columns.Add("Name", typeof(string));    //이름
+            subClass.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
+
+            for (int i = 0; i < taskClass.Rows.Count; i++)
+            {
+                DataRow row = taskClass.Rows[i];
+                int level = Convert.ToInt32(row["Level"]);
+                if (level == 1)
+                {
+                    department.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
+                }
+                else if (level == 2)
+                {
+                    middleClass.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
+                }
+                else if (level == 3)
+                {
+                    subClass.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
+
+                }
+                //Console.WriteLine((int)row["ID"] + (string)row["Name"] + (int)row["ParentID"]);
+            }
         }
         #region 업무마스터관리
         private void CreateTree()
@@ -286,67 +330,43 @@ namespace MOVEROAD
 
         //부서선택 -> 1 업무구분선택 -> 2 업무선택 -> 3        
         int classflag = 0;  //아무것도 선택안 했을 때 1    
-        private void CreateClassficationTable()
-        {
-            // ID | Name | ParentID | Level | DepartID
-            string query = "SELECT * FROM task_class";
-            taskClass = (DBConnetion.getInstance().Select(query, 4)) as DataTable;
-
-            //대분류 생성
-            department.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
-            department.Columns.Add("Name", typeof(string));    //이름
-            department.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
-            //중분류 생성
-            middleClass.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
-            middleClass.Columns.Add("Name", typeof(string));    //이름
-            middleClass.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
-            //소분류 생성
-            subClass.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
-            subClass.Columns.Add("Name", typeof(string));    //이름
-            subClass.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
-            
-            for (int i = 0; i < taskClass.Rows.Count; i++)
-            {
-                DataRow row = taskClass.Rows[i];
-                int level = Convert.ToInt32(row["Level"]);
-                if (level == 1)
-                {
-                    department.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
-                }
-                else if (level == 2)
-                {
-                    middleClass.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
-                }
-                else if (level == 3)
-                {
-                    subClass.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
-
-                }
-                //Console.WriteLine((int)row["ID"] + (string)row["Name"] + (int)row["ParentID"]);
-            }
-        }
+        
         private void comboBoxDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            classflag = 1;
-            //int departID = comboBoxDepartment.SelectedIndex + 2;    //index는 0부터 시작 & 부서 제외
-            //setMiddleCbItem(departID);
-            string depart = comboBoxDepartment.SelectedItem as string;
-            try
+            if(comboBoxDepartment.SelectedItem != null)
             {
-                DataRow[] rows = department.Select("Name = '" + depart + "'");
-                int departID = Convert.ToInt32(rows[0]["ID"]);
-                setMiddleCbItem(departID);
+                if (classflag > 1)
+                {
+                    comboBoxMiddleClass.SelectedItem = null;
+                    comboBoxSubClass.SelectedItem = null;
+                    comboBoxSubClass.Items.Clear();
+                }
+                classflag = 1;
+                //int departID = comboBoxDepartment.SelectedIndex + 2;    //index는 0부터 시작 & 부서 제외
+                //setMiddleCbItem(departID);
+                string depart = comboBoxDepartment.SelectedItem as string;
+                try
+                {
+                    DataRow[] rows = department.Select("Name = '" + depart + "'");
+                    int departID = Convert.ToInt32(rows[0]["ID"]);
+                    setMiddleCbItem(departID);
 
-            }
-            catch (EvaluateException ee)
-            {
-                Console.WriteLine("오류 : " + ee);
+                }
+                catch (EvaluateException ee)
+                {
+                    Console.WriteLine("오류 : " + ee);
+                }
             }
         }
         private void comboBoxMiddleClass_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (classflag == 1)
+            if (comboBoxMiddleClass.SelectedItem != null && classflag >= 1)
             {
+                if(classflag == 3)
+                {
+                    comboBoxSubClass.SelectedItem = null;
+                    comboBoxSubClass.Items.Clear();
+                }
                 classflag = 2;
                 string middleclass =  comboBoxMiddleClass.SelectedItem as string;
                 try
@@ -364,7 +384,7 @@ namespace MOVEROAD
         }
         private void comboBoxSubClass_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (classflag == 2)
+            if (comboBoxSubClass.SelectedItem != null && classflag >= 2)
             {
                 classflag = 3;
                 string subclass = comboBoxSubClass.SelectedItem as string;
@@ -379,7 +399,6 @@ namespace MOVEROAD
                 }
             }
         }
-
         private void setDepartmentCbItem()
         {
             for (int i = 0; i < department.Rows.Count; i++)
@@ -428,17 +447,40 @@ namespace MOVEROAD
             dateTime = dateTime.AddHours(1);
             dateTimePickerFinshTime.Value = dateTime;
         }
+        private bool haveTimeOverlap()
+        {
+            string date = string.Format("{0:yyyy-MM-dd}", DateTime.Now);
+            string query = "SELECT startTime,finishTime FROM task WHERE date = '" + date + "'";
+            DataTable TaskHours = (DBConnetion.getInstance().Select(query, 13)) as DataTable;
+            
+            //datetime -> 초시간
+            TimeSpan st = startTime.TimeOfDay;
+            TimeSpan ft = finishTime.TimeOfDay;
+            int nowStSec = (int)st.TotalSeconds;
+            int nowFtSec = (int)ft.TotalSeconds;
 
+            for(int i = 0; i < TaskHours.Rows.Count; i++)
+            {
+                int pastStSec = Convert.ToInt32(TaskHours.Rows[i]["StartTime"]);
+                int pastFcSec = Convert.ToInt32(TaskHours.Rows[i]["FinishTime"]);
+                //과거시작시간 < 현재시작시간 < 과거종료시간 이거나 과거시작시간 < 현재종료시간 < 과거종료시간 일때 겹침
+                if ((pastStSec < nowStSec && nowStSec < pastFcSec) || (pastStSec < nowFtSec && nowFtSec < pastFcSec))
+                {
+                    return true;    //겹친다
+                }
+            }
+            return false;   //안 겹친다
+        }
         private void buttonRegistration_Click(object sender, EventArgs e)
         {
-            DateTime st = dateTimePickerStartTime.Value;
-            DateTime ft = dateTimePickerFinshTime.Value;
+            startTime = dateTimePickerStartTime.Value;
+            finishTime = dateTimePickerFinshTime.Value;
 
             //datetime에 시간만 넣고 싶은데 왜 안되는 것이냐
             //startTime = string.Format("{0:g}", st.TimeOfDay); //->이거 나중에 시간 겹쳤는지 확인 할 때 쓰기
             //finishTime = string.Format("{0:g}", ft.TimeOfDay);
-            startTime = string.Format("{0:yyyy-MM-dd HH:mm:ss}", st);
-            finishTime = string.Format("{0:yyyy-MM-dd HH:mm:ss}", ft);
+            string st = string.Format("{0:yyyy-MM-dd HH:mm:ss}", startTime);
+            string ft = string.Format("{0:yyyy-MM-dd HH:mm:ss}", finishTime);
 
             //업무를 선택하지 않았을 경우
             //업무 내용을 적지 않았을 경우?
@@ -447,7 +489,7 @@ namespace MOVEROAD
             {
                 MessageBox.Show("업무를 선택하시오.");
             }
-            else if (DateTime.Compare(st,ft) == 1) // st 보다 ft가 더 작으면
+            else if (DateTime.Compare(startTime, finishTime) == 1 || haveTimeOverlap()) // st 보다 ft가 더 작으면
             {
                 MessageBox.Show("업무시간을 확인하시오.");
             }
@@ -458,23 +500,47 @@ namespace MOVEROAD
                 
                 if (result == DialogResult.Yes)
                 {
-                    insertTask();
+                    insertTask(st, ft);
+
+                    //모든 상태 초기화
+                    //comboBoxDepartment.Text = "";
+                    comboBoxDepartment.SelectedItem = null;
+                    comboBoxMiddleClass.SelectedItem = null;
+                    comboBoxSubClass.SelectedItem = null;
+
+                    textBoxTask.Text = "상세 업무 내용 기재";
                 }
             }
         }
-        private void insertTask()
+        private void insertTask(string startTime, string finishTime)
         {
             //업무    subID
             //날짜    datetime.now -> string date = string.Format("{0:yyyy-MM-dd}", datetime);
             //이름    me.name
             //업무내용  textBoxTask.Text
             //시작시간 종료시간 -> string.Format("{0:HH:mm:ss}", datetime
+            try
+            {
+                string date = string.Format("{0:yyyy-MM-dd}", DateTime.Now);
+                string query = "INSERT INTO task(sub_id,date,name,text,startTime,finishTime) VALUES('" + subID + "','" + date + "','" + me.name + "','" + textBoxTask.Text + "','" + startTime + "','" + finishTime + "')";
+                DBConnetion.getInstance().Insert(query);
 
-            string date =  string.Format("{0:yyyy-MM-dd}", DateTime.Now);
-            string query = "INSERT INTO task(sub_id,date,name,text,startTime,finishTime) VALUES('"+ subID + "','"+ date +"','"+ me.name + "','" + textBoxTask.Text + "','" + startTime + "','" + finishTime + "')";
-            DBConnetion.getInstance().Insert(query);
-
-            MessageBox.Show("업무가 등록되었습니다.");
+                MessageBox.Show("업무가 등록되었습니다.");
+            }
+            catch
+            {
+                MessageBox.Show("디비 서버에 접근할 수 없습니다.");
+            }
+        }
+        #endregion
+        #region 일일 업무 검색 / 수정 / 삭제
+        private void setTaskKeyword()
+        {
+            comboBoxTaskKeword.Items.Clear();
+            for (int i = 0; i < subClass.Rows.Count; i++)
+            {
+                comboBoxTaskKeword.Items.Add(subClass.Rows[i]["Name"].ToString());
+            }
         }
         #endregion
         //일일 업무 마스터 treeview
