@@ -166,6 +166,12 @@
     <Compile Include="MessageBoxForm2.Designer.cs">
       <DependentUpon>MessageBoxForm2.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageSendInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageSendInfo.Designer.cs">
+      <DependentUpon>MessageSendInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Messenger.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -332,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MessageReceiveForm.resx">
       <DependentUpon>MessageReceiveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageSendInfo.resx">
+      <DependentUpon>MessageSendInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Messenger.resx">
       <DependentUpon>Messenger.cs</DependentUpon>

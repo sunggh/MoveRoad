@@ -46,11 +46,11 @@ namespace MOVEROAD
         {
             int row = listView1.SelectedItems[0].Index;
 
-            using (MessageReceiveForm receiveForm = new MessageReceiveForm(messages[row]))
+            using (MessageSendInfo sendForm = new MessageSendInfo(messages[row]))
             {
-                receiveForm.ShowDialog();
+                sendForm.ShowDialog();
             }
-            messages[row].reads = 1;
+            messages[row].reads = 0;
 
             viewMessageList();
         }
