@@ -301,6 +301,7 @@ namespace MOVEROAD
             this.buttonDeleteTask.TabIndex = 28;
             this.buttonDeleteTask.Text = "삭제";
             this.buttonDeleteTask.UseVisualStyleBackColor = false;
+            this.buttonDeleteTask.Click += new System.EventHandler(this.buttonDeleteTask_Click);
             // 
             // pictureBox1
             // 

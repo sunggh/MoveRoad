@@ -45,6 +45,7 @@ namespace MOVEROAD
 
             initDateTimepicker();
 
+            dataGridViewTask.BackgroundColor = Color.White;
             //일일 업무 검색
             setTaskKeyword();
             setRegistrant();
@@ -555,7 +556,16 @@ namespace MOVEROAD
             }
         }
         private void comboBoxTaskKeword_SelectedIndexChanged(object sender, EventArgs e)
-        {            
+        {
+            searchFlag = 1;
+            selectedKeywordDataView();
+        }
+        private void comboBoxRegistrant_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            searchFlag = 2;
+            selectedRegistrantDataView();
+        }
+        private void selectedKeywordDataView(){
             //날짜 + 키워드
             string date = string.Format("{0:yyyy-MM-dd}", dateTimePickerSearchTask.Value);
             try
@@ -580,22 +590,28 @@ namespace MOVEROAD
                 Console.WriteLine("예외 : " + re);
             }
         }
-        private void comboBoxRegistrant_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void selectedRegistrantDataView()
         {
-            //선택된 아이템의 id 찾기
-            string name = comboBoxRegistrant.SelectedItem.ToString();
+            try
+            {
+                string name = comboBoxRegistrant.SelectedItem.ToString();
 
-            string query = "SELECT * FROM task WHERE name = '" + name + "'";
-            DataTable table = DBConnetion.getInstance().Select(query, 15) as DataTable;
-            
-            dataGridViewTask.DataSource = table;
-            dataGridViewTask.Columns[0].Width = 50;
-            dataGridViewTask.Columns[0].ReadOnly = true;
-            dataGridViewTask.Columns[1].ReadOnly = true;
-            dataGridViewTask.Columns[2].ReadOnly = true;
-            dataGridViewTask.Columns[3].ReadOnly = true;
+                string query = "SELECT * FROM task WHERE name = '" + name + "'";
+                DataTable table = DBConnetion.getInstance().Select(query, 15) as DataTable;
+
+                dataGridViewTask.DataSource = table;
+                dataGridViewTask.Columns[0].Width = 50;
+                dataGridViewTask.Columns[0].ReadOnly = true;
+                dataGridViewTask.Columns[1].ReadOnly = true;
+                dataGridViewTask.Columns[2].ReadOnly = true;
+                dataGridViewTask.Columns[3].ReadOnly = true;
+            }
+            catch (IndexOutOfRangeException re)
+            {
+                Console.WriteLine("예외 : " + re);
+            }
         }
-
         private void buttonReviseTask_Click(object sender, EventArgs e)
         {
             try
@@ -637,6 +653,38 @@ namespace MOVEROAD
                 Console.WriteLine("오류 : " + ex);
                 MessageBox.Show("입력 형식이 잘못되었습니다. 확인하고 다시 시도하십시오.");
             }
+        }
+        //날짜 업무 기반 -> 1 | 등록자 기반 -> 2
+        int searchFlag = 0;
+        private void buttonDeleteTask_Click(object sender, EventArgs e)
+        {
+            try
+            {   //선택된 row가 없을 때
+                if(dataGridViewTask.SelectedRows.Count == 0)
+                {
+                    return;
+                }
+                int selectedProcessID = Convert.ToInt32(dataGridViewTask.CurrentRow.Cells["ID"].Value.ToString());
+
+                string query = "DELETE FROM task WHERE id = '" + selectedProcessID + "'";
+                DBConnetion.getInstance().Delete(query);
+
+                MessageBox.Show("업무 삭제가 완료 되었습니다.");
+
+                if (searchFlag == 1)
+                {
+                    selectedKeywordDataView();
+                }
+                else if (searchFlag == 2)
+                {
+                    selectedRegistrantDataView();
+                }
+            }
+            catch
+            {
+
+            }
+            
         }
 
         #endregion
