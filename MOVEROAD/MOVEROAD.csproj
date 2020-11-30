@@ -160,6 +160,12 @@
     <Compile Include="HRManagement.Designer.cs">
       <DependentUpon>HRManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageBoxForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBoxForm2.Designer.cs">
+      <DependentUpon>MessageBoxForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Messenger.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MessageBoxForm.resx">
       <DependentUpon>MessageBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageBoxForm2.resx">
+      <DependentUpon>MessageBoxForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
