@@ -158,8 +158,7 @@ namespace MOVEROAD
                 {                
                     string sql = "DELETE FROM `message` WHERE (`id` = '" + messages[i].index + "')";
 
-                    MessageBox.Show(Convert.ToString(messages[i].index));
-
+                   
                     DBConnetion.getInstance().Delete(sql);
                     listView1.Items[i].Remove();
                    
@@ -225,6 +224,28 @@ namespace MOVEROAD
 
             messages = (List<Message>)DBConnetion.getInstance().Select(sql, 6);
             viewMessageList();
+        }
+
+        private void 보낸쪽지ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
+            MessageBoxForm2 mb = new MessageBoxForm2(this.main);
+            mb.TopLevel = false;
+            mb.Show();
+            main.lastPanel = mb;
+            main.MainPanel.Controls.Clear();
+            main.MainPanel.Controls.Add(mb);
+        }
+
+        private void 받은쪽지ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
+            MessageBoxForm mb = new MessageBoxForm(this.main);
+            mb.TopLevel = false;
+            mb.Show();
+            main.lastPanel =mb;
+            main.MainPanel.Controls.Clear();
+            main.MainPanel.Controls.Add(mb);
         }
     }
 }
