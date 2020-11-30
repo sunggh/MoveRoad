@@ -92,6 +92,8 @@ namespace MOVEROAD
         #region 업무마스터관리
         private void CreateTree()
         {
+            treeViewTaskMaster.Nodes.Clear();
+
             // ID | Name | ParentID | Level | DepartID
             string query = "SELECT * FROM task_class";
             taskClass = (DBConnetion.getInstance().Select(query, 4)) as DataTable;
@@ -165,6 +167,7 @@ namespace MOVEROAD
             //}
             SelectedNode = treeViewTaskMaster.SelectedNode;
         }
+        int menuflag = 0;
         private void treeViewTaskMaster_MouseClick(object sender, MouseEventArgs e)
         {
             //오른쪽 클릭일 경우
@@ -189,7 +192,7 @@ namespace MOVEROAD
                 //각 메뉴를 선택했을 떄의 이벤트 핸들러
                 //추가
                 m1.Click += (senders, es) =>
-                {                    
+                {                                     
                     AddNewNode(senders, es);
                 };
                 //수정
@@ -213,49 +216,100 @@ namespace MOVEROAD
             }
         }
         //ToDoList
-        //1. 추가 했을 때 바뀐 이름으로 저장이 안됨.
-        //2. 자칫 잘못해서 부서(root)가 삭제되는 경우 예외처리 확실히 하기
-        //insert / update해야하는 위치 (label이 편집되고 나서 db에 접근해야 하는데 그전에 먼저 insert가 되는 상황 발생) 알아보기
-        //일단 진도가 너무 안나가니까 다른거부터 하기
+        // 자칫 잘못해서 부서(root)가 삭제되는 경우 예외처리 확실히 하기
+        // 노드를 추가하고 나서 트리를 다시 그려주거나
+        // 노드의 tag에 id를 넣어줘야하는데
+        //  1. 추가 하고 나서 createTree()를 했더니 오만상 계쏙 끝도 없이 생기는 오류가 남
+        //  2. tag를 정해주려면 추가된 노드의 id를 알아야하는데 방법을 모르겠음.
+        private bool isRoot()
+        {
+            if(1 == Convert.ToInt32(SelectedNode.Tag))
+            {
+                MessageBox.Show("root는 수정할 수 없습니다.");
+                return true;
+            }
 
+            return false;
+        }
         private void AddNewNode(object sender, EventArgs e)
         {
-            int pid = Convert.ToInt32(SelectedNode.Tag);    //선택된 노드의 id 가 새로운 노드의 parent_id
-            int level = Convert.ToInt32(SelectedNode.Parent.Tag);
+            if (isRoot())
+                return;
 
-            if (level == 1) //선택된 노드의 parent id가 1이면, 새로운 노드는 lv = 2 
+            menuflag = 1;
+            try
             {
-                level = 2;
+                int pid = Convert.ToInt32(SelectedNode.Tag);    //선택된 노드의 id 가 새로운 노드의 parent_id
+                int level = Convert.ToInt32(SelectedNode.Parent.Tag);
+
+                if (level == 1) //선택된 노드의 parent id가 1이면, 새로운 노드는 lv = 2 
+                {
+                    level = 2;
+                }
+                else    //선택된 노드의 parent id가 1이 아니면, 새로운 노드는 lv = 3
+                {
+                    level = 3;
+                }
+
+                TreeNode newNode = new TreeNode();  //새 노드
+                newNode.Text = "입력하시오";        //임시 이름
+                SelectedNode.Nodes.Add(newNode);    //선택된 노드 하위에 추가
+               
+                int departID = 0;
+
+                if (level == 3)    //3만드는 경우
+                {
+                    //선택된 노드(메뉴가 생성된)의 부모 id 탐색
+                    int ppid = 0;
+                    for (int i = 0; i < middleClass.Rows.Count; i++)
+                    {
+                        if ((int)middleClass.Rows[i]["ID"] == pid)
+                        {
+                            ppid = (int)middleClass.Rows[i]["ParentID"];
+                            break;
+                        }
+                    }
+                    //pid인 노드의 부모노드의 id를 알아야 부서를 알 수 있음
+                    DepartmentInfo department = departmentInfos.Find(d => (d.id == ppid)); //id -> taskclass에서의 id
+                    departID = department.subID;                                    //subID -> department에서의 id  
+                }
+                else if(level == 2)   //2만드는 경우
+                {
+                    //pid인 노드의 부모노드의 id를 알아야 부서를 알 수 있음
+                    DepartmentInfo departmeninfo = departmentInfos.Find(d => (d.id == pid));
+                    departID = departmeninfo.subID;
+                }
+
+                TaskClassInfo = new TaskClassInfo("", pid, level, departID, 1);  //새로운 노드의 정보 저장해두기
+                treeViewTaskMaster.SelectedNode = newNode; //선택된 노드를 새로운 노드로 대입
+                //Console.WriteLine("AddNewNode : 선택된 노드의 이름 : " + SelectedNode.Text);
+                
+                if (SelectedNode != null && SelectedNode.Parent != null)
+                {
+                    treeViewTaskMaster.SelectedNode = SelectedNode;
+                    treeViewTaskMaster.LabelEdit = true;
+                    if (!SelectedNode.IsEditing)
+                    {
+                        SelectedNode.BeginEdit();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("선택한 업무가 없거나 선택한 업무는 수정할 수 없습니다.", "Invalid selection");
+                }
+                
             }
-            else    //선택된 노드의 parent id가 1이 아니면, 새로운 노드는 lv = 3
-            { 
-                level = 3;
-            }
-
-            TreeNode newNode = new TreeNode();  //새 노드
-            newNode.Text = "입력하시오";        //임시 이름
-            SelectedNode.Nodes.Add(newNode);    //선택된 노드 하위에 추가
-
-            DepartmentInfo department = departmentInfos.Find(d => d.id == pid); //id -> taskclass에서의 id
-            int departID = department.subID;                                    //subID -> department에서의 id
-
-            TaskClassInfo = new TaskClassInfo("", pid, level, departID);  //새로운 노드의 정보 저장해두기
-            treeViewTaskMaster.SelectedNode = newNode; //선택된 노드를 새로운 노드로 대입
-            Console.WriteLine("AddNewNode : 선택된 노드의 이름 : " + SelectedNode.Name);
-            ReviseNodeText(sender, e);          //노드의 name 정하기
-            
-            if (SelectedNode.IsEditing)
+            catch(Exception ex)
             {
-                TaskClassInfo.name = SelectedNode.Text;
-                Console.WriteLine("선택된 노드의 text : " + SelectedNode.Text);
-                Console.WriteLine("업무 노드의 이름 : " + TaskClassInfo.name);
-                //추가된 정보 DB INSERT하기
-                string query = "INSERT INTO task_class(name,parent_id,level,depart_id) VALUES('" + TaskClassInfo.name + "','" + TaskClassInfo.pid + "','" + TaskClassInfo.level + "','" + TaskClassInfo.did + "')";
-                DBConnetion.getInstance().Insert(query);
+                Console.WriteLine("오류 : " + ex);
             }
         }
         private void ReviseNodeText(object sender, EventArgs e)
         {
+            if (isRoot())
+                return;
+
+            menuflag = 2;
             if (SelectedNode != null && SelectedNode.Parent != null)
             {
                 treeViewTaskMaster.SelectedNode = SelectedNode;
@@ -270,7 +324,6 @@ namespace MOVEROAD
                 MessageBox.Show("선택한 업무가 없거나 선택한 업무는 수정할 수 없습니다.", "Invalid selection");
             }
         }
-
         private void treeViewTaskMaster_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
             if (e.Label != null)
@@ -302,9 +355,25 @@ namespace MOVEROAD
                     e.Node.BeginEdit();
                 }
             }
-            //바뀐 정보 DB UPDATE하기
-            string query = "UPDATE task_class SET name = '" + SelectedNode.Text + "' WHERE id = '" + SelectedNode.Tag + "'";
-            DBConnetion.getInstance().Update(query);
+            SelectedNode.Text = e.Label;
+            if(menuflag == 1)
+            {
+                TaskClassInfo.name = SelectedNode.Text;
+                //Console.WriteLine("선택된 노드의 text : " + SelectedNode.Text);
+                //Console.WriteLine("업무 노드의 이름 : " + TaskClassInfo.name);
+                //추가된 정보 DB INSERT하기
+                string query = "INSERT INTO task_class(name,parent_id,level,depart_id) VALUES('" + TaskClassInfo.name + "','" + TaskClassInfo.pid + "','" + TaskClassInfo.level + "','" + TaskClassInfo.did + "')";
+                DBConnetion.getInstance().Insert(query);               
+            }
+            else if(menuflag == 2)
+            {
+                //바뀐 정보 DB UPDATE하기
+                //Console.WriteLine("나 지금 수정 끝났어");
+                //Console.WriteLine("노드의 이름 : " + SelectedNode.Text + " 노드의 id : " + SelectedNode.Tag);
+                string query = "UPDATE task_class SET name = '" + SelectedNode.Text + "' WHERE id = '" + SelectedNode.Tag + "'";
+                DBConnetion.getInstance().Update(query);                
+            }
+            menuflag = 0;
         }
         private void DeleteNode(object sender, EventArgs e)
         {
@@ -325,7 +394,7 @@ namespace MOVEROAD
             {
                 MessageBox.Show("선택한 업무가 없거나 선택한 업무는 삭제할 수 없습니다.", "Invalid selection");
             }
-
+            CreateTree();
         }
         #endregion
         #region 일일 업무 등록
@@ -606,6 +675,7 @@ namespace MOVEROAD
                 dataGridViewTask.Columns[1].ReadOnly = true;
                 dataGridViewTask.Columns[2].ReadOnly = true;
                 dataGridViewTask.Columns[3].ReadOnly = true;
+                
             }
             catch (IndexOutOfRangeException re)
             {
@@ -621,8 +691,8 @@ namespace MOVEROAD
                 DataTable dtChanges = new DataTable();
                 DataTable dtProcessFlag = (DataTable)dataGridViewTask.DataSource;
 
-                //Added 하면 젠체애들 다 업데이트 해주긴 함
-                dtChanges = dtProcessFlag.GetChanges(DataRowState.Modified);
+                //Added 하면 젠체애들 다 업데이트 해주긴 함 | 정석은 Modified
+                dtChanges = dtProcessFlag.GetChanges(DataRowState.Added);
 
                 string revisedIndex = "";
                 if(dtChanges != null)
@@ -643,7 +713,8 @@ namespace MOVEROAD
                         revisedIndex += id + " ";
                     }
                 }
-                MessageBox.Show("[ " +revisedIndex + " ] 업무 수정이 완료 되었습니다.");
+                //MessageBox.Show("[ " +revisedIndex + " ] 업무 수정이 완료 되었습니다.");
+                MessageBox.Show("업무 수정이 완료 되었습니다.");
                 dtChanges = null;
 
                 Cursor.Current = Cursors.Default;
@@ -651,7 +722,7 @@ namespace MOVEROAD
             catch (Exception ex)
             {
                 Console.WriteLine("오류 : " + ex);
-                MessageBox.Show("입력 형식이 잘못되었습니다. 확인하고 다시 시도하십시오.");
+                MessageBox.Show("입력 형식이 잘못되었거나 수정된 정보가 없습니다. 확인하고 다시 시도하십시오.");
             }
         }
         //날짜 업무 기반 -> 1 | 등록자 기반 -> 2

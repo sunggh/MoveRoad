@@ -145,7 +145,6 @@ namespace MOVEROAD
 
                     while (rdr.Read())
                     {
-                        Console.WriteLine("sub_id");
                         string startTime = string.Format("{0:HH:mm:ss}", rdr["startTime"]);
                         string finishTime = string.Format("{0:HH:mm:ss}", rdr["finishTime"]);
                         task.Rows.Add((int)rdr["id"], (int)rdr["sub_id"], string.Format("{0:yyyy-MM-dd}",rdr["date"]), (string)rdr["name"], (string)rdr["text"], startTime, finishTime);
@@ -213,7 +212,6 @@ namespace MOVEROAD
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
-
         }
         public void Insert(string sql)
         {

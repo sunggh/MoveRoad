@@ -21,7 +21,7 @@ namespace MOVEROAD.InfoFile
             this.pid = pid;
             this.level = level;
         }
-        public TaskClassInfo(string name, int pid, int level, int did)
+        public TaskClassInfo(string name, int pid, int level, int did, int flag)
         {
             this.name = name;
             this.pid = pid;

@@ -48,11 +48,13 @@ namespace MOVEROAD
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageManagement = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.comboBoxRegistrant = new System.Windows.Forms.ComboBox();
             this.buttonDeleteTask = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonReviseTask = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.dateTimePickerSearchTask = new System.Windows.Forms.DateTimePicker();
             this.comboBoxTaskKeword = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -273,17 +275,27 @@ namespace MOVEROAD
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.comboBoxRegistrant);
-            this.groupBox2.Location = new System.Drawing.Point(284, 46);
+            this.groupBox2.Location = new System.Drawing.Point(330, 46);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(153, 57);
+            this.groupBox2.Size = new System.Drawing.Size(173, 57);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 25);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(37, 15);
+            this.label10.TabIndex = 31;
+            this.label10.Text = "이름";
             // 
             // comboBoxRegistrant
             // 
             this.comboBoxRegistrant.FormattingEnabled = true;
-            this.comboBoxRegistrant.Location = new System.Drawing.Point(15, 22);
+            this.comboBoxRegistrant.Location = new System.Drawing.Point(46, 22);
             this.comboBoxRegistrant.Name = "comboBoxRegistrant";
             this.comboBoxRegistrant.Size = new System.Drawing.Size(121, 23);
             this.comboBoxRegistrant.TabIndex = 29;
@@ -328,13 +340,23 @@ namespace MOVEROAD
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.dateTimePickerSearchTask);
             this.groupBox1.Controls.Add(this.comboBoxTaskKeword);
             this.groupBox1.Location = new System.Drawing.Point(21, 46);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(257, 57);
+            this.groupBox1.Size = new System.Drawing.Size(303, 57);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(133, 25);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(37, 15);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "업무";
             // 
             // dateTimePickerSearchTask
             // 
@@ -347,7 +369,7 @@ namespace MOVEROAD
             // comboBoxTaskKeword
             // 
             this.comboBoxTaskKeword.FormattingEnabled = true;
-            this.comboBoxTaskKeword.Location = new System.Drawing.Point(130, 22);
+            this.comboBoxTaskKeword.Location = new System.Drawing.Point(176, 22);
             this.comboBoxTaskKeword.Name = "comboBoxTaskKeword";
             this.comboBoxTaskKeword.Size = new System.Drawing.Size(121, 23);
             this.comboBoxTaskKeword.TabIndex = 30;
@@ -390,9 +412,9 @@ namespace MOVEROAD
             // 
             // treeViewTaskMaster
             // 
-            this.treeViewTaskMaster.Location = new System.Drawing.Point(62, 66);
+            this.treeViewTaskMaster.Location = new System.Drawing.Point(58, 56);
             this.treeViewTaskMaster.Name = "treeViewTaskMaster";
-            this.treeViewTaskMaster.Size = new System.Drawing.Size(614, 281);
+            this.treeViewTaskMaster.Size = new System.Drawing.Size(614, 308);
             this.treeViewTaskMaster.TabIndex = 33;
             this.treeViewTaskMaster.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeViewTaskMaster_AfterLabelEdit);
             this.treeViewTaskMaster.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewTaskMaster_AfterSelect);
@@ -425,8 +447,10 @@ namespace MOVEROAD
             this.tabPageManagement.ResumeLayout(false);
             this.tabPageManagement.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).EndInit();
             this.tabPageMaster.ResumeLayout(false);
             this.tabPageMaster.PerformLayout();
@@ -466,5 +490,7 @@ namespace MOVEROAD
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox comboBoxRegistrant;
         private System.Windows.Forms.ComboBox comboBoxTaskKeword;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }
