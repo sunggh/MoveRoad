@@ -104,6 +104,7 @@
             this.Controls.Add(this.comboBoxSelect);
             this.Controls.Add(this.label2);
             this.Name = "PaymentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "초과 근무 관리";
             this.ResumeLayout(false);
             this.PerformLayout();

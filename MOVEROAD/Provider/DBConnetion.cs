@@ -110,11 +110,28 @@ namespace MOVEROAD
 
                     table.Load(rdr);
                     return table;
+                case 80: //급여 리스트뷰 출력
+                    List<string> list = new List<string>();
+
+                    while (rdr.Read())
+                    {
+                        list.Add(string.Format("{0}", rdr["name"]));
+                        list.Add(string.Format("{0}", rdr["date"]));
+                        list.Add(string.Format("{0}", rdr["basicPay"]));
+                        list.Add(string.Format("{0}", rdr["overtimePay"]));
+                        list.Add(string.Format("{0}", rdr["nighttimePay"]));
+                        list.Add(string.Format("{0}", rdr["holidayPay"]));
+                        list.Add(string.Format("{0}", rdr["totalPay"]));
+                        list.Add(string.Format("{0}", rdr["deduction"]));
+                        list.Add(string.Format("{0}", rdr["actualPay"]));
+                    }
+                    thing = list;
+                    return thing;
                 case 85: //주말인지 아닌지 알아내기
                     rdr.Read();
                     thing = string.Format("{0}", rdr["dayofweek"]);
                     break;
-                case 86://퇴근-현재시간 초로 가져오기
+                case 86:// X-Y(날짜) 초로 가져오기
                     string get_sectime = "";
                     while (rdr.Read())
                     {
@@ -135,7 +152,7 @@ namespace MOVEROAD
                     return department_;
                 case 89:
                     rdr.Read();
-                    thing = string.Format("{0}", rdr["finishTime"]);
+                    thing = string.Format("{0}", rdr["date2"]);
                     break;
             }
             rdr.Close();
