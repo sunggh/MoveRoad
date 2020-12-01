@@ -23,7 +23,6 @@ namespace MOVEROAD
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            string query = "";
             DateTime dt = Convert.ToDateTime(Today.Text);
             string today = dt.ToString("yyyy-MM-dd"); // 오늘 날짜
             int select = comboBoxSelect.SelectedIndex; // 초과근무 선택
@@ -40,15 +39,15 @@ namespace MOVEROAD
 
             // 초과근무 - 출근시간과 현재시간을 받아와서 10시간 이상인지 알아보기
             string dttime = dt.ToString("HH:mm");
-            string overtime_check = "SELECT time_to_sec(timediff('" + dttime + "', attendance_card.startTime)) AS 'sectime' " +
+            string overtime_check_query = "SELECT time_to_sec(timediff('" + dttime + "', attendance_card.startTime)) AS 'sectime' " +
                 "FROM project.attendance_card " +
                 "WHERE attendance_card.id = '" + ID + "' AND attendance_card.date = '" + today + "'";
-            int overtime_sec = Convert.ToInt32((string)DBConnetion.getInstance().Select(overtime_check, 86));
+            int overtime_sec = Convert.ToInt32((string)DBConnetion.getInstance().Select(overtime_check_query, 86));
 
             // 로그인한 사용자가 출근기록이 있는지 확인
-            query = "SELECT * FROM project.salary " +
+            string check_login_query = "SELECT * FROM project.salary " +
                 "WHERE salary.date = '" + today + "' AND salary.index = " + userIndex;
-            object check = DBConnetion.getInstance().Select(query, 8);
+            object check = DBConnetion.getInstance().Select(check_login_query, 8);
 
             if (check.Equals(1)) // 출근한 기록이 있을 때
             {
@@ -57,9 +56,9 @@ namespace MOVEROAD
                     case 0: // 연장근무
                         if(overtime_sec >= 36000) // (현재시간 - 출근시간)이 10시간 이상인 경우 
                         {
-                            query = "UPDATE salary SET salary.overtimePay = '" + time * 15000 + "' " +
+                            string overtime_query = "UPDATE salary SET salary.overtimePay = '" + time * 15000 + "' " +
                             "WHERE salary.index = " + userIndex + " AND salary.date = '" + today + "'";
-                            DBConnetion.getInstance().Update(query);
+                            DBConnetion.getInstance().Update(overtime_query);
                             MessageBox.Show("연장근무 ( " + time + " ) 시간 등록이 완료되었습니다.", "신청 확인");
                             break;
                         }
@@ -72,9 +71,9 @@ namespace MOVEROAD
                     case 1: // 야간근무
                         if(nowhour >= 22 && nowhour <= 24) // 야간(22시-24시)인 경우
                         {
-                            query = "UPDATE salary SET salary.nighttimePay = '" + time * 15000 + "' " +
+                            string nighttime_query = "UPDATE salary SET salary.nighttimePay = '" + time * 15000 + "' " +
                             "WHERE salary.index = " + userIndex + " AND salary.date = '" + today + "'";
-                            DBConnetion.getInstance().Update(query);
+                            DBConnetion.getInstance().Update(nighttime_query);
                             MessageBox.Show("야간근무 ( " + time + " ) 시간 등록이 완료되었습니다.", "신청 확인");
                             break;
                         }
@@ -86,9 +85,9 @@ namespace MOVEROAD
                     case 2: // 휴일근무
                         if(dayofweek == "일" || dayofweek == "토") // 주말인 경우
                         {
-                            query = "UPDATE salary SET salary.holidayPay = '" + time * 15000 + "' " +
+                            string holiday_query = "UPDATE salary SET salary.holidayPay = '" + time * 15000 + "' " +
                             "WHERE salary.index = " + userIndex + " AND salary.date = '" + today + "'";
-                            DBConnetion.getInstance().Update(query);
+                            DBConnetion.getInstance().Update(holiday_query);
                             MessageBox.Show("휴일근무 ( " + time + " ) 시간 등록이 완료되었습니다.", "신청 확인");
                             break;
                         }
