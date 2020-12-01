@@ -13,7 +13,7 @@ namespace MOVEROAD
 {
     public class DBConnetion
     {
-        private string dbip = "220.122.52.172";
+        private string dbip = "211.229.51.245";
         private string dbname = "project";
         private string dbpass = "road";
         private string dbid = "move";
@@ -136,7 +136,7 @@ namespace MOVEROAD
                     DataTable task = new DataTable();
                     //열 생성
                     task.Columns.Add("ID", typeof(int));
-                    task.Columns.Add("업무", typeof(int));    //이거 이따가 string으로 바꿔야 함
+                    task.Columns.Add("업무", typeof(string));    //이거 이따가 string으로 바꿔야 함
                     task.Columns.Add("날짜", typeof(string));
                     task.Columns.Add("이름", typeof(string));
                     task.Columns.Add("업무내용", typeof(string));
@@ -147,7 +147,7 @@ namespace MOVEROAD
                     {
                         string startTime = string.Format("{0:HH:mm:ss}", rdr["startTime"]);
                         string finishTime = string.Format("{0:HH:mm:ss}", rdr["finishTime"]);
-                        task.Rows.Add((int)rdr["id"], (int)rdr["sub_id"], string.Format("{0:yyyy-MM-dd}",rdr["date"]), (string)rdr["name"], (string)rdr["text"], startTime, finishTime);
+                        task.Rows.Add((int)rdr["id"], (string)rdr["task"], string.Format("{0:yyyy-MM-dd}",rdr["date"]), (string)rdr["name"], (string)rdr["text"], startTime, finishTime);
                     }
                     thing = task;
                     break;
@@ -227,8 +227,20 @@ namespace MOVEROAD
             MySqlConnection conn = getDBConnetion();
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();            
             conn.Close();
+        }
+        public int InsertNewNode(string sql)
+        {
+            MySqlConnection conn = getDBConnetion();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            long id = cmd.LastInsertedId;
+            Console.WriteLine("넣은 마지막 id : " + id);
+            conn.Close();
+
+            return (int)id;
         }
 
     }

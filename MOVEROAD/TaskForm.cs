@@ -30,6 +30,7 @@ namespace MOVEROAD
         List<DepartmentInfo> departmentInfos = new List<DepartmentInfo>();   //부서들 저장해 두는 리스트
         List<UserInfo> userInfos;                                            //시원들 저장해 두는 리스트
 
+        DataTable dtProcessFlag;
         public TaskForm(MainForm main, UserInfo me)
         {
             InitializeComponent();
@@ -157,15 +158,16 @@ namespace MOVEROAD
         }
         private void treeViewTaskMaster_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            //nodeKey = e.Node.Text;
-            //if (!string.IsNullOrEmpty(nodeKey))
-            //{
-            //    Console.WriteLine("선택된 노드 키 : " + nodeKey);
-            //    Console.WriteLine("선택된 노드 태그 : " + e.Node.Tag);
-            //    Console.WriteLine("선택된 노드 레벨 : " + e.Node.Level);
-            //    Console.WriteLine("선택된 노드 부모노드 : " + e.Node.Parent);
-            //}
+            string nodeKey = e.Node.Text;
+            if (!string.IsNullOrEmpty(nodeKey))
+            {
+                Console.WriteLine("선택된 노드 키 : " + nodeKey);
+                Console.WriteLine("선택된 노드 태그 : " + e.Node.Tag);
+                Console.WriteLine("선택된 노드 레벨 : " + e.Node.Level);
+                Console.WriteLine("선택된 노드 부모노드 : " + e.Node.Parent);
+            }
             SelectedNode = treeViewTaskMaster.SelectedNode;
+
         }
         int menuflag = 0;
         private void treeViewTaskMaster_MouseClick(object sender, MouseEventArgs e)
@@ -221,6 +223,7 @@ namespace MOVEROAD
         // 노드의 tag에 id를 넣어줘야하는데
         //  1. 추가 하고 나서 createTree()를 했더니 오만상 계쏙 끝도 없이 생기는 오류가 남
         //  2. tag를 정해주려면 추가된 노드의 id를 알아야하는데 방법을 모르겠음.
+        // level3에서 추가할경우도 못하게 하기
         private bool isRoot()
         {
             if(1 == Convert.ToInt32(SelectedNode.Tag))
@@ -270,8 +273,17 @@ namespace MOVEROAD
                         }
                     }
                     //pid인 노드의 부모노드의 id를 알아야 부서를 알 수 있음
-                    DepartmentInfo department = departmentInfos.Find(d => (d.id == ppid)); //id -> taskclass에서의 id
-                    departID = department.subID;                                    //subID -> department에서의 id  
+                    try
+                    {
+                        DepartmentInfo department = departmentInfos.Find(d => (d.id == ppid)); //id -> taskclass에서의 id
+                        departID = department.subID;     //subID -> department에서의 id  
+                    }
+                    catch
+                    {
+                        MessageBox.Show("추가 할 수 없는 위치 입니다.");
+                        newNode.Remove();
+                        return ;
+                    }                           
                 }
                 else if(level == 2)   //2만드는 경우
                 {
@@ -363,7 +375,8 @@ namespace MOVEROAD
                 //Console.WriteLine("업무 노드의 이름 : " + TaskClassInfo.name);
                 //추가된 정보 DB INSERT하기
                 string query = "INSERT INTO task_class(name,parent_id,level,depart_id) VALUES('" + TaskClassInfo.name + "','" + TaskClassInfo.pid + "','" + TaskClassInfo.level + "','" + TaskClassInfo.did + "')";
-                DBConnetion.getInstance().Insert(query);               
+                SelectedNode.Tag = DBConnetion.getInstance().InsertNewNode(query);                
+                menuflag = 0;
             }
             else if(menuflag == 2)
             {
@@ -371,9 +384,10 @@ namespace MOVEROAD
                 //Console.WriteLine("나 지금 수정 끝났어");
                 //Console.WriteLine("노드의 이름 : " + SelectedNode.Text + " 노드의 id : " + SelectedNode.Tag);
                 string query = "UPDATE task_class SET name = '" + SelectedNode.Text + "' WHERE id = '" + SelectedNode.Tag + "'";
-                DBConnetion.getInstance().Update(query);                
+                DBConnetion.getInstance().Update(query);
+                menuflag = 0;
             }
-            menuflag = 0;
+            
         }
         private void DeleteNode(object sender, EventArgs e)
         {
@@ -383,7 +397,7 @@ namespace MOVEROAD
                     int id = Convert.ToInt32(SelectedNode.Tag);
                     string query = "DELETE FROM task_class WHERE parent_id = '" + id + "' OR id = '" + id + "'";
 
-                    if (id != 1)
+                    if (id > 1)
                     {   //혹시라도 root가 지워질 경우 방지  
                         DBConnetion.getInstance().Delete(query);
                         SelectedNode.Remove();
@@ -644,7 +658,7 @@ namespace MOVEROAD
                 DataRow[] rows = subClass.Select("Name = '" + name + "'");
                 int taskID = Convert.ToInt32(rows[0]["ID"]);
 
-                string query = "SELECT * FROM task WHERE sub_id = '" + taskID + "' AND date = '" + date + "'";
+                string query = "SELECT A.*, B.name as task FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.id WHERE sub_id = '" + taskID + "' AND date = '" + date + "'";
                 DataTable table = DBConnetion.getInstance().Select(query, 15) as DataTable;
 
                 dataGridViewTask.DataSource = table;
@@ -653,6 +667,8 @@ namespace MOVEROAD
                 dataGridViewTask.Columns[1].ReadOnly = true;
                 dataGridViewTask.Columns[2].ReadOnly = true;
                 dataGridViewTask.Columns[3].ReadOnly = true;
+
+                dtProcessFlag = (DataTable)dataGridViewTask.DataSource;
             }
             catch(IndexOutOfRangeException re)
             {
@@ -666,7 +682,7 @@ namespace MOVEROAD
             {
                 string name = comboBoxRegistrant.SelectedItem.ToString();
 
-                string query = "SELECT * FROM task WHERE name = '" + name + "'";
+                string query = "SELECT A.*, B.name as task FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.id WHERE A.name = '" + name + "'";
                 DataTable table = DBConnetion.getInstance().Select(query, 15) as DataTable;
 
                 dataGridViewTask.DataSource = table;
@@ -675,7 +691,8 @@ namespace MOVEROAD
                 dataGridViewTask.Columns[1].ReadOnly = true;
                 dataGridViewTask.Columns[2].ReadOnly = true;
                 dataGridViewTask.Columns[3].ReadOnly = true;
-                
+
+                dtProcessFlag = (DataTable)dataGridViewTask.DataSource;
             }
             catch (IndexOutOfRangeException re)
             {
@@ -689,7 +706,7 @@ namespace MOVEROAD
                 Application.UseWaitCursor = false;
 
                 DataTable dtChanges = new DataTable();
-                DataTable dtProcessFlag = (DataTable)dataGridViewTask.DataSource;
+                dtProcessFlag = (DataTable)dataGridViewTask.DataSource;
 
                 //Added 하면 젠체애들 다 업데이트 해주긴 함 | 정석은 Modified
                 dtChanges = dtProcessFlag.GetChanges(DataRowState.Added);
@@ -703,8 +720,17 @@ namespace MOVEROAD
                         string text = dtChanges.Rows[i]["업무내용"] as string;
                         string date = dtChanges.Rows[i]["날짜"] as string;
 
+                        startTime = Convert.ToDateTime(dtChanges.Rows[i]["시작시간"]);
+                        finishTime = Convert.ToDateTime(dtChanges.Rows[i]["종료시간"]);
                         string st = date + " " + dtChanges.Rows[i]["시작시간"];
                         string ft = date + " " + dtChanges.Rows[i]["종료시간"];
+
+                        //업무시간 확인
+                        if (DateTime.Compare(startTime, finishTime) == 1 || haveTimeOverlap()) // st 보다 ft가 더 작으면
+                        {
+                            MessageBox.Show("업무시간을 확인하시오.");
+                            continue;
+                        }
 
                         Console.WriteLine("시작시간 : " + st);
                         string query = "UPDATE task SET text = '" + text +"', startTime ='" + st + "', finishTime = '" + ft + "' WHERE id = '" + id + "'";
