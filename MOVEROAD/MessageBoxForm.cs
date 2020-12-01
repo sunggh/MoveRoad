@@ -102,26 +102,22 @@ namespace MOVEROAD
 
         private void btnRead_Click(object sender, EventArgs e)  // 직접 메시지를 수신하지 않아도 읽음처리 가능
         {
-            int row = listView1.CheckedItems[0].Index;
 
             for (int i = listView1.Items.Count - 1; i >= 0; i--)
             {
                 if (listView1.Items[i].Checked == true)
                 {
-                    if (messages[i].reads == 0)
-                    {
-                        string sql = "UPDATE `message` SET `reads` = '1' WHERE (`id` = '" + messages[i].index + "')";
-                        DBConnetion.getInstance().Update(sql);
+                    string sql = "UPDATE `message` SET `reads` = '1' WHERE (`id` = '" + messages[i].index + "')";
 
-                    }
+
+                    DBConnetion.getInstance().Update(sql);
                     messages[i].reads = 1;
+                   
 
-                    viewMessageList();
-
-                }
-
+                }             
             }
-    
+            viewMessageList();
+
         }  
 
         private void btnNew_Click(object sender, EventArgs e)
