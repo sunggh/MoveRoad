@@ -142,13 +142,12 @@ namespace MOVEROAD
                         string update_basicpay = "update salary set `basicpay` = 100000 where `index` = '" + user.index + "' and `date` = '" + today+"'";
                         DBConnetion.getInstance().Update(update_basicpay);
 
-                        //totalpay 계산
-                        
                     }
                     else // 겹치지만 야간되기전에 10시간근무 넘은건 아닐때 10시까지만 계산
                     {
                         string update_basicpay = "update salary set `basicpay` = '" + (get_nighttime_sec / 3600) * 10000 + "' where `index` = '"+user.index+"' and `date` = '" + today + "'";
                         DBConnetion.getInstance().Update(update_basicpay);
+
                     }
                 }
                 // 출근일과 퇴근일이 같으면서 야간근무가 아닌경우
@@ -163,6 +162,7 @@ namespace MOVEROAD
                     {
                         string update_basicpay = "update salary set `basicpay` = 100000 where `index` = '" + user.index + "' and `date` = '" + today + "'";
                         DBConnetion.getInstance().Update(update_basicpay);
+
                     }
                     else //야간도 초과근무도 아니라면
                     {
@@ -172,12 +172,20 @@ namespace MOVEROAD
                     }
                 }
             }
+
+            //totalpay 계산
+            get_totalpay(user, today);
         }
         #endregion
 
-        private void get_totalpay(UserInfo user)
+        //총급여 계산
+        private void get_totalpay(UserInfo user,string today)
         {
-            string query = "select basicPay+overtimePay+nighttimePay+holidayPay as `sumpays` from salary where `index` = '" + user.index + "' and `date` = '" + Today +"'";
+            string query = "select ifnull(basicPay+overtimePay+nighttimePay+holidayPay,0) as `sumpays` from salary where `index` = '" + user.index + "' and `date` = '" + today + "'";
+            int total_pay = Convert.ToInt32((string)DBConnetion.getInstance().Select(query, 81));
+
+            string update_query = "update salary set totalPay = '"+total_pay+"' where `index` = '"+user.index+"' and `date` = '"+ today+"'";
+            DBConnetion.getInstance().Update(update_query);
         }
 
         private void workTime() // 업무시간 업데이트 (시작시간과 종료시간값을 받아와 DateTime형식으로 변환후 TimeSpan으로 두값을 빼준후 시간을 얻어옴 얻어온 시간값을 Int 형식으로 Convert후 DB에 저장)
