@@ -33,7 +33,8 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.textBoxTime = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.Today = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -84,12 +85,24 @@
             this.textBoxTime.Size = new System.Drawing.Size(73, 21);
             this.textBoxTime.TabIndex = 6;
             // 
-            // dateTimePicker1
+            // Today
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(23, 12);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(231, 21);
-            this.dateTimePicker1.TabIndex = 7;
+            this.Today.AutoSize = true;
+            this.Today.Font = new System.Drawing.Font("굴림", 9F);
+            this.Today.Location = new System.Drawing.Point(21, 21);
+            this.Today.Name = "Today";
+            this.Today.Size = new System.Drawing.Size(38, 12);
+            this.Today.TabIndex = 8;
+            this.Today.Text = "label1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 12);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "*초과근무 시작시간";
             // 
             // PaymentForm
             // 
@@ -97,7 +110,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(291, 142);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Today);
             this.Controls.Add(this.textBoxTime);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonAdd);
@@ -118,6 +132,7 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.TextBox textBoxTime;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label Today;
+        private System.Windows.Forms.Label label1;
     }
 }
