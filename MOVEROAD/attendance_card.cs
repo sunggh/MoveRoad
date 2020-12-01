@@ -18,8 +18,7 @@ using MySql.Data.MySqlClient;
 namespace MOVEROAD
 {
     public partial class attendance_card : Form
-    {
-        
+    {        
         MainForm main;
         public attendance_card(MainForm main)
         {
@@ -102,11 +101,10 @@ namespace MOVEROAD
             //현재 접속중인 아이디
             string ID = main.me.id;
 
-            //현재 접속중인 유저의 index
+            //현재 접속중인 유저의 정보 받아오기
             UserInfo user;
             string get_index = "select * from `user` where `id` = '" + ID + "'";
             user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
-            // user.index로 쓰기
 
             #region 주말일 시
             // 만약 주말이라면 아예 예외로하기
@@ -143,6 +141,9 @@ namespace MOVEROAD
                     {
                         string update_basicpay = "update salary set `basicpay` = 100000 where `index` = '" + user.index + "' and `date` = '" + today+"'";
                         DBConnetion.getInstance().Update(update_basicpay);
+
+                        //totalpay 계산
+                        
                     }
                     else // 겹치지만 야간되기전에 10시간근무 넘은건 아닐때 10시까지만 계산
                     {
@@ -173,6 +174,11 @@ namespace MOVEROAD
             }
         }
         #endregion
+
+        private void get_totalpay()
+        {
+            string query = "select basicPay+overtimePay+nighttimePay+holidayPay as `sumpays` from salary where ";
+        }
 
         private void workTime() // 업무시간 업데이트 (시작시간과 종료시간값을 받아와 DateTime형식으로 변환후 TimeSpan으로 두값을 빼준후 시간을 얻어옴 얻어온 시간값을 Int 형식으로 Convert후 DB에 저장)
         {
