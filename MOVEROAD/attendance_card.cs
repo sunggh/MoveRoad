@@ -45,8 +45,33 @@ namespace MOVEROAD
                         "VALUES('" + ID + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "','" + DateTime.Now.ToString("HH:mm") + "')");
 
                 //출근 시 salary 테이블에 기본값 배치
-                string insert_base = "insert into salary(`index`,`date`,`basicPay`) values ('" + user.index + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "',0)";
+                string insert_base = "insert into salary(`index`,`date`,`basicPay`) " +
+                    "values ('" + user.index + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "',0)";
                 DBConnetion.getInstance().Insert(insert_base);
+
+                DateTime dt = Convert.ToDateTime(Today.Text);
+                string today = dt.ToString("yyyy-MM");
+
+                //출근 시 deduction 테이블에 기본값 배치(급여확인용)
+                string get_query = "SELECT * FROM project.deduction where `date` = '" + today + "'";
+                string get_date = (string)DBConnetion.getInstance().Select(get_query, 84);
+
+                string sql = "SELECT totalPay from deduction where `date` = '" + today + "'";
+                string get_tp = (string)DBConnetion.getInstance().Select(sql, 82);
+
+                //deduction 테이블 달별, 실급여, 유저 삽입(나머지 값 0)
+                //만약 테이블에 같은 달이 입력되어 있지 않다면
+                if (get_date.Equals(""))
+                {
+                    string insert_query = "insert into deduction(`index`,`date`,`totalPay`) values('" + user.index + "','"+today+"',0)";
+                    DBConnetion.getInstance().Insert(insert_query);
+                }
+                else
+                {
+                    string update_query = "update deduction set `index` = '" + user.index + "', `date` = '" + today + "', `totalPay` = '"+ get_tp+"' " +
+                        "where `index` = '" + user.index + "' and `date` = '" + today + "'";
+                    DBConnetion.getInstance().Insert(update_query);
+                }
 
                 MessageBox.Show("현재시각" + DateTime.Now.ToString("HH시 mm분") + "출근 완료");
             }
