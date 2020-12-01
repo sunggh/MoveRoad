@@ -34,7 +34,8 @@ namespace MOVEROAD
                 ", project.user as `u`,project.deduction as `d` " +
                 "WHERE left(`s`.`date`,7) = '"+date+"' and `s`.`index` = '" + userindex+"'" +
                 " and `s`.`index` = `u`.`index` and `s`.`date` = `ac`.`date` and `u`.`id` = `ac`.`id` " +
-                "GROUP BY left(`s`.`date`,7),`basicPay`";
+                " and left(`s`.`date`,7) = `d`.`date` and `u`.`index` = `d`.`index` " +
+                "GROUP BY left(`s`.`date`,7)";
             
             List<string> list;
             list = (List<string>)DBConnetion.getInstance().Select(query,80);
