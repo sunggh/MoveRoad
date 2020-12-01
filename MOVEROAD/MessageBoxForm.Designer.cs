@@ -119,7 +119,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(109, 78);
+            this.btnDelete.Location = new System.Drawing.Point(106, 78);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(82, 27);
             this.btnDelete.TabIndex = 11;
@@ -134,7 +134,7 @@
             this.btnRead.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRead.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnRead.ForeColor = System.Drawing.Color.White;
-            this.btnRead.Location = new System.Drawing.Point(197, 78);
+            this.btnRead.Location = new System.Drawing.Point(194, 78);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(82, 27);
             this.btnRead.TabIndex = 12;
@@ -205,7 +205,7 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnNew.ForeColor = System.Drawing.Color.White;
-            this.btnNew.Location = new System.Drawing.Point(21, 78);
+            this.btnNew.Location = new System.Drawing.Point(18, 78);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(82, 27);
             this.btnNew.TabIndex = 13;

@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelFromtime = new System.Windows.Forms.Label();
-            this.btnReply = new System.Windows.Forms.Button();
             this.time = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -107,20 +106,6 @@
             this.labelFromtime.TabIndex = 12;
             this.labelFromtime.Text = "보낸 시간";
             // 
-            // btnReply
-            // 
-            this.btnReply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.btnReply.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnReply.ForeColor = System.Drawing.Color.White;
-            this.btnReply.Location = new System.Drawing.Point(20, 284);
-            this.btnReply.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReply.Name = "btnReply";
-            this.btnReply.Size = new System.Drawing.Size(84, 27);
-            this.btnReply.TabIndex = 13;
-            this.btnReply.Text = "답장";
-            this.btnReply.UseVisualStyleBackColor = false;
-            this.btnReply.Click += new System.EventHandler(this.btnReply_Click);
-            // 
             // time
             // 
             this.time.AutoSize = true;
@@ -150,7 +135,6 @@
             this.ClientSize = new System.Drawing.Size(652, 330);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.time);
-            this.Controls.Add(this.btnReply);
             this.Controls.Add(this.labelFromtime);
             this.Controls.Add(this.FromtextBox);
             this.Controls.Add(this.FromtitleBox);
@@ -175,7 +159,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelFromtime;
-        private System.Windows.Forms.Button btnReply;
         private System.Windows.Forms.Label time;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
