@@ -75,6 +75,11 @@ namespace MOVEROAD
             object finish = DBConnetion.getInstance().Select("SELECT finishTime FROM attendance_card " +
                 "WHERE id='" + ID + "' and date!= 'null' and finishTime = '\"' ", 6); // 퇴근을 눌렀는지 확인
 
+            object start2 = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
+                "WHERE id='" + ID + "' and date like '"+today+"%' ", 5);
+    
+
+
             if ((string)start != null && (string)finish == "\"") // 출근을 누르고 퇴근을 누르지 않았을때 (정상적인 상황)
             {// 만약 출근을 눌렀다면 정상적으로 종료시간 업데이트 종료시간 업데이트시 당일날만 업데이트 하기위해 like문으로 date의 값을 당일날이라는 조건으로 걸어둔다
                 DBConnetion.getInstance().Update("UPDATE attendance_card SET date2='" + DateTime.Now.ToString("yyyy-MM-dd") + "' , finishTime ='" + DateTime.Now.ToString("HH:mm") + "' " +
@@ -83,10 +88,10 @@ namespace MOVEROAD
                 MessageBox.Show("현재시각" + DateTime.Now.ToString("HH:mm") + "퇴근 완료");
                 //workTime(); // 퇴근과 동시에 업무시간 업데이트
             }
-            if ((string)start == null) // 만약 출근버튼을 먼저 누르지 않았다면
+            if ((string)start2 == null) // 만약 출근버튼을 먼저 누르지 않았다면
                 MessageBox.Show("먼저 출근버튼을 눌러주십시오.");
 
-            if ((string)finish != "\"" && (string)finish != null)
+            if ((string)start ==null && (string)finish == null && (string)finish != "\"" && (string)start2 !=null)
                 MessageBox.Show("이미 퇴근처리가 되었습니다.");
         }
         #endregion
