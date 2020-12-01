@@ -132,8 +132,10 @@ namespace MOVEROAD
                     thing = string.Format("{0}", rdr["sumpays"]);
                     return thing;
                 case 82: // 총급여 가져오기
-                    rdr.Read();
-                    thing = string.Format("{0}", rdr["totalPay"]);
+                    while (rdr.Read())
+                    {
+                        thing = string.Format("{0}", rdr["totalPay"]);
+                    }
                     return thing;
                 case 83:
                     List<string> list1 = new List<string>();
@@ -178,6 +180,14 @@ namespace MOVEROAD
                     rdr.Read();
                     thing = string.Format("{0}", rdr["date2"]);
                     break;
+                case 181:
+                    string totalPay = "";
+                    while (rdr.Read())
+                    {
+                        totalPay = string.Format("{0}", rdr["totalPay"]);
+                    }
+                    return totalPay;
+
             }
             rdr.Close();
             conn.Close();

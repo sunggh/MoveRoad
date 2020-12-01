@@ -56,12 +56,12 @@ namespace MOVEROAD
                 string get_query = "SELECT * FROM project.deduction where `date` = '" + today + "'";
                 string get_date = (string)DBConnetion.getInstance().Select(get_query, 84);
 
-                string sql = "SELECT totalPay from deduction where `date` = '" + today + "'";
-                string get_tp = (string)DBConnetion.getInstance().Select(sql, 82);
+                string sql = "SELECT totalPay from deduction where `index` = '"+user.index+"' and `date` = '" + today + "'";
+                string get_tp = (string)DBConnetion.getInstance().Select(sql, 181);
 
                 //deduction 테이블 달별, 실급여, 유저 삽입(나머지 값 0)
                 //만약 테이블에 같은 달이 입력되어 있지 않다면
-                if (get_date.Equals(""))
+                if (get_tp.Equals(""))
                 {
                     string insert_query = "insert into deduction(`index`,`date`,`totalPay`) values('" + user.index + "','"+today+"',0)";
                     DBConnetion.getInstance().Insert(insert_query);
