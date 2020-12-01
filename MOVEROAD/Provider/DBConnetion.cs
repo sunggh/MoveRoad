@@ -127,6 +127,10 @@ namespace MOVEROAD
                     }
                     thing = list;
                     return thing;
+                case 81: //총급여 계산
+                    rdr.Read();
+                    thing = string.Format("{0}", rdr["sumpays"]);
+                    return thing;
                 case 85: //주말인지 아닌지 알아내기
                     rdr.Read();
                     thing = string.Format("{0}", rdr["dayofweek"]);
