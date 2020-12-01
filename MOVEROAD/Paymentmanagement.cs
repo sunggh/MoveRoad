@@ -58,13 +58,30 @@ namespace MOVEROAD
 
         private void btn_overtime_Click(object sender, EventArgs e)
         {
-            // 초과근무 창 띄우기
-            using(PaymentForm payment = new PaymentForm(main))
+            string userid = main.me.id;
+            DateTime dt = DateTime.Now;
+            string today = dt.ToString("yyyy-MM-dd");
+
+            string checkin_query = "SELECT * FROM project.attendance_card WHERE attendance_card.id = '" + userid + "' AND date = '" + today + "'";
+            object checkin = DBConnetion.getInstance().Select(checkin_query, 8);
+
+            string checkout_query = "SELECT * FROM project.attendance_card WHERE attendance_card.id = '" + userid + "' AND date2 = '" + today + "'";
+            object checkout = DBConnetion.getInstance().Select(checkout_query, 8);
+
+            if(checkin.Equals(1) && checkout.Equals(0)) // 현재 출근처리 되어있으며, 퇴근하지 않은 경우 추가수당 ui창 띄우기
             {
-                if(payment.ShowDialog() == DialogResult.OK)
+                // 초과근무 창 띄우고 다른행동 못하게 금지
+                using (PaymentForm payment = new PaymentForm(main))
                 {
-                    //refresh
+                    if (payment.ShowDialog() == DialogResult.OK)
+                    {
+                        //refresh
+                    }
                 }
+            }
+            else // 출근처리가 안 되어있거나 이미 퇴근처리가 된 경우
+            {
+                MessageBox.Show("출근처리가 안 되어있거나 이미 퇴근처리 되었습니다.", "확인");
             }
         }
 

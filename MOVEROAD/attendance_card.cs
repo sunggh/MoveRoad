@@ -81,7 +81,7 @@ namespace MOVEROAD
                      "WHERE id='" + ID + "' and startTime != 'null' and  finishTime = '\"' ");
 
                 MessageBox.Show("현재시각" + DateTime.Now.ToString("HH:mm") + "퇴근 완료");
-                workTime(); // 퇴근과 동시에 업무시간 업데이트
+                //workTime(); // 퇴근과 동시에 업무시간 업데이트
             }
             if ((string)start == null) // 만약 출근버튼을 먼저 누르지 않았다면
                 MessageBox.Show("먼저 출근버튼을 눌러주십시오.");
@@ -208,7 +208,7 @@ namespace MOVEROAD
             
 
         }
-
+        */
         private void buttonInc_Click(object sender, EventArgs e) // 한달 추가
         {
             DateTime dt;
