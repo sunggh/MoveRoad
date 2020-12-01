@@ -242,7 +242,7 @@ namespace MOVEROAD
             //먼저 deduction 테이블에 달별 실급여 정리하기
             string set_dedcution = "SELECT left(`date`,7) as `month`, sum(salary.`totalPay`) as `totalPay` " +
                 "FROM project.salary " +
-                "where salary.`index` = 1 and left(`date`,7) = '"+today+"' " +
+                "where salary.`index` = '"+user.index+"' and left(`date`,7) = '"+today+"' " +
                 "group by `month`";
 
             List<string> list = (List<string>)DBConnetion.getInstance().Select(set_dedcution, 83);
