@@ -175,9 +175,9 @@ namespace MOVEROAD
         }
         #endregion
 
-        private void get_totalpay()
+        private void get_totalpay(UserInfo user)
         {
-            string query = "select basicPay+overtimePay+nighttimePay+holidayPay as `sumpays` from salary where ";
+            string query = "select basicPay+overtimePay+nighttimePay+holidayPay as `sumpays` from salary where `index` = '" + user.index + "' and `date` = '" + Today +"'";
         }
 
         private void workTime() // 업무시간 업데이트 (시작시간과 종료시간값을 받아와 DateTime형식으로 변환후 TimeSpan으로 두값을 빼준후 시간을 얻어옴 얻어온 시간값을 Int 형식으로 Convert후 DB에 저장)
@@ -208,7 +208,7 @@ namespace MOVEROAD
             
 
         }
-        */
+        
         private void buttonInc_Click(object sender, EventArgs e) // 한달 추가
         {
             DateTime dt;
@@ -230,7 +230,7 @@ namespace MOVEROAD
             string a = dt.ToString("yyyy-MM");
 
             // 출근부를 조회 현재 년-월을 like문으로 설정하여 년-월 별로 출근부를 조회 할수 있음 
-            string query = "SELECT DATE_FORMAT(date, '%d') AS 출근일, name AS 사용자이름,startTime AS 출근시간 ,DATE_FORMAT(date2, '%d') AS 퇴근일,finishTime AS 퇴근시간, workTime AS 근무시간"
+            string query = "SELECT name AS 사용자이름, DATE_FORMAT(date, '%d') AS 출근일,startTime AS 출근시간 ,DATE_FORMAT(date2, '%d') AS 퇴근일,finishTime AS 퇴근시간"
                        + " FROM attendance_card join user on attendance_card.id = user.id Where user.id='" + main.me.id + "' and date like '" + a + "%' ";
             object tb = DBConnetion.getInstance().Select(query, 70);
             dataGridView1.DataSource = tb;
