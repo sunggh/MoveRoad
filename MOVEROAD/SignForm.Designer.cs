@@ -42,7 +42,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageToMe = new System.Windows.Forms.TabPage();
-            this.textBoxDetail = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxDetail_req = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,12 +52,15 @@
             this.buttonSign = new System.Windows.Forms.Button();
             this.dataGridViewRequest = new System.Windows.Forms.DataGridView();
             this.tabPageFromMe = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBoxDetail_turn = new System.Windows.Forms.TextBox();
+            this.textBoxDetail_done = new System.Windows.Forms.TextBox();
             this.textBoxSignTurnMemo = new System.Windows.Forms.TextBox();
             this.dataGridViewSignTurnList = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridViewSignList = new System.Windows.Forms.DataGridView();
-            this.label11 = new System.Windows.Forms.Label();
             this.tabControlSign.SuspendLayout();
             this.tabPageNewInsert.SuspendLayout();
             this.tabPageToMe.SuspendLayout();
@@ -205,7 +209,7 @@
             // tabPageToMe
             // 
             this.tabPageToMe.Controls.Add(this.label11);
-            this.tabPageToMe.Controls.Add(this.textBoxDetail);
+            this.tabPageToMe.Controls.Add(this.textBoxDetail_req);
             this.tabPageToMe.Controls.Add(this.label9);
             this.tabPageToMe.Controls.Add(this.label7);
             this.tabPageToMe.Controls.Add(this.label6);
@@ -222,14 +226,23 @@
             this.tabPageToMe.Text = "결재 요청 내역";
             this.tabPageToMe.UseVisualStyleBackColor = true;
             // 
-            // textBoxDetail
+            // label11
             // 
-            this.textBoxDetail.Location = new System.Drawing.Point(637, 25);
-            this.textBoxDetail.Multiline = true;
-            this.textBoxDetail.Name = "textBoxDetail";
-            this.textBoxDetail.ReadOnly = true;
-            this.textBoxDetail.Size = new System.Drawing.Size(174, 267);
-            this.textBoxDetail.TabIndex = 6;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(634, 7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(102, 15);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "내용 상세보기";
+            // 
+            // textBoxDetail_req
+            // 
+            this.textBoxDetail_req.Location = new System.Drawing.Point(637, 25);
+            this.textBoxDetail_req.Multiline = true;
+            this.textBoxDetail_req.Name = "textBoxDetail_req";
+            this.textBoxDetail_req.ReadOnly = true;
+            this.textBoxDetail_req.Size = new System.Drawing.Size(174, 267);
+            this.textBoxDetail_req.TabIndex = 6;
             // 
             // label9
             // 
@@ -290,7 +303,7 @@
             // dataGridViewRequest
             // 
             this.dataGridViewRequest.AllowUserToAddRows = false;
-            this.dataGridViewRequest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewRequest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRequest.Location = new System.Drawing.Point(6, 25);
             this.dataGridViewRequest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -304,6 +317,10 @@
             // 
             // tabPageFromMe
             // 
+            this.tabPageFromMe.Controls.Add(this.label13);
+            this.tabPageFromMe.Controls.Add(this.label12);
+            this.tabPageFromMe.Controls.Add(this.textBoxDetail_turn);
+            this.tabPageFromMe.Controls.Add(this.textBoxDetail_done);
             this.tabPageFromMe.Controls.Add(this.textBoxSignTurnMemo);
             this.tabPageFromMe.Controls.Add(this.dataGridViewSignTurnList);
             this.tabPageFromMe.Controls.Add(this.label10);
@@ -318,6 +335,42 @@
             this.tabPageFromMe.Text = "내가 등록한 결재";
             this.tabPageFromMe.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(627, 211);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 15);
+            this.label13.TabIndex = 9;
+            this.label13.Text = "내용 상세보기";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(629, 4);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(102, 15);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "내용 상세보기";
+            // 
+            // textBoxDetail_turn
+            // 
+            this.textBoxDetail_turn.Location = new System.Drawing.Point(629, 229);
+            this.textBoxDetail_turn.Multiline = true;
+            this.textBoxDetail_turn.Name = "textBoxDetail_turn";
+            this.textBoxDetail_turn.ReadOnly = true;
+            this.textBoxDetail_turn.Size = new System.Drawing.Size(181, 156);
+            this.textBoxDetail_turn.TabIndex = 7;
+            // 
+            // textBoxDetail_done
+            // 
+            this.textBoxDetail_done.Location = new System.Drawing.Point(630, 25);
+            this.textBoxDetail_done.Multiline = true;
+            this.textBoxDetail_done.Name = "textBoxDetail_done";
+            this.textBoxDetail_done.ReadOnly = true;
+            this.textBoxDetail_done.Size = new System.Drawing.Size(181, 177);
+            this.textBoxDetail_done.TabIndex = 6;
+            // 
             // textBoxSignTurnMemo
             // 
             this.textBoxSignTurnMemo.Location = new System.Drawing.Point(9, 390);
@@ -329,13 +382,13 @@
             // dataGridViewSignTurnList
             // 
             this.dataGridViewSignTurnList.AllowUserToAddRows = false;
-            this.dataGridViewSignTurnList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewSignTurnList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSignTurnList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSignTurnList.Location = new System.Drawing.Point(9, 229);
             this.dataGridViewSignTurnList.Name = "dataGridViewSignTurnList";
             this.dataGridViewSignTurnList.RowHeadersWidth = 51;
             this.dataGridViewSignTurnList.RowTemplate.Height = 27;
-            this.dataGridViewSignTurnList.Size = new System.Drawing.Size(802, 155);
+            this.dataGridViewSignTurnList.Size = new System.Drawing.Size(614, 155);
             this.dataGridViewSignTurnList.TabIndex = 4;
             this.dataGridViewSignTurnList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSignTurnList_CellClick);
             // 
@@ -360,7 +413,7 @@
             // dataGridViewSignList
             // 
             this.dataGridViewSignList.AllowUserToAddRows = false;
-            this.dataGridViewSignList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewSignList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSignList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSignList.Location = new System.Drawing.Point(6, 25);
             this.dataGridViewSignList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -368,17 +421,9 @@
             this.dataGridViewSignList.RowHeadersWidth = 51;
             this.dataGridViewSignList.RowTemplate.Height = 27;
             this.dataGridViewSignList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSignList.Size = new System.Drawing.Size(805, 177);
+            this.dataGridViewSignList.Size = new System.Drawing.Size(617, 177);
             this.dataGridViewSignList.TabIndex = 0;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(634, 7);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(102, 15);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "내용 상세보기";
+            this.dataGridViewSignList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSignList_CellClick);
             // 
             // SignForm
             // 
@@ -433,7 +478,11 @@
         private System.Windows.Forms.TextBox textBoxSignTurnMemo;
         private System.Windows.Forms.DataGridView dataGridViewSignTurnList;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxDetail;
+        private System.Windows.Forms.TextBox textBoxDetail_req;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBoxDetail_turn;
+        private System.Windows.Forms.TextBox textBoxDetail_done;
     }
 }
