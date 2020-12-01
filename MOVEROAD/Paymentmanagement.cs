@@ -27,11 +27,14 @@ namespace MOVEROAD
             //현재 접속중인 유저 index (접속한 아이디 유저의 급여표기 위함)
             int userindex = main.me.index;
 
-            string query = "SELECT user.name,left(salary.`date`,7) as `date`,SUM(`basicPay`) as basicPay,`overtimePay`,`nighttimePay`,`holidayPay`,`totalPay`,`deduction`,`actualPay` " +
-                "FROM project.attendance_card,project.salary,project.user " +
-                "where left(salary.`date`,7) = '"+date+"' and salary.`index` = '" + userindex+"' " +
-                    "and salary.`index` = user.`index` and salary.`date` = attendance_card.`date` " +
-                "group by left(salary.`date`,7)";
+            string query = "SELECT `u`.name,left(`s`.`date`,7) as `date`,SUM(`basicPay`) as `basicPay`" +
+                ", SUM(`overtimePay`) as `overtimePay`,sum(`nighttimePay`) as `nighttimePay`,sum(`holidayPay`) as `holidayPay`" +
+                ", `d`.`totalPay`,`d`.`deduction`,`d`.`actualPay` " +
+                "FROM project.attendance_card as `ac`,project.salary as `s`" +
+                ", project.user as `u`,project.deduction as `d` " +
+                "WHERE left(`s`.`date`,7) = '"+date+"' and `s`.`index` = '" + userindex+"'" +
+                " and `s`.`index` = `u`.`index` and `s`.`date` = `ac`.`date` and `u`.`id` = `ac`.`id` " +
+                "GROUP BY left(`s`.`date`,7),`basicPay`";
             
             List<string> list;
             list = (List<string>)DBConnetion.getInstance().Select(query,80);

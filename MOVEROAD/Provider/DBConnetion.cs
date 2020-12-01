@@ -131,6 +131,26 @@ namespace MOVEROAD
                     rdr.Read();
                     thing = string.Format("{0}", rdr["sumpays"]);
                     return thing;
+                case 82: // 총급여 가져오기
+                    rdr.Read();
+                    thing = string.Format("{0}", rdr["totalPay"]);
+                    return thing;
+                case 83:
+                    List<string> list1 = new List<string>();
+                    while (rdr.Read())
+                    {
+                        list1.Add(string.Format("{0}", rdr["month"]));
+                        list1.Add(string.Format("{0}", rdr["totalPay"]));
+                    }
+                    thing = list1;
+                    return thing;
+                case 84:
+                    string date = "";
+                    while (rdr.Read())
+                    {
+                        date = string.Format("{0}", rdr["date"]);
+                    }
+                    return date;
                 case 85: //주말인지 아닌지 알아내기
                     rdr.Read();
                     thing = string.Format("{0}", rdr["dayofweek"]);
