@@ -59,6 +59,11 @@ namespace MOVEROAD
                             string overtime_query = "UPDATE salary SET salary.overtimePay = '" + time * 15000 + "' " +
                             "WHERE salary.index = " + userIndex + " AND salary.date = '" + today + "'";
                             DBConnetion.getInstance().Update(overtime_query);
+
+                            string total_query = "UPDATE project.salary SET totalPay = basicPay+overtimePay+nighttimePay+holidayPay " +
+                                "WHERE salary.index = '" + userIndex + "' AND salary.date = '" + today + "'";
+                            DBConnetion.getInstance().Update(total_query); // total 갱신
+
                             MessageBox.Show("연장근무 ( " + time + " ) 시간 등록이 완료되었습니다.", "신청 확인");
                             break;
                         }
@@ -74,6 +79,11 @@ namespace MOVEROAD
                             string nighttime_query = "UPDATE salary SET salary.nighttimePay = '" + time * 15000 + "' " +
                             "WHERE salary.index = " + userIndex + " AND salary.date = '" + today + "'";
                             DBConnetion.getInstance().Update(nighttime_query);
+
+                            string total_query = "UPDATE project.salary SET totalPay = basicPay+overtimePay+nighttimePay+holidayPay " +
+                                "WHERE salary.index = '" + userIndex + "' AND salary.date = '" + today + "'";
+                            DBConnetion.getInstance().Update(total_query); // total 갱신
+
                             MessageBox.Show("야간근무 ( " + time + " ) 시간 등록이 완료되었습니다.", "신청 확인");
                             break;
                         }
@@ -88,6 +98,11 @@ namespace MOVEROAD
                             string holiday_query = "UPDATE salary SET salary.holidayPay = '" + time * 15000 + "' " +
                             "WHERE salary.index = " + userIndex + " AND salary.date = '" + today + "'";
                             DBConnetion.getInstance().Update(holiday_query);
+
+                            string total_query = "UPDATE project.salary SET totalPay = basicPay+overtimePay+nighttimePay+holidayPay " +
+                                "WHERE salary.index = '" + userIndex + "' AND salary.date = '" + today + "'";
+                            DBConnetion.getInstance().Update(total_query); // total 갱신
+
                             MessageBox.Show("휴일근무 ( " + time + " ) 시간 등록이 완료되었습니다.", "신청 확인");
                             break;
                         }
