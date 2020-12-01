@@ -18,7 +18,7 @@ namespace MOVEROAD
         {
             InitializeComponent();
             this.main = main;
-            string sql = "SELECT * FROM message where mfrom = '" + main.me.id + "' and visible = '1' "; // 보낸사람이 현재유저인 모든 쪽지 내용
+            string sql = "SELECT * FROM message where mfrom = '" + main.me.id + "' and sendvisible = '1' "; // 보낸사람이 현재유저인 모든 쪽지 내용
             messages = (List<Message>)DBConnetion.getInstance().Select(sql, 6);
             viewMessageList();
         }
@@ -84,7 +84,7 @@ namespace MOVEROAD
             {
                 if (listView1.Items[i].Checked == true)
                 {
-                    string sql = "UPDATE `message` SET visible ='0' WHERE (`id` = '" + messages[i].index + "')";
+                    string sql = "UPDATE `message` SET sendvisible ='0' WHERE (`id` = '" + messages[i].index + "')";
 
 
                     DBConnetion.getInstance().Update(sql);
@@ -95,7 +95,12 @@ namespace MOVEROAD
             }
         }
 
-    
-
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            using (MessageForm message = new MessageForm(main))
+            {
+                message.ShowDialog();
+            }
+        }
     }
 }

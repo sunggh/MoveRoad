@@ -20,7 +20,7 @@ namespace MOVEROAD
             
             InitializeComponent();
             this.main = main;
-            string sql = "SELECT * FROM message where mto = '" + main.me.id + "'"; // 받는사람이 현재유저인 모든 쪽지 내용
+            string sql = "SELECT * FROM message where mto = '" + main.me.id + "' and receivevisible ='1' "; // 받는사람이 현재유저인 모든 쪽지 내용
             messages = (List<Message>)DBConnetion.getInstance().Select(sql, 6);
             viewMessageList();
             //  colorListViewHeader(ref listView1, Color.FromArgb(70, 71, 117), Color.White);
@@ -104,16 +104,24 @@ namespace MOVEROAD
         {
             int row = listView1.CheckedItems[0].Index;
 
-            
-            if (messages[row].reads == 0)
+            for (int i = listView1.Items.Count - 1; i >= 0; i--)
             {
-                string sql = "UPDATE `message` SET `reads` = '1' WHERE (`id` = '" + messages[row].index + "')";
-                DBConnetion.getInstance().Update(sql);
+                if (listView1.Items[i].Checked == true)
+                {
+                    if (messages[i].reads == 0)
+                    {
+                        string sql = "UPDATE `message` SET `reads` = '1' WHERE (`id` = '" + messages[i].index + "')";
+                        DBConnetion.getInstance().Update(sql);
+
+                    }
+                    messages[i].reads = 1;
+
+                    viewMessageList();
+
+                }
 
             }
-            messages[row].reads = 1;
-
-            viewMessageList();
+    
         }  
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -156,7 +164,7 @@ namespace MOVEROAD
             {                       
                 if (listView1.Items[i].Checked == true )
                 {                
-                    string sql = "DELETE FROM `message` WHERE (`id` = '" + messages[i].index + "')";
+                    string sql = "UPDATE `message` SET receivevisible ='0' WHERE (`id` = '" + messages[i].index + "')";
 
                    
                     DBConnetion.getInstance().Delete(sql);

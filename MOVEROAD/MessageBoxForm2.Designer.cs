@@ -47,6 +47,7 @@
             this.보낸쪽지ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBoxRegistrantSearch = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnNew = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistrantSearch)).BeginInit();
             this.SuspendLayout();
@@ -85,7 +86,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(18, 78);
+            this.btnDelete.Location = new System.Drawing.Point(106, 78);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(82, 27);
             this.btnDelete.TabIndex = 23;
@@ -222,11 +223,27 @@
             this.label7.TabIndex = 29;
             this.label7.Text = "보낸 쪽지함";
             // 
+            // btnNew
+            // 
+            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnNew.ForeColor = System.Drawing.Color.White;
+            this.btnNew.Location = new System.Drawing.Point(18, 78);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(82, 27);
+            this.btnNew.TabIndex = 30;
+            this.btnNew.Text = "쪽지 쓰기";
+            this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // MessageBoxForm2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 412);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -269,5 +286,6 @@
         private System.Windows.Forms.ToolStripMenuItem 받은쪽지ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 보낸쪽지ToolStripMenuItem;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnNew;
     }
 }
