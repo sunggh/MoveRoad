@@ -13,7 +13,7 @@ namespace MOVEROAD
 {
     public class DBConnetion
     {
-        private string dbip = "220.122.52.172";
+        private string dbip = "211.229.51.245";
         private string dbname = "project";
         private string dbpass = "road";
         private string dbid = "move";
@@ -92,6 +92,11 @@ namespace MOVEROAD
                     rdr.Read();
                     String text = ((string)rdr["text"]);
                     thing = text;
+                    break;
+                case 10:
+                    rdr.Read();
+                    DateTime date = ((DateTime)rdr["date"]);
+                    thing = date;
                     break;
             }
             rdr.Close();

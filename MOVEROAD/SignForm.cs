@@ -34,14 +34,21 @@ namespace MOVEROAD
         {
             comboBoxDrafter.Items.Clear(); //결재자 초기화
 
-            //콤보박스에서 선택된 업무의 부서장만 SELECT할 수 있게
-            string sql_drafter = "SELECT name FROM user WHERE grade = 1 AND depart = " + main.departments[comboBoxWork.SelectedIndex].id + "";
-            string drafter = (string)DBConnetion.getInstance().Select(sql_drafter, 3);
-            comboBoxDrafter.Items.Add(drafter);
+            try
+            {
+                //콤보박스에서 선택된 업무의 부서장만 SELECT할 수 있게
+                string sql_drafter = "SELECT name FROM user WHERE grade = 1 AND depart = " + main.departments[comboBoxWork.SelectedIndex].id + "";
+                string drafter = (string)DBConnetion.getInstance().Select(sql_drafter, 3);
+                comboBoxDrafter.Items.Add(drafter);
+            }
+            catch
+            {
+                MessageBox.Show("해당 부서의 부서장이 존재하지 않습니다.", "확인");
+            }
         }
 
-
-        private void buttonInsert_Click(object sender, EventArgs e) //결재 신규 등록할 때 (미완 : 기안자, 결재자를 사장으로 못하게 해야함)
+        //결재 신규 등록할 때
+        private void buttonInsert_Click(object sender, EventArgs e) 
         {
             string title = textBoxTitle.Text;
             string drafter = comboBoxDrafter.Text;
@@ -61,13 +68,14 @@ namespace MOVEROAD
             }
             else
             {
-                MessageBox.Show("기안자가 될 수 없습니다.", "확인"); //미완 : 멘트 변경해야할듯
+                MessageBox.Show("결재 등록은 사원만 가능합니다.", "확인");
             }
         }
 
         private void tabControlSign_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tabControlSign.SelectedTab == tabPageToMe) //나에게 온 결재 요청 내역 tab을 클릭하면
+            //나에게 온 결재 요청 내역 tab을 클릭하면
+            if (tabControlSign.SelectedTab == tabPageToMe) 
             {
                 //user가 사장이면 결재 중인 내역만 보이게
                 if(main.me.grade == 0)
@@ -89,25 +97,41 @@ namespace MOVEROAD
 
                     dataGridViewRequest.DataSource = table;
                 }
+                //user가 사원이면
+                //이거뺄까?
+                else if(main.me.grade == 2)
+                {
+                    MessageBox.Show("해당 권한이 없습니다.", "확인");
+                }
             }
+
             //내가 등록한 결재 내역 tab을 클릭하면
-            //미완 : 진행 상황 string으로 바꿔야함
             else if (tabControlSign.SelectedTab == tabPageFromMe)
             {
-                string sql_done = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, progress AS 진행상황 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress != 3";
-
-                DataTable table_DoneList = DBConnetion.getInstance().getDBTable(sql_done);
-                dataGridViewSignList.DataSource = table_DoneList;
-
-                string sql_turn = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress = 3";
-
-                DataTable table_TurnList = DBConnetion.getInstance().getDBTable(sql_turn);
-                dataGridViewSignTurnList.DataSource = table_TurnList;
+                SignFromMe();
             }
         }
 
-        private void buttonSign_Click(object sender, EventArgs e) //결재하기
+        private void SignFromMe()
         {
+            //내가 등록한 결재 내역
+            string sql_done = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, CASE WHEN progress=0 THEN '결재전' WHEN progress=1 THEN '결재중' WHEN progress=2 THEN '결재완료' ELSE '반려됨' END AS 진행상황 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress != 3";
+
+            DataTable table_DoneList = DBConnetion.getInstance().getDBTable(sql_done);
+            dataGridViewSignList.DataSource = table_DoneList;
+
+            //반려 내역
+            string sql_turn = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress = 3";
+
+            DataTable table_TurnList = DBConnetion.getInstance().getDBTable(sql_turn);
+            dataGridViewSignTurnList.DataSource = table_TurnList;
+        }
+
+        //결재하기
+        private void buttonSign_Click(object sender, EventArgs e) 
+        {
+            string datetime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
             int rowIndex = dataGridViewRequest.CurrentRow.Index;
 
             string cnt_ = dataGridViewRequest.Rows[rowIndex].Cells[0].Value.ToString();
@@ -119,6 +143,9 @@ namespace MOVEROAD
                 string sql = "UPDATE sign SET sign.progress = 1, sign.drafter_to = '" + "이동길" + "' WHERE sign.index = '" + cnt + "'";
 
                 DBConnetion.getInstance().Update(sql);
+
+                string query = "INSERT INTO sign_ok(sign_ok.num, date) VALUES('" + cnt + "', '" + datetime + "')";
+                DBConnetion.getInstance().Insert(query);
             }
 
             //user가 사장이면 진행 상황을 2(결재 완료)로 바꾸기
@@ -127,17 +154,16 @@ namespace MOVEROAD
                 string sql = "UPDATE sign SET sign.progress = 2 WHERE sign.index = '" + cnt + "'";
 
                 DBConnetion.getInstance().Update(sql);
+
+                string query = "UPDATE sign_ok SET sign_ok.date = '" + datetime + "' WHERE sign_ok.num = '" + cnt + "'";
+                DBConnetion.getInstance().Update(query);
             }
-
-            string datetime = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
-
-            string query = "INSERT INTO sign_ok(sign_ok.num, date) VALUES('" + cnt + "', '" + datetime + "')";
-            DBConnetion.getInstance().Insert(query);
 
             MessageBox.Show(datetime + "에 결재되었습니다.", "확인");
         }
 
-        private void buttonTurn_Click(object sender, EventArgs e) //반려하기
+        //반려하기
+        private void buttonTurn_Click(object sender, EventArgs e) 
         {
             string memo = textBoxMemo.Text;
 
@@ -157,6 +183,7 @@ namespace MOVEROAD
             MessageBox.Show("반려되었습니다.", "확인");
         }
 
+        //결재 반려내역 셀 클릭시 내용 상세보기 & 반려 메모 보기
         private void dataGridViewSignTurnList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = dataGridViewSignTurnList.CurrentRow.Index;
@@ -167,9 +194,13 @@ namespace MOVEROAD
             string sql = "SELECT memo FROM sign_turn WHERE sign_turn.index = '" + cnt + "'";
 
             textBoxSignTurnMemo.Text = (string)DBConnetion.getInstance().Select(sql, 7);
+
+            string query = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
+
+            textBoxDetail_turn.Text = (string)DBConnetion.getInstance().Select(query, 9);
         }
 
-        //결재 내용 상세보기
+        //결재 요청내역 셀 클릭시 내용 상세보기
         private void dataGridViewRequest_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = dataGridViewRequest.CurrentRow.Index;
@@ -179,7 +210,32 @@ namespace MOVEROAD
 
             string sql = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
 
-            textBoxDetail.Text = (string)DBConnetion.getInstance().Select(sql, 9);
+            textBoxDetail_req.Text = (string)DBConnetion.getInstance().Select(sql, 9);
+        }
+
+        //내가 등록한 결재 내역 셀 클릭시 내용 상세보기
+        private void dataGridViewSignList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = dataGridViewSignList.CurrentRow.Index;
+
+            string cnt_ = dataGridViewSignList.Rows[rowIndex].Cells[0].Value.ToString();
+            int cnt = Convert.ToInt32(cnt_.ToString());
+
+            try
+            {
+                string sql = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
+
+                textBoxDetail_done.Text = (string)DBConnetion.getInstance().Select(sql, 9);
+
+                string query = "SELECT date FROM sign_ok JOIN sign WHERE sign_ok.num = '" + cnt + "' AND sign.progress != 0";
+                DateTime done_date = (DateTime)DBConnetion.getInstance().Select(query, 10);
+
+                MessageBox.Show(done_date + "에 결재된 내역입니다.", "확인");
+            }
+            catch
+            {
+                MessageBox.Show("아직 결재되지 않았습니다.", "확인");
+            }
         }
     }
 }
