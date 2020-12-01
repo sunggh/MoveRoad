@@ -74,7 +74,7 @@ namespace MOVEROAD
                         }
 
                     case 1: // 야간근무
-                        if(nowhour >= 22 && nowhour <= 24) // 야간(22시-24시)인 경우
+                        if((nowhour >= 22 && nowhour <= 24) || nowhour <= 4) // 야간(22시-24시, 04시 이전)인 경우
                         {
                             string nighttime_query = "UPDATE salary SET salary.nighttimePay = '" + time * 15000 + "' " +
                             "WHERE salary.index = " + userIndex + " AND salary.date = '" + today + "'";
