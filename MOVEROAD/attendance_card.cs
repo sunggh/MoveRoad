@@ -82,7 +82,7 @@ namespace MOVEROAD
                      "WHERE id='" + ID + "' and startTime != 'null' and  finishTime = '\"' ");
 
                 MessageBox.Show("현재시각" + DateTime.Now.ToString("HH:mm") + "퇴근 완료");
-                workTime(); // 퇴근과 동시에 업무시간 업데이트
+                //workTime(); // 퇴근과 동시에 업무시간 업데이트
             }
             if ((string)start == null) // 만약 출근버튼을 먼저 누르지 않았다면
                 MessageBox.Show("먼저 출근버튼을 눌러주십시오.");
@@ -173,7 +173,7 @@ namespace MOVEROAD
             }
         }
         #endregion
-
+        /*
         private void workTime() // 업무시간 업데이트 (시작시간과 종료시간값을 받아와 DateTime형식으로 변환후 TimeSpan으로 두값을 빼준후 시간을 얻어옴 얻어온 시간값을 Int 형식으로 Convert후 DB에 저장)
         {
             DateTime dt;
@@ -202,7 +202,7 @@ namespace MOVEROAD
             
 
         }
-
+        */
         private void buttonInc_Click(object sender, EventArgs e) // 한달 추가
         {
             DateTime dt;
