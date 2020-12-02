@@ -315,6 +315,7 @@ namespace MOVEROAD
             DateTime dt;
             dt = Convert.ToDateTime(label2.Text);
             label2.Text = dt.AddMonths(1).ToString("yyyy-MM");
+            showgrid();
         }
 
         private void buttonDec_Click(object sender, EventArgs e) // 한달 감소
@@ -322,6 +323,7 @@ namespace MOVEROAD
             DateTime dt;
             dt = Convert.ToDateTime(label2.Text);
             label2.Text = dt.AddMonths(-1).ToString("yyyy-MM");
+            showgrid();
         }
 
         private void buttonRead_Click(object sender, EventArgs e) // 출근부 조회
