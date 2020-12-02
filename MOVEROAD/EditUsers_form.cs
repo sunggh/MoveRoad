@@ -97,6 +97,7 @@ namespace MOVEROAD
                 string query = "UPDATE project.`user` SET `depart` = '" + depart_id + "', `grade` = '" + editGrade + "', `name` = '" + editName + "', " +
                     "`age` = '" + editAge + "', `gender` = '" + editGender + "', `phone` = '" + editPhone + "', `address` = '" + editAddress + "' WHERE `index` = '" + editIndex + "'";
                 DBConnetion.getInstance().Update(query);
+                this.Dispose();
             }
             catch
             {
