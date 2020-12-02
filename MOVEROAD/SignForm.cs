@@ -246,12 +246,12 @@ namespace MOVEROAD
             string cnt_ = dataGridViewSignList.Rows[rowIndex].Cells[0].Value.ToString();
             int cnt = Convert.ToInt32(cnt_.ToString());
 
+            string sql = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
+
+            textBoxDetail_done.Text = (string)DBConnetion.getInstance().Select(sql, 9);
+
             try
             {
-                string sql = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
-
-                textBoxDetail_done.Text = (string)DBConnetion.getInstance().Select(sql, 9);
-
                 string query = "SELECT date FROM sign_ok JOIN sign WHERE sign_ok.num = '" + cnt + "' AND sign.progress != 0";
                 DateTime done_date = (DateTime)DBConnetion.getInstance().Select(query, 10);
 

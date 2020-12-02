@@ -305,7 +305,7 @@ namespace MOVEROAD
             lastPanel = dashBoard;
         }
 
-        private void button4_Click(object sender, EventArgs e) //결재 버튼 클릭 시
+        private void buttonSign_Click(object sender, EventArgs e) //결재 버튼 클릭 시
         {
             lastPanel.Dispose();
             SignForm SF = new SignForm(this);
