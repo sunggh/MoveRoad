@@ -52,7 +52,7 @@ namespace MOVEROAD
             lastPanel = dashBoard;
             try 
             {
-                clientSocket.Connect("211.229.51.245", 80);//211.229.51.245
+                clientSocket.Connect("127.0.0.1", 80);//211.229.51.245
                 stream = clientSocket.GetStream();
                 message = "1|"+me.index;
                 byte[] buffer = Encoding.Unicode.GetBytes(message);
@@ -91,7 +91,7 @@ namespace MOVEROAD
         {
             string[] str = message.Split(new string[] { "|" }, StringSplitOptions.None);
             int opcode = int.Parse(str[0]);
-            
+            int cur_room = -1;
             int user_id;
             int to_id;
             UserInfo user;
@@ -139,9 +139,9 @@ namespace MOVEROAD
                     onlines.Remove(user_id);
                     break;
                 case 3:
-                    room_id = int.Parse(str[1]);
+                    cur_room = int.Parse(str[1]);
                     to_id = int.Parse(str[2]);
-                    if (room.ContainsKey(room_id))
+                    if (room.ContainsKey(cur_room))
                     {
                         if (!room_msg.ContainsKey(onlines[to_id]))
                         {
@@ -154,19 +154,19 @@ namespace MOVEROAD
                     room_msg.Add(onlines[to_id], new List<string>());
                     break;
                 case 4:
-                    room_id = int.Parse(str[1]);
+                    cur_room = int.Parse(str[1]);
                     to_id = int.Parse(str[2]);
                     msg = str[3];
                     string mss="";
-                    if (!room.ContainsKey(room_id))
+                    if (!room.ContainsKey(cur_room))
                     {
-                        room.Add(room_id, to_id);
+                        room.Add(cur_room, to_id);
                     }
                     if (!room_msg.ContainsKey(onlines[to_id]))
                     {
                         room_msg.Add(onlines[to_id], new List<string>());
                     }
-                    mss = onlines[room[room_id]].name + "|" + msg;
+                    mss = onlines[room[cur_room]].name + "|" + msg;
                     room_msg[onlines[to_id]].Add(mss);
                     if(ms.nameBOX.Text == onlines[to_id].name)
                         DisplayText(mss);
