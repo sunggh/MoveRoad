@@ -394,6 +394,7 @@ namespace MOVEROAD
             this.dataGridViewTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTask.Location = new System.Drawing.Point(21, 112);
             this.dataGridViewTask.Name = "dataGridViewTask";
+            this.dataGridViewTask.RowHeadersWidth = 51;
             this.dataGridViewTask.RowTemplate.Height = 27;
             this.dataGridViewTask.Size = new System.Drawing.Size(694, 267);
             this.dataGridViewTask.TabIndex = 23;
@@ -436,6 +437,7 @@ namespace MOVEROAD
             // TaskForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.ClientSize = new System.Drawing.Size(745, 412);
             this.Controls.Add(this.tabControlTask);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
