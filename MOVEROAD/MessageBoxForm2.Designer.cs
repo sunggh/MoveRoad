@@ -101,7 +101,6 @@
             // listView1
             // 
             this.listView1.BackColor = System.Drawing.Color.White;
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listView1.CheckBoxes = true;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.checkbox,
@@ -180,13 +179,13 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.받은쪽지ToolStripMenuItem,
             this.보낸쪽지ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(851, 26);
             this.menuStrip1.TabIndex = 22;
             this.menuStrip1.Text = "menuStrip1";
@@ -194,16 +193,18 @@
             // 받은쪽지ToolStripMenuItem
             // 
             this.받은쪽지ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.받은쪽지ToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.받은쪽지ToolStripMenuItem.Name = "받은쪽지ToolStripMenuItem";
-            this.받은쪽지ToolStripMenuItem.Size = new System.Drawing.Size(78, 22);
+            this.받은쪽지ToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.받은쪽지ToolStripMenuItem.Text = "받은 쪽지";
             this.받은쪽지ToolStripMenuItem.Click += new System.EventHandler(this.받은쪽지ToolStripMenuItem_Click_1);
             // 
             // 보낸쪽지ToolStripMenuItem
             // 
             this.보낸쪽지ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.보낸쪽지ToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.보낸쪽지ToolStripMenuItem.Name = "보낸쪽지ToolStripMenuItem";
-            this.보낸쪽지ToolStripMenuItem.Size = new System.Drawing.Size(78, 22);
+            this.보낸쪽지ToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.보낸쪽지ToolStripMenuItem.Text = "보낸 쪽지";
             this.보낸쪽지ToolStripMenuItem.Click += new System.EventHandler(this.보낸쪽지ToolStripMenuItem_Click_1);
             // 
@@ -221,6 +222,8 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(759, 11);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 15);
@@ -247,6 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(851, 515);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.label7);

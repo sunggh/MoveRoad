@@ -258,5 +258,10 @@ namespace MOVEROAD
             main.MainPanel.Controls.Clear();
             main.MainPanel.Controls.Add(mb);
         }
+
+        private void MessageBoxForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
