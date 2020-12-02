@@ -17,6 +17,7 @@ namespace MOVEROAD
         MainForm main;
         
         public int depart;
+        public string select_depart;
         public int grade;
         public int age;
         public string id;
@@ -46,28 +47,46 @@ namespace MOVEROAD
 
         private void AddNewcomer()
         {
-            if(comboBoxDepart.SelectedIndex == 0)
+            if(this.select_depart == "미지정") // 부서이름 미지정일 경우
             {
                 MessageBox.Show("미지정 부서는 등록할 수 없습니다.", "등록 오류");
                 return;
             }
+            else
+            {
+                string check_user_id = "SELECT * FROM project.user WHERE user.id = '" + this.id + "'";
+                int check_id_status = (int)DBConnetion.getInstance().Select(check_user_id, 28);
 
-            // 현재 입력된 정보들을 DB에 추가하는 함수
-            // TABLE, COLUMN은 ` ` VALUES는 ' ' 주의
-            // INSERT INTO `TABLE`(`column`, `column`, ...) VALUES ('string', 숫자, ...);
-            string query = "INSERT INTO `user`(`depart`, `grade`, `age`, `id`, `password`, `name`, `gender`, `phone`, `address`)" +
-                " VALUES (" + depart + ", " + grade + ", " + age + ", '" + id + "', '" + password + "', '" + name + "', " + gender + ", '" + phone + "', '" + address + "')";
-            DBConnetion.getInstance().Insert(query);
-            
-            comboBoxDepart.Text = "";
-            comboBoxGrade.Text = "";
-            textBoxAge.Text = "";
-            textBoxId.Text = "";
-            textBoxPassword.Text = "";
-            textBoxName.Text = "";
-            comboBoxGender.Text = "";
-            textBoxPhone.Text = "";
-            textBoxAddress.Text = "";
+                if (check_id_status.Equals(1))
+                {
+                    MessageBox.Show("아이디가 중복되었습니다. 다시 설정해주세요.", "등록 오류");
+                    return;
+                }
+                else
+                {
+                    // 부서 id값 불러오기
+                    string check_depart_name = "SELECT * FROM project.department WHERE department.name = '" + this.select_depart + "'";
+                    int depart_id = (int)DBConnetion.getInstance().Select(check_depart_name, 20);
+
+                    // 현재 입력된 정보들을 DB에 추가하는 함수
+                    // TABLE, COLUMN은 ` ` VALUES는 ' ' 주의
+                    // INSERT INTO `TABLE`(`column`, `column`, ...) VALUES ('string', 숫자, ...);
+                    // depart | grade | age | id | password | name | gender | phone | address
+                    string query = "INSERT INTO `user`(`depart`, `grade`, `age`, `id`, `password`, `name`, `gender`, `phone`, `address`)" +
+                        " VALUES (" + depart_id + ", " + grade + ", " + age + ", '" + id + "', '" + password + "', '" + name + "', " + gender + ", '" + phone + "', '" + address + "')";
+                    DBConnetion.getInstance().Insert(query);
+
+                    comboBoxDepart.Text = "";
+                    comboBoxGrade.Text = "";
+                    textBoxAge.Text = "";
+                    textBoxId.Text = "";
+                    textBoxPassword.Text = "";
+                    textBoxName.Text = "";
+                    comboBoxGender.Text = "";
+                    textBoxPhone.Text = "";
+                    textBoxAddress.Text = "";
+                }
+            }
         }
         
         private void DataShow()
@@ -84,16 +103,16 @@ namespace MOVEROAD
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            this.depart = comboBoxDepart.SelectedIndex;
-            this.grade = comboBoxGrade.SelectedIndex;
-            this.age = Convert.ToInt32(textBoxAge.Text);
-            this.id = textBoxId.Text;
-            this.password = textBoxPassword.Text;
-            this.name = textBoxName.Text;
-            this.gender = comboBoxGender.SelectedIndex;
-            this.phone = textBoxPhone.Text;
-            this.address = textBoxAddress.Text;
-
+            this.select_depart = comboBoxDepart.Text; // 부서 이름
+            this.grade = comboBoxGrade.SelectedIndex; // 직급
+            this.age = Convert.ToInt32(textBoxAge.Text); // 나이
+            this.id = textBoxId.Text; // 아이디
+            this.password = textBoxPassword.Text; // 패스워드
+            this.name = textBoxName.Text; // 이름
+            this.gender = comboBoxGender.SelectedIndex; // 성별
+            this.phone = textBoxPhone.Text; // 전화번호
+            this.address = textBoxAddress.Text; // 주소
+            
             AddNewcomer(); // 사원 추가
             DataShow(); // 데이터 그리드뷰 갱신
         }
