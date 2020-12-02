@@ -83,7 +83,7 @@ namespace MOVEROAD
         }  // textbox 크기 자동 조정2
         private void nameBOX_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+           /* if (e.KeyCode == Keys.Enter)
             {
                 flowLayoutPanel1.Controls.Clear();
                 if (nameBOX.Text == "")
@@ -129,7 +129,7 @@ namespace MOVEROAD
                         addchat(msgs);
                     }
                 }
-            }
+            }*/
         }
         public void addchat(string msg)
         {
@@ -240,6 +240,7 @@ namespace MOVEROAD
                 loadUserList();
                 return;
             }
+            nameBOX.Text = to_user.name;
             foreach (var room in main.room)
             {
                 if (room.Value == to_user.index)
