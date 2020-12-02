@@ -250,7 +250,7 @@ namespace MOVEROAD
                 loadUserList();
                 return;
             }
-            nameBOX.Text = to_user.name;
+            nameBOX.Text = to_user.name+to_user.index;
             foreach (var room in main.room)
             {
                 if (room.Value == to_user.index)
