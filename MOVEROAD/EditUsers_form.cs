@@ -97,6 +97,8 @@ namespace MOVEROAD
                 string query = "UPDATE project.`user` SET `depart` = '" + depart_id + "', `grade` = '" + editGrade + "', `name` = '" + editName + "', " +
                     "`age` = '" + editAge + "', `gender` = '" + editGender + "', `phone` = '" + editPhone + "', `address` = '" + editAddress + "' WHERE `index` = '" + editIndex + "'";
                 DBConnetion.getInstance().Update(query);
+
+                MessageBox.Show("수정이 완료 되었습니다. 새로고침 시 적용됩니다.", "수정 완료");
                 this.Dispose();
             }
             catch
