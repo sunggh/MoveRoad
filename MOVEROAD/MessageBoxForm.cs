@@ -116,7 +116,8 @@ namespace MOVEROAD
 
                 }             
             }
-            viewMessageList();
+            
+            
 
         }  
 
@@ -163,13 +164,19 @@ namespace MOVEROAD
                     string sql = "UPDATE `message` SET receivevisible ='0' WHERE (`id` = '" + messages[i].index + "')";
 
                    
-                    DBConnetion.getInstance().Delete(sql);
+                    DBConnetion.getInstance().Update(sql);
                     listView1.Items[i].Remove();
-                   
+                  
                 }
                 
             }
-       
+            main.lastPanel.Dispose(); 
+            MessageBoxForm mb = new MessageBoxForm(this.main);
+            mb.TopLevel = false;
+            mb.Show();
+            main.lastPanel = mb;
+            main.MainPanel.Controls.Clear();
+            main.MainPanel.Controls.Add(mb);
         }
         
         private void pictureBoxRegistrantSearch_Click(object sender, EventArgs e) // 검색

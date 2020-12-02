@@ -33,8 +33,8 @@ namespace MOVEROAD
                 item = new ListViewItem();
                 item.SubItems.Add(message.to_id);
                 item.SubItems.Add(message.title);
-                string str = "읽음";
-                if (message.reads == 0) str = "읽지X";
+                string str = "수신완료";
+                if (message.reads == 0) str = "수신X";
                 item.SubItems.Add(str);
                 item.SubItems.Add(message.date.ToString("yyyy-MM-dd"));
                 listView1.Items.Add(item);
@@ -91,8 +91,9 @@ namespace MOVEROAD
                     listView1.Items[i].Remove();
 
                 }
-
+               
             }
+            
         }
 
         private void btnNew_Click(object sender, EventArgs e)
