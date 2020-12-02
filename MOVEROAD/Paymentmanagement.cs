@@ -39,7 +39,7 @@ namespace MOVEROAD
                     ",sum(`holidayPay`) as `holidayPay`,`d`.`totalPay`,`d`.`deduction`,`d`.`actualPay`" +
                     "FROM project.user as `u`,project.salary as `s`,project.deduction as `d` " +
                     "where left(`s`.`date`,7) = '"+date+"' and `u`.index = `s`.index and `u`.index = `d`.index and left(`s`.`date`, 7) = `d`.`date` " +
-                    "group by `s`.index,left(`s`.`date`,7) ";
+                    "group by `s`.index,left(`s`.`date`,7)";
             }
             else
             {
@@ -107,8 +107,7 @@ namespace MOVEROAD
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
-            //급여 데이터 그리드뷰 새로고침
-            set_pay_listview(label2.Text);
+            
         }
 
         // 달 추가
@@ -126,6 +125,11 @@ namespace MOVEROAD
             dt = Convert.ToDateTime(label2.Text);
             label2.Text = dt.AddMonths(-1).ToString("yyyy-MM");
             set_pay_listview(label2.Text);
+        }
+
+        private void label_deductioninfo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

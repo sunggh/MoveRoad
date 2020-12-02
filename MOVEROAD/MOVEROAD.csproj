@@ -286,6 +286,12 @@
       <DependentUpon>search_head.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="show_deductioninfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="show_deductioninfo.Designer.cs">
+      <DependentUpon>show_deductioninfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="SignForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="search_head.resx">
       <DependentUpon>search_head.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="show_deductioninfo.resx">
+      <DependentUpon>show_deductioninfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignForm.resx">
       <DependentUpon>SignForm.cs</DependentUpon>
