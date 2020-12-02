@@ -133,6 +133,7 @@ namespace MOVEROAD
                 {
                     MessageBox.Show("상대방이 오프라인입니다.");
                     text.Text = "";
+                    loadUserList();
                     return;
                 }
                 if (!main.onlines.ContainsKey(to_user.index))
@@ -177,6 +178,7 @@ namespace MOVEROAD
             {
                 MessageBox.Show("해당 인원은 오프라인입니다.");
                 to_user = null;
+                loadUserList();
                 return;
             }
             foreach (var room in main.room)
