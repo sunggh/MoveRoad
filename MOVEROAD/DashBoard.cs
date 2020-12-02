@@ -18,10 +18,10 @@ namespace MOVEROAD
         {
             string[] grade = { "직원", "부서장", "사장" };
             this.main = main;
-            List<string> departName = new List<string>();
+            Dictionary<int ,string> departName = new Dictionary<int, string>();
             foreach(var depart in this.main.departments)
             {
-                departName.Add(depart.name);
+                departName.Add(depart.id,depart.name);
             }
             InitializeComponent();
             

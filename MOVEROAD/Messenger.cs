@@ -21,14 +21,20 @@ namespace MOVEROAD
             flowLayoutPanel1.AutoScroll = false;
             flowLayoutPanel1.HorizontalScroll.Enabled = false;
             flowLayoutPanel1.AutoScroll = true;
-
+            loadUserList();
         }
         public void textBox2_TextChanged(object sender, EventArgs e)
         {
             SetTextBoxClientSize(sender as TextBox);
         }// textbox 크기 자동 조정1
 
-
+        public void loadUserList()
+        {
+            foreach (var user in this.main.onlines)
+            {
+                onlineList.Items.Add(user.Value.name + "(" + user.Value.index + ")");
+            }
+        }
         public void SetTextBoxClientSize(TextBox textBox)
         {
             const int MARGIN_X = 0;
@@ -150,5 +156,44 @@ namespace MOVEROAD
                 text.Text = "";
             }
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int select = onlineList.SelectedIndex;
+            int i = 0;
+            foreach (var touser in main.onlines)
+            {
+                if (select == i)
+                {
+                    to_user = touser.Value;
+                    break;
+                }
+                i++;
+            }
+                if (to_user == null)
+                {
+                    MessageBox.Show("상대방이 오프라인입니다.");
+                    text.Text = "";
+                    return;
+                }
+                if (!main.onlines.ContainsKey(to_user.index))
+                {
+                    MessageBox.Show("상대방이 오프라인입니다.");
+                    text.Text = "";
+                    return;
+                }
+                if (text.Text == "")
+                {
+                    return;
+                }
+                string message = text.Text;
+                main.room_msg[to_user].Add("나|" + message);
+                addchat("나|" + message);
+                message = "3|" + main.room_id + "|" + to_user.index + "|" + message;
+                byte[] buffer = Encoding.Unicode.GetBytes(message);
+                main.stream.Write(buffer, 0, buffer.Length);
+                main.stream.Flush();
+                text.Text = "";
+            }
     }
 }
