@@ -150,7 +150,7 @@ namespace MOVEROAD
                 //uesr가 부서장이면 결재자를 사장으로 바꿔주고 진행 상황을 1(결재 중)로 바꾸기
                 if (main.me.grade == 1)
                 {
-                    string sql = "UPDATE sign SET sign.progress = 1, sign.drafter_to = '" + boss + "' WHERE sign.index = '" + cnt + "'";
+                    string sql = "UPDATE sign SET sign.progress = 1, sign.drafter_to = '" + boss_ + "' WHERE sign.index = '" + cnt + "'";
 
                     DBConnetion.getInstance().Update(sql);
 
