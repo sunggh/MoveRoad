@@ -129,7 +129,8 @@ namespace MOVEROAD
 
         private void label_deductioninfo_Click(object sender, EventArgs e)
         {
-
+            show_deductioninfo sd = new show_deductioninfo();
+            sd.ShowDialog();
         }
     }
 }

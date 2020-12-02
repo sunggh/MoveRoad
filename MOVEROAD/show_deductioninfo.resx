@@ -117,7 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textBox1.Text" xml:space="preserve">
+  <data name="label2.Text" xml:space="preserve">
+    <value> *   누진공제는 소득에 따라 세율이 계단식으로 높아지므로, 
+     해당하는 세율을 곱해서 나온 값에서,
+     낮은세율부분 세금에 대해서 공제해주는 
+     금액을 계산해놓은 부분으로 간단한 계산을 도와줍니다. 
+
+ ** 과세표준 X 해당세율 - 누진공제 = 세액
+ 
+ ex) 과세표준이 5,000만원인 경우
+   -&gt; 5,000만원 X 24%(세율) - 522만원(누진공제) = 678만원
+
+세액공제란, ‘계산된 세액에서 또 한번 빼주는 항목’ 을 말합니다. 
+대표적으로 자녀세액공제, 월세세액공제 등이 있습니다.</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
     <value>소득공제란, 소득이 발생하기 위해서는 비용이 들어감을 인정하여 
 ‘세금 부과 대상이 되는 소득을 줄여주는 것’ 을 말합니다.
 대표적으로 근로소득공제, 인적공제, 신용카드공제 등이 여기에 속하며

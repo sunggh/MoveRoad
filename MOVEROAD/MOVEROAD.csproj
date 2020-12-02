@@ -499,6 +499,7 @@
   <ItemGroup>
     <Content Include="Resources\calendar.png" />
     <Content Include="Resources\search.jpg" />
+    <None Include="Resources\total.PNG" />
     <None Include="Resources\그림22.png" />
     <None Include="Resources\그림11.png" />
   </ItemGroup>
