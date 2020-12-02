@@ -50,27 +50,33 @@ namespace MOVEROAD
         //결재 신규 등록할 때
         private void buttonInsert_Click(object sender, EventArgs e) 
         {
-            string title = textBoxTitle.Text;
-            string drafter = comboBoxDrafter.Text;
-            string content = textBoxContent.Text;
-            string comment = textBoxComment.Text;
-
-            //progress = 진행사항 (0:결재 전, 1:결재 중, 2:결재 완료, 3:반려) 등록할때는 항상 progress = 0
-            //사원만 신규 결재 등록 가능
-            if(main.me.grade == 2)
+            try
             {
-                string sql = "INSERT INTO sign(title, text, comment, sub_class, drafter, drafter_to, progress) " +
-                "VALUES('" + title + "', '" + content + "', '" + comment + "', '" + main.departments[comboBoxWork.SelectedIndex].id + "', '" + main.me.index + "', '" + drafter + "', 0)";
+                string title = textBoxTitle.Text;
+                string drafter = comboBoxDrafter.Text;
+                string content = textBoxContent.Text;
+                string comment = textBoxComment.Text;
 
-                DBConnetion.getInstance().Insert(sql);
+                //progress = 진행사항 (0:결재 전, 1:결재 중, 2:결재 완료, 3:반려) 등록할때는 항상 progress = 0
+                //사원만 신규 결재 등록 가능
+                if (main.me.grade == 2)
+                {
+                    string sql = "INSERT INTO sign(title, text, comment, sub_class, drafter, drafter_to, progress) " +
+                    "VALUES('" + title + "', '" + content + "', '" + comment + "', '" + main.departments[comboBoxWork.SelectedIndex].id + "', '" + main.me.index + "', '" + drafter + "', 0)";
 
-                MessageBox.Show("결재가 등록되었습니다.", "알림");
+                    DBConnetion.getInstance().Insert(sql);
+
+                    MessageBox.Show("결재가 등록되었습니다.", "알림");
+                }
+                else
+                {
+                    MessageBox.Show("결재 등록은 사원만 가능합니다.", "알림");
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("결재 등록은 사원만 가능합니다.", "알림");
+                MessageBox.Show("빈칸을 채워주세요.", "알림");
             }
-
         }
 
         private void tabControlSign_SelectedIndexChanged(object sender, EventArgs e)
