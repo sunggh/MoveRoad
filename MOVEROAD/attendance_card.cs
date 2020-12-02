@@ -26,7 +26,7 @@ namespace MOVEROAD
             Today.Text = DateTime.Now.ToString("yyyy-MM-dd");
             label2.Text = DateTime.Now.ToString("yyyy-MM");
             this.main = main;
-            showgrid();
+           
         }
         private void buttonStart_Click(object sender, EventArgs e) // 출근버튼
         {
@@ -328,10 +328,6 @@ namespace MOVEROAD
 
         private void buttonRead_Click(object sender, EventArgs e) // 출근부 조회
         {
-            showgrid();
-        }
-        private void showgrid()
-        {
             DateTime dt;
             dt = Convert.ToDateTime(label2.Text);
             string a = dt.ToString("yyyy-MM");
@@ -342,7 +338,7 @@ namespace MOVEROAD
             object tb = DBConnetion.getInstance().Select(query, 70);
             dataGridView1.DataSource = tb;
         }
-        
+
         private void attendance_card_Load(object sender, EventArgs e)
         {
 
