@@ -277,6 +277,10 @@ namespace MOVEROAD
             if (totalPay < 320000) {
                 pension = 14400;
             }
+            else if(totalPay == 0)
+            {
+                pension = 0;
+            }
             else if(totalPay > 5030000)
             {
                 pension = 226350;
