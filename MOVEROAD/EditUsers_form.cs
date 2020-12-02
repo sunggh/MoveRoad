@@ -71,40 +71,45 @@ namespace MOVEROAD
             // 부서 id값 불러오기
             string check_depart_name = "SELECT * FROM project.department WHERE department.name = '" + select_depart + "'";
             int depart_id = (int)DBConnetion.getInstance().Select(check_depart_name, 20);
-
-            // 수정한 정보를 기존 정보에 넣어주기
-            depart = select_depart; // string
-            grade = comboBoxEditGrade.Text; // int
-            name = textBoxEditName.Text; // string
-            age = textBoxEditAge.Text; // int
-            gender = comboBoxEditGender.Text; // int
-            phone = textBoxEditPhone.Text; // string
-            address = textBoxEditAddress.Text; // string
-            if (depart == "" || grade == null || name == "" || age == null || gender == null || phone == "" || address == "")
+            if(depart_id == -1)
             {
-                MessageBox.Show("빈칸을 모두 채워 주십시오.", "수정 오류");
-                this.Dispose();
+                MessageBox.Show("부서명을 입력하여 주십시오.", "수정 오류");
             }
             else
             {
-                init();
+                // 수정한 정보를 기존 정보에 넣어주기
+                depart = select_depart; // string
+                grade = comboBoxEditGrade.Text; // int
+                name = textBoxEditName.Text; // string
+                age = textBoxEditAge.Text; // int
+                gender = comboBoxEditGender.Text; // int
+                phone = textBoxEditPhone.Text; // string
+                address = textBoxEditAddress.Text; // string
+                if (depart == "" || grade == null || name == "" || age == null || gender == null || phone == "" || address == "")
+                {
+                    MessageBox.Show("빈칸을 모두 채워 주십시오.", "수정 오류");
+                }
+                else
+                {
+                    init();
 
-                int editIndex = Convert.ToInt32(index);
-                int editDepart = comboBoxEditDepart.SelectedIndex;
-                int editGrade = comboBoxEditGrade.SelectedIndex;
-                string editName = name;
-                int editAge = Convert.ToInt32(age);
-                int editGender = comboBoxEditGender.SelectedIndex;
-                string editPhone = phone;
-                string editAddress = address;
+                    int editIndex = Convert.ToInt32(index);
+                    int editDepart = comboBoxEditDepart.SelectedIndex;
+                    int editGrade = comboBoxEditGrade.SelectedIndex;
+                    string editName = name;
+                    int editAge = Convert.ToInt32(age);
+                    int editGender = comboBoxEditGender.SelectedIndex;
+                    string editPhone = phone;
+                    string editAddress = address;
 
-                // 수정한 정보를 query문으로 update 해주기
-                string query = "UPDATE project.`user` SET `depart` = '" + depart_id + "', `grade` = '" + editGrade + "', `name` = '" + editName + "', " +
-                    "`age` = '" + editAge + "', `gender` = '" + editGender + "', `phone` = '" + editPhone + "', `address` = '" + editAddress + "' WHERE `index` = '" + editIndex + "'";
-                DBConnetion.getInstance().Update(query);
+                    // 수정한 정보를 query문으로 update 해주기
+                    string query = "UPDATE project.`user` SET `depart` = '" + depart_id + "', `grade` = '" + editGrade + "', `name` = '" + editName + "', " +
+                        "`age` = '" + editAge + "', `gender` = '" + editGender + "', `phone` = '" + editPhone + "', `address` = '" + editAddress + "' WHERE `index` = '" + editIndex + "'";
+                    DBConnetion.getInstance().Update(query);
 
-                MessageBox.Show("수정이 완료 되었습니다. 새로고침 시 적용됩니다.", "수정 완료");
-                this.Dispose();
+                    MessageBox.Show("수정이 완료 되었습니다. 새로고침 시 적용됩니다.", "수정 완료");
+                    this.Dispose();
+                }
             }
         }
 
