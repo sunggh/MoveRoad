@@ -151,10 +151,16 @@ namespace MOVEROAD
                     if (rdr.Read()) return 1;
                     else return 0;
                 case 20:
-                    rdr.Read();
-                    thing = (int)rdr["id"];
-                    break;
-
+                    if (rdr.Read())
+                    {
+                        thing = (int)rdr["id"];
+                        break;
+                    }
+                    else
+                    {
+                        thing = -1;
+                        break;
+                    }
                 case 13:
                     DataTable taskHours = new DataTable();
                     //열 생성

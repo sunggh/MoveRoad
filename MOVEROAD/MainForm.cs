@@ -150,8 +150,8 @@ namespace MOVEROAD
                     }
                     mss = onlines[room[room_id]].name + "|" + msg;
                     room_msg[onlines[to_id]].Add(mss);
-                    if(ms.getToUser(ms.select) == onlines[to_id])
-                    DisplayText(mss);
+                    if(ms.nameBOX.Text == onlines[to_id].name)
+                        DisplayText(mss);
                     break;
             }
         }
