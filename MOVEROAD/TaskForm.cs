@@ -573,10 +573,11 @@ namespace MOVEROAD
             {
                 MessageBox.Show("업무를 선택하시오.");
             }
-            else if (DateTime.Compare(startTime, finishTime) == 1 || haveTimeOverlap()) // st 보다 ft가 더 작으면
+            else if (DateTime.Compare(startTime, finishTime) == 1 || haveTimeOverlap() || startTime==finishTime) // st 보다 ft가 더 작으면
             {
                 MessageBox.Show("업무시간을 확인하시오.");
             }
+
             else
             {
                 //같은 날짜 다른 업무시간과 겹칠때 확인
@@ -724,8 +725,9 @@ namespace MOVEROAD
                         string st = date + " " + dtChanges.Rows[i]["시작시간"];
                         string ft = date + " " + dtChanges.Rows[i]["종료시간"];
 
+                        
                         //업무시간 확인
-                        if (DateTime.Compare(startTime, finishTime) == 1 || haveTimeOverlap()) // st 보다 ft가 더 작으면
+                        if (DateTime.Compare(startTime, finishTime) == 1 || haveTimeOverlap() || startTime == finishTime) // st 보다 ft가 더 작으면
                         {
                             MessageBox.Show("업무시간을 확인하시오.");
                             return;
