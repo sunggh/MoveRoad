@@ -177,7 +177,17 @@ namespace MOVEROAD
                     text.Text = "";
                     return;
                 }
-                if(text.Text == "")
+                if(main.room_id == -1)
+                {
+                    MessageBox.Show("상대방이 종료를 한번 하여 사라진 방입니다. 상대방을 다시 눌러주세요.");
+                    return;
+                }
+                if (nameBOX.Text == "")
+                {
+                    MessageBox.Show("상대방이 종료를 한번 하여 사라진 방입니다. 상대방을 다시 눌러주세요.");
+                    return;
+                }
+                if (text.Text == "")
                 {       
                     return;
                 }

@@ -52,7 +52,7 @@ namespace MOVEROAD
             lastPanel = dashBoard;
             try 
             {
-                clientSocket.Connect("211.229.51.245", 80);//211.229.51.245
+                clientSocket.Connect("127.0.0.1", 80);//211.229.51.245
                 stream = clientSocket.GetStream();
                 message = "1|"+me.index;
                 byte[] buffer = Encoding.Unicode.GetBytes(message);
@@ -117,18 +117,25 @@ namespace MOVEROAD
                     break;
                 case 2: // 로그아웃 (2|유저아이디)
                     user_id = int.Parse(str[1]);
+                    var roomnum = -1;
+                    room_id = -1;
                     foreach (var r in room)
                     {
                         if(r.Value == user_id)
                         {
-                            room.Remove(r.Key);
+                            roomnum = r.Key;
                             break;
                         }
+                    }
+                    if(room.ContainsKey(roomnum))
+                    {
+                        room.Remove(roomnum);
                     }
                     if (room_msg.ContainsKey(onlines[user_id]))
                     {
                         room_msg.Remove(onlines[user_id]);
                     }
+                    reloadNameBox();
                     onlines.Remove(user_id);
                     break;
                 case 3:
@@ -183,20 +190,20 @@ namespace MOVEROAD
                 }));
             }
         }
-        public void reloadUserList()
+        public void reloadNameBox()
         {
-            if (ms.onlineList.InvokeRequired)
+            if (ms.nameBOX.InvokeRequired)
             {
                 ms.onlineList.BeginInvoke(new MethodInvoker(delegate
                 {
-                    ms.loadUserList();
+                    ms.nameBOX.Text = "";
                 }));
             }
             else
             {
-                ms.onlineList.BeginInvoke(new MethodInvoker(delegate
+                ms.nameBOX.BeginInvoke(new MethodInvoker(delegate
                 {
-                    ms.loadUserList();
+                    ms.nameBOX.Text = "";
                 }));
             }
         }
@@ -335,7 +342,6 @@ namespace MOVEROAD
             ms.Show();
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(ms);
-            reloadUserList();
         }
 
         private void button3_Click(object sender, EventArgs e)
