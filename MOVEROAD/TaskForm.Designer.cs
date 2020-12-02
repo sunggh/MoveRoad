@@ -51,7 +51,6 @@ namespace MOVEROAD
             this.label10 = new System.Windows.Forms.Label();
             this.comboBoxRegistrant = new System.Windows.Forms.ComboBox();
             this.buttonDeleteTask = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonReviseTask = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -66,7 +65,6 @@ namespace MOVEROAD
             this.tabPageRegistraion.SuspendLayout();
             this.tabPageManagement.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).BeginInit();
             this.tabPageMaster.SuspendLayout();
@@ -260,7 +258,6 @@ namespace MOVEROAD
             // 
             this.tabPageManagement.Controls.Add(this.groupBox2);
             this.tabPageManagement.Controls.Add(this.buttonDeleteTask);
-            this.tabPageManagement.Controls.Add(this.pictureBox1);
             this.tabPageManagement.Controls.Add(this.buttonReviseTask);
             this.tabPageManagement.Controls.Add(this.groupBox1);
             this.tabPageManagement.Controls.Add(this.label8);
@@ -314,16 +311,6 @@ namespace MOVEROAD
             this.buttonDeleteTask.Text = "삭제";
             this.buttonDeleteTask.UseVisualStyleBackColor = false;
             this.buttonDeleteTask.Click += new System.EventHandler(this.buttonDeleteTask_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::MOVEROAD.Properties.Resources.calendar;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(684, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 34);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
             // 
             // buttonReviseTask
             // 
@@ -450,7 +437,6 @@ namespace MOVEROAD
             this.tabPageManagement.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).EndInit();
@@ -480,7 +466,6 @@ namespace MOVEROAD
         private System.Windows.Forms.Button buttonDeleteTask;
         private System.Windows.Forms.Button buttonReviseTask;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridViewTask;
         private System.Windows.Forms.TabPage tabPageMaster;
