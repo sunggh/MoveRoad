@@ -30,9 +30,11 @@ namespace MOVEROAD
 
         }
 
-        private void comboBoxWork_SelectedIndexChanged(object sender, EventArgs e) //콤보박스의 업무를 선택하면
+        //콤보박스의 업무를 선택하면
+        private void comboBoxWork_SelectedIndexChanged(object sender, EventArgs e) 
         {
-            comboBoxDrafter.Items.Clear(); //결재자 초기화
+            //결재자 초기화
+            comboBoxDrafter.Items.Clear(); 
 
             try
             {
@@ -85,7 +87,7 @@ namespace MOVEROAD
             if (tabControlSign.SelectedTab == tabPageToMe) 
             {
                 //user가 사장이면 결재 중인 내역만 보이게
-                if(main.me.grade == 0)
+                if (main.me.grade == 0)
                 {
                     string sql = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, user.name AS 기안자 " +
                     "FROM sign JOIN user ON drafter_to = '" + main.me.name + "' AND sign.drafter = user.index AND sign.progress = 1";
@@ -105,7 +107,6 @@ namespace MOVEROAD
                     dataGridViewRequest.DataSource = table;
                 }
                 //user가 사원이면
-                //이거뺄까?
                 else if(main.me.grade == 2)
                 {
                     MessageBox.Show("해당 권한이 없습니다.", "알림");

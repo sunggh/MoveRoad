@@ -348,9 +348,6 @@
     <EmbeddedResource Include="EditUsers_form.resx">
       <DependentUpon>EditUsers_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="HRForm.resx">
       <DependentUpon>HRForm.cs</DependentUpon>
     </EmbeddedResource>
