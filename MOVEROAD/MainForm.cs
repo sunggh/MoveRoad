@@ -114,6 +114,14 @@ namespace MOVEROAD
                 case 2: // 로그아웃 (2|유저아이디)
                     user_id = int.Parse(str[1]);
                     onlines.Remove(user_id);
+                    foreach (var r in room)
+                    {
+                        if(r.Value == user_id)
+                        {
+                            room.Remove(r.Key);
+                            break;
+                        }
+                    }
                     break;
                 case 3:
                     room_id = int.Parse(str[1]);
@@ -131,7 +139,7 @@ namespace MOVEROAD
                     to_id = int.Parse(str[2]);
                     msg = str[3];
                     string mss="";
-                    if (!room.ContainsKey(room_id))
+                    if (!room.ContainsKey(room_id) && !room_msg.ContainsKey(onlines[to_id]))
                     {
                         room.Add(room_id, to_id);
                         room_msg.Add(onlines[to_id], new List<string>());
@@ -164,7 +172,7 @@ namespace MOVEROAD
 
         private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
         {
-            string sql = "SELECT `reads` FROM `message` where `mto` = '" + this.me.name + "' AND `reads` = '0'";
+            string sql = "SELECT `reads` FROM `message` where `mto` = '" + this.me.id + "' AND `reads` = '0' AND receivevisible= '1'";
             if ((bool)DBConnetion.getInstance().Select(sql, 5))
             {
                 e.Result = (bool)true;

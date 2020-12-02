@@ -408,7 +408,6 @@ namespace MOVEROAD
             {
                 MessageBox.Show("선택한 업무가 없거나 선택한 업무는 삭제할 수 없습니다.", "Invalid selection");
             }
-            CreateTree();
         }
         #endregion
         #region 일일 업무 등록
@@ -729,7 +728,7 @@ namespace MOVEROAD
                         if (DateTime.Compare(startTime, finishTime) == 1 || haveTimeOverlap()) // st 보다 ft가 더 작으면
                         {
                             MessageBox.Show("업무시간을 확인하시오.");
-                            continue;
+                            return;
                         }
 
                         Console.WriteLine("시작시간 : " + st);

@@ -116,7 +116,7 @@ namespace MOVEROAD
 
                 }             
             }
-            
+            viewMessageList();
             
 
         }  

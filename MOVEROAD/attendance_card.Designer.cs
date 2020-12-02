@@ -37,7 +37,6 @@
             this.buttonDec = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonRead = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -133,16 +132,6 @@
             this.buttonRead.UseVisualStyleBackColor = true;
             this.buttonRead.Click += new System.EventHandler(this.buttonRead_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("휴먼모음T", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(182, 353);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(376, 22);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "매일 자정전에 퇴근버튼 눌러 주시기 바랍니다!";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -159,7 +148,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 373);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonRead);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonDec);
@@ -189,7 +177,6 @@
         private System.Windows.Forms.Button buttonDec;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonRead;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
     }
 }
