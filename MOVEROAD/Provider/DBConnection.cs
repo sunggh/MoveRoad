@@ -178,7 +178,10 @@ namespace MOVEROAD
 
                         taskHours.Rows.Add(stSec, ftSec);
                     }
-                    thing = taskHours;
+                    if (taskHours.Rows.Count == 0)
+                        thing = null;
+                    else
+                        thing = taskHours;
                     break;
                 case 14:
                     List<UserInfo> userInfos = new List<UserInfo>();
@@ -206,7 +209,21 @@ namespace MOVEROAD
                         string startTime = string.Format("{0:HH:mm:ss}", rdr["startTime"]);
                         string finishTime = string.Format("{0:HH:mm:ss}", rdr["finishTime"]);
                         string user_id = Convert.ToString((int)rdr["user_id"]);
-                        task.Rows.Add((int)rdr["id"], (string)rdr["task"], string.Format("{0:yyyy-MM-dd}",rdr["date"]), ((string)rdr["user"] + "(" + user_id + ")"), (string)rdr["text"], startTime, finishTime);
+                        string taskName;
+                        if(rdr["task"] == System.DBNull.Value)
+                        {
+                            taskName = "삭제된 업무";
+                        }
+                        else
+                        {
+                            taskName = (string)rdr["task"];
+                        }
+                        //퇴사한 유저는 굳이 안보여줘도 될듯
+                        if(rdr["user"] == null)
+                        {
+                            continue;
+                        }
+                        task.Rows.Add((int)rdr["id"], taskName, string.Format("{0:yyyy-MM-dd}",rdr["date"]), ((string)rdr["user"] + "(" + user_id + ")"), (string)rdr["text"], startTime, finishTime);
                     }
                     thing = task;
                     break;

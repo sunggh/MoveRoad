@@ -531,12 +531,16 @@ namespace MOVEROAD
             dateTime = dateTime.AddHours(1);
             dateTimePickerFinshTime.Value = dateTime;
         }
-        private bool haveTimeOverlap()
+        private bool haveTimeOverlap(int user_id)
         {
             string date = string.Format("{0:yyyy-MM-dd}", DateTime.Now);
-            string query = "SELECT startTime,finishTime FROM task WHERE date = '" + date + "'";
+            string query = "SELECT startTime,finishTime FROM task WHERE date = '" + date + "' AND user_id ='" + user_id + "'";
             DataTable TaskHours = (DBConnetion.getInstance().Select(query, 13)) as DataTable;
             
+            if(TaskHours == null)
+            {
+                return false;
+            }
             //datetime -> 초시간
             TimeSpan st = startTime.TimeOfDay;
             TimeSpan ft = finishTime.TimeOfDay;
@@ -635,7 +639,7 @@ namespace MOVEROAD
             comboBoxRegistrant.Items.Clear();
             foreach(UserInfo user in userInfos)
             {
-                comboBoxRegistrant.Items.Add(user.name);
+                comboBoxRegistrant.Items.Add(user.name + "(" + user.index + ")");
             }
         }
         private void comboBoxTaskKeword_SelectedIndexChanged(object sender, EventArgs e)
@@ -658,7 +662,7 @@ namespace MOVEROAD
                 DataRow[] rows = subClass.Select("Name = '" + name + "'");
                 int taskID = Convert.ToInt32(rows[0]["ID"]);
 
-                string query = "SELECT A.*, B.name as task FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.id WHERE sub_id = '" + taskID + "' AND date = '" + date + "'";
+                string query = "SELECT A.*, B.name as task, C.name as user FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.id LEFT OUTER JOIN project.user as C ON A.user_id = C.index WHERE sub_id = '" + taskID + "' AND date = '" + date + "'";
                 DataTable table = DBConnetion.getInstance().Select(query, 15) as DataTable;
 
                 dataGridViewTask.DataSource = table;
@@ -680,9 +684,9 @@ namespace MOVEROAD
         {
             try
             {
-                string name = comboBoxRegistrant.SelectedItem.ToString();
+                int id = userInfos[comboBoxRegistrant.SelectedIndex].index;
 
-                string query = "SELECT A.*, B.name as task FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.id WHERE A.name = '" + name + "'";
+                string query = "SELECT A.*, B.name as task, C.name as user FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.id LEFT OUTER JOIN project.user as C ON A.user_id = C.index WHERE A.user_id = '" + id + "'";
                 DataTable table = DBConnetion.getInstance().Select(query, 15) as DataTable;
 
                 dataGridViewTask.DataSource = table;

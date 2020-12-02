@@ -39,8 +39,9 @@
             this.labelUserName = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.labelTaskName = new System.Windows.Forms.Label();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -149,26 +150,27 @@
             // 
             this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(347, 278);
+            this.buttonClose.Location = new System.Drawing.Point(152, 278);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(86, 34);
             this.buttonClose.TabIndex = 21;
-            this.buttonClose.Text = "닫기";
+            this.buttonClose.Text = "취소";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
-            // buttonSave
+            // buttonDelete
             // 
-            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(255, 278);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(86, 34);
-            this.buttonSave.TabIndex = 20;
-            this.buttonSave.Text = "수정";
-            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.Location = new System.Drawing.Point(336, 278);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(86, 34);
+            this.buttonDelete.TabIndex = 20;
+            this.buttonDelete.Text = "삭제";
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // labelTaskName
             // 
@@ -179,15 +181,29 @@
             this.labelTaskName.TabIndex = 19;
             this.labelTaskName.Text = "업무이름";
             // 
+            // buttonSave
+            // 
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonSave.ForeColor = System.Drawing.Color.White;
+            this.buttonSave.Location = new System.Drawing.Point(244, 278);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(86, 34);
+            this.buttonSave.TabIndex = 22;
+            this.buttonSave.Text = "수정";
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // FormReviseTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(462, 319);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.buttonClose);
-            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormReviseTask";
             this.Text = "FormReviseTask";
@@ -210,7 +226,8 @@
         private System.Windows.Forms.Label labelUserName;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button buttonClose;
-        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Label labelTaskName;
+        private System.Windows.Forms.Button buttonSave;
     }
 }
