@@ -93,7 +93,13 @@ namespace MOVEROAD
                 }
                
             }
-            
+            main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
+            MessageBoxForm2 mb = new MessageBoxForm2(this.main);
+            mb.TopLevel = false;
+            mb.Show();
+            main.lastPanel = mb;
+            main.MainPanel.Controls.Clear();
+            main.MainPanel.Controls.Add(mb);
         }
 
         private void btnNew_Click(object sender, EventArgs e)
