@@ -151,9 +151,12 @@ namespace MOVEROAD
                         }
                         break;
                     }
-                    room_id = cur_room;
-                    room.Add(room_id, to_id);
-                    ms.to_user = onlines[to_id];
+                    room.Add(cur_room, to_id);
+                    if (ms.nameBOX.Text == onlines[to_id].name)
+                    {
+                        ms.to_user = onlines[to_id];
+                        room_id = cur_room;
+                    }
                     room_msg.Add(onlines[to_id], new List<string>());
                     break;
                 case 4:
@@ -197,7 +200,7 @@ namespace MOVEROAD
         {
             if (ms.nameBOX.InvokeRequired)
             {
-                ms.onlineList.BeginInvoke(new MethodInvoker(delegate
+                ms.nameBOX.BeginInvoke(new MethodInvoker(delegate
                 {
                     ms.nameBOX.Text = "";
                 }));
