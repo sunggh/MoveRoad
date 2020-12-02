@@ -49,7 +49,7 @@ namespace MOVEROAD
             importDepartmentInfo();
             try 
             {
-            clientSocket.Connect("127.0.0.1", 80);//220.122.52.172
+            clientSocket.Connect("211.229.51.245", 80);//220.122.52.172
             stream = clientSocket.GetStream();
             message = "1|"+me.index;
             byte[] buffer = Encoding.Unicode.GetBytes(message);

@@ -52,7 +52,7 @@ namespace MOVEROAD
 
             string id_search = "select id from department where name = '" + depart_name + "'";
 
-            int department_id = (int)DBConnetion.getInstance().Select(id_search, 10);
+            int department_id = (int)DBConnetion.getInstance().Select(id_search, 20);
             //id를 찾았음.
 
             //그 사람의 직급도 변경하고 원 소속의 부서를 새로 생성된 부서로 변경해야함

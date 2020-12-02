@@ -52,7 +52,7 @@ namespace MOVEROAD
             // 로그인한 사용자가 출근기록이 있는지 확인
             string check_login_query = "SELECT * FROM project.salary " +
                 "WHERE salary.date = '" + today + "' AND salary.index = " + userIndex;
-            object check = DBConnetion.getInstance().Select(check_login_query, 8);
+            object check = DBConnetion.getInstance().Select(check_login_query, 28);
 
             if (check.Equals(1)) // 출근한 기록이 있을 때
             {

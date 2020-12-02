@@ -67,10 +67,10 @@ namespace MOVEROAD
             string today = dt.ToString("yyyy-MM-dd");
 
             string checkin_query = "SELECT * FROM project.attendance_card WHERE attendance_card.id = '" + userid + "' AND date = '" + today + "'";
-            object checkin = DBConnetion.getInstance().Select(checkin_query, 8);
+            object checkin = DBConnetion.getInstance().Select(checkin_query, 28);
 
             string checkout_query = "SELECT * FROM project.attendance_card WHERE attendance_card.id = '" + userid + "' AND date2 = '" + today + "'";
-            object checkout = DBConnetion.getInstance().Select(checkout_query, 8);
+            object checkout = DBConnetion.getInstance().Select(checkout_query, 28);
 
             if(checkin.Equals(1) && checkout.Equals(0)) // 현재 출근처리 되어있으며, 퇴근하지 않은 경우 추가수당 ui창 띄우기
             {

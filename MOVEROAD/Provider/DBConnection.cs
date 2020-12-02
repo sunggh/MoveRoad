@@ -103,6 +103,58 @@ namespace MOVEROAD
                     }
                     thing = messages;
                     break;
+                case 21:
+                    rdr.Read();
+                    thing = ((string)rdr["id"]);
+                    break;
+                case 22:
+                    if (rdr.Read())
+                    {
+                        String startTime = ((string)rdr["startTime"]);
+                        thing = startTime;
+                        break;
+                    }
+                    thing = null;
+                    break;
+                case 23:
+                    if (rdr.Read())
+                    {
+                        String finishTime = ((string)rdr["finishTime"]);
+                        thing = finishTime;
+                        break;
+                    }
+                    thing = null;
+                    break;
+                /*                case 4:
+                    rdr.Read();
+                    thing = ((string)rdr["id"]);
+                    break;
+                case 5:
+                    if (rdr.Read())
+                    {
+                        String startTime = ((string)rdr["startTime"]);
+                        thing = startTime;
+                        break;
+                    }
+                    thing = null;
+                    break;
+                case 6:
+                    if (rdr.Read())
+                    {
+                        String finishTime = ((string)rdr["finishTime"]);
+                        thing = finishTime;
+                        break;
+                    }
+                    thing = null;
+                    break;*/
+                case 28:
+                    if (rdr.Read()) return 1;
+                    else return 0;
+                case 20:
+                    rdr.Read();
+                    thing = (int)rdr["id"];
+                    break;
+
                 case 13:
                     DataTable taskHours = new DataTable();
                     //열 생성
@@ -151,7 +203,6 @@ namespace MOVEROAD
                     }
                     thing = task;
                     break;
-            }
                 case 7:
                     try
                     {
@@ -174,12 +225,134 @@ namespace MOVEROAD
                     DateTime date = ((DateTime)rdr["date"]);
                     thing = date;
                     break;
+                case 70: //데이터 그리드뷰로 사원 불러오기
+                    DataTable table = new DataTable();
+
+                    table.Load(rdr);
+                    return table;
+                case 80: //급여 리스트뷰 출력
+                    List<string> list = new List<string>();
+
+                    while (rdr.Read())
+                    {
+                        list.Add(string.Format("{0}", rdr["name"]));
+                        list.Add(string.Format("{0}", rdr["date"]));
+                        list.Add(string.Format("{0}", rdr["basicPay"]));
+                        list.Add(string.Format("{0}", rdr["overtimePay"]));
+                        list.Add(string.Format("{0}", rdr["nighttimePay"]));
+                        list.Add(string.Format("{0}", rdr["holidayPay"]));
+                        list.Add(string.Format("{0}", rdr["totalPay"]));
+                        list.Add(string.Format("{0}", rdr["deduction"]));
+                        list.Add(string.Format("{0}", rdr["actualPay"]));
+                    }
+                    thing = list;
+                    return thing;
+                case 81: //총급여 계산
+                    rdr.Read();
+                    thing = string.Format("{0}", rdr["sumpays"]);
+                    return thing;
+                case 82: // 총급여 가져오기
+                    while (rdr.Read())
+                    {
+                        thing = string.Format("{0}", rdr["totalPay"]);
+                    }
+                    return thing;
+                case 83:
+                    List<string> list1 = new List<string>();
+                    while (rdr.Read())
+                    {
+                        list1.Add(string.Format("{0}", rdr["month"]));
+                        list1.Add(string.Format("{0}", rdr["totalPay"]));
+                    }
+                    thing = list1;
+                    return thing;
+                case 84:
+                    string dates = "";
+                    while (rdr.Read())
+                    {
+                        dates = string.Format("{0}", rdr["date"]);
+                    }
+                    return dates;
+                case 85: //주말인지 아닌지 알아내기
+                    rdr.Read();
+                    thing = string.Format("{0}", rdr["dayofweek"]);
+                    break;
+                case 86:// X-Y(날짜) 초로 가져오기
+                    string get_sectime = "";
+                    while (rdr.Read())
+                    {
+                        get_sectime = string.Format("{0}", rdr["sectime"]);
+                    }
+                    thing = get_sectime;
+                    break;
+                case 87:
+                    rdr.Read();
+                    thing = string.Format("{0}", rdr["id"]);
+                    break;
+                case 88:
+                    DepartmentInfo department_ = new DepartmentInfo(0, "", 0);
+                    while (rdr.Read())
+                    {
+                        department_ = new DepartmentInfo((int)rdr["id"], (string)rdr["name"], (int)rdr["manager"]);
+                    }
+                    return department_;
+                case 89:
+                    rdr.Read();
+                    thing = string.Format("{0}", rdr["date2"]);
+                    break;
+                case 181:
+                    string totalPay = "";
+                    while (rdr.Read())
+                    {
+                        totalPay = string.Format("{0}", rdr["totalPay"]);
+                    }
+                    return totalPay;
+
             }
             rdr.Close();
             conn.Close();
             return thing;
         }
+        public string get_department_countid(string query)
+        {
+            string count = "";
+            MySqlConnection conn = getDBConnetion();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                count = string.Format("{0}", rdr["id"]);
+            }
 
+            return count;
+        }
+        public List<string> dpt_id_and_name(string query, int token)
+        {
+            List<string> list = new List<string>();
+            MySqlConnection conn = getDBConnetion();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                switch (token)
+                {
+                    case 0:
+                        list.Add(string.Format("{0}", rdr["name"]));
+                        list.Add(string.Format("{0}", rdr["depart"]));
+
+                        break;
+                    case 1:
+                        list.Add(string.Format("{0}", rdr["name"]));
+                        break;
+                }
+            }
+            rdr.Close();
+            conn.Close();
+
+            return list;
+        }
         public List<string> revise_userlist(string sql)
         {
             List<string> list = new List<string>();
@@ -208,7 +381,25 @@ namespace MOVEROAD
             while (rdr.Read())
             {
                 list.Add(string.Format("{0}", rdr["name"]));
-                list.Add(string.Format("{0}", rdr["index"]));
+                list.Add(string.Format("{0}", rdr["grade"]));
+            }
+            rdr.Close();
+            conn.Close();
+            return list;
+        }
+
+        public List<string> get_departlist(string query)
+        {
+            List<string> list = new List<string>();
+            MySqlConnection conn = getDBConnetion();
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                list.Add(string.Format("{0}", rdr["departname"]));
+                list.Add(string.Format("{0}", rdr["name"]));
+                list.Add(string.Format("{0}", rdr["description"]));
             }
             rdr.Close();
             conn.Close();

@@ -32,7 +32,7 @@ namespace MOVEROAD
         {
             string ID = main.me.id;  //현재접속중인 id값
             object start = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 5);  // 출근버튼을 클릭하였는지 확인
+                "WHERE id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 22);  // 출근버튼을 클릭하였는지 확인
 
             //현재 접속중인 유저의 index값 가져오기
             UserInfo user;
@@ -95,13 +95,13 @@ namespace MOVEROAD
 
 
             object start = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date!= 'null' and finishTime ='\"' ", 5); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
+                "WHERE id='" + ID + "' and date!= 'null' and finishTime ='\"' ", 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
 
             object finish = DBConnetion.getInstance().Select("SELECT finishTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date!= 'null' and finishTime = '\"' ", 6); // 퇴근을 눌렀는지 확인
+                "WHERE id='" + ID + "' and date!= 'null' and finishTime = '\"' ", 23); // 퇴근을 눌렀는지 확인
 
             object start2 = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date like '"+today+"%' ", 5);
+                "WHERE id='" + ID + "' and date like '"+today+"%' ", 22);
     
 
 
@@ -128,7 +128,7 @@ namespace MOVEROAD
             string ID = main.me.id;
 
             object start = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date!= 'null' and finishTime ='\"' ", 5); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
+                "WHERE id='" + ID + "' and date!= 'null' and finishTime ='\"' ", 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
 
             //if ((string)start == null)
             //{// 만약 출근버튼을 먼저 누르지 않았다면
