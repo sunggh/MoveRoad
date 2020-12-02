@@ -89,12 +89,6 @@ namespace MOVEROAD
             }
         }
 
-        private void btn_refresh_Click(object sender, EventArgs e)
-        {
-            //급여 데이터 그리드뷰 새로고침
-            set_pay_listview(label2.Text);
-        }
-
         // 달 추가
         private void buttonInc_Click(object sender, EventArgs e)
         {
@@ -110,6 +104,11 @@ namespace MOVEROAD
             dt = Convert.ToDateTime(label2.Text);
             label2.Text = dt.AddMonths(-1).ToString("yyyy-MM");
             set_pay_listview(label2.Text);
+        }
+
+        private void buttonDeductionInfo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
