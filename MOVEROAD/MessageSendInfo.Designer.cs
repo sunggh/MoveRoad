@@ -75,6 +75,7 @@
             // 
             // FromtextBox
             // 
+            this.FromtextBox.BackColor = System.Drawing.Color.White;
             this.FromtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.FromtextBox.Location = new System.Drawing.Point(25, 109);
             this.FromtextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -86,6 +87,7 @@
             // 
             // FromtitleBox
             // 
+            this.FromtitleBox.BackColor = System.Drawing.Color.White;
             this.FromtitleBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.FromtitleBox.Location = new System.Drawing.Point(101, 65);
             this.FromtitleBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -96,6 +98,7 @@
             // 
             // FromBox
             // 
+            this.FromBox.BackColor = System.Drawing.Color.White;
             this.FromBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.FromBox.Location = new System.Drawing.Point(101, 26);
             this.FromBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
