@@ -38,7 +38,9 @@ namespace MOVEROAD
 
         private void buttonDepartSearch_Click(object sender, EventArgs e)
         {
-            this.depart = comboBoxDepart.SelectedIndex;
+            string depart_name = comboBoxDepart.Text;
+            string depart_name_query = "SELECT * FROM project.department WHERE department.name = '" + depart_name + "'";
+            this.depart = (int)DBConnetion.getInstance().Select(depart_name_query, 20);
 
             string query = "SELECT user.index AS 'No.', department.name AS '부서명', " +
                 "CASE user.grade WHEN 0 THEN '사장' WHEN 1 THEN '부서장' WHEN 2 THEN '사원' END AS '직위', user.name AS '이름', user.age AS '나이', " +
