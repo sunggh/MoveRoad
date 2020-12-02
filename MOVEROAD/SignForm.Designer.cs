@@ -46,7 +46,6 @@
             this.textBoxDetail_req = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.textBoxMemo = new System.Windows.Forms.TextBox();
             this.buttonTurn = new System.Windows.Forms.Button();
             this.buttonSign = new System.Windows.Forms.Button();
@@ -108,19 +107,21 @@
             // 
             // buttonInsert
             // 
-            this.buttonInsert.Location = new System.Drawing.Point(312, 370);
+            this.buttonInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonInsert.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonInsert.Location = new System.Drawing.Point(347, 390);
             this.buttonInsert.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(192, 55);
             this.buttonInsert.TabIndex = 10;
             this.buttonInsert.Text = "등록하기";
-            this.buttonInsert.UseVisualStyleBackColor = true;
+            this.buttonInsert.UseVisualStyleBackColor = false;
             this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
             // 
             // comboBoxDrafter
             // 
             this.comboBoxDrafter.FormattingEnabled = true;
-            this.comboBoxDrafter.Location = new System.Drawing.Point(627, 51);
+            this.comboBoxDrafter.Location = new System.Drawing.Point(662, 71);
             this.comboBoxDrafter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxDrafter.Name = "comboBoxDrafter";
             this.comboBoxDrafter.Size = new System.Drawing.Size(121, 23);
@@ -129,7 +130,7 @@
             // comboBoxWork
             // 
             this.comboBoxWork.FormattingEnabled = true;
-            this.comboBoxWork.Location = new System.Drawing.Point(411, 51);
+            this.comboBoxWork.Location = new System.Drawing.Point(446, 71);
             this.comboBoxWork.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxWork.Name = "comboBoxWork";
             this.comboBoxWork.Size = new System.Drawing.Size(121, 23);
@@ -138,7 +139,7 @@
             // 
             // textBoxComment
             // 
-            this.textBoxComment.Location = new System.Drawing.Point(90, 285);
+            this.textBoxComment.Location = new System.Drawing.Point(125, 305);
             this.textBoxComment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxComment.Multiline = true;
             this.textBoxComment.Name = "textBoxComment";
@@ -147,7 +148,7 @@
             // 
             // textBoxContent
             // 
-            this.textBoxContent.Location = new System.Drawing.Point(90, 108);
+            this.textBoxContent.Location = new System.Drawing.Point(125, 128);
             this.textBoxContent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxContent.Multiline = true;
             this.textBoxContent.Name = "textBoxContent";
@@ -156,7 +157,7 @@
             // 
             // textBoxTitle
             // 
-            this.textBoxTitle.Location = new System.Drawing.Point(90, 50);
+            this.textBoxTitle.Location = new System.Drawing.Point(125, 70);
             this.textBoxTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(175, 25);
@@ -165,45 +166,60 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 285);
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(47, 305);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 15);
+            this.label5.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label5.Size = new System.Drawing.Size(72, 25);
             this.label5.TabIndex = 4;
             this.label5.Text = "코멘트";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(48, 108);
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(62, 128);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 15);
+            this.label4.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label4.Size = new System.Drawing.Size(57, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "내용";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(570, 54);
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(584, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 15);
+            this.label3.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label3.Size = new System.Drawing.Size(72, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "결재자";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(333, 54);
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(348, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 15);
+            this.label2.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label2.Size = new System.Drawing.Size(92, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "업무 선택";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 52);
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(62, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 15);
+            this.label1.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label1.Size = new System.Drawing.Size(57, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "제목";
             // 
@@ -213,7 +229,6 @@
             this.tabPageToMe.Controls.Add(this.textBoxDetail_req);
             this.tabPageToMe.Controls.Add(this.label9);
             this.tabPageToMe.Controls.Add(this.label7);
-            this.tabPageToMe.Controls.Add(this.label6);
             this.tabPageToMe.Controls.Add(this.textBoxMemo);
             this.tabPageToMe.Controls.Add(this.buttonTurn);
             this.tabPageToMe.Controls.Add(this.buttonSign);
@@ -230,9 +245,12 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(661, 31);
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label11.Location = new System.Drawing.Point(670, 21);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(102, 15);
+            this.label11.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label11.Size = new System.Drawing.Size(122, 25);
             this.label11.TabIndex = 7;
             this.label11.Text = "내용 상세보기";
             // 
@@ -248,57 +266,60 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 31);
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label9.Location = new System.Drawing.Point(23, 22);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(72, 15);
+            this.label9.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label9.Size = new System.Drawing.Size(92, 25);
             this.label9.TabIndex = 5;
             this.label9.Text = "결재 내역";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label7.Location = new System.Drawing.Point(23, 362);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 15);
+            this.label7.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label7.Size = new System.Drawing.Size(57, 25);
             this.label7.TabIndex = 4;
             this.label7.Text = "메모";
             // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(0, 24);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 23);
-            this.label6.TabIndex = 0;
-            // 
             // textBoxMemo
             // 
-            this.textBoxMemo.Location = new System.Drawing.Point(66, 340);
+            this.textBoxMemo.Location = new System.Drawing.Point(86, 340);
             this.textBoxMemo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxMemo.Multiline = true;
             this.textBoxMemo.Name = "textBoxMemo";
-            this.textBoxMemo.Size = new System.Drawing.Size(745, 62);
+            this.textBoxMemo.Size = new System.Drawing.Size(725, 62);
             this.textBoxMemo.TabIndex = 3;
             // 
             // buttonTurn
             // 
+            this.buttonTurn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonTurn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonTurn.Location = new System.Drawing.Point(436, 424);
             this.buttonTurn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTurn.Name = "buttonTurn";
             this.buttonTurn.Size = new System.Drawing.Size(214, 48);
             this.buttonTurn.TabIndex = 2;
             this.buttonTurn.Text = "반려하기";
-            this.buttonTurn.UseVisualStyleBackColor = true;
+            this.buttonTurn.UseVisualStyleBackColor = false;
             this.buttonTurn.Click += new System.EventHandler(this.buttonTurn_Click);
             // 
             // buttonSign
             // 
+            this.buttonSign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonSign.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonSign.Location = new System.Drawing.Point(173, 424);
             this.buttonSign.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSign.Name = "buttonSign";
             this.buttonSign.Size = new System.Drawing.Size(214, 48);
             this.buttonSign.TabIndex = 1;
             this.buttonSign.Text = "결재하기";
-            this.buttonSign.UseVisualStyleBackColor = true;
+            this.buttonSign.UseVisualStyleBackColor = false;
             this.buttonSign.Click += new System.EventHandler(this.buttonSign_Click);
             // 
             // dataGridViewRequest
@@ -342,37 +363,46 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(21, 434);
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label14.Location = new System.Drawing.Point(21, 425);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(37, 15);
+            this.label14.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label14.Size = new System.Drawing.Size(57, 25);
             this.label14.TabIndex = 10;
             this.label14.Text = "메모";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(643, 223);
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label13.Location = new System.Drawing.Point(652, 223);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(102, 15);
+            this.label13.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label13.Size = new System.Drawing.Size(122, 25);
             this.label13.TabIndex = 9;
             this.label13.Text = "내용 상세보기";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(645, 16);
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label12.Location = new System.Drawing.Point(652, 10);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(102, 15);
+            this.label12.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label12.Size = new System.Drawing.Size(122, 25);
             this.label12.TabIndex = 8;
             this.label12.Text = "내용 상세보기";
             // 
             // textBoxDetail_turn
             // 
-            this.textBoxDetail_turn.Location = new System.Drawing.Point(645, 241);
+            this.textBoxDetail_turn.Location = new System.Drawing.Point(645, 254);
             this.textBoxDetail_turn.Multiline = true;
             this.textBoxDetail_turn.Name = "textBoxDetail_turn";
             this.textBoxDetail_turn.ReadOnly = true;
-            this.textBoxDetail_turn.Size = new System.Drawing.Size(181, 156);
+            this.textBoxDetail_turn.Size = new System.Drawing.Size(181, 143);
             this.textBoxDetail_turn.TabIndex = 7;
             // 
             // textBoxDetail_done
@@ -386,11 +416,11 @@
             // 
             // textBoxSignTurnMemo
             // 
-            this.textBoxSignTurnMemo.Location = new System.Drawing.Point(64, 413);
+            this.textBoxSignTurnMemo.Location = new System.Drawing.Point(84, 413);
             this.textBoxSignTurnMemo.Multiline = true;
             this.textBoxSignTurnMemo.Name = "textBoxSignTurnMemo";
             this.textBoxSignTurnMemo.ReadOnly = true;
-            this.textBoxSignTurnMemo.Size = new System.Drawing.Size(762, 55);
+            this.textBoxSignTurnMemo.Size = new System.Drawing.Size(742, 55);
             this.textBoxSignTurnMemo.TabIndex = 5;
             // 
             // dataGridViewSignTurnList
@@ -400,29 +430,35 @@
             this.dataGridViewSignTurnList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewSignTurnList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSignTurnList.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewSignTurnList.Location = new System.Drawing.Point(23, 241);
+            this.dataGridViewSignTurnList.Location = new System.Drawing.Point(20, 254);
             this.dataGridViewSignTurnList.Name = "dataGridViewSignTurnList";
             this.dataGridViewSignTurnList.RowHeadersWidth = 51;
             this.dataGridViewSignTurnList.RowTemplate.Height = 27;
-            this.dataGridViewSignTurnList.Size = new System.Drawing.Size(614, 155);
+            this.dataGridViewSignTurnList.Size = new System.Drawing.Size(614, 143);
             this.dataGridViewSignTurnList.TabIndex = 4;
             this.dataGridViewSignTurnList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSignTurnList_CellClick);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(20, 222);
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label10.Location = new System.Drawing.Point(21, 223);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 15);
+            this.label10.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label10.Size = new System.Drawing.Size(92, 25);
             this.label10.TabIndex = 3;
             this.label10.Text = "반려 내역";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(20, 17);
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(20, 10);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 15);
+            this.label8.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.label8.Size = new System.Drawing.Size(92, 25);
             this.label8.TabIndex = 2;
             this.label8.Text = "결재 내역";
             // 
@@ -489,7 +525,6 @@
         private System.Windows.Forms.Button buttonTurn;
         private System.Windows.Forms.Button buttonSign;
         private System.Windows.Forms.DataGridView dataGridViewRequest;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridViewSignList;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
