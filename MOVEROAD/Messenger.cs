@@ -118,9 +118,9 @@ namespace MOVEROAD
             }
 
             panel.Controls.Add(textBox);
-            panel.Size = new Size(640, 30);
+            panel.Size = new Size(510, 30);
             panel.Dock = DockStyle.Top;
-            panel2.Size = new Size(640, 10);
+            panel2.Size = new Size(510, 10);
             panel2.Dock = DockStyle.Top;
             flowLayoutPanel1.Controls.Add(panel);
             flowLayoutPanel1.Controls.Add(panel2);
