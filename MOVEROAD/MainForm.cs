@@ -86,6 +86,7 @@ namespace MOVEROAD
         public int room_id;
         private void chathandler(string message)
         {
+            if (message == "") return;
             string[] str = message.Split(new string[] { "|" }, StringSplitOptions.None);
             int opcode = int.Parse(str[0]);
             
