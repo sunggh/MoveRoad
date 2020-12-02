@@ -220,7 +220,7 @@ namespace MOVEROAD
             {
                 e.Result = (bool)false;
             }
-            Thread.Sleep(500);
+            Thread.Sleep(50);
         }
         private void BackgroundWorkerRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
