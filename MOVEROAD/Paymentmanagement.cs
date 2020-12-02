@@ -26,19 +26,35 @@ namespace MOVEROAD
         {
             //현재 접속중인 유저 index (접속한 아이디 유저의 급여표기 위함)
             int userindex = main.me.index;
+            int userdepart = main.me.depart;
 
-            string query = "SELECT `u`.name,left(`s`.`date`,7) as `date`,SUM(`basicPay`) as `basicPay`" +
+            List<string> list = new List<string>();
+            string query = "";
+
+            if (userdepart == 1)
+            {
+                //인사인 경우
+                query = "SELECT `u`.name,left(`s`.`date`,7) as `date`, sum(`s`.`basicPay`) as `basicPay`" +
+                    ",SUM(`overtimePay`) as `overtimePay`,sum(`nighttimePay`) as `nighttimePay`" +
+                    ",sum(`holidayPay`) as `holidayPay`,`d`.`totalPay`,`d`.`deduction`,`d`.`actualPay`" +
+                    "FROM project.user as `u`,project.salary as `s`,project.deduction as `d` " +
+                    "where left(`s`.`date`,7) = '"+date+"' and `u`.index = `s`.index and `u`.index = `d`.index and left(`s`.`date`, 7) = `d`.`date` " +
+                    "group by `s`.index,left(`s`.`date`,7) ";
+            }
+            else
+            {
+                //인사가 아닌경우
+                query = "SELECT `u`.name,left(`s`.`date`,7) as `date`,SUM(`basicPay`) as `basicPay`" +
                 ", SUM(`overtimePay`) as `overtimePay`,sum(`nighttimePay`) as `nighttimePay`,sum(`holidayPay`) as `holidayPay`" +
                 ", `d`.`totalPay`,`d`.`deduction`,`d`.`actualPay` " +
                 "FROM project.attendance_card as `ac`,project.salary as `s`" +
                 ", project.user as `u`,project.deduction as `d` " +
-                "WHERE left(`s`.`date`,7) = '"+date+"' and `s`.`index` = '" + userindex+"'" +
+                "WHERE left(`s`.`date`,7) = '" + date + "' and `s`.`index` = '" + userindex + "'" +
                 " and `s`.`index` = `u`.`index` and `s`.`date` = `ac`.`date` and `u`.`id` = `ac`.`id` " +
                 " and left(`s`.`date`,7) = `d`.`date` and `u`.`index` = `d`.`index` " +
                 "GROUP BY left(`s`.`date`,7)";
-            
-            List<string> list;
-            list = (List<string>)DBConnetion.getInstance().Select(query,80);
+            }
+            list = (List<string>)DBConnetion.getInstance().Select(query, 80);
 
             lv_rivise.Items.Clear();
             lv_rivise.BeginUpdate();
