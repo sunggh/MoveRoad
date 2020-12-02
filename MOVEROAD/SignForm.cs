@@ -252,7 +252,7 @@ namespace MOVEROAD
             }
             catch
             {
-                MessageBox.Show("아직 결재되지 않았습니다.", "알림");
+                MessageBox.Show("결재 전 내역입니다.", "알림");
             }
         }
     }
