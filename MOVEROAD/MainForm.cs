@@ -172,7 +172,7 @@ namespace MOVEROAD
 
         private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
         {
-            string sql = "SELECT `reads` FROM `message` where `mto` = '" + this.me.name + "' AND `reads` = '0'";
+            string sql = "SELECT `reads` FROM `message` where `mto` = '" + this.me.id + "' AND `reads` = '0' AND receivevisible= '1'";
             if ((bool)DBConnetion.getInstance().Select(sql, 5))
             {
                 e.Result = (bool)true;
