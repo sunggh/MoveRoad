@@ -103,18 +103,27 @@ namespace MOVEROAD
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            this.select_depart = comboBoxDepart.Text; // 부서 이름
-            this.grade = comboBoxGrade.SelectedIndex; // 직급
-            this.age = Convert.ToInt32(textBoxAge.Text); // 나이
-            this.id = textBoxId.Text; // 아이디
-            this.password = textBoxPassword.Text; // 패스워드
-            this.name = textBoxName.Text; // 이름
-            this.gender = comboBoxGender.SelectedIndex; // 성별
-            this.phone = textBoxPhone.Text; // 전화번호
-            this.address = textBoxAddress.Text; // 주소
-            
-            AddNewcomer(); // 사원 추가
-            DataShow(); // 데이터 그리드뷰 갱신
+            if(comboBoxDepart.Text == "" || comboBoxGrade.Text == "" || textBoxAge.Text == "" || textBoxId.Text == "" || textBoxPassword.Text == "" || textBoxName.Text == "" || comboBoxGender.Text == "" ||
+                textBoxPhone.Text == "" || textBoxAddress.Text == "")
+            {
+                MessageBox.Show("빈칸을 모두 채워 주십시오.", "등록 오류");
+                return;
+            }
+            else
+            {
+                this.select_depart = comboBoxDepart.Text; // 부서 이름
+                this.grade = comboBoxGrade.SelectedIndex; // 직급
+                this.age = Convert.ToInt32(textBoxAge.Text); // 나이
+                this.id = textBoxId.Text; // 아이디
+                this.password = textBoxPassword.Text; // 패스워드
+                this.name = textBoxName.Text; // 이름
+                this.gender = comboBoxGender.SelectedIndex; // 성별
+                this.phone = textBoxPhone.Text; // 전화번호
+                this.address = textBoxAddress.Text; // 주소
+
+                AddNewcomer(); // 사원 추가
+                DataShow(); // 데이터 그리드뷰 갱신
+            }
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)

@@ -123,44 +123,44 @@ namespace MOVEROAD
 
             if (from == empty && title == empty && text == empty) // 모두검색(세개다 입력 X)
             {
-                sql = "SELECT * FROM message where mto = '" + id + "'";
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and sendvisible = '1'";
             }
             if (from != empty && title != empty && text != empty) // 보낸사람+제목+내용 검색
             {
-                sql = "SELECT * FROM message where mto = '" + id + "' and mfrom='" + from + "'" +
-                   "and title like '%" + title + "%' and text like '%" + text + "%'";
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and mto='" + from + "'" +
+                   "and title like '%" + title + "%' and text like '%" + text + "%'and sendvisible = '1'";
             }
 
 
             if (from == empty && title != empty && text != empty) // 제목 + 내용 검색
             {
-                sql = "SELECT * FROM message where mto = '" + id + "' and " +
-                   " title like '%" + title + "%' and text like '%" + text + "%'";
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and " +
+                   " title like '%" + title + "%' and text like '%" + text + "%'and sendvisible = '1'";
             }
             if (title == empty && from != empty && text != empty)// 보낸사람 + 내용 검색
             {
-                sql = "SELECT * FROM message where mto = '" + id + "' and mfrom='" + from + "'" +
-                   "and  text like '%" + text + "%'";
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and mto='" + from + "'" +
+                   "and  text like '%" + text + "%'and sendvisible = '1'";
             }
             if (text == empty && from != empty && title != empty)// 보낸사람 + 제목 검색
             {
-                sql = "SELECT * FROM message where mto = '" + id + "' and mfrom='" + from + "'" +
-                   "and title like '%" + title + "%' ";
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and mto='" + from + "'" +
+                   "and title like '%" + title + "%' and sendvisible = '1'";
             }
 
 
 
             if (from == empty && title == empty && text != empty) // 내용검색
             {
-                sql = "SELECT * FROM message where mto = '" + id + "' and text like '%" + text + "%'";
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and text like '%" + text + "%'and sendvisible = '1'";
             }
             if (from == empty && text == empty && title != empty)  // 제목검색
             {
-                sql = "SELECT * FROM message where mto = '" + id + "' and title like '%" + title + "%'";
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and title like '%" + title + "%'and sendvisible = '1'";
             }
             if (title == empty && text == empty && from != empty)// 보낸사람검색
             {
-                sql = "SELECT * FROM message where mto = '" + id + "' and mfrom='" + from + "'";
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and mto='" + from + "'and sendvisible = '1'";
             }
 
             messages = (List<Message>)DBConnetion.getInstance().Select(sql, 6);
