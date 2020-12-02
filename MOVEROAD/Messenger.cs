@@ -17,6 +17,7 @@ namespace MOVEROAD
         public UserInfo to_user = null;
         private BackgroundWorker backgroundWorker;
         public Dictionary<int, UserInfo> onlines;
+        public int select = -1;
         public Messenger(MainForm main)
         {
             InitializeComponent();
@@ -151,9 +152,9 @@ namespace MOVEROAD
             }
 
             panel.Controls.Add(textBox);
-            panel.Size = new Size(510, 30);
+            panel.Size = new Size(490, 30);
             panel.Dock = DockStyle.Top;
-            panel2.Size = new Size(510, 10);
+            panel2.Size = new Size(490, 10);
             panel2.Dock = DockStyle.Top;
             flowLayoutPanel1.Controls.Add(panel);
             flowLayoutPanel1.Controls.Add(panel2);
@@ -204,7 +205,7 @@ namespace MOVEROAD
             }
             return to_user;
         }
-        public int select = -1;
+        
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
