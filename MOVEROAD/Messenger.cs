@@ -21,7 +21,6 @@ namespace MOVEROAD
             flowLayoutPanel1.AutoScroll = false;
             flowLayoutPanel1.HorizontalScroll.Enabled = false;
             flowLayoutPanel1.AutoScroll = true;
-            loadUserList();
         }
         public void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -30,6 +29,7 @@ namespace MOVEROAD
 
         public void loadUserList()
         {
+            onlineList.Items.Clear();
             foreach (var user in this.main.onlines)
             {
                 onlineList.Items.Add(user.Value.name + "(" + user.Value.index + ")");
@@ -94,7 +94,6 @@ namespace MOVEROAD
                         addchat(msgs);
                     }
                 }
-                
             }
         }
         public void addchat(string msg)
@@ -134,6 +133,7 @@ namespace MOVEROAD
                 {
                     MessageBox.Show("상대방이 오프라인입니다.");
                     text.Text = "";
+                    loadUserList();
                     return;
                 }
                 if (!main.onlines.ContainsKey(to_user.index))
@@ -160,40 +160,50 @@ namespace MOVEROAD
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int select = onlineList.SelectedIndex;
+            if (select == -1) return;
             int i = 0;
+            int check = 0;
             foreach (var touser in main.onlines)
             {
                 if (select == i)
                 {
                     to_user = touser.Value;
+                    check = 1;
                     break;
                 }
                 i++;
             }
-                if (to_user == null)
+            flowLayoutPanel1.Controls.Clear();
+            if (check == 0)
+            {
+                MessageBox.Show("해당 인원은 오프라인입니다.");
+                to_user = null;
+                loadUserList();
+                return;
+            }
+            foreach (var room in main.room)
+            {
+                if (room.Value == to_user.index)
                 {
-                    MessageBox.Show("상대방이 오프라인입니다.");
-                    text.Text = "";
-                    return;
+                    main.room_id = room.Key;
+                    break;
                 }
-                if (!main.onlines.ContainsKey(to_user.index))
-                {
-                    MessageBox.Show("상대방이 오프라인입니다.");
-                    text.Text = "";
-                    return;
-                }
-                if (text.Text == "")
-                {
-                    return;
-                }
-                string message = text.Text;
-                main.room_msg[to_user].Add("나|" + message);
-                addchat("나|" + message);
-                message = "3|" + main.room_id + "|" + to_user.index + "|" + message;
+            }
+            if (!main.room_msg.ContainsKey(to_user))
+            {
+                string message = "2|" + main.me.index + "|" + to_user.index;
                 byte[] buffer = Encoding.Unicode.GetBytes(message);
                 main.stream.Write(buffer, 0, buffer.Length);
                 main.stream.Flush();
-                text.Text = "";
             }
+            else
+            {
+                flowLayoutPanel1.Controls.Clear();
+                foreach (var msgs in main.room_msg[to_user])
+                {
+                    addchat(msgs);
+                }
+            }
+        }
     }
 }

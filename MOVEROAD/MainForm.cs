@@ -32,11 +32,12 @@ namespace MOVEROAD
         public MainForm(UserInfo me)
         {
             this.me = me;
-            InitializeComponent();
-
             ms = new Messenger(this);
             ms.TopLevel = false;
             ms.Hide();
+            InitializeComponent();
+
+            
             
             backgroundWorker = new BackgroundWorker();
             backgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorkerDoWork);
@@ -110,7 +111,7 @@ namespace MOVEROAD
                     sql = "SELECT * FROM user where `index` = '"+ user_id + "'";
                     user = (UserInfo)DBConnetion.getInstance().Select(sql, 0);
                     onlines.Add(user_id,user);
-                    ms.loadUserList();
+                    
                     break;
                 case 2: // 로그아웃 (2|유저아이디)
                     user_id = int.Parse(str[1]);
@@ -123,7 +124,6 @@ namespace MOVEROAD
                             break;
                         }
                     }
-                    ms.loadUserList();
                     break;
                 case 3:
                     room_id = int.Parse(str[1]);
@@ -153,7 +153,6 @@ namespace MOVEROAD
                     break;
             }
         }
-
         public void DisplayText(string text)
         {
             if (ms.flowLayoutPanel1.InvokeRequired)
@@ -168,6 +167,23 @@ namespace MOVEROAD
                 ms.flowLayoutPanel1.BeginInvoke(new MethodInvoker(delegate
                 {
                     ms.addchat(text);
+                }));
+            }
+        }
+        public void reloadUserList()
+        {
+            if (ms.onlineList.InvokeRequired)
+            {
+                ms.onlineList.BeginInvoke(new MethodInvoker(delegate
+                {
+                    ms.loadUserList();
+                }));
+            }
+            else
+            {
+                ms.onlineList.BeginInvoke(new MethodInvoker(delegate
+                {
+                    ms.loadUserList();
                 }));
             }
         }
@@ -306,6 +322,7 @@ namespace MOVEROAD
             ms.Show();
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(ms);
+            reloadUserList();
         }
 
         private void button3_Click(object sender, EventArgs e)

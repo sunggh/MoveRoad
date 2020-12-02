@@ -84,6 +84,9 @@
             this.textBoxTime.Name = "textBoxTime";
             this.textBoxTime.Size = new System.Drawing.Size(73, 21);
             this.textBoxTime.TabIndex = 6;
+            this.textBoxTime.Text = "(시간 입력)";
+            this.textBoxTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxTime.Click += new System.EventHandler(this.textBoxTime_Click);
             // 
             // Today
             // 

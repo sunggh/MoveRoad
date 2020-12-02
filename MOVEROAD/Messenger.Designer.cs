@@ -103,7 +103,7 @@
         public System.Windows.Forms.TextBox nameBOX;
         public System.Windows.Forms.TextBox text;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.ListBox onlineList;
+        public System.Windows.Forms.ListBox onlineList;
         private System.Windows.Forms.Label label1;
     }
 }

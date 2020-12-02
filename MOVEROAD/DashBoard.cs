@@ -16,7 +16,7 @@ namespace MOVEROAD
         MainForm main;
         public DashBoard(UserInfo user, MainForm main)
         {
-            string[] grade = { "직원", "부서장", "사장" };
+            string[] grade = { "사장", "부서장", "직원" };
             this.main = main;
             Dictionary<int ,string> departName = new Dictionary<int, string>();
             foreach(var depart in this.main.departments)

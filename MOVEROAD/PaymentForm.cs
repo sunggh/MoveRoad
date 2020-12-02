@@ -202,5 +202,10 @@ namespace MOVEROAD
         {
             this.Dispose();
         }
+
+        private void textBoxTime_Click(object sender, EventArgs e)
+        {
+            textBoxTime.Text = "";
+        }
     }
 }
