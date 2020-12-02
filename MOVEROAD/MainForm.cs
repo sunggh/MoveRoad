@@ -52,15 +52,15 @@ namespace MOVEROAD
             lastPanel = dashBoard;
             try 
             {
-            clientSocket.Connect("211.229.51.245", 80);//220.122.52.172
-            stream = clientSocket.GetStream();
-            message = "1|"+me.index;
-            byte[] buffer = Encoding.Unicode.GetBytes(message);
-            stream.Write(buffer, 0, buffer.Length);
-            stream.Flush();
-            Thread t_handler = new Thread(GetMessage);
-            t_handler.IsBackground = true;
-            t_handler.Start();
+                clientSocket.Connect("211.229.51.245", 80);//211.229.51.245
+                stream = clientSocket.GetStream();
+                message = "1|"+me.index;
+                byte[] buffer = Encoding.Unicode.GetBytes(message);
+                stream.Write(buffer, 0, buffer.Length);
+                stream.Flush();
+                Thread t_handler = new Thread(GetMessage);
+                t_handler.IsBackground = true;
+                t_handler.Start();
             }
             catch (Exception e2)
             {
@@ -76,11 +76,14 @@ namespace MOVEROAD
             while (true)
             {
                 stream = clientSocket.GetStream();
+                            
                 int BUFFERSIZE = clientSocket.ReceiveBufferSize;
                 byte[] buffer = new byte[BUFFERSIZE];
                 int bytes = stream.Read(buffer, 0, buffer.Length);
                 string message = Encoding.Unicode.GetString(buffer, 0, bytes);
                 chathandler(message);
+               
+                
             }
         }
         public int room_id;
@@ -114,7 +117,6 @@ namespace MOVEROAD
                     break;
                 case 2: // 로그아웃 (2|유저아이디)
                     user_id = int.Parse(str[1]);
-                    onlines.Remove(user_id);
                     foreach (var r in room)
                     {
                         if(r.Value == user_id)
@@ -123,12 +125,21 @@ namespace MOVEROAD
                             break;
                         }
                     }
+                    if (room_msg.ContainsKey(onlines[user_id]))
+                    {
+                        room_msg.Remove(onlines[user_id]);
+                    }
+                    onlines.Remove(user_id);
                     break;
                 case 3:
                     room_id = int.Parse(str[1]);
                     to_id = int.Parse(str[2]);
                     if (room.ContainsKey(room_id))
                     {
+                        if (!room_msg.ContainsKey(onlines[to_id]))
+                        {
+                            room_msg.Add(onlines[to_id], new List<string>());
+                        }
                         break;
                     }
                     room.Add(room_id, to_id);
