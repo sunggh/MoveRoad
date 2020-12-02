@@ -149,6 +149,7 @@ namespace MOVEROAD
                         }
                         break;
                     }
+                    room_id = cur_room;
                     room.Add(room_id, to_id);
                     ms.to_user = onlines[to_id];
                     room_msg.Add(onlines[to_id], new List<string>());
