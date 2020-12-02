@@ -32,19 +32,14 @@ namespace MOVEROAD
 
         }
 
-        private void btn_payment_Click(object sender, EventArgs e)
-        {
-            main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
-            Paymentmanagement pay = new Paymentmanagement();
-            pay.TopLevel = false;
-            pay.Show();
-            main.lastPanel = pay;
-            main.MainPanel.Controls.Clear();
-            main.MainPanel.Controls.Add(pay);
-        }
-
         private void btn_HR_Click(object sender, EventArgs e)
         {
+            if(main.me.depart != 1)
+            {
+                MessageBox.Show("접근 제한", "Error");
+                return;
+            }
+
             main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
             HRManagement hRManagement = new HRManagement(this.main);
             hRManagement.TopLevel = false;
@@ -56,13 +51,30 @@ namespace MOVEROAD
 
         private void btn_department_Click(object sender, EventArgs e)
         {
+            if (main.me.depart != 1)
+            {
+                MessageBox.Show("접근 제한", "Error");
+                return;
+            }
+
             main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
-            Departmanagement departmanagement = new Departmanagement();
+            Departmanagement departmanagement = new Departmanagement(main);
             departmanagement.TopLevel = false;
             departmanagement.Show();
             main.lastPanel = departmanagement;
             main.MainPanel.Controls.Clear();
             main.MainPanel.Controls.Add(departmanagement);
+        }
+
+        private void btn_payment_Click(object sender, EventArgs e)
+        {
+            main.lastPanel.Dispose(); //이렇게 해야 메모리가 지워짐
+            Paymentmanagement pay = new Paymentmanagement(main);
+            pay.TopLevel = false;
+            pay.Show();
+            main.lastPanel = pay;
+            main.MainPanel.Controls.Clear();
+            main.MainPanel.Controls.Add(pay);
         }
     }
 }

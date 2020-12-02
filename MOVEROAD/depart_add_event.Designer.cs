@@ -32,56 +32,68 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_depart_name = new System.Windows.Forms.TextBox();
-            this.tb_depart_boss = new System.Windows.Forms.TextBox();
+            this.tb_depart_head = new System.Windows.Forms.TextBox();
             this.tb_depart_memo = new System.Windows.Forms.TextBox();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_search_head = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 21);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label1.Location = new System.Drawing.Point(23, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "부서 명";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 51);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label2.Location = new System.Drawing.Point(23, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "부서 장";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 85);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.label4.Location = new System.Drawing.Point(23, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 12);
             this.label4.TabIndex = 7;
             this.label4.Text = "부서 설명";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // tb_depart_name
             // 
-            this.tb_depart_name.Location = new System.Drawing.Point(107, 18);
+            this.tb_depart_name.Location = new System.Drawing.Point(95, 13);
             this.tb_depart_name.Name = "tb_depart_name";
-            this.tb_depart_name.Size = new System.Drawing.Size(170, 21);
+            this.tb_depart_name.Size = new System.Drawing.Size(122, 21);
             this.tb_depart_name.TabIndex = 8;
+            this.tb_depart_name.TextChanged += new System.EventHandler(this.tb_depart_name_TextChanged);
             // 
-            // tb_depart_boss
+            // tb_depart_head
             // 
-            this.tb_depart_boss.Location = new System.Drawing.Point(107, 51);
-            this.tb_depart_boss.Name = "tb_depart_boss";
-            this.tb_depart_boss.Size = new System.Drawing.Size(170, 21);
-            this.tb_depart_boss.TabIndex = 9;
+            this.tb_depart_head.Location = new System.Drawing.Point(95, 45);
+            this.tb_depart_head.Name = "tb_depart_head";
+            this.tb_depart_head.ReadOnly = true;
+            this.tb_depart_head.Size = new System.Drawing.Size(122, 21);
+            this.tb_depart_head.TabIndex = 9;
+            this.tb_depart_head.TextChanged += new System.EventHandler(this.tb_depart_head_TextChanged);
             // 
             // tb_depart_memo
             // 
-            this.tb_depart_memo.Location = new System.Drawing.Point(28, 112);
+            this.tb_depart_memo.Location = new System.Drawing.Point(25, 109);
             this.tb_depart_memo.Multiline = true;
             this.tb_depart_memo.Name = "tb_depart_memo";
             this.tb_depart_memo.Size = new System.Drawing.Size(249, 104);
@@ -89,7 +101,7 @@
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(28, 232);
+            this.btn_add.Location = new System.Drawing.Point(25, 229);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(105, 38);
             this.btn_add.TabIndex = 11;
@@ -99,7 +111,7 @@
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(172, 232);
+            this.btn_cancel.Location = new System.Drawing.Point(169, 229);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(105, 38);
             this.btn_cancel.TabIndex = 12;
@@ -107,24 +119,49 @@
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
+            // btn_search_head
+            // 
+            this.btn_search_head.Location = new System.Drawing.Point(224, 45);
+            this.btn_search_head.Name = "btn_search_head";
+            this.btn_search_head.Size = new System.Drawing.Size(50, 21);
+            this.btn_search_head.TabIndex = 13;
+            this.btn_search_head.Text = "검색";
+            this.btn_search_head.UseVisualStyleBackColor = true;
+            this.btn_search_head.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.tb_depart_memo);
+            this.panel1.Controls.Add(this.btn_search_head);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btn_cancel);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btn_add);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.tb_depart_name);
+            this.panel1.Controls.Add(this.tb_depart_head);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(320, 295);
+            this.panel1.TabIndex = 14;
+            // 
             // depart_add_event
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 282);
-            this.Controls.Add(this.btn_cancel);
-            this.Controls.Add(this.btn_add);
-            this.Controls.Add(this.tb_depart_memo);
-            this.Controls.Add(this.tb_depart_boss);
-            this.Controls.Add(this.tb_depart_name);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.ClientSize = new System.Drawing.Size(324, 299);
+            this.Controls.Add(this.panel1);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "depart_add_event";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "부서 등록";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -134,9 +171,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tb_depart_name;
-        private System.Windows.Forms.TextBox tb_depart_boss;
         private System.Windows.Forms.TextBox tb_depart_memo;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.Button btn_search_head;
+        public System.Windows.Forms.TextBox tb_depart_head;
+        private System.Windows.Forms.Panel panel1;
     }
 }

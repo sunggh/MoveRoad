@@ -28,5 +28,16 @@ namespace MOVEROAD
             this.gender = gender;
             this.id = id;
         }
+        public UserInfo(int index, string name)
+        {
+            this.index = index;
+            this.name = name;
+            this.address = "";
+            this.age = 0;
+            this.grade = 0;
+            this.depart = 0;
+            this.gender = 0;
+            this.id = "";
+        }
     }
 }

@@ -17,15 +17,20 @@ namespace MOVEROAD
         public DashBoard(UserInfo user, MainForm main)
         {
             string[] grade = { "직원", "부서장", "사장" };
-            string[] depart = { "인사팀", "개발팀", "홍보팀" };
+            this.main = main;
+            List<string> departName = new List<string>();
+            foreach(var depart in this.main.departments)
+            {
+                departName.Add(depart.name);
+            }
             InitializeComponent();
             
             this.nameLabel.Text = user.name;
             this.ageLabel.Text = user.age + " 살";
-            this.departLabel.Text = depart[user.depart-1];
+            this.departLabel.Text = departName[user.depart];
             this.gradeLabel.Text = grade[user.grade];
             this.user = user;
-            this.main = main;
+            
         }
 
         private void DashBoard_Load(object sender, EventArgs e)
@@ -45,6 +50,6 @@ namespace MOVEROAD
             main.Opacity = 1;
         }
 
-
+       
     }
 }

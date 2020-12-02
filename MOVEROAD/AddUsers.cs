@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MOVEROAD.InfoFile;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +14,8 @@ namespace MOVEROAD
 {
     public partial class AddUsers : Form
     {
-        private static AddUsers instance = new AddUsers();
-        public static AddUsers getInstance()
-        {
-            return instance;
-        }
-
+        MainForm main;
+        
         public int depart;
         public int grade;
         public int age;
@@ -29,30 +26,60 @@ namespace MOVEROAD
         public string phone;
         public string address;
         
-        public AddUsers()
+        public AddUsers(MainForm main)
         {
             InitializeComponent();
+            this.main = main;
             DataShow();
+            init();
+        }
+
+        private void init()
+        {
+            List<DepartmentInfo> departs = main.departments;
+            foreach (var departname in departs)
+            {
+                string name = departname.name;
+                comboBoxDepart.Items.Add(name);
+            }
         }
 
         private void AddNewcomer()
         {
+            if(comboBoxDepart.SelectedIndex == 0)
+            {
+                MessageBox.Show("미지정 부서는 등록할 수 없습니다.", "등록 오류");
+                return;
+            }
+
             // 현재 입력된 정보들을 DB에 추가하는 함수
             // TABLE, COLUMN은 ` ` VALUES는 ' ' 주의
             // INSERT INTO `TABLE`(`column`, `column`, ...) VALUES ('string', 숫자, ...);
             string query = "INSERT INTO `user`(`depart`, `grade`, `age`, `id`, `password`, `name`, `gender`, `phone`, `address`)" +
                 " VALUES (" + depart + ", " + grade + ", " + age + ", '" + id + "', '" + password + "', '" + name + "', " + gender + ", '" + phone + "', '" + address + "')";
             DBConnetion.getInstance().Insert(query);
+            
+            comboBoxDepart.Text = "";
+            comboBoxGrade.Text = "";
+            textBoxAge.Text = "";
+            textBoxId.Text = "";
+            textBoxPassword.Text = "";
+            textBoxName.Text = "";
+            comboBoxGender.Text = "";
+            textBoxPhone.Text = "";
+            textBoxAddress.Text = "";
         }
         
         private void DataShow()
-        {
-            string query = "SELECT `index` AS `Index`, depart AS 부서명, grade AS 직위, name AS 이름, age AS 나이, gender AS 성별, phone AS `H.P`, address AS 주소 FROM `user`";
-            DataTable table = DBConnetion.getInstance().getDBTable(query);
+        { 
+            string query = "SELECT user.index AS 'No.', department.name AS '부서명', " +
+                "CASE user.grade WHEN 0 THEN '사장' WHEN 1 THEN '부서장' WHEN 2 THEN '사원' END AS '직위', user.name AS '이름', user.age AS '나이', " +
+                "CASE user.gender WHEN 0 THEN '남자' WHEN 1 THEN '여자' END AS '성별', user.phone AS 'H.P', user.address AS '주소' " +
+                "FROM project.user, project.department WHERE user.depart = department.id";
+            object table = DBConnetion.getInstance().Select(query, 70);
 
   
             dataGridView1.DataSource = table;
-
         }
 
         private void buttonRegister_Click(object sender, EventArgs e)
@@ -91,16 +118,6 @@ namespace MOVEROAD
             {
                 textBoxPhone.Text = "";
             } 
-        }
-
-        private void buttonAddUsers_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonSearchUsers_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

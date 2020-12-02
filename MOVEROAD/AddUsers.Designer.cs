@@ -127,10 +127,9 @@
             // 
             this.comboBoxGrade.FormattingEnabled = true;
             this.comboBoxGrade.Items.AddRange(new object[] {
-            "미지정",
-            "사원",
+            "사장",
             "부서장",
-            "사장"});
+            "사원"});
             this.comboBoxGrade.Location = new System.Drawing.Point(182, 35);
             this.comboBoxGrade.Name = "comboBoxGrade";
             this.comboBoxGrade.Size = new System.Drawing.Size(100, 20);
@@ -139,12 +138,6 @@
             // comboBoxDepart
             // 
             this.comboBoxDepart.FormattingEnabled = true;
-            this.comboBoxDepart.Items.AddRange(new object[] {
-            "미지정",
-            "인사",
-            "홍보",
-            "생산",
-            "경영"});
             this.comboBoxDepart.Location = new System.Drawing.Point(41, 35);
             this.comboBoxDepart.Name = "comboBoxDepart";
             this.comboBoxDepart.Size = new System.Drawing.Size(100, 20);

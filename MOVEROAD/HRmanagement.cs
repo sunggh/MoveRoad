@@ -23,7 +23,7 @@ namespace MOVEROAD
         private void buttonAddUsers_Click(object sender, EventArgs e)
         {
             // AddUsers 창으로 넘어가기
-            AddUsers addUsers = new AddUsers();
+            AddUsers addUsers = new AddUsers(main);
             addUsers.TopLevel = false;
             addUsers.Show();
             HRpanel.Controls.Clear();
@@ -33,11 +33,21 @@ namespace MOVEROAD
         private void buttonSearchUsers_Click(object sender, EventArgs e)
         {
             // SearchUsers 창으로 넘어가기
+            SearchUsers searchUsers = new SearchUsers(main);
+            searchUsers.TopLevel = false;
+            searchUsers.Show();
+            HRpanel.Controls.Clear();
+            HRpanel.Controls.Add(searchUsers);
         }
 
         private void buttonEditUsers_Click(object sender, EventArgs e)
         {
             // EditUsers 창으로 넘어가기
+            EditUsers editUsers = new EditUsers(main);
+            editUsers.TopLevel = false;
+            editUsers.Show();
+            HRpanel.Controls.Clear();
+            HRpanel.Controls.Add(editUsers);
         }
     }
 }

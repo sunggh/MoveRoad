@@ -110,17 +110,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MessageBoxForm.cs">
+    <Compile Include="attendance_card.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MessageBoxForm.Designer.cs">
-      <DependentUpon>MessageBoxForm.cs</DependentUpon>
+    <Compile Include="attendance_card.Designer.cs">
+      <DependentUpon>attendance_card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="search_departname.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="search_departname.Designer.cs">
+      <DependentUpon>search_departname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="search_username.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="search_username.Designer.cs">
+      <DependentUpon>search_username.cs</DependentUpon>
     </Compile>
     <Compile Include="Departmanagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Departmanagement.Designer.cs">
       <DependentUpon>Departmanagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoFile\TaskClassInfo.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="MessageBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBoxForm.Designer.cs">
+      <DependentUpon>MessageBoxForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddUsers.cs">
       <SubType>Form</SubType>
@@ -134,17 +154,63 @@
     <Compile Include="depart_add_event.Designer.cs">
       <DependentUpon>depart_add_event.cs</DependentUpon>
     </Compile>
+    <Compile Include="depart_revise_event.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="depart_revise_event.Designer.cs">
+      <DependentUpon>depart_revise_event.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditUsers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditUsers.Designer.cs">
       <DependentUpon>EditUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditUsers_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUsers_form.Designer.cs">
+      <DependentUpon>EditUsers_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="HRManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HRManagement.Designer.cs">
       <DependentUpon>HRManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBoxForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBoxForm2.Designer.cs">
+      <DependentUpon>MessageBoxForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageSendInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageSendInfo.Designer.cs">
+      <DependentUpon>MessageSendInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Messenger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Messenger.Designer.cs">
+      <DependentUpon>Messenger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="internal_mobility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="internal_mobility.Designer.cs">
+      <DependentUpon>internal_mobility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentForm.Designer.cs">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Provider\DBConnection.cs" />
+    <Compile Include="rivise_depart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rivise_depart.Designer.cs">
+      <DependentUpon>rivise_depart.cs</DependentUpon>
     </Compile>
     <Compile Include="SearchUsers.cs">
       <SubType>Form</SubType>
@@ -153,6 +219,10 @@
       <DependentUpon>SearchUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="InfoFile\Address.cs" />
+    <Compile Include="InfoFile\DepartmentInfo.cs" />
+    <Compile Include="PaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Paymentmanagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,7 +259,6 @@
     <Compile Include="DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Provider\DBConnetion.cs" />
     <Compile Include="HRForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +279,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="search_head.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="search_head.Designer.cs">
+      <DependentUpon>search_head.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="SignForm.cs">
       <SubType>Form</SubType>
@@ -224,6 +299,13 @@
     <Compile Include="TaskForm.Designer.cs">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SignManagement.cs" />
+    <Compile Include="UserSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserSearch.Designer.cs">
+      <DependentUpon>UserSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +314,15 @@
     </Compile>
     <EmbeddedResource Include="AddressFrom.resx">
       <DependentUpon>AddressFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="attendance_card.resx">
+      <DependentUpon>attendance_card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="search_departname.resx">
+      <DependentUpon>search_departname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="search_username.resx">
+      <DependentUpon>search_username.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
@@ -242,8 +333,17 @@
     <EmbeddedResource Include="depart_add_event.resx">
       <DependentUpon>depart_add_event.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="depart_revise_event.resx">
+      <DependentUpon>depart_revise_event.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditUsers.resx">
       <DependentUpon>EditUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUsers_form.resx">
+      <DependentUpon>EditUsers_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HRForm.resx">
       <DependentUpon>HRForm.cs</DependentUpon>
@@ -254,6 +354,9 @@
     <EmbeddedResource Include="HRManagement.resx">
       <DependentUpon>HRManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="internal_mobility.resx">
+      <DependentUpon>internal_mobility.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,11 +366,23 @@
     <EmbeddedResource Include="MessageBoxForm.resx">
       <DependentUpon>MessageBoxForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MessageBoxForm2.resx">
+      <DependentUpon>MessageBoxForm2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MessageReceiveForm.resx">
       <DependentUpon>MessageReceiveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageSendInfo.resx">
+      <DependentUpon>MessageSendInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Messenger.resx">
+      <DependentUpon>Messenger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Paymentmanagement.resx">
       <DependentUpon>Paymentmanagement.cs</DependentUpon>
@@ -277,14 +392,23 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="rivise_depart.resx">
+      <DependentUpon>rivise_depart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SearchUsers.resx">
       <DependentUpon>SearchUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="search_head.resx">
+      <DependentUpon>search_head.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignForm.resx">
       <DependentUpon>SignForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TaskForm.resx">
       <DependentUpon>TaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserSearch.resx">
+      <DependentUpon>UserSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserSetting.resx">
       <DependentUpon>UserSetting.cs</DependentUpon>
@@ -369,6 +493,8 @@
   <ItemGroup>
     <Content Include="Resources\calendar.png" />
     <Content Include="Resources\search.jpg" />
+    <None Include="Resources\그림22.png" />
+    <None Include="Resources\그림11.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
