@@ -52,7 +52,7 @@ namespace MOVEROAD
             else
             {
                 loadUserList();
-                onlines = this.main.onlines;
+                onlines = new Dictionary<int, UserInfo>(this.main.onlines);
             }
             backgroundWorker.RunWorkerAsync();
         }
