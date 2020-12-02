@@ -102,6 +102,8 @@ namespace MOVEROAD
                 string delete_query = "delete from department where `name` ='" + dpt_name + "' and `manager` = " + user.index + " and `description` = '" + description + "'";
                 DBConnetion.getInstance().Delete(delete_query);
 
+                string delete_in_task_query = "delete from task_class where depart_id = '" + dpt_info.id + "'";
+                DBConnetion.getInstance().Delete(delete_in_task_query);
                 
 
                 listview_departlist();
