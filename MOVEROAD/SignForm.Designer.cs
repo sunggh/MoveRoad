@@ -61,6 +61,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridViewSignList = new System.Windows.Forms.DataGridView();
+            this.label14 = new System.Windows.Forms.Label();
             this.tabControlSign.SuspendLayout();
             this.tabPageNewInsert.SuspendLayout();
             this.tabPageToMe.SuspendLayout();
@@ -317,6 +318,7 @@
             // 
             // tabPageFromMe
             // 
+            this.tabPageFromMe.Controls.Add(this.label14);
             this.tabPageFromMe.Controls.Add(this.label13);
             this.tabPageFromMe.Controls.Add(this.label12);
             this.tabPageFromMe.Controls.Add(this.textBoxDetail_turn);
@@ -373,10 +375,11 @@
             // 
             // textBoxSignTurnMemo
             // 
-            this.textBoxSignTurnMemo.Location = new System.Drawing.Point(9, 390);
+            this.textBoxSignTurnMemo.Location = new System.Drawing.Point(49, 390);
             this.textBoxSignTurnMemo.Multiline = true;
             this.textBoxSignTurnMemo.Name = "textBoxSignTurnMemo";
-            this.textBoxSignTurnMemo.Size = new System.Drawing.Size(802, 55);
+            this.textBoxSignTurnMemo.ReadOnly = true;
+            this.textBoxSignTurnMemo.Size = new System.Drawing.Size(762, 55);
             this.textBoxSignTurnMemo.TabIndex = 5;
             // 
             // dataGridViewSignTurnList
@@ -424,6 +427,15 @@
             this.dataGridViewSignList.Size = new System.Drawing.Size(617, 177);
             this.dataGridViewSignList.TabIndex = 0;
             this.dataGridViewSignList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSignList_CellClick);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 411);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(37, 15);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "메모";
             // 
             // SignForm
             // 
@@ -484,5 +496,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBoxDetail_turn;
         private System.Windows.Forms.TextBox textBoxDetail_done;
+        private System.Windows.Forms.Label label14;
     }
 }

@@ -55,14 +55,23 @@ namespace MOVEROAD
                     if(user.name == nameBOX.Text)
                     {
                         to_user = user;
+                        
                         check = 1;
                     }
                 }
-                if(check ==0)
+                if (check == 0)
                 {
                     MessageBox.Show("해당 인원은 오프라인입니다.");
                     to_user = null;
                     return;
+                }
+                foreach (var room in main.room)
+                {
+                    if(room.Value == to_user.index)
+                    {
+                        main.room_id = room.Key;
+                        break;
+                    }
                 }
                 if(!main.room_msg.ContainsKey(to_user))
                 {
@@ -76,7 +85,6 @@ namespace MOVEROAD
                     flowLayoutPanel1.Controls.Clear();
                     foreach (var msgs in main.room_msg[to_user])
                     {
-                        //main.DisplayText(msgs);
                         addchat(msgs);
                     }
                 }
