@@ -48,6 +48,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label_attendance = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -214,6 +215,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
+            this.panel3.Controls.Add(this.label_attendance);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(320, 29);
             this.panel3.Name = "panel3";
@@ -231,6 +233,7 @@
             this.label3.Size = new System.Drawing.Size(58, 21);
             this.label3.TabIndex = 1;
             this.label3.Text = "출근부";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel5
             // 
@@ -286,6 +289,17 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // label_attendance
+            // 
+            this.label_attendance.AutoSize = true;
+            this.label_attendance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_attendance.ForeColor = System.Drawing.Color.White;
+            this.label_attendance.Location = new System.Drawing.Point(59, 68);
+            this.label_attendance.Name = "label_attendance";
+            this.label_attendance.Size = new System.Drawing.Size(58, 21);
+            this.label_attendance.TabIndex = 2;
+            this.label_attendance.Text = "출근부";
+            // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -340,5 +354,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label_attendance;
     }
 }

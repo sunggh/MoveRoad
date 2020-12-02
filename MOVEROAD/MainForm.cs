@@ -140,9 +140,12 @@ namespace MOVEROAD
                     to_id = int.Parse(str[2]);
                     msg = str[3];
                     string mss="";
-                    if (!room.ContainsKey(room_id) && !room_msg.ContainsKey(onlines[to_id]))
+                    if (!room.ContainsKey(room_id))
                     {
                         room.Add(room_id, to_id);
+                    }
+                    if (!room_msg.ContainsKey(onlines[to_id]))
+                    {
                         room_msg.Add(onlines[to_id], new List<string>());
                     }
                     mss = onlines[room[room_id]].name + "|" + msg;
