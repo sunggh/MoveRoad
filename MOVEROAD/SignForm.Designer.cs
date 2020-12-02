@@ -52,6 +52,7 @@
             this.buttonSign = new System.Windows.Forms.Button();
             this.dataGridViewRequest = new System.Windows.Forms.DataGridView();
             this.tabPageFromMe = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxDetail_turn = new System.Windows.Forms.TextBox();
@@ -61,7 +62,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridViewSignList = new System.Windows.Forms.DataGridView();
-            this.label14 = new System.Windows.Forms.Label();
             this.tabControlSign.SuspendLayout();
             this.tabPageNewInsert.SuspendLayout();
             this.tabPageToMe.SuspendLayout();
@@ -305,7 +305,9 @@
             // 
             this.dataGridViewRequest.AllowUserToAddRows = false;
             this.dataGridViewRequest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewRequest.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRequest.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridViewRequest.Location = new System.Drawing.Point(6, 25);
             this.dataGridViewRequest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewRequest.Name = "dataGridViewRequest";
@@ -336,6 +338,15 @@
             this.tabPageFromMe.TabIndex = 2;
             this.tabPageFromMe.Text = "내가 등록한 결재";
             this.tabPageFromMe.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 411);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(37, 15);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "메모";
             // 
             // label13
             // 
@@ -386,7 +397,9 @@
             // 
             this.dataGridViewSignTurnList.AllowUserToAddRows = false;
             this.dataGridViewSignTurnList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewSignTurnList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewSignTurnList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSignTurnList.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridViewSignTurnList.Location = new System.Drawing.Point(9, 229);
             this.dataGridViewSignTurnList.Name = "dataGridViewSignTurnList";
             this.dataGridViewSignTurnList.RowHeadersWidth = 51;
@@ -417,7 +430,9 @@
             // 
             this.dataGridViewSignList.AllowUserToAddRows = false;
             this.dataGridViewSignList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewSignList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewSignList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSignList.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridViewSignList.Location = new System.Drawing.Point(6, 25);
             this.dataGridViewSignList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewSignList.Name = "dataGridViewSignList";
@@ -427,15 +442,6 @@
             this.dataGridViewSignList.Size = new System.Drawing.Size(617, 177);
             this.dataGridViewSignList.TabIndex = 0;
             this.dataGridViewSignList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSignList_CellClick);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 411);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(37, 15);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "메모";
             // 
             // SignForm
             // 

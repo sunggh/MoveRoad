@@ -30,9 +30,11 @@ namespace MOVEROAD
 
         }
 
-        private void comboBoxWork_SelectedIndexChanged(object sender, EventArgs e) //콤보박스의 업무를 선택하면
+        //콤보박스의 업무를 선택하면
+        private void comboBoxWork_SelectedIndexChanged(object sender, EventArgs e) 
         {
-            comboBoxDrafter.Items.Clear(); //결재자 초기화
+            //결재자 초기화
+            comboBoxDrafter.Items.Clear(); 
 
             try
             {
@@ -50,27 +52,33 @@ namespace MOVEROAD
         //결재 신규 등록할 때
         private void buttonInsert_Click(object sender, EventArgs e) 
         {
-            string title = textBoxTitle.Text;
-            string drafter = comboBoxDrafter.Text;
-            string content = textBoxContent.Text;
-            string comment = textBoxComment.Text;
-
-            //progress = 진행사항 (0:결재 전, 1:결재 중, 2:결재 완료, 3:반려) 등록할때는 항상 progress = 0
-            //사원만 신규 결재 등록 가능
-            if(main.me.grade == 2)
+            try
             {
-                string sql = "INSERT INTO sign(title, text, comment, sub_class, drafter, drafter_to, progress) " +
-                "VALUES('" + title + "', '" + content + "', '" + comment + "', '" + main.departments[comboBoxWork.SelectedIndex].id + "', '" + main.me.index + "', '" + drafter + "', 0)";
+                string title = textBoxTitle.Text;
+                string drafter = comboBoxDrafter.Text;
+                string content = textBoxContent.Text;
+                string comment = textBoxComment.Text;
 
-                DBConnetion.getInstance().Insert(sql);
+                //progress = 진행사항 (0:결재 전, 1:결재 중, 2:결재 완료, 3:반려) 등록할때는 항상 progress = 0
+                //사원만 신규 결재 등록 가능
+                if (main.me.grade == 2)
+                {
+                    string sql = "INSERT INTO sign(title, text, comment, sub_class, drafter, drafter_to, progress) " +
+                    "VALUES('" + title + "', '" + content + "', '" + comment + "', '" + main.departments[comboBoxWork.SelectedIndex].id + "', '" + main.me.index + "', '" + drafter + "', 0)";
 
-                MessageBox.Show("결재가 등록되었습니다.", "알림");
+                    DBConnetion.getInstance().Insert(sql);
+
+                    MessageBox.Show("결재가 등록되었습니다.", "알림");
+                }
+                else
+                {
+                    MessageBox.Show("결재 등록은 사원만 가능합니다.", "알림");
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("결재 등록은 사원만 가능합니다.", "알림");
+                MessageBox.Show("빈칸을 채워주세요.", "알림");
             }
-
         }
 
         private void tabControlSign_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,7 +87,7 @@ namespace MOVEROAD
             if (tabControlSign.SelectedTab == tabPageToMe) 
             {
                 //user가 사장이면 결재 중인 내역만 보이게
-                if(main.me.grade == 0)
+                if (main.me.grade == 0)
                 {
                     string sql = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, user.name AS 기안자 " +
                     "FROM sign JOIN user ON drafter_to = '" + main.me.name + "' AND sign.drafter = user.index AND sign.progress = 1";
@@ -99,7 +107,6 @@ namespace MOVEROAD
                     dataGridViewRequest.DataSource = table;
                 }
                 //user가 사원이면
-                //이거뺄까?
                 else if(main.me.grade == 2)
                 {
                     MessageBox.Show("해당 권한이 없습니다.", "알림");
@@ -150,7 +157,7 @@ namespace MOVEROAD
                 //uesr가 부서장이면 결재자를 사장으로 바꿔주고 진행 상황을 1(결재 중)로 바꾸기
                 if (main.me.grade == 1)
                 {
-                    string sql = "UPDATE sign SET sign.progress = 1, sign.drafter_to = '" + boss + "' WHERE sign.index = '" + cnt + "'";
+                    string sql = "UPDATE sign SET sign.progress = 1, sign.drafter_to = '" + boss_ + "' WHERE sign.index = '" + cnt + "'";
 
                     DBConnetion.getInstance().Update(sql);
 
