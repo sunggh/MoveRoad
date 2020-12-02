@@ -41,6 +41,7 @@
             this.nameBOX.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.nameBOX.Location = new System.Drawing.Point(113, 12);
             this.nameBOX.Name = "nameBOX";
+            this.nameBOX.ReadOnly = true;
             this.nameBOX.Size = new System.Drawing.Size(444, 26);
             this.nameBOX.TabIndex = 0;
             this.nameBOX.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nameBOX_KeyDown);

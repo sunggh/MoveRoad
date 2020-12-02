@@ -54,7 +54,6 @@ namespace MOVEROAD
             {
                 
                 clientSocket.Connect("211.229.51.245", 80);//211.229.51.245
-                //clientSocket.Connect("127.0.0.1", 80);//211.229.51.245
                 stream = clientSocket.GetStream();
                 message = "1|"+me.index;
                 byte[] buffer = Encoding.Unicode.GetBytes(message);
@@ -151,9 +150,12 @@ namespace MOVEROAD
                         }
                         break;
                     }
-                    room_id = cur_room;
-                    room.Add(room_id, to_id);
-                    ms.to_user = onlines[to_id];
+                    room.Add(cur_room, to_id);
+                    if (ms.nameBOX.Text == onlines[to_id].name+to_id)
+                    {
+                        ms.to_user = onlines[to_id];
+                        room_id = cur_room;
+                    }
                     room_msg.Add(onlines[to_id], new List<string>());
                     break;
                 case 4:
@@ -171,7 +173,7 @@ namespace MOVEROAD
                     }
                     mss = onlines[room[cur_room]].name + "|" + msg;
                     room_msg[onlines[to_id]].Add(mss);
-                    if(ms.nameBOX.Text == onlines[to_id].name)
+                    if(ms.nameBOX.Text == onlines[to_id].name+ to_id)
                         DisplayText(mss);
                     break;
             }
@@ -197,7 +199,7 @@ namespace MOVEROAD
         {
             if (ms.nameBOX.InvokeRequired)
             {
-                ms.onlineList.BeginInvoke(new MethodInvoker(delegate
+                ms.nameBOX.BeginInvoke(new MethodInvoker(delegate
                 {
                     ms.nameBOX.Text = "";
                 }));
