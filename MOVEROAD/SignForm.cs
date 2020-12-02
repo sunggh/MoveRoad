@@ -70,6 +70,7 @@ namespace MOVEROAD
             {
                 MessageBox.Show("결재 등록은 사원만 가능합니다.", "알림");
             }
+
         }
 
         private void tabControlSign_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,60 +131,74 @@ namespace MOVEROAD
         //결재하기
         private void buttonSign_Click(object sender, EventArgs e) 
         {
-            string datetime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-            int rowIndex = dataGridViewRequest.CurrentRow.Index;
-
-            string cnt_ = dataGridViewRequest.Rows[rowIndex].Cells[0].Value.ToString();
-            int cnt = Convert.ToInt32(cnt_.ToString());
-
-            string boss = "SELECT name FROM user WHERE grade = 0";
-            string boss_ = (string)DBConnetion.getInstance().Select(boss, 3);
-
-            //uesr가 부서장이면 결재자를 사장으로 바꿔주고 진행 상황을 1(결재 중)로 바꾸기
-            if (main.me.grade == 1)
+            if(dataGridViewRequest.CurrentCell == null)
             {
-                string sql = "UPDATE sign SET sign.progress = 1, sign.drafter_to = '" + boss + "' WHERE sign.index = '" + cnt + "'";
-
-                DBConnetion.getInstance().Update(sql);
-
-                string query = "INSERT INTO sign_ok(sign_ok.num, date) VALUES('" + cnt + "', '" + datetime + "')";
-                DBConnetion.getInstance().Insert(query);
+                MessageBox.Show("결재할 내역을 선택해 주십시오.", "알림");
             }
-
-            //user가 사장이면 진행 상황을 2(결재 완료)로 바꾸기
-            else if(main.me.grade == 0)
+            else
             {
-                string sql = "UPDATE sign SET sign.progress = 2 WHERE sign.index = '" + cnt + "'";
+                string datetime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                DBConnetion.getInstance().Update(sql);
+                int rowIndex = dataGridViewRequest.CurrentRow.Index;
 
-                string query = "UPDATE sign_ok SET sign_ok.date = '" + datetime + "' WHERE sign_ok.num = '" + cnt + "'";
-                DBConnetion.getInstance().Update(query);
+                string cnt_ = dataGridViewRequest.Rows[rowIndex].Cells[0].Value.ToString();
+                int cnt = Convert.ToInt32(cnt_.ToString());
+
+                string boss = "SELECT name FROM user WHERE grade = 0";
+                string boss_ = (string)DBConnetion.getInstance().Select(boss, 3);
+
+                //uesr가 부서장이면 결재자를 사장으로 바꿔주고 진행 상황을 1(결재 중)로 바꾸기
+                if (main.me.grade == 1)
+                {
+                    string sql = "UPDATE sign SET sign.progress = 1, sign.drafter_to = '" + boss + "' WHERE sign.index = '" + cnt + "'";
+
+                    DBConnetion.getInstance().Update(sql);
+
+                    string query = "INSERT INTO sign_ok(sign_ok.num, date) VALUES('" + cnt + "', '" + datetime + "')";
+                    DBConnetion.getInstance().Insert(query);
+                }
+
+                //user가 사장이면 진행 상황을 2(결재 완료)로 바꾸기
+                else if (main.me.grade == 0)
+                {
+                    string sql = "UPDATE sign SET sign.progress = 2 WHERE sign.index = '" + cnt + "'";
+
+                    DBConnetion.getInstance().Update(sql);
+
+                    string query = "UPDATE sign_ok SET sign_ok.date = '" + datetime + "' WHERE sign_ok.num = '" + cnt + "'";
+                    DBConnetion.getInstance().Update(query);
+                }
+
+                MessageBox.Show(datetime + "에 결재되었습니다.", "알림");
             }
-
-            MessageBox.Show(datetime + "에 결재되었습니다.", "알림");
         }
 
         //반려하기
         private void buttonTurn_Click(object sender, EventArgs e) 
         {
-            string memo = textBoxMemo.Text;
+            if (dataGridViewRequest.CurrentRow == null)
+            {
+                MessageBox.Show("반려할 내역을 선택해 주십시오.", "알림");
+            }
+            else
+            {
+                string memo = textBoxMemo.Text;
 
-            int rowIndex = dataGridViewRequest.CurrentRow.Index;
+                int rowIndex = dataGridViewRequest.CurrentRow.Index;
 
-            string cnt_ = dataGridViewRequest.Rows[rowIndex].Cells[0].Value.ToString();
-            int cnt = Convert.ToInt32(cnt_.ToString());
+                string cnt_ = dataGridViewRequest.Rows[rowIndex].Cells[0].Value.ToString();
+                int cnt = Convert.ToInt32(cnt_.ToString());
 
-            string sql = "INSERT INTO sign_turn(sign_turn.index, memo) VALUES('" + cnt + "', '" + memo + "')";
+                string sql = "INSERT INTO sign_turn(sign_turn.index, memo) VALUES('" + cnt + "', '" + memo + "')";
 
-            DBConnetion.getInstance().Insert(sql);
+                DBConnetion.getInstance().Insert(sql);
 
-            string query = "UPDATE sign SET sign.progress = 3 WHERE sign.index = '" + cnt + "'";
+                string query = "UPDATE sign SET sign.progress = 3 WHERE sign.index = '" + cnt + "'";
 
-            DBConnetion.getInstance().Update(query);
+                DBConnetion.getInstance().Update(query);
 
-            MessageBox.Show("반려되었습니다.", "알림");
+                MessageBox.Show("반려되었습니다.", "알림");
+            }
         }
 
         //결재 반려내역 셀 클릭시 내용 상세보기 & 반려 메모 보기
