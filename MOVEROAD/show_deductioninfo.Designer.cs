@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(show_deductioninfo));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -48,15 +48,14 @@
             this.panel1.Size = new System.Drawing.Size(483, 446);
             this.panel1.TabIndex = 2;
             // 
-            // label1
+            // label2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(461, 72);
-            this.label1.TabIndex = 0;
-            this.label1.Text = resources.GetString("label1.Text");
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 284);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(355, 144);
+            this.label2.TabIndex = 2;
+            this.label2.Text = resources.GetString("label2.Text");
             // 
             // pictureBox1
             // 
@@ -69,19 +68,21 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // label2
+            // label1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 284);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(355, 144);
-            this.label2.TabIndex = 2;
-            this.label2.Text = resources.GetString("label2.Text");
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(461, 72);
+            this.label1.TabIndex = 0;
+            this.label1.Text = resources.GetString("label1.Text");
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // show_deductioninfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(510, 467);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
