@@ -33,20 +33,22 @@ namespace MOVEROAD
         {
             this.me = me;
             InitializeComponent();
-            DashBoard dashBoard = new DashBoard(me, this);
-            dashBoard.TopLevel = false;
-            dashBoard.Show();
-            this.MainPanel.Controls.Clear();
-            this.MainPanel.Controls.Add(dashBoard);
+
             ms = new Messenger(this);
             ms.TopLevel = false;
             ms.Hide();
-            lastPanel = dashBoard;
+            
             backgroundWorker = new BackgroundWorker();
             backgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorkerDoWork);
             backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerRunWorkerCompleted);
             backgroundWorker.RunWorkerAsync();
             importDepartmentInfo();
+            DashBoard dashBoard = new DashBoard(me, this);
+            dashBoard.TopLevel = false;
+            dashBoard.Show();
+            this.MainPanel.Controls.Clear();
+            this.MainPanel.Controls.Add(dashBoard);
+            lastPanel = dashBoard;
             try 
             {
             clientSocket.Connect("211.229.51.245", 80);//220.122.52.172
