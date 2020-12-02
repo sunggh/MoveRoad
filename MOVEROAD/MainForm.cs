@@ -110,6 +110,7 @@ namespace MOVEROAD
                     sql = "SELECT * FROM user where `index` = '"+ user_id + "'";
                     user = (UserInfo)DBConnetion.getInstance().Select(sql, 0);
                     onlines.Add(user_id,user);
+                    ms.loadUserList();
                     break;
                 case 2: // 로그아웃 (2|유저아이디)
                     user_id = int.Parse(str[1]);
@@ -122,6 +123,7 @@ namespace MOVEROAD
                             break;
                         }
                     }
+                    ms.loadUserList();
                     break;
                 case 3:
                     room_id = int.Parse(str[1]);
