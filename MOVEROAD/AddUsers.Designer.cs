@@ -94,7 +94,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(721, 202);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // groupBox1
             // 
@@ -128,10 +127,9 @@
             // 
             this.comboBoxGrade.FormattingEnabled = true;
             this.comboBoxGrade.Items.AddRange(new object[] {
-            "미지정",
-            "사원",
+            "사장",
             "부서장",
-            "사장"});
+            "사원"});
             this.comboBoxGrade.Location = new System.Drawing.Point(182, 35);
             this.comboBoxGrade.Name = "comboBoxGrade";
             this.comboBoxGrade.Size = new System.Drawing.Size(100, 20);
@@ -140,12 +138,6 @@
             // comboBoxDepart
             // 
             this.comboBoxDepart.FormattingEnabled = true;
-            this.comboBoxDepart.Items.AddRange(new object[] {
-            "미지정",
-            "인사",
-            "홍보",
-            "생산",
-            "경영"});
             this.comboBoxDepart.Location = new System.Drawing.Point(41, 35);
             this.comboBoxDepart.Name = "comboBoxDepart";
             this.comboBoxDepart.Size = new System.Drawing.Size(100, 20);

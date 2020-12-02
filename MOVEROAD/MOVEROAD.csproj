@@ -110,6 +110,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="attendance_card.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="attendance_card.Designer.cs">
+      <DependentUpon>attendance_card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="search_departname.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="search_departname.Designer.cs">
+      <DependentUpon>search_departname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="search_username.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="search_username.Designer.cs">
+      <DependentUpon>search_username.cs</DependentUpon>
+    </Compile>
     <Compile Include="Departmanagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,12 +154,6 @@
     <Compile Include="depart_add_event.Designer.cs">
       <DependentUpon>depart_add_event.cs</DependentUpon>
     </Compile>
-    <Compile Include="depart_delete_event.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="depart_delete_event.Designer.cs">
-      <DependentUpon>depart_delete_event.cs</DependentUpon>
-    </Compile>
     <Compile Include="depart_revise_event.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +165,12 @@
     </Compile>
     <Compile Include="EditUsers.Designer.cs">
       <DependentUpon>EditUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditUsers_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUsers_form.Designer.cs">
+      <DependentUpon>EditUsers_form.cs</DependentUpon>
     </Compile>
     <Compile Include="HRManagement.cs">
       <SubType>Form</SubType>
@@ -177,6 +195,12 @@
     </Compile>
     <Compile Include="Messenger.Designer.cs">
       <DependentUpon>Messenger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="internal_mobility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="internal_mobility.Designer.cs">
+      <DependentUpon>internal_mobility.cs</DependentUpon>
     </Compile>
     <Compile Include="PaymentForm.Designer.cs">
       <DependentUpon>PaymentForm.cs</DependentUpon>
@@ -291,6 +315,15 @@
     <EmbeddedResource Include="AddressFrom.resx">
       <DependentUpon>AddressFrom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="attendance_card.resx">
+      <DependentUpon>attendance_card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="search_departname.resx">
+      <DependentUpon>search_departname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="search_username.resx">
+      <DependentUpon>search_username.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,14 +333,14 @@
     <EmbeddedResource Include="depart_add_event.resx">
       <DependentUpon>depart_add_event.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="depart_delete_event.resx">
-      <DependentUpon>depart_delete_event.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="depart_revise_event.resx">
       <DependentUpon>depart_revise_event.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditUsers.resx">
       <DependentUpon>EditUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUsers_form.resx">
+      <DependentUpon>EditUsers_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -320,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HRManagement.resx">
       <DependentUpon>HRManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="internal_mobility.resx">
+      <DependentUpon>internal_mobility.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -344,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Messenger.resx">
       <DependentUpon>Messenger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Paymentmanagement.resx">
       <DependentUpon>Paymentmanagement.cs</DependentUpon>

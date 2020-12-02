@@ -32,13 +32,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonAgeSearch = new System.Windows.Forms.Button();
+            this.buttonNameSearch = new System.Windows.Forms.Button();
+            this.buttonDepartSearch = new System.Windows.Forms.Button();
+            this.comboBoxDepart = new System.Windows.Forms.ComboBox();
             this.textBoxAge = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxDepart = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -46,8 +48,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonAgeSearch);
+            this.groupBox1.Controls.Add(this.buttonNameSearch);
+            this.groupBox1.Controls.Add(this.buttonDepartSearch);
             this.groupBox1.Controls.Add(this.comboBoxDepart);
-            this.groupBox1.Controls.Add(this.buttonSearch);
             this.groupBox1.Controls.Add(this.textBoxAge);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBoxName);
@@ -55,23 +59,51 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(576, 70);
+            this.groupBox1.Size = new System.Drawing.Size(676, 70);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
-            // buttonSearch
+            // buttonAgeSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(495, 32);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
-            this.buttonSearch.TabIndex = 4;
-            this.buttonSearch.Text = "검색";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            this.buttonAgeSearch.Location = new System.Drawing.Point(591, 32);
+            this.buttonAgeSearch.Name = "buttonAgeSearch";
+            this.buttonAgeSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonAgeSearch.TabIndex = 9;
+            this.buttonAgeSearch.Text = "검색";
+            this.buttonAgeSearch.UseVisualStyleBackColor = true;
+            this.buttonAgeSearch.Click += new System.EventHandler(this.buttonAgeSearch_Click);
+            // 
+            // buttonNameSearch
+            // 
+            this.buttonNameSearch.Location = new System.Drawing.Point(369, 32);
+            this.buttonNameSearch.Name = "buttonNameSearch";
+            this.buttonNameSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonNameSearch.TabIndex = 8;
+            this.buttonNameSearch.Text = "검색";
+            this.buttonNameSearch.UseVisualStyleBackColor = true;
+            this.buttonNameSearch.Click += new System.EventHandler(this.buttonNameSearch_Click);
+            // 
+            // buttonDepartSearch
+            // 
+            this.buttonDepartSearch.Location = new System.Drawing.Point(147, 32);
+            this.buttonDepartSearch.Name = "buttonDepartSearch";
+            this.buttonDepartSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonDepartSearch.TabIndex = 7;
+            this.buttonDepartSearch.Text = "검색";
+            this.buttonDepartSearch.UseVisualStyleBackColor = true;
+            this.buttonDepartSearch.Click += new System.EventHandler(this.buttonDepartSearch_Click);
+            // 
+            // comboBoxDepart
+            // 
+            this.comboBoxDepart.FormattingEnabled = true;
+            this.comboBoxDepart.Location = new System.Drawing.Point(41, 34);
+            this.comboBoxDepart.Name = "comboBoxDepart";
+            this.comboBoxDepart.Size = new System.Drawing.Size(100, 20);
+            this.comboBoxDepart.TabIndex = 6;
             // 
             // textBoxAge
             // 
-            this.textBoxAge.Location = new System.Drawing.Point(323, 34);
+            this.textBoxAge.Location = new System.Drawing.Point(485, 34);
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(100, 21);
             this.textBoxAge.TabIndex = 5;
@@ -79,7 +111,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(288, 37);
+            this.label3.Location = new System.Drawing.Point(450, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 4;
@@ -87,7 +119,7 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(182, 34);
+            this.textBoxName.Location = new System.Drawing.Point(263, 34);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 21);
             this.textBoxName.TabIndex = 3;
@@ -95,7 +127,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(147, 37);
+            this.label2.Location = new System.Drawing.Point(228, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 2;
@@ -109,20 +141,6 @@
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "부서";
-            // 
-            // comboBoxDepart
-            // 
-            this.comboBoxDepart.FormattingEnabled = true;
-            this.comboBoxDepart.Items.AddRange(new object[] {
-            "미지정",
-            "인사",
-            "홍보",
-            "생산",
-            "경영"});
-            this.comboBoxDepart.Location = new System.Drawing.Point(41, 34);
-            this.comboBoxDepart.Name = "comboBoxDepart";
-            this.comboBoxDepart.Size = new System.Drawing.Size(100, 20);
-            this.comboBoxDepart.TabIndex = 6;
             // 
             // dataGridView1
             // 
@@ -181,7 +199,6 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.TextBox textBoxAge;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxName;
@@ -189,5 +206,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxDepart;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button buttonAgeSearch;
+        private System.Windows.Forms.Button buttonNameSearch;
+        private System.Windows.Forms.Button buttonDepartSearch;
     }
 }

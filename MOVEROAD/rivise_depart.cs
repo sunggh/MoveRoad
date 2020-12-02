@@ -12,10 +12,13 @@ namespace MOVEROAD
 {
     public partial class rivise_depart : Form
     {
-        public rivise_depart()
+        depart_revise_event dre;
+        public rivise_depart(depart_revise_event dre)
         {
             InitializeComponent();
+            this.dre = dre;
             print_revising_users();
+
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
@@ -25,9 +28,10 @@ namespace MOVEROAD
 
         public void print_revising_users()
         {
-            string query = "select * from department";
+            string query = "select * from department where id<99999";
             List<string> list;
             list = (List<string>)DBConnetion.getInstance().revise_userlist(query);
+            
             lv_rivise.Items.Clear();
             lv_rivise.BeginUpdate();
             ListViewItem item = new ListViewItem();
@@ -57,19 +61,19 @@ namespace MOVEROAD
 
                 string description = item.SubItems[2].Text;
 
-                depart_revise_event.getinstance().tb_original_name.Text = name;
-                depart_revise_event.getinstance().tb_original_head.Text = user.name;
-                depart_revise_event.getinstance().tb_original_description.Text = description;
+                dre.tb_original_name.Text = name;
+                dre.tb_original_head.Text = user.name;
+                dre.tb_original_description.Text = description;
 
-                depart_revise_event.getinstance().lb_depart_name.Visible = true;
-                depart_revise_event.getinstance().lb_depart_head.Visible = true;
-                depart_revise_event.getinstance().lb_depart_description.Visible = true;
-                depart_revise_event.getinstance().tb_revise_name.Visible= true;
-                depart_revise_event.getinstance().tb_revise_head.Visible = true;
-                depart_revise_event.getinstance().tb_revise_description.Visible = true;
-                depart_revise_event.getinstance().btn_revise.Visible = true;
-                depart_revise_event.getinstance().btn_search.Visible = true;
-                Application.OpenForms["rivise_depart"].Close();
+                dre.lb_depart_name.Visible = true;
+                dre.lb_depart_head.Visible = true;
+                dre.lb_depart_description.Visible = true;
+                dre.tb_revise_name.Visible= true;
+                dre.tb_revise_head.Visible = true;
+                dre.tb_revise_description.Visible = true;
+                dre.btn_revise.Visible = true;
+                dre.btn_search.Visible = true;
+                this.Dispose();
             }
         }
     }

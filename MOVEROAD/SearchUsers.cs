@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MOVEROAD.InfoFile;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,38 +13,69 @@ namespace MOVEROAD
 {
     public partial class SearchUsers : Form
     {
-        private static SearchUsers instance = new SearchUsers();
-        public static SearchUsers getInstance()
-        {
-            return instance;
-        }
-
+        MainForm main;
+        
         public int depart;
         public string name;
         public int age;
 
-        public SearchUsers()
+        public SearchUsers(MainForm main)
         {
             InitializeComponent();
+            this.main = main;
+            init();
         }
 
-        private void buttonSearch_Click(object sender, EventArgs e)
+        private void init()
+        {
+            List<DepartmentInfo> departs = main.departments;
+            foreach(var departname in departs)
+            {
+                string name = departname.name;
+                comboBoxDepart.Items.Add(name);
+            }
+        }
+
+        private void buttonDepartSearch_Click(object sender, EventArgs e)
         {
             this.depart = comboBoxDepart.SelectedIndex;
+
+            string query = "SELECT user.index AS 'No.', department.name AS '부서명', " +
+                "CASE user.grade WHEN 0 THEN '사장' WHEN 1 THEN '부서장' WHEN 2 THEN '사원' END AS '직위', user.name AS '이름', user.age AS '나이', " +
+                "CASE user.gender WHEN 0 THEN '남자' WHEN 1 THEN '여자' END AS '성별', user.phone AS 'H.P', user.address AS '주소' " +
+                "FROM project.user, project.department WHERE user.depart = department.id AND department.id = '" + depart + "'";
+            object table = DBConnetion.getInstance().Select(query, 70);
+            dataGridView1.DataSource = table;
+
+            comboBoxDepart.Text = "";
+        }
+
+        private void buttonNameSearch_Click(object sender, EventArgs e)
+        {
             this.name = textBoxName.Text;
+
+            string query = "SELECT user.index AS 'No.', department.name AS '부서명', " +
+                "CASE user.grade WHEN 0 THEN '사장' WHEN 1 THEN '부서장' WHEN 2 THEN '사원' END AS '직위', user.name AS '이름', user.age AS '나이', " +
+                "CASE user.gender WHEN 0 THEN '남자' WHEN 1 THEN '여자' END AS '성별', user.phone AS 'H.P', user.address AS '주소' " +
+                "FROM project.user, project.department WHERE user.depart = department.id AND user.name = '" + name + "'";
+            object table = DBConnetion.getInstance().Select(query, 70);
+            dataGridView1.DataSource = table;
+
+            textBoxName.Text = "";
+        }
+
+        private void buttonAgeSearch_Click(object sender, EventArgs e)
+        {
             this.age = Convert.ToInt32(textBoxAge.Text);
 
-            DataShow_Search();
-        }
-
-        private void DataShow_Search()
-        {
-            string query = "SELECT `index` AS `No.`, depart AS 부서명, grade AS 직위, name AS 이름, age AS 나이, gender AS 성별, phone AS `H.P`, address AS 주소 FROM `user`" +
-                "WHERE `depart` = '" + depart + "' AND `name` = '" + name + "' AND `age` = '" + age + "'";
-            DataTable table = DBConnetion.getInstance().getDBTable(query);
+            string query = "SELECT user.index AS 'No.', department.name AS '부서명', " +
+                "CASE user.grade WHEN 0 THEN '사장' WHEN 1 THEN '부서장' WHEN 2 THEN '사원' END AS '직위', user.name AS '이름', user.age AS '나이', " +
+                "CASE user.gender WHEN 0 THEN '남자' WHEN 1 THEN '여자' END AS '성별', user.phone AS 'H.P', user.address AS '주소' " +
+                "FROM project.user, project.department WHERE user.depart = department.id AND user.age = '" + age + "'";
+            object table = DBConnetion.getInstance().Select(query, 70);
             dataGridView1.DataSource = table;
+
+            textBoxAge.Text = "";
         }
-        // 부서명, 성명, 나이 입력받아서 검색버튼 누르면 데이터 그리드뷰로 찾아주는 클래스
-        // SELECT FROM WHERE 쓰믄댐
     }
 }

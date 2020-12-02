@@ -184,9 +184,11 @@ namespace MOVEROAD
             }
             backgroundWorker.RunWorkerAsync();
         }
+   
+
         private void importDepartmentInfo()
         {
-            string sql = "SELECT id, name, manager FROM department";
+            string sql = "SELECT id, name, manager FROM department WHERE id != 99999";
             departments = (List<DepartmentInfo>)DBConnetion.getInstance().Select(sql,2);
         }
         
@@ -227,7 +229,13 @@ namespace MOVEROAD
 
         private void button2_Click(object sender, EventArgs e)
         {
+            lastPanel.Dispose();
+            attendance_card AC = new attendance_card(this);
+            AC.TopLevel = false;
+            AC.Show();
+            lastPanel = AC;
             this.MainPanel.Controls.Clear();
+            this.MainPanel.Controls.Add(AC);
         }
 
         private void MainPanel_Paint(object sender, PaintEventArgs e)
