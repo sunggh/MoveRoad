@@ -109,5 +109,62 @@ namespace MOVEROAD
                 message.ShowDialog();
             }
         }
+
+        private void pictureBoxRegistrantSearch_Click(object sender, EventArgs e)
+        {
+            string id = main.me.id;             //현재 유저 id 값
+            string from = Fromsearch.Text;      //보낸사람 
+            string title = titlesearch.Text;    //제목
+            string text = textsearch.Text;      //내용
+            string sql = "";
+            string empty = "";
+
+
+
+            if (from == empty && title == empty && text == empty) // 모두검색(세개다 입력 X)
+            {
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and sendvisible = '1'";
+            }
+            if (from != empty && title != empty && text != empty) // 보낸사람+제목+내용 검색
+            {
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and mto='" + from + "'" +
+                   "and title like '%" + title + "%' and text like '%" + text + "%'and sendvisible = '1'";
+            }
+
+
+            if (from == empty && title != empty && text != empty) // 제목 + 내용 검색
+            {
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and " +
+                   " title like '%" + title + "%' and text like '%" + text + "%'and sendvisible = '1'";
+            }
+            if (title == empty && from != empty && text != empty)// 보낸사람 + 내용 검색
+            {
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and mto='" + from + "'" +
+                   "and  text like '%" + text + "%'and sendvisible = '1'";
+            }
+            if (text == empty && from != empty && title != empty)// 보낸사람 + 제목 검색
+            {
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and mto='" + from + "'" +
+                   "and title like '%" + title + "%' and sendvisible = '1'";
+            }
+
+
+
+            if (from == empty && title == empty && text != empty) // 내용검색
+            {
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and text like '%" + text + "%'and sendvisible = '1'";
+            }
+            if (from == empty && text == empty && title != empty)  // 제목검색
+            {
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and title like '%" + title + "%'and sendvisible = '1'";
+            }
+            if (title == empty && text == empty && from != empty)// 보낸사람검색
+            {
+                sql = "SELECT * FROM message where mfrom = '" + id + "' and mto='" + from + "'and sendvisible = '1'";
+            }
+
+            messages = (List<Message>)DBConnetion.getInstance().Select(sql, 6);
+            viewMessageList();
+        }
     }
 }
