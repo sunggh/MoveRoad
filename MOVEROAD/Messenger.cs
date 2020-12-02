@@ -76,7 +76,6 @@ namespace MOVEROAD
                     flowLayoutPanel1.Controls.Clear();
                     foreach (var msgs in main.room_msg[to_user])
                     {
-                        //main.DisplayText(msgs);
                         addchat(msgs);
                     }
                 }
