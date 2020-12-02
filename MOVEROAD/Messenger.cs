@@ -207,6 +207,16 @@ namespace MOVEROAD
         public int select = -1;
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void nameBOX_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void onlineList_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
             select = onlineList.SelectedIndex;
             if (select == -1) return;
             int i = 0;
