@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,13 +15,46 @@ namespace MOVEROAD
     {
         MainForm main;
         public UserInfo to_user = null;
+        private BackgroundWorker backgroundWorker;
+        public Dictionary<int, UserInfo> onlines;
         public Messenger(MainForm main)
         {
             InitializeComponent();
             this.main = main;
+            onlines = new Dictionary<int, UserInfo>(this.main.onlines);
             flowLayoutPanel1.AutoScroll = false;
             flowLayoutPanel1.HorizontalScroll.Enabled = false;
             flowLayoutPanel1.AutoScroll = true;
+            backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorkerDoWork);
+            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerRunWorkerCompleted);
+            backgroundWorker.RunWorkerAsync();
+        }
+        private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
+        {
+            
+            if (onlines.SequenceEqual(this.main.onlines))
+            {
+                e.Result = (bool)true;
+            }
+            else
+            {
+                e.Result = (bool)false;
+            }
+            Thread.Sleep(500);
+        }
+        private void BackgroundWorkerRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if ((bool)e.Result)
+            {
+               
+            }
+            else
+            {
+                loadUserList();
+                onlines = this.main.onlines;
+            }
+            backgroundWorker.RunWorkerAsync();
         }
         public void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -156,10 +190,24 @@ namespace MOVEROAD
                 text.Text = "";
             }
         }
-
+        public UserInfo getToUser(int index)
+        {
+            int i = 0;
+            foreach (var touser in main.onlines)
+            {
+                if (index == i)
+                {
+                    to_user = touser.Value;
+                    break;
+                }
+                i++;
+            }
+            return to_user;
+        }
+        public int select = -1;
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int select = onlineList.SelectedIndex;
+            select = onlineList.SelectedIndex;
             if (select == -1) return;
             int i = 0;
             int check = 0;

@@ -111,7 +111,6 @@ namespace MOVEROAD
                     sql = "SELECT * FROM user where `index` = '"+ user_id + "'";
                     user = (UserInfo)DBConnetion.getInstance().Select(sql, 0);
                     onlines.Add(user_id,user);
-                    
                     break;
                 case 2: // 로그아웃 (2|유저아이디)
                     user_id = int.Parse(str[1]);
@@ -148,7 +147,7 @@ namespace MOVEROAD
                     }
                     mss = onlines[room[room_id]].name + "|" + msg;
                     room_msg[onlines[to_id]].Add(mss);
-                    if(ms.nameBOX.Text == onlines[to_id].name)
+                    if(ms.getToUser(ms.select) == onlines[to_id])
                     DisplayText(mss);
                     break;
             }
