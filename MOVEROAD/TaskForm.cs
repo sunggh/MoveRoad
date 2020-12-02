@@ -29,8 +29,7 @@ namespace MOVEROAD
 
         List<DepartmentInfo> departmentInfos = new List<DepartmentInfo>();   //부서들 저장해 두는 리스트
         List<UserInfo> userInfos;                                            //시원들 저장해 두는 리스트
-
-        DataTable dtProcessFlag;
+        
         public TaskForm(MainForm main, UserInfo me)
         {
             InitializeComponent();
@@ -564,6 +563,9 @@ namespace MOVEROAD
             startTime = dateTimePickerStartTime.Value;
             finishTime = dateTimePickerFinshTime.Value;
 
+            Console.WriteLine(startTime);
+            Console.WriteLine(finishTime);
+
             //datetime에 시간만 넣고 싶은데 왜 안되는 것이냐
             //startTime = string.Format("{0:g}", st.TimeOfDay); //->이거 나중에 시간 겹쳤는지 확인 할 때 쓰기
             //finishTime = string.Format("{0:g}", ft.TimeOfDay);
@@ -577,7 +579,7 @@ namespace MOVEROAD
             {
                 MessageBox.Show("업무를 선택하시오.");
             }
-            else if (DateTime.Compare(startTime, finishTime) == 1 || haveTimeOverlap(me.index) || startTime == finishTime) // st 보다 ft가 더 작으면
+            else if (string.Compare(st, ft) >= 0 || haveTimeOverlap(me.index)) // st 보다 ft가 더 작으면
             {
                 MessageBox.Show("업무시간을 확인하시오.");
             }
@@ -608,7 +610,7 @@ namespace MOVEROAD
             //업무내용  textBoxTask.Text
             //시작시간 종료시간 -> string.Format("{0:HH:mm:ss}", datetime
             string date = string.Format("{0:yyyy-MM-dd}", DateTime.Now);
-            string query = "INSERT INTO task(sub_id,date,name,text,startTime,finishTime) VALUES('" + subID + "','" + date + "','" + me.name + "','" + textBoxTask.Text + "','" + startTime + "','" + finishTime + "')";
+            string query = "INSERT INTO task(sub_id,date,user_id,text,startTime,finishTime) VALUES('" + subID + "','" + date + "','" + me.index + "','" + textBoxTask.Text + "','" + startTime + "','" + finishTime + "')";
             DBConnetion.getInstance().Insert(query);
 
             MessageBox.Show("업무가 등록되었습니다.");
@@ -659,10 +661,7 @@ namespace MOVEROAD
 
                 dataGridViewTask.DataSource = table;
                 dataGridViewTask.Columns[0].Width = 50;
-                dataGridViewTask.Columns[0].ReadOnly = true;
-                dataGridViewTask.Columns[1].ReadOnly = true;
-                dataGridViewTask.Columns[2].ReadOnly = true;
-                dataGridViewTask.Columns[3].ReadOnly = true;
+                dataGridViewTask.ReadOnly = true;
                 
             }
             catch(IndexOutOfRangeException re)
@@ -682,12 +681,7 @@ namespace MOVEROAD
 
                 dataGridViewTask.DataSource = table;
                 dataGridViewTask.Columns[0].Width = 50;
-                dataGridViewTask.Columns[0].ReadOnly = true;
-                dataGridViewTask.Columns[1].ReadOnly = true;
-                dataGridViewTask.Columns[2].ReadOnly = true;
-                dataGridViewTask.Columns[3].ReadOnly = true;
-
-                dtProcessFlag = (DataTable)dataGridViewTask.DataSource;
+                dataGridViewTask.ReadOnly = true;
             }
             catch (IndexOutOfRangeException re)
             {
@@ -696,22 +690,28 @@ namespace MOVEROAD
         }
         //날짜 업무 기반 -> 1 | 등록자 기반 -> 2
         int searchFlag = 0;
-
-        private void dataGridViewTask_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        
+        private void dataGridViewTask_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string userName = me.name + "(" + me.index + ")";            
-            int i = dataGridViewTask.CurrentCell.RowIndex;            
+            string userName = me.name + "(" + me.index + ")";
+            int i = dataGridViewTask.CurrentCell.RowIndex;
             DataTable taskTable = (DataTable)dataGridViewTask.DataSource;
-            
-            if((taskTable.Rows[i]["ID"] as string) == userName)
+
+            if ((taskTable.Rows[i]["이름"] as string) == userName)
             {
                 int id = (int)taskTable.Rows[i]["ID"];
+                string taskName = taskTable.Rows[i]["업무"] as string;
                 string text = taskTable.Rows[i]["업무내용"] as string;
                 string date = taskTable.Rows[i]["날짜"] as string;
                 string st = taskTable.Rows[i]["시작시간"] as string;
                 string ft = taskTable.Rows[i]["종료시간"] as string;
 
-                FormReviseTask formReviseTask = new FormReviseTask(this, me, id, text, date, st, ft, searchFlag);
+                Point parentPoint = this.Location;
+
+                FormReviseTask formReviseTask = new FormReviseTask(this, me, id, taskName, text, date, st, ft, searchFlag);
+                formReviseTask.StartPosition = FormStartPosition.Manual;
+                formReviseTask.Location = new Point(parentPoint.X + 600, parentPoint.Y + 300);
+                formReviseTask.ShowDialog();
             }
             else
             {

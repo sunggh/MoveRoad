@@ -42,7 +42,9 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.labelTaskName = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -58,7 +60,7 @@
             this.groupBox2.Controls.Add(this.labelUserName);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.groupBox2.Location = new System.Drawing.Point(12, 13);
+            this.groupBox2.Location = new System.Drawing.Point(17, 21);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -150,7 +152,7 @@
             // 
             this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(152, 278);
+            this.buttonClose.Location = new System.Drawing.Point(282, 286);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(86, 34);
@@ -163,7 +165,7 @@
             // 
             this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(336, 278);
+            this.buttonDelete.Location = new System.Drawing.Point(98, 286);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(86, 34);
@@ -185,7 +187,7 @@
             // 
             this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(244, 278);
+            this.buttonSave.Location = new System.Drawing.Point(190, 286);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(86, 34);
@@ -194,21 +196,31 @@
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonSave);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.buttonClose);
+            this.groupBox1.Controls.Add(this.buttonDelete);
+            this.groupBox1.Location = new System.Drawing.Point(0, -8);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(470, 327);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            // 
             // FormReviseTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(462, 319);
-            this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.buttonClose);
-            this.Controls.Add(this.buttonDelete);
+            this.ClientSize = new System.Drawing.Size(470, 319);
+            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormReviseTask";
             this.Text = "FormReviseTask";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -229,5 +241,6 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Label labelTaskName;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

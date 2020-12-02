@@ -18,17 +18,19 @@ namespace MOVEROAD
         DateTime finishTime;
 
         int id;
+        string taskName;
         string text;
         string date;
         string st;
         string ft;
         int searchFlag;
 
-        public FormReviseTask(TaskForm TaskForm, UserInfo me, int id, string text, string date, string  st, string ft, int searchFlag)
+        public FormReviseTask(TaskForm TaskForm, UserInfo me, int id, string taskName, string text, string date, string  st, string ft, int searchFlag)
         {
             this.TaskForm = TaskForm;
             this.me = me;
             this.id = id;
+            this.taskName = taskName;
             this.text = text;
             this.date = date;
             this.ft = ft;
@@ -36,10 +38,12 @@ namespace MOVEROAD
             this.searchFlag = searchFlag;
 
             InitializeComponent();
-            InitTaxkInfo();
+            InitTaskInfo();
         }
-        private void InitTaxkInfo()
+        private void InitTaskInfo()
         {
+            labelTaskName.Text = taskName;
+            labelUserName.Text = me.name;
             textBoxStartTime.Text = st;
             textBoxFinishTime.Text = ft;
             textBoxText.Text = text;
