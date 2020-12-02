@@ -45,37 +45,44 @@ namespace MOVEROAD
             string head_to_index = "SELECT * FROM user where `name`= '" + revise_head + "'";
             user2 = (UserInfo)DBConnetion.getInstance().Select(head_to_index, 0); // 수정할 유저값
 
-            string update_query = "update project.`department` " +
-                "set `name` = '"+ revise_name + "',`manager` = '"+ user2.index + "', `description` = '"+ revise_description + "' " +
-                "where `name` = '" + og_name + "' and `manager` = '" + user.index + "' and `description` = '" + og_description + "'" ;
-            DBConnetion.getInstance().Update(update_query);
-            //이까지는 보이는 부서의 수정
-
-            string up_query,up_query2;
-
-            //이후부터는 예외를 처리해주어야함.
-            //예외1: 만약에 수정하려는 부서장과, 수정되어지는 부서장이 다르다면 직급세팅필요
-            if (!og_head.Equals(revise_head))
+            if (revise_name.Equals("") || revise_head.Equals(""))
             {
-                //수정전 유저 부서는 그대로 직급은 사원으로
-                up_query = "update `user` set `grade` = 2 where `index` = '"+user.index+"' ";
-                DBConnetion.getInstance().Update(up_query);
-
-                //수정되어지는 유저 직급, 부서 변경
-                up_query2 = "update `user` set `depart` = '" + user.depart + "', `grade` = 1 where `index` = '" + user2.index + "'";
-                DBConnetion.getInstance().Update(up_query2);
+                MessageBox.Show("내용을 입력해주세요");
             }
+            else
+            {
+                string update_query = "update project.`department` " +
+                    "set `name` = '" + revise_name + "',`manager` = '" + user2.index + "', `description` = '" + revise_description + "' " +
+                    "where `name` = '" + og_name + "' and `manager` = '" + user.index + "' and `description` = '" + og_description + "'";
+                DBConnetion.getInstance().Update(update_query);
+                //이까지는 보이는 부서의 수정
 
-            // [[[[[[[[[[[[[[[[[[[[[[[[[중요]]]]]]]]]]]]]]]]]]]]]]]]] //
-            //
-            //         수정된대로 객체로 넣어주는 작업도 해야함
-            //
-            // [[[[[[[[[[[[[[[[[[[[[[[[[중요]]]]]]]]]]]]]]]]]]]]]]]]] //
+                string up_query, up_query2;
+
+                //이후부터는 예외를 처리해주어야함.
+                //예외1: 만약에 수정하려는 부서장과, 수정되어지는 부서장이 다르다면 직급세팅필요
+                if (!og_head.Equals(revise_head))
+                {
+                    //수정전 유저 부서는 그대로 직급은 사원으로
+                    up_query = "update `user` set `grade` = 2 where `index` = '" + user.index + "' ";
+                    DBConnetion.getInstance().Update(up_query);
+
+                    //수정되어지는 유저 직급, 부서 변경
+                    up_query2 = "update `user` set `depart` = '" + user.depart + "', `grade` = 1 where `index` = '" + user2.index + "'";
+                    DBConnetion.getInstance().Update(up_query2);
+                }
+
+                // [[[[[[[[[[[[[[[[[[[[[[[[[중요]]]]]]]]]]]]]]]]]]]]]]]]] //
+                //
+                //         수정된대로 객체로 넣어주는 작업도 해야함
+                //
+                // [[[[[[[[[[[[[[[[[[[[[[[[[중요]]]]]]]]]]]]]]]]]]]]]]]]] //
 
 
 
-            this.DialogResult = DialogResult.OK;
-            this.Dispose();
+                this.DialogResult = DialogResult.OK;
+                this.Dispose();
+            }
         }
 
         private void btn_search_Click(object sender, EventArgs e)

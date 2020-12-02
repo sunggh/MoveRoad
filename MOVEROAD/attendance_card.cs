@@ -336,5 +336,10 @@ namespace MOVEROAD
             object tb = DBConnetion.getInstance().Select(query, 70);
             dataGridView1.DataSource = tb;
         }
+
+        private void attendance_card_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
