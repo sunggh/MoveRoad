@@ -43,7 +43,7 @@ namespace MOVEROAD
             }
             catch
             {
-                MessageBox.Show("해당 부서의 부서장이 존재하지 않습니다.", "확인");
+                MessageBox.Show("해당 부서의 부서장이 존재하지 않습니다.", "알림");
             }
         }
 
@@ -64,11 +64,11 @@ namespace MOVEROAD
 
                 DBConnetion.getInstance().Insert(sql);
 
-                MessageBox.Show("결재가 등록되었습니다.", "확인");
+                MessageBox.Show("결재가 등록되었습니다.", "알림");
             }
             else
             {
-                MessageBox.Show("결재 등록은 사원만 가능합니다.", "확인");
+                MessageBox.Show("결재 등록은 사원만 가능합니다.", "알림");
             }
         }
 
@@ -83,7 +83,7 @@ namespace MOVEROAD
                     string sql = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, user.name AS 기안자 " +
                     "FROM sign JOIN user ON drafter_to = '" + main.me.name + "' AND sign.drafter = user.index AND sign.progress = 1";
 
-                    DataTable table = DBConnetion.getInstance().getDBTable(sql);
+                    object table = DBConnetion.getInstance().Select(sql, 70);
 
                     dataGridViewRequest.DataSource = table;
                 }
@@ -93,7 +93,7 @@ namespace MOVEROAD
                     string sql = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, user.name AS 기안자 " +
                     "FROM sign JOIN user ON drafter_to = '" + main.me.name + "' AND sign.drafter = user.index AND sign.progress = 0";
 
-                    DataTable table = DBConnetion.getInstance().getDBTable(sql);
+                    object table = DBConnetion.getInstance().Select(sql, 70);
 
                     dataGridViewRequest.DataSource = table;
                 }
@@ -101,7 +101,7 @@ namespace MOVEROAD
                 //이거뺄까?
                 else if(main.me.grade == 2)
                 {
-                    MessageBox.Show("해당 권한이 없습니다.", "확인");
+                    MessageBox.Show("해당 권한이 없습니다.", "알림");
                 }
             }
 
@@ -117,13 +117,13 @@ namespace MOVEROAD
             //내가 등록한 결재 내역
             string sql_done = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, CASE WHEN progress=0 THEN '결재전' WHEN progress=1 THEN '결재중' WHEN progress=2 THEN '결재완료' ELSE '반려됨' END AS 진행상황 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress != 3";
 
-            DataTable table_DoneList = DBConnetion.getInstance().getDBTable(sql_done);
+            object table_DoneList = DBConnetion.getInstance().Select(sql_done, 70);
             dataGridViewSignList.DataSource = table_DoneList;
 
             //반려 내역
             string sql_turn = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress = 3";
 
-            DataTable table_TurnList = DBConnetion.getInstance().getDBTable(sql_turn);
+            object table_TurnList = DBConnetion.getInstance().Select(sql_turn, 70);
             dataGridViewSignTurnList.DataSource = table_TurnList;
         }
 
@@ -137,10 +137,13 @@ namespace MOVEROAD
             string cnt_ = dataGridViewRequest.Rows[rowIndex].Cells[0].Value.ToString();
             int cnt = Convert.ToInt32(cnt_.ToString());
 
+            string boss = "SELECT name FROM user WHERE grade = 0";
+            string boss_ = (string)DBConnetion.getInstance().Select(boss, 3);
+
             //uesr가 부서장이면 결재자를 사장으로 바꿔주고 진행 상황을 1(결재 중)로 바꾸기
             if (main.me.grade == 1)
             {
-                string sql = "UPDATE sign SET sign.progress = 1, sign.drafter_to = '" + "이동길" + "' WHERE sign.index = '" + cnt + "'";
+                string sql = "UPDATE sign SET sign.progress = 1, sign.drafter_to = '" + boss + "' WHERE sign.index = '" + cnt + "'";
 
                 DBConnetion.getInstance().Update(sql);
 
@@ -159,7 +162,7 @@ namespace MOVEROAD
                 DBConnetion.getInstance().Update(query);
             }
 
-            MessageBox.Show(datetime + "에 결재되었습니다.", "확인");
+            MessageBox.Show(datetime + "에 결재되었습니다.", "알림");
         }
 
         //반려하기
@@ -180,7 +183,7 @@ namespace MOVEROAD
 
             DBConnetion.getInstance().Update(query);
 
-            MessageBox.Show("반려되었습니다.", "확인");
+            MessageBox.Show("반려되었습니다.", "알림");
         }
 
         //결재 반려내역 셀 클릭시 내용 상세보기 & 반려 메모 보기
@@ -230,11 +233,11 @@ namespace MOVEROAD
                 string query = "SELECT date FROM sign_ok JOIN sign WHERE sign_ok.num = '" + cnt + "' AND sign.progress != 0";
                 DateTime done_date = (DateTime)DBConnetion.getInstance().Select(query, 10);
 
-                MessageBox.Show(done_date + "에 결재된 내역입니다.", "확인");
+                MessageBox.Show(done_date + "에 결재된 내역입니다.", "알림");
             }
             catch
             {
-                MessageBox.Show("아직 결재되지 않았습니다.", "확인");
+                MessageBox.Show("아직 결재되지 않았습니다.", "알림");
             }
         }
     }

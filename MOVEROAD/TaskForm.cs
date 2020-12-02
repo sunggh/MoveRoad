@@ -408,7 +408,6 @@ namespace MOVEROAD
             {
                 MessageBox.Show("선택한 업무가 없거나 선택한 업무는 삭제할 수 없습니다.", "Invalid selection");
             }
-            CreateTree();
         }
         #endregion
         #region 일일 업무 등록
