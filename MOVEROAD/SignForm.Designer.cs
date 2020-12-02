@@ -28,6 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlSign = new System.Windows.Forms.TabControl();
             this.tabPageNewInsert = new System.Windows.Forms.TabPage();
             this.buttonInsert = new System.Windows.Forms.Button();
@@ -108,11 +117,12 @@
             // buttonInsert
             // 
             this.buttonInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonInsert.Font = new System.Drawing.Font("굴림", 10F);
             this.buttonInsert.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonInsert.Location = new System.Drawing.Point(347, 390);
+            this.buttonInsert.Location = new System.Drawing.Point(335, 389);
             this.buttonInsert.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonInsert.Name = "buttonInsert";
-            this.buttonInsert.Size = new System.Drawing.Size(192, 55);
+            this.buttonInsert.Size = new System.Drawing.Size(185, 65);
             this.buttonInsert.TabIndex = 10;
             this.buttonInsert.Text = "등록하기";
             this.buttonInsert.UseVisualStyleBackColor = false;
@@ -130,7 +140,7 @@
             // comboBoxWork
             // 
             this.comboBoxWork.FormattingEnabled = true;
-            this.comboBoxWork.Location = new System.Drawing.Point(446, 71);
+            this.comboBoxWork.Location = new System.Drawing.Point(430, 71);
             this.comboBoxWork.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxWork.Name = "comboBoxWork";
             this.comboBoxWork.Size = new System.Drawing.Size(121, 23);
@@ -204,7 +214,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(348, 69);
+            this.label2.Location = new System.Drawing.Point(332, 69);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.label2.Size = new System.Drawing.Size(92, 25);
@@ -247,7 +257,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(670, 21);
+            this.label11.Location = new System.Drawing.Point(671, 21);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.label11.Size = new System.Drawing.Size(122, 25);
@@ -256,11 +266,11 @@
             // 
             // textBoxDetail_req
             // 
-            this.textBoxDetail_req.Location = new System.Drawing.Point(664, 49);
+            this.textBoxDetail_req.Location = new System.Drawing.Point(668, 49);
             this.textBoxDetail_req.Multiline = true;
             this.textBoxDetail_req.Name = "textBoxDetail_req";
             this.textBoxDetail_req.ReadOnly = true;
-            this.textBoxDetail_req.Size = new System.Drawing.Size(164, 267);
+            this.textBoxDetail_req.Size = new System.Drawing.Size(170, 267);
             this.textBoxDetail_req.TabIndex = 6;
             // 
             // label9
@@ -268,7 +278,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(23, 22);
+            this.label9.Location = new System.Drawing.Point(14, 22);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.label9.Size = new System.Drawing.Size(92, 25);
@@ -299,6 +309,7 @@
             // buttonTurn
             // 
             this.buttonTurn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonTurn.Font = new System.Drawing.Font("굴림", 10F);
             this.buttonTurn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonTurn.Location = new System.Drawing.Point(436, 424);
             this.buttonTurn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -312,6 +323,7 @@
             // buttonSign
             // 
             this.buttonSign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonSign.Font = new System.Drawing.Font("굴림", 10F);
             this.buttonSign.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonSign.Location = new System.Drawing.Point(173, 424);
             this.buttonSign.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -326,16 +338,35 @@
             // 
             this.dataGridViewRequest.AllowUserToAddRows = false;
             this.dataGridViewRequest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewRequest.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridViewRequest.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRequest.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewRequest.Location = new System.Drawing.Point(17, 49);
+            this.dataGridViewRequest.GridColor = System.Drawing.Color.Black;
+            this.dataGridViewRequest.Location = new System.Drawing.Point(11, 49);
             this.dataGridViewRequest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewRequest.Name = "dataGridViewRequest";
-            this.dataGridViewRequest.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRequest.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewRequest.RowHeadersVisible = false;
+            this.dataGridViewRequest.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewRequest.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewRequest.RowTemplate.Height = 27;
             this.dataGridViewRequest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRequest.Size = new System.Drawing.Size(633, 267);
+            this.dataGridViewRequest.Size = new System.Drawing.Size(639, 267);
             this.dataGridViewRequest.TabIndex = 0;
             this.dataGridViewRequest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRequest_CellClick);
             // 
@@ -398,20 +429,20 @@
             // 
             // textBoxDetail_turn
             // 
-            this.textBoxDetail_turn.Location = new System.Drawing.Point(645, 254);
+            this.textBoxDetail_turn.Location = new System.Drawing.Point(644, 254);
             this.textBoxDetail_turn.Multiline = true;
             this.textBoxDetail_turn.Name = "textBoxDetail_turn";
             this.textBoxDetail_turn.ReadOnly = true;
-            this.textBoxDetail_turn.Size = new System.Drawing.Size(181, 143);
+            this.textBoxDetail_turn.Size = new System.Drawing.Size(182, 143);
             this.textBoxDetail_turn.TabIndex = 7;
             // 
             // textBoxDetail_done
             // 
-            this.textBoxDetail_done.Location = new System.Drawing.Point(646, 37);
+            this.textBoxDetail_done.Location = new System.Drawing.Point(644, 37);
             this.textBoxDetail_done.Multiline = true;
             this.textBoxDetail_done.Name = "textBoxDetail_done";
             this.textBoxDetail_done.ReadOnly = true;
-            this.textBoxDetail_done.Size = new System.Drawing.Size(181, 177);
+            this.textBoxDetail_done.Size = new System.Drawing.Size(182, 177);
             this.textBoxDetail_done.TabIndex = 6;
             // 
             // textBoxSignTurnMemo
@@ -427,14 +458,33 @@
             // 
             this.dataGridViewSignTurnList.AllowUserToAddRows = false;
             this.dataGridViewSignTurnList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewSignTurnList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridViewSignTurnList.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSignTurnList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewSignTurnList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSignTurnList.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewSignTurnList.GridColor = System.Drawing.Color.Black;
             this.dataGridViewSignTurnList.Location = new System.Drawing.Point(20, 254);
             this.dataGridViewSignTurnList.Name = "dataGridViewSignTurnList";
-            this.dataGridViewSignTurnList.RowHeadersWidth = 51;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSignTurnList.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewSignTurnList.RowHeadersVisible = false;
+            this.dataGridViewSignTurnList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewSignTurnList.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewSignTurnList.RowTemplate.Height = 27;
-            this.dataGridViewSignTurnList.Size = new System.Drawing.Size(614, 143);
+            this.dataGridViewSignTurnList.Size = new System.Drawing.Size(617, 143);
             this.dataGridViewSignTurnList.TabIndex = 4;
             this.dataGridViewSignTurnList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSignTurnList_CellClick);
             // 
@@ -466,13 +516,34 @@
             // 
             this.dataGridViewSignList.AllowUserToAddRows = false;
             this.dataGridViewSignList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewSignList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridViewSignList.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewSignList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridViewSignList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSignList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewSignList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSignList.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewSignList.GridColor = System.Drawing.Color.Black;
             this.dataGridViewSignList.Location = new System.Drawing.Point(20, 37);
             this.dataGridViewSignList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewSignList.Name = "dataGridViewSignList";
-            this.dataGridViewSignList.RowHeadersWidth = 51;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSignList.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewSignList.RowHeadersVisible = false;
+            this.dataGridViewSignList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewSignList.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewSignList.RowTemplate.Height = 27;
             this.dataGridViewSignList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSignList.Size = new System.Drawing.Size(617, 177);
