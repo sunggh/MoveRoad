@@ -159,6 +159,7 @@ namespace MOVEROAD
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int select = onlineList.SelectedIndex;
+            if (select == -1) return;
             int i = 0;
             int check = 0;
             foreach (var touser in main.onlines)
@@ -172,7 +173,6 @@ namespace MOVEROAD
                 i++;
             }
             flowLayoutPanel1.Controls.Clear();
-            
             if (check == 0)
             {
                 MessageBox.Show("해당 인원은 오프라인입니다.");
