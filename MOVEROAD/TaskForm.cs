@@ -531,7 +531,7 @@ namespace MOVEROAD
             dateTime = dateTime.AddHours(1);
             dateTimePickerFinshTime.Value = dateTime;
         }
-        private bool haveTimeOverlap(int user_id)
+        public bool haveTimeOverlap(int user_id)
         {
             string date = string.Format("{0:yyyy-MM-dd}", DateTime.Now);
             string query = "SELECT startTime,finishTime FROM task WHERE date = '" + date + "' AND user_id ='" + user_id + "'";
@@ -577,11 +577,10 @@ namespace MOVEROAD
             {
                 MessageBox.Show("업무를 선택하시오.");
             }
-            else if (DateTime.Compare(startTime, finishTime) == 1 || haveTimeOverlap() || startTime==finishTime) // st 보다 ft가 더 작으면
+            else if (DateTime.Compare(startTime, finishTime) == 1 || haveTimeOverlap(me.index) || startTime == finishTime) // st 보다 ft가 더 작으면
             {
                 MessageBox.Show("업무시간을 확인하시오.");
             }
-
             else
             {
                 //같은 날짜 다른 업무시간과 겹칠때 확인
@@ -608,18 +607,11 @@ namespace MOVEROAD
             //이름    me.name
             //업무내용  textBoxTask.Text
             //시작시간 종료시간 -> string.Format("{0:HH:mm:ss}", datetime
-            try
-            {
-                string date = string.Format("{0:yyyy-MM-dd}", DateTime.Now);
-                string query = "INSERT INTO task(sub_id,date,name,text,startTime,finishTime) VALUES('" + subID + "','" + date + "','" + me.name + "','" + textBoxTask.Text + "','" + startTime + "','" + finishTime + "')";
-                DBConnetion.getInstance().Insert(query);
+            string date = string.Format("{0:yyyy-MM-dd}", DateTime.Now);
+            string query = "INSERT INTO task(sub_id,date,name,text,startTime,finishTime) VALUES('" + subID + "','" + date + "','" + me.name + "','" + textBoxTask.Text + "','" + startTime + "','" + finishTime + "')";
+            DBConnetion.getInstance().Insert(query);
 
-                MessageBox.Show("업무가 등록되었습니다.");
-            }
-            catch
-            {
-                MessageBox.Show("디비 서버에 접근할 수 없습니다.");
-            }
+            MessageBox.Show("업무가 등록되었습니다.");
         }
         #endregion
         #region 일일 업무 검색 / 수정 / 삭제
@@ -652,7 +644,7 @@ namespace MOVEROAD
             searchFlag = 2;
             selectedRegistrantDataView();
         }
-        private void selectedKeywordDataView(){
+        public void selectedKeywordDataView(){
             //날짜 + 키워드
             string date = string.Format("{0:yyyy-MM-dd}", dateTimePickerSearchTask.Value);
             try
@@ -671,8 +663,7 @@ namespace MOVEROAD
                 dataGridViewTask.Columns[1].ReadOnly = true;
                 dataGridViewTask.Columns[2].ReadOnly = true;
                 dataGridViewTask.Columns[3].ReadOnly = true;
-
-                dtProcessFlag = (DataTable)dataGridViewTask.DataSource;
+                
             }
             catch(IndexOutOfRangeException re)
             {
@@ -680,7 +671,7 @@ namespace MOVEROAD
             }
         }
         
-        private void selectedRegistrantDataView()
+        public void selectedRegistrantDataView()
         {
             try
             {
@@ -703,90 +694,29 @@ namespace MOVEROAD
                 Console.WriteLine("예외 : " + re);
             }
         }
-        private void buttonReviseTask_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Application.UseWaitCursor = false;
-
-                DataTable dtChanges = new DataTable();
-                dtProcessFlag = (DataTable)dataGridViewTask.DataSource;
-
-                //Added 하면 젠체애들 다 업데이트 해주긴 함 | 정석은 Modified
-                dtChanges = dtProcessFlag.GetChanges(DataRowState.Added);
-
-                string revisedIndex = "";
-                if(dtChanges != null)
-                {
-                    for(int i = 0; i < dtChanges.Rows.Count; i++)
-                    {
-                        int id = (int)dtChanges.Rows[i]["ID"];
-                        string text = dtChanges.Rows[i]["업무내용"] as string;
-                        string date = dtChanges.Rows[i]["날짜"] as string;
-
-                        startTime = Convert.ToDateTime(dtChanges.Rows[i]["시작시간"]);
-                        finishTime = Convert.ToDateTime(dtChanges.Rows[i]["종료시간"]);
-                        string st = date + " " + dtChanges.Rows[i]["시작시간"];
-                        string ft = date + " " + dtChanges.Rows[i]["종료시간"];
-
-                        
-                        //업무시간 확인
-                        if (DateTime.Compare(startTime, finishTime) == 1 || haveTimeOverlap() || startTime == finishTime) // st 보다 ft가 더 작으면
-                        {
-                            MessageBox.Show("업무시간을 확인하시오.");
-                            return;
-                        }
-
-                        Console.WriteLine("시작시간 : " + st);
-                        string query = "UPDATE task SET text = '" + text +"', startTime ='" + st + "', finishTime = '" + ft + "' WHERE id = '" + id + "'";
-                        DBConnetion.getInstance().Update(query);
-
-                        revisedIndex += id + " ";
-                    }
-                }
-                //MessageBox.Show("[ " +revisedIndex + " ] 업무 수정이 완료 되었습니다.");
-                MessageBox.Show("업무 수정이 완료 되었습니다.");
-                dtChanges = null;
-
-                Cursor.Current = Cursors.Default;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("오류 : " + ex);
-                MessageBox.Show("입력 형식이 잘못되었거나 수정된 정보가 없습니다. 확인하고 다시 시도하십시오.");
-            }
-        }
         //날짜 업무 기반 -> 1 | 등록자 기반 -> 2
         int searchFlag = 0;
-        private void buttonDeleteTask_Click(object sender, EventArgs e)
+
+        private void dataGridViewTask_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {   //선택된 row가 없을 때
-                if(dataGridViewTask.SelectedRows.Count == 0)
-                {
-                    return;
-                }
-                int selectedProcessID = Convert.ToInt32(dataGridViewTask.CurrentRow.Cells["ID"].Value.ToString());
-
-                string query = "DELETE FROM task WHERE id = '" + selectedProcessID + "'";
-                DBConnetion.getInstance().Delete(query);
-
-                MessageBox.Show("업무 삭제가 완료 되었습니다.");
-
-                if (searchFlag == 1)
-                {
-                    selectedKeywordDataView();
-                }
-                else if (searchFlag == 2)
-                {
-                    selectedRegistrantDataView();
-                }
-            }
-            catch
-            {
-
-            }
+            string userName = me.name + "(" + me.index + ")";            
+            int i = dataGridViewTask.CurrentCell.RowIndex;            
+            DataTable taskTable = (DataTable)dataGridViewTask.DataSource;
             
+            if((taskTable.Rows[i]["ID"] as string) == userName)
+            {
+                int id = (int)taskTable.Rows[i]["ID"];
+                string text = taskTable.Rows[i]["업무내용"] as string;
+                string date = taskTable.Rows[i]["날짜"] as string;
+                string st = taskTable.Rows[i]["시작시간"] as string;
+                string ft = taskTable.Rows[i]["종료시간"] as string;
+
+                FormReviseTask formReviseTask = new FormReviseTask(this, me, id, text, date, st, ft, searchFlag);
+            }
+            else
+            {
+                MessageBox.Show("작성자만 수정할 수 있습니다.");
+            }
         }
 
         #endregion

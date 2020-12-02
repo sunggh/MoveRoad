@@ -50,8 +50,6 @@ namespace MOVEROAD
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.comboBoxRegistrant = new System.Windows.Forms.ComboBox();
-            this.buttonDeleteTask = new System.Windows.Forms.Button();
-            this.buttonReviseTask = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dateTimePickerSearchTask = new System.Windows.Forms.DateTimePicker();
@@ -257,8 +255,6 @@ namespace MOVEROAD
             // tabPageManagement
             // 
             this.tabPageManagement.Controls.Add(this.groupBox2);
-            this.tabPageManagement.Controls.Add(this.buttonDeleteTask);
-            this.tabPageManagement.Controls.Add(this.buttonReviseTask);
             this.tabPageManagement.Controls.Add(this.groupBox1);
             this.tabPageManagement.Controls.Add(this.label8);
             this.tabPageManagement.Controls.Add(this.dataGridViewTask);
@@ -298,32 +294,6 @@ namespace MOVEROAD
             this.comboBoxRegistrant.TabIndex = 29;
             this.comboBoxRegistrant.Text = "등록자";
             this.comboBoxRegistrant.SelectedIndexChanged += new System.EventHandler(this.comboBoxRegistrant_SelectedIndexChanged);
-            // 
-            // buttonDeleteTask
-            // 
-            this.buttonDeleteTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.buttonDeleteTask.Font = new System.Drawing.Font("굴림", 10F);
-            this.buttonDeleteTask.ForeColor = System.Drawing.Color.White;
-            this.buttonDeleteTask.Location = new System.Drawing.Point(615, 59);
-            this.buttonDeleteTask.Name = "buttonDeleteTask";
-            this.buttonDeleteTask.Size = new System.Drawing.Size(100, 36);
-            this.buttonDeleteTask.TabIndex = 28;
-            this.buttonDeleteTask.Text = "삭제";
-            this.buttonDeleteTask.UseVisualStyleBackColor = false;
-            this.buttonDeleteTask.Click += new System.EventHandler(this.buttonDeleteTask_Click);
-            // 
-            // buttonReviseTask
-            // 
-            this.buttonReviseTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.buttonReviseTask.Font = new System.Drawing.Font("굴림", 10F);
-            this.buttonReviseTask.ForeColor = System.Drawing.Color.White;
-            this.buttonReviseTask.Location = new System.Drawing.Point(509, 59);
-            this.buttonReviseTask.Name = "buttonReviseTask";
-            this.buttonReviseTask.Size = new System.Drawing.Size(100, 36);
-            this.buttonReviseTask.TabIndex = 27;
-            this.buttonReviseTask.Text = "수정";
-            this.buttonReviseTask.UseVisualStyleBackColor = false;
-            this.buttonReviseTask.Click += new System.EventHandler(this.buttonReviseTask_Click);
             // 
             // groupBox1
             // 
@@ -385,6 +355,7 @@ namespace MOVEROAD
             this.dataGridViewTask.RowTemplate.Height = 27;
             this.dataGridViewTask.Size = new System.Drawing.Size(694, 267);
             this.dataGridViewTask.TabIndex = 23;
+            this.dataGridViewTask.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTask_CellContentClick);
             // 
             // tabPageMaster
             // 
@@ -463,8 +434,6 @@ namespace MOVEROAD
         private System.Windows.Forms.ComboBox comboBoxDepartment;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonDeleteTask;
-        private System.Windows.Forms.Button buttonReviseTask;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridViewTask;
