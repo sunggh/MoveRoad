@@ -85,8 +85,6 @@ namespace MOVEROAD
                     comboBoxGender.Text = "";
                     textBoxPhone.Text = "";
                     textBoxAddress.Text = "";
-
-                    MessageBox.Show("사원 등록이 완료되었습니다.", "등록 완료");
                 }
             }
         }
@@ -140,6 +138,14 @@ namespace MOVEROAD
                 else
                     textBoxAddress.Text = address;
             }
+        }
+
+        private void textBoxPhone_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(textBoxPhone.Text == "하이픈(-)까지 입력")
+            {
+                textBoxPhone.Text = "";
+            } 
         }
     }
 }

@@ -85,6 +85,7 @@
             // 
             // tb_depart_head
             // 
+            this.tb_depart_head.BackColor = System.Drawing.Color.White;
             this.tb_depart_head.Location = new System.Drawing.Point(109, 56);
             this.tb_depart_head.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_depart_head.Name = "tb_depart_head";
@@ -104,24 +105,28 @@
             // 
             // btn_add
             // 
+            this.btn_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btn_add.ForeColor = System.Drawing.Color.White;
             this.btn_add.Location = new System.Drawing.Point(29, 286);
             this.btn_add.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(120, 48);
             this.btn_add.TabIndex = 11;
             this.btn_add.Text = "추가하기";
-            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.UseVisualStyleBackColor = false;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_cancel
             // 
+            this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btn_cancel.ForeColor = System.Drawing.Color.White;
             this.btn_cancel.Location = new System.Drawing.Point(193, 286);
             this.btn_cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(120, 48);
             this.btn_cancel.TabIndex = 12;
             this.btn_cancel.Text = "취소";
-            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_search_head
