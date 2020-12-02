@@ -33,64 +33,84 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.onlineList = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nameBOX
             // 
             this.nameBOX.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.nameBOX.Location = new System.Drawing.Point(35, 12);
+            this.nameBOX.Location = new System.Drawing.Point(129, 15);
+            this.nameBOX.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nameBOX.Name = "nameBOX";
-            this.nameBOX.Size = new System.Drawing.Size(522, 26);
+            this.nameBOX.Size = new System.Drawing.Size(507, 30);
             this.nameBOX.TabIndex = 0;
             this.nameBOX.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nameBOX_KeyDown);
             // 
             // text
             // 
             this.text.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.text.Location = new System.Drawing.Point(35, 358);
+            this.text.Location = new System.Drawing.Point(40, 448);
+            this.text.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.text.Name = "text";
-            this.text.Size = new System.Drawing.Size(522, 26);
+            this.text.Size = new System.Drawing.Size(596, 30);
             this.text.TabIndex = 2;
             this.text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_KeyDown);
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(35, 44);
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(40, 55);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(522, 308);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(597, 385);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // onlineList
             // 
             this.onlineList.FormattingEnabled = true;
-            this.onlineList.ItemHeight = 12;
-            this.onlineList.Location = new System.Drawing.Point(563, 44);
+            this.onlineList.ItemHeight = 15;
+            this.onlineList.Location = new System.Drawing.Point(643, 55);
+            this.onlineList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.onlineList.Name = "onlineList";
-            this.onlineList.Size = new System.Drawing.Size(170, 340);
+            this.onlineList.Size = new System.Drawing.Size(194, 424);
             this.onlineList.TabIndex = 4;
             this.onlineList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(628, 19);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(718, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 5;
             this.label1.Text = "온라인";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(36, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 15);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "참여자 검색";
+            // 
             // Messenger
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 412);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.ClientSize = new System.Drawing.Size(851, 515);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.onlineList);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.text);
             this.Controls.Add(this.nameBOX);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Messenger";
             this.Text = "Messenger";
             this.ResumeLayout(false);
@@ -105,5 +125,6 @@
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.ListBox onlineList;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
