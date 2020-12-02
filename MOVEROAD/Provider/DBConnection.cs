@@ -205,7 +205,8 @@ namespace MOVEROAD
                     {
                         string startTime = string.Format("{0:HH:mm:ss}", rdr["startTime"]);
                         string finishTime = string.Format("{0:HH:mm:ss}", rdr["finishTime"]);
-                        task.Rows.Add((int)rdr["id"], (string)rdr["task"], string.Format("{0:yyyy-MM-dd}",rdr["date"]), (string)rdr["name"], (string)rdr["text"], startTime, finishTime);
+                        string user_id = Convert.ToString((int)rdr["user_id"]);
+                        task.Rows.Add((int)rdr["id"], (string)rdr["task"], string.Format("{0:yyyy-MM-dd}",rdr["date"]), ((string)rdr["user"] + "(" + user_id + ")"), (string)rdr["text"], startTime, finishTime);
                     }
                     thing = task;
                     break;
