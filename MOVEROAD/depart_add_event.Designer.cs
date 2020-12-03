@@ -109,6 +109,7 @@
             // btn_add
             // 
             this.btn_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btn_add.FlatAppearance.BorderSize = 0;
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btn_add.ForeColor = System.Drawing.Color.White;
@@ -123,6 +124,7 @@
             // btn_cancel
             // 
             this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btn_cancel.FlatAppearance.BorderSize = 0;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btn_cancel.ForeColor = System.Drawing.Color.White;
@@ -137,6 +139,7 @@
             // btn_search_head
             // 
             this.btn_search_head.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btn_search_head.FlatAppearance.BorderSize = 0;
             this.btn_search_head.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_search_head.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btn_search_head.ForeColor = System.Drawing.Color.White;
