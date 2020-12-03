@@ -49,13 +49,14 @@ namespace MOVEROAD
             edit.init();
             
             // 수정 창 띄우고 다른행동 못하게 금지
+            main.TransparencyKey = Color.Gray;
+            main.Opacity = 0.5;
             using (edit)
             {
-                if (edit.ShowDialog() == DialogResult.OK)
-                {
-                    //refresh
-                }
+                edit.ShowDialog();
             }
+
+            main.Opacity = 1;
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)

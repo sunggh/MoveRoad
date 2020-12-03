@@ -51,10 +51,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("함초롬바탕", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 27);
+            this.label1.Size = new System.Drawing.Size(85, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "지급 급여 확인";
             // 
@@ -70,9 +70,9 @@
             this.btn_overtime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btn_overtime.ForeColor = System.Drawing.Color.White;
             this.btn_overtime.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_overtime.Location = new System.Drawing.Point(639, 12);
+            this.btn_overtime.Location = new System.Drawing.Point(652, 26);
             this.btn_overtime.Name = "btn_overtime";
-            this.btn_overtime.Size = new System.Drawing.Size(94, 37);
+            this.btn_overtime.Size = new System.Drawing.Size(81, 23);
             this.btn_overtime.TabIndex = 4;
             this.btn_overtime.Text = "초과 근무";
             this.btn_overtime.UseVisualStyleBackColor = false;
@@ -182,10 +182,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(252, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 20);
+            this.label2.Size = new System.Drawing.Size(63, 15);
             this.label2.TabIndex = 10;
             this.label2.Text = "현재 년-월";
             // 
@@ -193,9 +193,10 @@
             // 
             this.label_deductioninfo.AutoSize = true;
             this.label_deductioninfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_deductioninfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label_deductioninfo.Location = new System.Drawing.Point(513, 30);
             this.label_deductioninfo.Name = "label_deductioninfo";
-            this.label_deductioninfo.Size = new System.Drawing.Size(91, 12);
+            this.label_deductioninfo.Size = new System.Drawing.Size(91, 15);
             this.label_deductioninfo.TabIndex = 11;
             this.label_deductioninfo.Text = "※ 세금 공제란?";
             this.label_deductioninfo.Click += new System.EventHandler(this.label_deductioninfo_Click);
