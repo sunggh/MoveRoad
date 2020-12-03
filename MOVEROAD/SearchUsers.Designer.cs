@@ -67,6 +67,7 @@
             // buttonAgeSearch
             // 
             this.buttonAgeSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonAgeSearch.FlatAppearance.BorderSize = 0;
             this.buttonAgeSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAgeSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonAgeSearch.ForeColor = System.Drawing.Color.White;
@@ -81,6 +82,7 @@
             // buttonNameSearch
             // 
             this.buttonNameSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonNameSearch.FlatAppearance.BorderSize = 0;
             this.buttonNameSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNameSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonNameSearch.ForeColor = System.Drawing.Color.White;
@@ -95,6 +97,7 @@
             // buttonDepartSearch
             // 
             this.buttonDepartSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonDepartSearch.FlatAppearance.BorderSize = 0;
             this.buttonDepartSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDepartSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonDepartSearch.ForeColor = System.Drawing.Color.White;
