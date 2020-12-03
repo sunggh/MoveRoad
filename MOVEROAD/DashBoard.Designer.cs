@@ -225,14 +225,15 @@
             // 
             // label_attendance
             // 
-            this.label_attendance.AutoSize = true;
+            this.label_attendance.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_attendance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_attendance.ForeColor = System.Drawing.Color.White;
-            this.label_attendance.Location = new System.Drawing.Point(59, 68);
+            this.label_attendance.Location = new System.Drawing.Point(0, 21);
             this.label_attendance.Name = "label_attendance";
-            this.label_attendance.Size = new System.Drawing.Size(58, 21);
+            this.label_attendance.Size = new System.Drawing.Size(187, 131);
             this.label_attendance.TabIndex = 2;
             this.label_attendance.Text = "출근부";
+            this.label_attendance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 

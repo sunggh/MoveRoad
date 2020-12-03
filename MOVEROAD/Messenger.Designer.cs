@@ -39,10 +39,10 @@
             // nameBOX
             // 
             this.nameBOX.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.nameBOX.Location = new System.Drawing.Point(113, 12);
+            this.nameBOX.Location = new System.Drawing.Point(96, 12);
             this.nameBOX.Name = "nameBOX";
             this.nameBOX.ReadOnly = true;
-            this.nameBOX.Size = new System.Drawing.Size(444, 26);
+            this.nameBOX.Size = new System.Drawing.Size(461, 26);
             this.nameBOX.TabIndex = 0;
             this.nameBOX.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nameBOX_KeyDown);
             this.nameBOX.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.nameBOX_MouseDoubleClick);
@@ -90,11 +90,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(32, 19);
+            this.label2.Location = new System.Drawing.Point(33, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 12);
+            this.label2.Size = new System.Drawing.Size(57, 12);
             this.label2.TabIndex = 6;
-            this.label2.Text = "참여자 검색";
+            this.label2.Text = "대화 상대";
             // 
             // Messenger
             // 
