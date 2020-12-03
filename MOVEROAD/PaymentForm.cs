@@ -29,6 +29,11 @@ namespace MOVEROAD
             int time = Convert.ToInt32(textBoxTime.Text); // 근무시간
             int userIndex = Convert.ToInt32(main.me.index); // 현재 접속중인 index 값
             string ID = main.me.id; // 현재 접속중인 ID
+            
+            //현재 접속중인 유저의 정보 받아오기
+            UserInfo user;
+            string get_index = "select * from `user` where `id` = '" + ID + "'";
+            user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
 
             // 휴일근무 - 오늘 요일값 받아오기
             string dayofweek = dt.ToString("ddd");
@@ -112,11 +117,85 @@ namespace MOVEROAD
                             break;
                         }
                 }
+                get_deduction(user, today); // deduction 갱신
             }
             if (check.Equals(0)) // 출근한 기록이 없을 때
             {
                 MessageBox.Show("먼저 출근버튼을 눌러주십시오.");
             }
+        }
+
+        //공제+실급여 계산
+        private void get_deduction(UserInfo user, string today)
+        {
+            //달별 계산을위해 today 달별로 자르기
+            today = DateTime.ParseExact(today, "yyyy-MM-dd", null).ToString("yyyy-MM");
+
+            //먼저 deduction 테이블에 달별 실급여 정리하기
+            string set_dedcution = "SELECT left(`date`,7) as `month`, sum(salary.`totalPay`) as `totalPay` " +
+                "FROM project.salary " +
+                "where salary.`index` = '"+user.index+"' and left(`date`,7) = '" + today + "' " +
+                "group by `month`";
+
+            List<string> list = (List<string>)DBConnetion.getInstance().Select(set_dedcution, 83);
+
+            string get_query = "SELECT * FROM project.deduction where `date` = '" + today + "'";
+            string get_date = (string)DBConnetion.getInstance().Select(get_query, 84);
+
+            //deduction 테이블 달별, 실급여, 유저 삽입(나머지 값 0)
+            //만약 테이블에 같은 달이 입력되어 있지 않다면
+            if (get_date.Equals(""))
+            {
+                string insert_query = "insert into deduction(`index`,`date`,`totalPay`) values('" + user.index + "','" + list[0] + "','" + list[1] + "')";
+                DBConnetion.getInstance().Insert(insert_query);
+            }
+            else
+            {
+                string update_query = "update deduction set `index` = '" + user.index + "', `date` = '" + list[0] + "', `totalPay` =  '" + list[1] + "' " +
+                    "where `index` = '" + user.index + "' and `date` = '" + list[0] + "'";
+                DBConnetion.getInstance().Insert(update_query);
+            }
+
+            string query = "select `totalPay` from deduction where `index` = '" + user.index + "' and `date` = '" + list[0] + "'";
+            int totalPay = Convert.ToInt32((string)DBConnetion.getInstance().Select(query, 82)) / 1000 * 1000;
+            //1000원미만 절사하기
+
+            double health_insurance = ((totalPay * 0.0335) / 10 * 10);//건강보험-건강보험
+            double health_insurance2 = (health_insurance * 0.01025) / 10 * 10;//건강보험-장기요양보험
+            double total_health_insurance = health_insurance + health_insurance2;//건강+장기요양보험
+
+            double pension; //연금보험료
+            //만약 totalpay가 32만원미만이면 32만원으로, 503만원 초과면 503만원으로 계산하기
+            if (totalPay < 320000)
+            {
+                pension = 14400;
+            }
+            else if (totalPay > 5030000)
+            {
+                pension = 226350;
+            }
+            else
+            {
+                pension = (totalPay * 0.045) / 10 * 10;
+            }
+
+            double unemployment = (totalPay * 0.008) / 10 * 10;//실업
+
+            double total_deduction = health_insurance + pension + unemployment;//총 공제가격
+
+            double actualPay = totalPay - total_deduction;//총급여(실급여-공제)
+
+            //deduction 테이블에 공제금 세개 넣기
+            string update = "update deduction set health_insurance = '" + total_health_insurance + "', pension = '" + pension + "'" +
+                ", unemployment = '" + unemployment + "' " +
+                "where `index` = '" + user.index + "' and `date` = '" + list[0] + "'";
+            DBConnetion.getInstance().Update(update);
+
+            // 다시 salary 테이블에 넣기(공제 총액과 총급여 계산)
+            string update_salary = "update deduction set `deduction` = '" + total_deduction + "', `actualPay` = '" + actualPay + "' " +
+                "where `index` = '" + user.index + "' and `date` = '" + list[0] + "'";
+            DBConnetion.getInstance().Update(update_salary);
+
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
