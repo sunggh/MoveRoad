@@ -40,7 +40,7 @@ namespace MOVEROAD
             string depart_memo = tb_depart_memo.Text; // 입력한 설명
 
             //department 테이블의 id 개수를 세어서 index를 수동으로 올려줘야함(더미 포함이라 count개수 대로)
-            string get_index_query = "select count(`id`) as `id` from department";
+            string get_index_query = "select count(`id`-1) as `id` from department";
             string count_id = DBConnetion.getInstance().get_department_countid(get_index_query);
 
             //예외처리
@@ -63,14 +63,13 @@ namespace MOVEROAD
 
                 //그 사람의 직급도 변경하고 원 소속의 부서를 새로 생성된 부서로 변경해야함
                 //새로 생성된 부서를 사용하기 위해서는 새로 생성된 부서의 id를 찾아야함.
-
                 string update_query = "update user set `depart` = '" + department_id + "', `grade` = 1 where `index` = " + user.index;
                 DBConnetion.getInstance().Update(update_query);
 
+                //부서 추가시 task_class에도 값을 
+                string task_add_query = "INSERT INTO task_class(name,parent_id,level,depart_id) VALUES('" + depart_name + "',' 1 ',' 1 ','" + count_id + "')";
 
                 //메인에 객체형태로 department 넣어주기 위함.
-
-
                 mf.departments.Add(new DepartmentInfo(department_id, depart_name, user.index, depart_memo));
 
                 MessageBox.Show("정상적으로 등록되었습니다.");
