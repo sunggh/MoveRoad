@@ -83,7 +83,6 @@ namespace MOVEROAD
                 ListViewItem item = items[0]; // 클릭 한거
                 string dpt_name = item.SubItems[0].Text; // 부서명
                 string manager = item.SubItems[1].Text; // 부서장으로 선택된 사람의 이름
-                string description = item.SubItems[2].Text; // 부서설명(부서 설명기입이 없으면 null이라 처리가 까다로움)
 
                 //먼저 부서명을 통해(부서명은 중복될 일이 없으니) 부서정보를 받아오기
                 string get_depart_id = "select * from department where `name` = '" + dpt_name + "'";
@@ -107,14 +106,16 @@ namespace MOVEROAD
                 string update_query = "update `user` set `depart` = 0 where depart = '" + dpt_info.id + "'";
                 DBConnetion.getInstance().Update(update_query);
 
-                
-
-                
+                tb_depart_name.Text = "";
+                tb_depart_head.Text = "";
+                tb_depart_description.Text = "";
 
                 listview_departlist();
             }
-            //depart_delete_event delete = new depart_delete_event();
-            //delete.ShowDialog();
+            else
+            {
+                MessageBox.Show("삭제할 부서를 클릭 후 다시 시도하세요.");
+            }
         }
 
         private void lv_depart_Click(object sender, EventArgs e)

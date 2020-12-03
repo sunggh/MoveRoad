@@ -52,54 +52,60 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label1.Location = new System.Drawing.Point(20, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 12);
+            this.label1.Size = new System.Drawing.Size(73, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "기존 부서 명";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label2.Location = new System.Drawing.Point(20, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 12);
+            this.label2.Size = new System.Drawing.Size(73, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "기존 부서 장";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label4.Location = new System.Drawing.Point(20, 103);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 12);
+            this.label4.Size = new System.Drawing.Size(85, 15);
             this.label4.TabIndex = 8;
             this.label4.Text = "기존 부서 설명";
             // 
             // tb_original_name
             // 
             this.tb_original_name.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tb_original_name.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.tb_original_name.Location = new System.Drawing.Point(112, 18);
             this.tb_original_name.Name = "tb_original_name";
             this.tb_original_name.ReadOnly = true;
-            this.tb_original_name.Size = new System.Drawing.Size(122, 21);
+            this.tb_original_name.Size = new System.Drawing.Size(122, 23);
             this.tb_original_name.TabIndex = 10;
             // 
             // tb_original_head
             // 
             this.tb_original_head.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tb_original_head.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.tb_original_head.Location = new System.Drawing.Point(112, 56);
             this.tb_original_head.Name = "tb_original_head";
             this.tb_original_head.ReadOnly = true;
-            this.tb_original_head.Size = new System.Drawing.Size(122, 21);
+            this.tb_original_head.Size = new System.Drawing.Size(122, 23);
             this.tb_original_head.TabIndex = 11;
             // 
             // tb_original_description
             // 
             this.tb_original_description.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tb_original_description.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.tb_original_description.Location = new System.Drawing.Point(22, 118);
             this.tb_original_description.Multiline = true;
             this.tb_original_description.Name = "tb_original_description";
@@ -125,10 +131,11 @@
             // lb_depart_name
             // 
             this.lb_depart_name.AutoSize = true;
+            this.lb_depart_name.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lb_depart_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.lb_depart_name.Location = new System.Drawing.Point(361, 21);
             this.lb_depart_name.Name = "lb_depart_name";
-            this.lb_depart_name.Size = new System.Drawing.Size(45, 12);
+            this.lb_depart_name.Size = new System.Drawing.Size(46, 15);
             this.lb_depart_name.TabIndex = 15;
             this.lb_depart_name.Text = "부서 명";
             this.lb_depart_name.Visible = false;
@@ -136,10 +143,11 @@
             // lb_depart_head
             // 
             this.lb_depart_head.AutoSize = true;
+            this.lb_depart_head.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lb_depart_head.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.lb_depart_head.Location = new System.Drawing.Point(361, 62);
             this.lb_depart_head.Name = "lb_depart_head";
-            this.lb_depart_head.Size = new System.Drawing.Size(45, 12);
+            this.lb_depart_head.Size = new System.Drawing.Size(46, 15);
             this.lb_depart_head.TabIndex = 16;
             this.lb_depart_head.Text = "부서 장";
             this.lb_depart_head.Visible = false;
@@ -147,32 +155,36 @@
             // lb_depart_description
             // 
             this.lb_depart_description.AutoSize = true;
+            this.lb_depart_description.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lb_depart_description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.lb_depart_description.Location = new System.Drawing.Point(361, 103);
             this.lb_depart_description.Name = "lb_depart_description";
-            this.lb_depart_description.Size = new System.Drawing.Size(57, 12);
+            this.lb_depart_description.Size = new System.Drawing.Size(58, 15);
             this.lb_depart_description.TabIndex = 17;
             this.lb_depart_description.Text = "부서 설명";
             this.lb_depart_description.Visible = false;
             // 
             // tb_revise_name
             // 
+            this.tb_revise_name.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.tb_revise_name.Location = new System.Drawing.Point(416, 18);
             this.tb_revise_name.Name = "tb_revise_name";
-            this.tb_revise_name.Size = new System.Drawing.Size(145, 21);
+            this.tb_revise_name.Size = new System.Drawing.Size(145, 23);
             this.tb_revise_name.TabIndex = 18;
             this.tb_revise_name.Visible = false;
             // 
             // tb_revise_head
             // 
+            this.tb_revise_head.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.tb_revise_head.Location = new System.Drawing.Point(416, 56);
             this.tb_revise_head.Name = "tb_revise_head";
-            this.tb_revise_head.Size = new System.Drawing.Size(145, 21);
+            this.tb_revise_head.Size = new System.Drawing.Size(145, 23);
             this.tb_revise_head.TabIndex = 19;
             this.tb_revise_head.Visible = false;
             // 
             // tb_revise_description
             // 
+            this.tb_revise_description.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.tb_revise_description.Location = new System.Drawing.Point(363, 118);
             this.tb_revise_description.Multiline = true;
             this.tb_revise_description.Name = "tb_revise_description";
