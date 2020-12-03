@@ -194,10 +194,10 @@ namespace MOVEROAD
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(497, 82);
+            this.label4.Location = new System.Drawing.Point(495, 80);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label4.Size = new System.Drawing.Size(87, 28);
+            this.label4.Size = new System.Drawing.Size(89, 30);
             this.label4.TabIndex = 26;
             this.label4.Text = "업무";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
