@@ -37,6 +37,39 @@ namespace MOVEROAD
             this.gradeLabel.Text = grade[user.grade];
             this.user = user;
 
+            set_attendance_check();
+        }
+
+
+        private void set_attendance_check()
+        {
+            //만약 출근을 누르지 않았다면, 출근은 눌렀지만 퇴근을 누르지 않았다면, 퇴근을 눌렀다면
+
+            //       출,퇴근 정보 가져오기 ///////
+
+            string ID = main.me.id;  //현재접속중인 id값
+
+            object start = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
+                "WHERE id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 22);  // 출근버튼을 클릭하였는지 확인
+
+            object finish = DBConnetion.getInstance().Select("SELECT finishTime FROM attendance_card " +
+                "WHERE id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 23); // 퇴근을 눌렀는지 확인
+
+            //////////////////////////////////////
+            
+
+            if ((string)start == null)   // 출근 X
+            {
+                label_attendance.Text = "출근을 눌러주세요.";
+            }
+            else if ((string)start != null && (string)finish == "\"") // 출근 O , 퇴근 X
+            {
+                label_attendance.Text = start + "  출근";
+            }
+            else
+            {
+                label_attendance.Text = start + "  출근\n\n"+finish+"  퇴근";
+            }
         }
 
         private void DashBoard_Load(object sender, EventArgs e)
