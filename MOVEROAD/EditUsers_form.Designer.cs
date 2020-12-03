@@ -254,9 +254,9 @@
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(547, 194);
+            this.buttonSave.Location = new System.Drawing.Point(545, 206);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(86, 29);
+            this.buttonSave.Size = new System.Drawing.Size(81, 23);
             this.buttonSave.TabIndex = 17;
             this.buttonSave.Text = "수정";
             this.buttonSave.UseVisualStyleBackColor = false;
@@ -269,9 +269,9 @@
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(547, 229);
+            this.buttonClose.Location = new System.Drawing.Point(545, 235);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(86, 29);
+            this.buttonClose.Size = new System.Drawing.Size(81, 23);
             this.buttonClose.TabIndex = 18;
             this.buttonClose.Text = "닫기";
             this.buttonClose.UseVisualStyleBackColor = false;

@@ -390,22 +390,31 @@ namespace MOVEROAD
         }
         private void DeleteNode(object sender, EventArgs e)
         {
-            if (SelectedNode != null && SelectedNode.Parent != null) { 
-                if (MessageBox.Show(SelectedNode.Text + " 업무를 삭제하시겠습니까?\n삭제시 하위 정보도 모두 삭제됩니다.", "warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (SelectedNode != null && SelectedNode.Parent != null) {
+                int nodeID = (int)SelectedNode.Tag;
+                DepartmentInfo department = departmentInfos.Find(d => (d.id == nodeID)); //id -> taskclass에서의 id
+                if (department == null)
                 {
-                    int id = Convert.ToInt32(SelectedNode.Tag);
-                    string query = "DELETE FROM task_class WHERE parent_id = '" + id + "' OR id = '" + id + "'";
+                    if (MessageBox.Show(SelectedNode.Text + " 업무를 삭제하시겠습니까?\n삭제시 하위 정보도 모두 삭제됩니다.", "warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        int id = Convert.ToInt32(SelectedNode.Tag);
+                        string query = "DELETE FROM task_class WHERE parent_id = '" + id + "' OR id = '" + id + "'";
 
-                    if (id > 1)
-                    {   //혹시라도 root가 지워질 경우 방지  
-                        DBConnetion.getInstance().Delete(query);
-                        SelectedNode.Remove();
+                        if (id > 1)
+                        {   //혹시라도 root가 지워질 경우 방지  
+                            DBConnetion.getInstance().Delete(query);
+                            SelectedNode.Remove();
+                        }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("부서는 삭제 할 수 없습니다. 부서관리에서 시도하십시오.", "Invalid selection");
                 }
             }
             else
             {
-                MessageBox.Show("선택한 업무가 없거나 선택한 업무는 삭제할 수 없습니다.", "Invalid selection");
+                MessageBox.Show("선택한 업무가 없거나 부서는 삭제할 수 없습니다.", "Invalid selection");
             }
         }
         #endregion

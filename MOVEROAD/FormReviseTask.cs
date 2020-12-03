@@ -63,8 +63,16 @@ namespace MOVEROAD
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            startTime = Convert.ToDateTime(textBoxStartTime.Text);  //DateTime
-            finishTime = Convert.ToDateTime(textBoxFinishTime.Text);
+            try
+            {
+                startTime = Convert.ToDateTime(textBoxStartTime.Text);  //DateTime
+                finishTime = Convert.ToDateTime(textBoxFinishTime.Text);
+            }
+            catch
+            {
+                MessageBox.Show("업무시간을 확인하시오.");
+                return;
+            }
             st = date + " " + textBoxStartTime.Text;    //string
             ft = date + " " + textBoxFinishTime.Text;
             text = textBoxText.Text;
