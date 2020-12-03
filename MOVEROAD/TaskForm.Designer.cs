@@ -50,8 +50,6 @@ namespace MOVEROAD
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.comboBoxRegistrant = new System.Windows.Forms.ComboBox();
-            this.buttonDeleteTask = new System.Windows.Forms.Button();
-            this.buttonReviseTask = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dateTimePickerSearchTask = new System.Windows.Forms.DateTimePicker();
@@ -61,6 +59,7 @@ namespace MOVEROAD
             this.tabPageMaster = new System.Windows.Forms.TabPage();
             this.treeViewTaskMaster = new System.Windows.Forms.TreeView();
             this.label9 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControlTask.SuspendLayout();
             this.tabPageRegistraion.SuspendLayout();
             this.tabPageManagement.SuspendLayout();
@@ -257,8 +256,6 @@ namespace MOVEROAD
             // tabPageManagement
             // 
             this.tabPageManagement.Controls.Add(this.groupBox2);
-            this.tabPageManagement.Controls.Add(this.buttonDeleteTask);
-            this.tabPageManagement.Controls.Add(this.buttonReviseTask);
             this.tabPageManagement.Controls.Add(this.groupBox1);
             this.tabPageManagement.Controls.Add(this.label8);
             this.tabPageManagement.Controls.Add(this.dataGridViewTask);
@@ -274,9 +271,9 @@ namespace MOVEROAD
             // 
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.comboBoxRegistrant);
-            this.groupBox2.Location = new System.Drawing.Point(330, 46);
+            this.groupBox2.Location = new System.Drawing.Point(374, 46);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(173, 57);
+            this.groupBox2.Size = new System.Drawing.Size(197, 57);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             // 
@@ -285,61 +282,36 @@ namespace MOVEROAD
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(6, 25);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(37, 15);
+            this.label10.Size = new System.Drawing.Size(52, 15);
             this.label10.TabIndex = 31;
-            this.label10.Text = "이름";
+            this.label10.Text = "작성자";
             // 
             // comboBoxRegistrant
             // 
             this.comboBoxRegistrant.FormattingEnabled = true;
-            this.comboBoxRegistrant.Location = new System.Drawing.Point(46, 22);
+            this.comboBoxRegistrant.Location = new System.Drawing.Point(64, 22);
             this.comboBoxRegistrant.Name = "comboBoxRegistrant";
             this.comboBoxRegistrant.Size = new System.Drawing.Size(121, 23);
             this.comboBoxRegistrant.TabIndex = 29;
-            this.comboBoxRegistrant.Text = "등록자";
+            this.comboBoxRegistrant.Text = "이름";
             this.comboBoxRegistrant.SelectedIndexChanged += new System.EventHandler(this.comboBoxRegistrant_SelectedIndexChanged);
-            // 
-            // buttonDeleteTask
-            // 
-            this.buttonDeleteTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.buttonDeleteTask.Font = new System.Drawing.Font("굴림", 10F);
-            this.buttonDeleteTask.ForeColor = System.Drawing.Color.White;
-            this.buttonDeleteTask.Location = new System.Drawing.Point(615, 59);
-            this.buttonDeleteTask.Name = "buttonDeleteTask";
-            this.buttonDeleteTask.Size = new System.Drawing.Size(100, 36);
-            this.buttonDeleteTask.TabIndex = 28;
-            this.buttonDeleteTask.Text = "삭제";
-            this.buttonDeleteTask.UseVisualStyleBackColor = false;
-            this.buttonDeleteTask.Click += new System.EventHandler(this.buttonDeleteTask_Click);
-            // 
-            // buttonReviseTask
-            // 
-            this.buttonReviseTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.buttonReviseTask.Font = new System.Drawing.Font("굴림", 10F);
-            this.buttonReviseTask.ForeColor = System.Drawing.Color.White;
-            this.buttonReviseTask.Location = new System.Drawing.Point(509, 59);
-            this.buttonReviseTask.Name = "buttonReviseTask";
-            this.buttonReviseTask.Size = new System.Drawing.Size(100, 36);
-            this.buttonReviseTask.TabIndex = 27;
-            this.buttonReviseTask.Text = "수정";
-            this.buttonReviseTask.UseVisualStyleBackColor = false;
-            this.buttonReviseTask.Click += new System.EventHandler(this.buttonReviseTask_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.dateTimePickerSearchTask);
             this.groupBox1.Controls.Add(this.comboBoxTaskKeword);
             this.groupBox1.Location = new System.Drawing.Point(21, 46);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(303, 57);
+            this.groupBox1.Size = new System.Drawing.Size(347, 57);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(133, 25);
+            this.label11.Location = new System.Drawing.Point(167, 25);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(37, 15);
             this.label11.TabIndex = 32;
@@ -348,7 +320,7 @@ namespace MOVEROAD
             // dateTimePickerSearchTask
             // 
             this.dateTimePickerSearchTask.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerSearchTask.Location = new System.Drawing.Point(12, 20);
+            this.dateTimePickerSearchTask.Location = new System.Drawing.Point(49, 20);
             this.dateTimePickerSearchTask.Name = "dateTimePickerSearchTask";
             this.dateTimePickerSearchTask.Size = new System.Drawing.Size(112, 25);
             this.dateTimePickerSearchTask.TabIndex = 29;
@@ -356,7 +328,7 @@ namespace MOVEROAD
             // comboBoxTaskKeword
             // 
             this.comboBoxTaskKeword.FormattingEnabled = true;
-            this.comboBoxTaskKeword.Location = new System.Drawing.Point(176, 22);
+            this.comboBoxTaskKeword.Location = new System.Drawing.Point(210, 22);
             this.comboBoxTaskKeword.Name = "comboBoxTaskKeword";
             this.comboBoxTaskKeword.Size = new System.Drawing.Size(121, 23);
             this.comboBoxTaskKeword.TabIndex = 30;
@@ -385,6 +357,7 @@ namespace MOVEROAD
             this.dataGridViewTask.RowTemplate.Height = 27;
             this.dataGridViewTask.Size = new System.Drawing.Size(694, 267);
             this.dataGridViewTask.TabIndex = 23;
+            this.dataGridViewTask.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTask_CellDoubleClick);
             // 
             // tabPageMaster
             // 
@@ -420,6 +393,15 @@ namespace MOVEROAD
             this.label9.Size = new System.Drawing.Size(157, 27);
             this.label9.TabIndex = 25;
             this.label9.Text = "업무 마스터 관리";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 25);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 15);
+            this.label12.TabIndex = 33;
+            this.label12.Text = "날짜";
             // 
             // TaskForm
             // 
@@ -463,8 +445,6 @@ namespace MOVEROAD
         private System.Windows.Forms.ComboBox comboBoxDepartment;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonDeleteTask;
-        private System.Windows.Forms.Button buttonReviseTask;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridViewTask;
@@ -479,5 +459,6 @@ namespace MOVEROAD
         private System.Windows.Forms.ComboBox comboBoxTaskKeword;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }

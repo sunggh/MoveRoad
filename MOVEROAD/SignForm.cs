@@ -27,7 +27,6 @@ namespace MOVEROAD
             {
                 comboBoxWork.Items.Add(department.name);
             }
-
         }
 
         //콤보박스의 업무를 선택하면

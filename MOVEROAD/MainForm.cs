@@ -52,15 +52,16 @@ namespace MOVEROAD
             lastPanel = dashBoard;
             try 
             {
-            clientSocket.Connect("211.229.51.245", 80);//220.122.52.172
-            stream = clientSocket.GetStream();
-            message = "1|"+me.index;
-            byte[] buffer = Encoding.Unicode.GetBytes(message);
-            stream.Write(buffer, 0, buffer.Length);
-            stream.Flush();
-            Thread t_handler = new Thread(GetMessage);
-            t_handler.IsBackground = true;
-            t_handler.Start();
+                
+                clientSocket.Connect("211.229.51.245", 80);//211.229.51.245
+                stream = clientSocket.GetStream();
+                message = "1|"+me.index;
+                byte[] buffer = Encoding.Unicode.GetBytes(message);
+                stream.Write(buffer, 0, buffer.Length);
+                stream.Flush();
+                Thread t_handler = new Thread(GetMessage);
+                t_handler.IsBackground = true;
+                t_handler.Start();
             }
             catch (Exception e2)
             {
@@ -76,20 +77,22 @@ namespace MOVEROAD
             while (true)
             {
                 stream = clientSocket.GetStream();
+                            
                 int BUFFERSIZE = clientSocket.ReceiveBufferSize;
                 byte[] buffer = new byte[BUFFERSIZE];
                 int bytes = stream.Read(buffer, 0, buffer.Length);
                 string message = Encoding.Unicode.GetString(buffer, 0, bytes);
                 chathandler(message);
+               
+                
             }
         }
         public int room_id;
         private void chathandler(string message)
         {
-            if (message == "") return;
             string[] str = message.Split(new string[] { "|" }, StringSplitOptions.None);
             int opcode = int.Parse(str[0]);
-            
+            int cur_room = -1;
             int user_id;
             int to_id;
             UserInfo user;
@@ -115,43 +118,62 @@ namespace MOVEROAD
                     break;
                 case 2: // 로그아웃 (2|유저아이디)
                     user_id = int.Parse(str[1]);
-                    onlines.Remove(user_id);
+                    var roomnum = -1;
+                    room_id = -1;
                     foreach (var r in room)
                     {
                         if(r.Value == user_id)
                         {
-                            room.Remove(r.Key);
+                            roomnum = r.Key;
                             break;
                         }
                     }
+                    if(room.ContainsKey(roomnum))
+                    {
+                        room.Remove(roomnum);
+                    }
+                    if (room_msg.ContainsKey(onlines[user_id]))
+                    {
+                        room_msg.Remove(onlines[user_id]);
+                    }
+                    reloadNameBox();
+                    onlines.Remove(user_id);
                     break;
                 case 3:
-                    room_id = int.Parse(str[1]);
+                    cur_room = int.Parse(str[1]);
                     to_id = int.Parse(str[2]);
-                    if (room.ContainsKey(room_id))
+                    if (room.ContainsKey(cur_room))
                     {
+                        if (!room_msg.ContainsKey(onlines[to_id]))
+                        {
+                            room_msg.Add(onlines[to_id], new List<string>());
+                        }
                         break;
                     }
-                    room.Add(room_id, to_id);
-                    ms.to_user = onlines[to_id];
+                    room.Add(cur_room, to_id);
+                    if (ms.nameBOX.Text == onlines[to_id].name+to_id)
+                    {
+                        ms.to_user = onlines[to_id];
+                        room_id = cur_room;
+                    }
                     room_msg.Add(onlines[to_id], new List<string>());
                     break;
                 case 4:
-                    room_id = int.Parse(str[1]);
+                    cur_room = int.Parse(str[1]);
                     to_id = int.Parse(str[2]);
                     msg = str[3];
                     string mss="";
-                    if (!room.ContainsKey(room_id))
+                    if (!room.ContainsKey(cur_room))
                     {
-                        room.Add(room_id, to_id);
+                        room.Add(cur_room, to_id);
                     }
                     if (!room_msg.ContainsKey(onlines[to_id]))
                     {
                         room_msg.Add(onlines[to_id], new List<string>());
                     }
-                    mss = onlines[room[room_id]].name + "|" + msg;
+                    mss = onlines[room[cur_room]].name + "|" + msg;
                     room_msg[onlines[to_id]].Add(mss);
-                    if(ms.nameBOX.Text == onlines[to_id].name)
+                    if(ms.nameBOX.Text == onlines[to_id].name+ to_id)
                         DisplayText(mss);
                     break;
             }
@@ -173,20 +195,20 @@ namespace MOVEROAD
                 }));
             }
         }
-        public void reloadUserList()
+        public void reloadNameBox()
         {
-            if (ms.onlineList.InvokeRequired)
+            if (ms.nameBOX.InvokeRequired)
             {
-                ms.onlineList.BeginInvoke(new MethodInvoker(delegate
+                ms.nameBOX.BeginInvoke(new MethodInvoker(delegate
                 {
-                    ms.loadUserList();
+                    ms.nameBOX.Text = "";
                 }));
             }
             else
             {
-                ms.onlineList.BeginInvoke(new MethodInvoker(delegate
+                ms.nameBOX.BeginInvoke(new MethodInvoker(delegate
                 {
-                    ms.loadUserList();
+                    ms.nameBOX.Text = "";
                 }));
             }
         }
@@ -325,7 +347,6 @@ namespace MOVEROAD
             ms.Show();
             this.MainPanel.Controls.Clear();
             this.MainPanel.Controls.Add(ms);
-            reloadUserList();
         }
 
         private void button3_Click(object sender, EventArgs e)
