@@ -67,11 +67,12 @@
             // buttonAgeSearch
             // 
             this.buttonAgeSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.buttonAgeSearch.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.buttonAgeSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAgeSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonAgeSearch.ForeColor = System.Drawing.Color.White;
-            this.buttonAgeSearch.Location = new System.Drawing.Point(579, 30);
+            this.buttonAgeSearch.Location = new System.Drawing.Point(579, 34);
             this.buttonAgeSearch.Name = "buttonAgeSearch";
-            this.buttonAgeSearch.Size = new System.Drawing.Size(86, 29);
+            this.buttonAgeSearch.Size = new System.Drawing.Size(81, 23);
             this.buttonAgeSearch.TabIndex = 9;
             this.buttonAgeSearch.Text = "검색";
             this.buttonAgeSearch.UseVisualStyleBackColor = false;
@@ -80,11 +81,12 @@
             // buttonNameSearch
             // 
             this.buttonNameSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.buttonNameSearch.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.buttonNameSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNameSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonNameSearch.ForeColor = System.Drawing.Color.White;
-            this.buttonNameSearch.Location = new System.Drawing.Point(357, 30);
+            this.buttonNameSearch.Location = new System.Drawing.Point(357, 34);
             this.buttonNameSearch.Name = "buttonNameSearch";
-            this.buttonNameSearch.Size = new System.Drawing.Size(86, 29);
+            this.buttonNameSearch.Size = new System.Drawing.Size(81, 23);
             this.buttonNameSearch.TabIndex = 8;
             this.buttonNameSearch.Text = "검색";
             this.buttonNameSearch.UseVisualStyleBackColor = false;
@@ -93,11 +95,12 @@
             // buttonDepartSearch
             // 
             this.buttonDepartSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.buttonDepartSearch.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.buttonDepartSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDepartSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonDepartSearch.ForeColor = System.Drawing.Color.White;
-            this.buttonDepartSearch.Location = new System.Drawing.Point(135, 30);
+            this.buttonDepartSearch.Location = new System.Drawing.Point(135, 34);
             this.buttonDepartSearch.Name = "buttonDepartSearch";
-            this.buttonDepartSearch.Size = new System.Drawing.Size(86, 29);
+            this.buttonDepartSearch.Size = new System.Drawing.Size(81, 23);
             this.buttonDepartSearch.TabIndex = 7;
             this.buttonDepartSearch.Text = "검색";
             this.buttonDepartSearch.UseVisualStyleBackColor = false;
@@ -156,7 +159,7 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -194,7 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(745, 340);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);

@@ -115,23 +115,29 @@
             // 
             // tb_depart_description
             // 
+            this.tb_depart_description.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_depart_description.Location = new System.Drawing.Point(33, 145);
             this.tb_depart_description.Multiline = true;
             this.tb_depart_description.Name = "tb_depart_description";
+            this.tb_depart_description.ReadOnly = true;
             this.tb_depart_description.Size = new System.Drawing.Size(342, 108);
             this.tb_depart_description.TabIndex = 5;
             // 
             // tb_depart_head
             // 
+            this.tb_depart_head.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_depart_head.Location = new System.Drawing.Point(110, 75);
             this.tb_depart_head.Name = "tb_depart_head";
+            this.tb_depart_head.ReadOnly = true;
             this.tb_depart_head.Size = new System.Drawing.Size(265, 23);
             this.tb_depart_head.TabIndex = 4;
             // 
             // tb_depart_name
             // 
+            this.tb_depart_name.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_depart_name.Location = new System.Drawing.Point(110, 32);
             this.tb_depart_name.Name = "tb_depart_name";
+            this.tb_depart_name.ReadOnly = true;
             this.tb_depart_name.Size = new System.Drawing.Size(265, 23);
             this.tb_depart_name.TabIndex = 3;
             // 
