@@ -60,6 +60,7 @@
             // btn_dpt_search
             // 
             this.btn_dpt_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btn_dpt_search.FlatAppearance.BorderSize = 0;
             this.btn_dpt_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_dpt_search.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btn_dpt_search.ForeColor = System.Drawing.Color.White;
@@ -73,7 +74,7 @@
             // 
             // tb_depart_name
             // 
-            this.tb_depart_name.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tb_depart_name.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_depart_name.Location = new System.Drawing.Point(80, 79);
             this.tb_depart_name.Name = "tb_depart_name";
             this.tb_depart_name.ReadOnly = true;
@@ -94,6 +95,7 @@
             // btn_user_search
             // 
             this.btn_user_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btn_user_search.FlatAppearance.BorderSize = 0;
             this.btn_user_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_user_search.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btn_user_search.ForeColor = System.Drawing.Color.White;
@@ -108,6 +110,7 @@
             // btn_cancel
             // 
             this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btn_cancel.FlatAppearance.BorderSize = 0;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btn_cancel.ForeColor = System.Drawing.Color.White;
@@ -133,6 +136,7 @@
             // btn_move
             // 
             this.btn_move.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btn_move.FlatAppearance.BorderSize = 0;
             this.btn_move.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_move.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btn_move.ForeColor = System.Drawing.Color.White;
@@ -146,7 +150,7 @@
             // 
             // tb_user
             // 
-            this.tb_user.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tb_user.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_user.Location = new System.Drawing.Point(80, 13);
             this.tb_user.Name = "tb_user";
             this.tb_user.ReadOnly = true;

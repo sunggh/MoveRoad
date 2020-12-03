@@ -85,7 +85,7 @@
             // tb_original_name
             // 
             this.tb_original_name.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tb_original_name.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tb_original_name.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_original_name.Location = new System.Drawing.Point(112, 18);
             this.tb_original_name.Name = "tb_original_name";
             this.tb_original_name.ReadOnly = true;
@@ -95,7 +95,7 @@
             // tb_original_head
             // 
             this.tb_original_head.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tb_original_head.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tb_original_head.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_original_head.Location = new System.Drawing.Point(112, 56);
             this.tb_original_head.Name = "tb_original_head";
             this.tb_original_head.ReadOnly = true;
@@ -105,7 +105,7 @@
             // tb_original_description
             // 
             this.tb_original_description.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tb_original_description.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tb_original_description.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_original_description.Location = new System.Drawing.Point(22, 118);
             this.tb_original_description.Multiline = true;
             this.tb_original_description.Name = "tb_original_description";
@@ -166,7 +166,7 @@
             // 
             // tb_revise_name
             // 
-            this.tb_revise_name.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tb_revise_name.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_revise_name.Location = new System.Drawing.Point(416, 18);
             this.tb_revise_name.Name = "tb_revise_name";
             this.tb_revise_name.Size = new System.Drawing.Size(145, 23);
@@ -175,16 +175,17 @@
             // 
             // tb_revise_head
             // 
-            this.tb_revise_head.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tb_revise_head.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_revise_head.Location = new System.Drawing.Point(416, 56);
             this.tb_revise_head.Name = "tb_revise_head";
+            this.tb_revise_head.ReadOnly = true;
             this.tb_revise_head.Size = new System.Drawing.Size(145, 23);
             this.tb_revise_head.TabIndex = 19;
             this.tb_revise_head.Visible = false;
             // 
             // tb_revise_description
             // 
-            this.tb_revise_description.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tb_revise_description.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_revise_description.Location = new System.Drawing.Point(363, 118);
             this.tb_revise_description.Multiline = true;
             this.tb_revise_description.Name = "tb_revise_description";
