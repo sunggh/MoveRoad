@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Today = new System.Windows.Forms.Label();
             this.buttonStart = new System.Windows.Forms.Button();
             this.buttonFinish = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@
             this.Today.AutoSize = true;
             this.Today.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Today.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.Today.Location = new System.Drawing.Point(542, 138);
+            this.Today.Location = new System.Drawing.Point(542, 96);
             this.Today.Name = "Today";
             this.Today.Size = new System.Drawing.Size(132, 25);
             this.Today.TabIndex = 2;
@@ -60,7 +60,7 @@
             this.buttonStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.buttonStart.ForeColor = System.Drawing.Color.White;
-            this.buttonStart.Location = new System.Drawing.Point(547, 186);
+            this.buttonStart.Location = new System.Drawing.Point(547, 136);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(136, 58);
             this.buttonStart.TabIndex = 3;
@@ -73,7 +73,7 @@
             this.buttonFinish.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.buttonFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.buttonFinish.ForeColor = System.Drawing.Color.White;
-            this.buttonFinish.Location = new System.Drawing.Point(547, 258);
+            this.buttonFinish.Location = new System.Drawing.Point(547, 212);
             this.buttonFinish.Name = "buttonFinish";
             this.buttonFinish.Size = new System.Drawing.Size(136, 60);
             this.buttonFinish.TabIndex = 4;
@@ -89,42 +89,42 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("굴림", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("굴림", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(39, 76);
+            this.dataGridView1.Location = new System.Drawing.Point(22, 67);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(488, 263);
+            this.dataGridView1.Size = new System.Drawing.Size(514, 324);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label1.Location = new System.Drawing.Point(45, 38);
+            this.label1.Location = new System.Drawing.Point(31, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 25);
+            this.label1.Size = new System.Drawing.Size(98, 37);
             this.label1.TabIndex = 6;
-            this.label1.Text = "출퇴근 카드";
+            this.label1.Text = "출근부";
             // 
             // buttonInc
             // 
             this.buttonInc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.buttonInc.ForeColor = System.Drawing.Color.White;
-            this.buttonInc.Location = new System.Drawing.Point(273, 40);
+            this.buttonInc.Location = new System.Drawing.Point(284, 22);
             this.buttonInc.Name = "buttonInc";
             this.buttonInc.Size = new System.Drawing.Size(24, 26);
             this.buttonInc.TabIndex = 7;
@@ -136,7 +136,7 @@
             // 
             this.buttonDec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.buttonDec.ForeColor = System.Drawing.Color.White;
-            this.buttonDec.Location = new System.Drawing.Point(310, 40);
+            this.buttonDec.Location = new System.Drawing.Point(314, 22);
             this.buttonDec.Name = "buttonDec";
             this.buttonDec.Size = new System.Drawing.Size(24, 26);
             this.buttonDec.TabIndex = 8;
@@ -147,11 +147,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label2.Location = new System.Drawing.Point(198, 45);
+            this.label2.Location = new System.Drawing.Point(194, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 15);
+            this.label2.Size = new System.Drawing.Size(84, 21);
             this.label2.TabIndex = 9;
             this.label2.Text = "현재 년-월";
             // 
@@ -159,7 +159,7 @@
             // 
             this.buttonRead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.buttonRead.ForeColor = System.Drawing.Color.White;
-            this.buttonRead.Location = new System.Drawing.Point(427, 45);
+            this.buttonRead.Location = new System.Drawing.Point(398, 23);
             this.buttonRead.Name = "buttonRead";
             this.buttonRead.Size = new System.Drawing.Size(83, 25);
             this.buttonRead.TabIndex = 10;
@@ -172,7 +172,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label4.Location = new System.Drawing.Point(579, 100);
+            this.label4.Location = new System.Drawing.Point(580, 69);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 25);
             this.label4.TabIndex = 12;
@@ -182,7 +182,7 @@
             // 
             this.pictureBox1.Image = global::MOVEROAD.Properties.Resources.calendar;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(547, 100);
+            this.pictureBox1.Location = new System.Drawing.Point(547, 67);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(27, 27);
