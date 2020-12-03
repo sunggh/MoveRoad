@@ -29,7 +29,13 @@ namespace MOVEROAD
         public Dictionary<int,UserInfo> onlines = new Dictionary<int,UserInfo>();
         public Dictionary<int, int> room = new Dictionary<int, int>();
         public Dictionary<UserInfo, List<string>> room_msg = new Dictionary<UserInfo, List<string>>();
-        public List<string> msgDash = new List<string>();
+        private static List<string> msgDash = new List<string>();
+
+        public List<string> getMsgDash()
+        {
+            return msgDash;
+        }
+
         public MainForm(UserInfo me)
         {
             this.me = me;
@@ -173,7 +179,7 @@ namespace MOVEROAD
                     }
                     mss = onlines[room[cur_room]].name + "|" + msg;
                     room_msg[onlines[to_id]].Add(mss);
-                    msgDash.Add(onlines[room[cur_room]].name + "( "+ onlines[room[cur_room]].index+ ") : " + str[1]);
+                    msgDash.Add(onlines[room[cur_room]].name + "("+ onlines[room[cur_room]].index+ ") : " + str[3]);
                     if (msgDash.Count == 6)
                     {
                         msgDash.RemoveAt(0);

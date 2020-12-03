@@ -73,7 +73,7 @@ namespace MOVEROAD
                 if (nameBOX.Text == user.Value.name + user.Value.index)
                     macth = true;
             }
-            if (!macth)
+            if(!macth) 
                 nameBOX.Text = "";
         }
         public void SetTextBoxClientSize(TextBox textBox)

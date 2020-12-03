@@ -26,7 +26,7 @@ namespace MOVEROAD
                 departName.Add(depart.id,depart.name);
             }
             InitializeComponent();
-            msgList.Items.Add("메세지가 없습니다.");
+            msgList.Items.Add("새로운 메세지가 없습니다.");
             backgroundWorker = new BackgroundWorker();
             backgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorkerDoWork);
             backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerRunWorkerCompleted);
@@ -45,11 +45,14 @@ namespace MOVEROAD
         }
         private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
         {
-           
-            if (this.main.msgDash.Count>0)
+            if (this.main.getMsgDash().Count>0)
             {
-                if(msgList.Items[0].ToString() != this.main.msgDash[0])
+                if (msgList.Items[0].ToString() != this.main.getMsgDash()[0].ToString() || msgList.Items.Count != this.main.getMsgDash().Count)
+                {
                     e.Result = (bool)true;
+                }
+                else
+                    e.Result = (bool)false;
             }
             else
             {
@@ -59,31 +62,26 @@ namespace MOVEROAD
         }
         private void BackgroundWorkerRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (e.Result == null)
+            if ((bool)e.Result)
             {
-                backgroundWorker.RunWorkerAsync();
-            } else
-            {
-                if ((bool)e.Result)
+                if (msgList.Items.Count < 7)
                 {
-                    if (msgList.Items.Count < 7)
-                    {
-                        msgList.Items.Clear();
-                        msgList.Items.AddRange(this.main.msgDash.ToArray());
-                    }
-                    else
-                    {
-                        msgList.Items.RemoveAt(0);
-                        msgList.Items.Add(this.main.msgDash[5]);
-                    }
+                    msgList.Items.Clear();
+                    msgList.Items.AddRange(this.main.getMsgDash().ToArray());
                 }
                 else
                 {
-
+                    msgList.Items.RemoveAt(0);
+                    msgList.Items.Add(this.main.getMsgDash()[5]);
                 }
             }
-            
-            
+            else
+            {
+
+            }
+
+            backgroundWorker.RunWorkerAsync();
+
         }
         private void pictureBox2_Click(object sender, EventArgs e)
         {

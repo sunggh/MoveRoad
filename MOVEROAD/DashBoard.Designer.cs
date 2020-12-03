@@ -180,9 +180,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.panel2.Controls.Add(this.listBox2);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(320, 232);
+            this.panel2.Location = new System.Drawing.Point(320, 230);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(187, 150);
+            this.panel2.Size = new System.Drawing.Size(187, 152);
             this.panel2.TabIndex = 3;
             // 
             // listBox2
@@ -193,9 +193,9 @@
             this.listBox2.ForeColor = System.Drawing.Color.White;
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 15;
-            this.listBox2.Location = new System.Drawing.Point(0, 29);
+            this.listBox2.Location = new System.Drawing.Point(0, 33);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(184, 120);
+            this.listBox2.Size = new System.Drawing.Size(188, 120);
             this.listBox2.TabIndex = 2;
             this.listBox2.TabStop = false;
             this.listBox2.UseTabStops = false;
