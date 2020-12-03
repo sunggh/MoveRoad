@@ -37,6 +37,9 @@
             // buttonAddUsers
             // 
             this.buttonAddUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonAddUsers.FlatAppearance.BorderSize = 0;
+            this.buttonAddUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddUsers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddUsers.ForeColor = System.Drawing.Color.White;
             this.buttonAddUsers.Location = new System.Drawing.Point(12, 12);
             this.buttonAddUsers.Name = "buttonAddUsers";
@@ -49,6 +52,9 @@
             // buttonSearchUsers
             // 
             this.buttonSearchUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonSearchUsers.FlatAppearance.BorderSize = 0;
+            this.buttonSearchUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSearchUsers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonSearchUsers.ForeColor = System.Drawing.Color.White;
             this.buttonSearchUsers.Location = new System.Drawing.Point(253, 12);
             this.buttonSearchUsers.Name = "buttonSearchUsers";
@@ -61,6 +67,9 @@
             // buttonEditUsers
             // 
             this.buttonEditUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonEditUsers.FlatAppearance.BorderSize = 0;
+            this.buttonEditUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditUsers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonEditUsers.ForeColor = System.Drawing.Color.White;
             this.buttonEditUsers.Location = new System.Drawing.Point(498, 12);
             this.buttonEditUsers.Name = "buttonEditUsers";
@@ -82,7 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(745, 412);
             this.Controls.Add(this.HRpanel);
             this.Controls.Add(this.buttonEditUsers);
