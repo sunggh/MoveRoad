@@ -84,6 +84,7 @@
             this.tabControlSign.Controls.Add(this.tabPageNewInsert);
             this.tabControlSign.Controls.Add(this.tabPageToMe);
             this.tabControlSign.Controls.Add(this.tabPageFromMe);
+            this.tabControlSign.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.tabControlSign.Location = new System.Drawing.Point(-3, 0);
             this.tabControlSign.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControlSign.Name = "tabControlSign";
@@ -105,11 +106,11 @@
             this.tabPageNewInsert.Controls.Add(this.label3);
             this.tabPageNewInsert.Controls.Add(this.label2);
             this.tabPageNewInsert.Controls.Add(this.label1);
-            this.tabPageNewInsert.Location = new System.Drawing.Point(4, 25);
+            this.tabPageNewInsert.Location = new System.Drawing.Point(4, 29);
             this.tabPageNewInsert.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPageNewInsert.Name = "tabPageNewInsert";
             this.tabPageNewInsert.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPageNewInsert.Size = new System.Drawing.Size(850, 490);
+            this.tabPageNewInsert.Size = new System.Drawing.Size(850, 486);
             this.tabPageNewInsert.TabIndex = 0;
             this.tabPageNewInsert.Text = "신규 결재 등록";
             this.tabPageNewInsert.UseVisualStyleBackColor = true;
@@ -117,7 +118,8 @@
             // buttonInsert
             // 
             this.buttonInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.buttonInsert.Font = new System.Drawing.Font("굴림", 10F);
+            this.buttonInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInsert.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonInsert.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonInsert.Location = new System.Drawing.Point(335, 389);
             this.buttonInsert.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -134,7 +136,7 @@
             this.comboBoxDrafter.Location = new System.Drawing.Point(662, 71);
             this.comboBoxDrafter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxDrafter.Name = "comboBoxDrafter";
-            this.comboBoxDrafter.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxDrafter.Size = new System.Drawing.Size(121, 28);
             this.comboBoxDrafter.TabIndex = 9;
             // 
             // comboBoxWork
@@ -143,7 +145,7 @@
             this.comboBoxWork.Location = new System.Drawing.Point(430, 71);
             this.comboBoxWork.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxWork.Name = "comboBoxWork";
-            this.comboBoxWork.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxWork.Size = new System.Drawing.Size(121, 28);
             this.comboBoxWork.TabIndex = 8;
             this.comboBoxWork.SelectedIndexChanged += new System.EventHandler(this.comboBoxWork_SelectedIndexChanged);
             // 
@@ -170,7 +172,7 @@
             this.textBoxTitle.Location = new System.Drawing.Point(125, 70);
             this.textBoxTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTitle.Name = "textBoxTitle";
-            this.textBoxTitle.Size = new System.Drawing.Size(175, 25);
+            this.textBoxTitle.Size = new System.Drawing.Size(175, 27);
             this.textBoxTitle.TabIndex = 5;
             // 
             // label5
@@ -181,7 +183,7 @@
             this.label5.Location = new System.Drawing.Point(47, 305);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label5.Size = new System.Drawing.Size(72, 25);
+            this.label5.Size = new System.Drawing.Size(74, 30);
             this.label5.TabIndex = 4;
             this.label5.Text = "코멘트";
             // 
@@ -193,7 +195,7 @@
             this.label4.Location = new System.Drawing.Point(62, 128);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label4.Size = new System.Drawing.Size(57, 25);
+            this.label4.Size = new System.Drawing.Size(59, 30);
             this.label4.TabIndex = 3;
             this.label4.Text = "내용";
             // 
@@ -205,7 +207,7 @@
             this.label3.Location = new System.Drawing.Point(584, 70);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label3.Size = new System.Drawing.Size(72, 25);
+            this.label3.Size = new System.Drawing.Size(74, 30);
             this.label3.TabIndex = 2;
             this.label3.Text = "결재자";
             // 
@@ -217,7 +219,7 @@
             this.label2.Location = new System.Drawing.Point(332, 69);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label2.Size = new System.Drawing.Size(92, 25);
+            this.label2.Size = new System.Drawing.Size(93, 30);
             this.label2.TabIndex = 1;
             this.label2.Text = "업무 선택";
             // 
@@ -229,7 +231,7 @@
             this.label1.Location = new System.Drawing.Point(62, 69);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label1.Size = new System.Drawing.Size(57, 25);
+            this.label1.Size = new System.Drawing.Size(59, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "제목";
             // 
@@ -243,26 +245,26 @@
             this.tabPageToMe.Controls.Add(this.buttonTurn);
             this.tabPageToMe.Controls.Add(this.buttonSign);
             this.tabPageToMe.Controls.Add(this.dataGridViewRequest);
-            this.tabPageToMe.Location = new System.Drawing.Point(4, 25);
+            this.tabPageToMe.Location = new System.Drawing.Point(4, 29);
             this.tabPageToMe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPageToMe.Name = "tabPageToMe";
             this.tabPageToMe.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPageToMe.Size = new System.Drawing.Size(850, 490);
+            this.tabPageToMe.Size = new System.Drawing.Size(850, 486);
             this.tabPageToMe.TabIndex = 1;
             this.tabPageToMe.Text = "결재 요청 내역";
             this.tabPageToMe.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(671, 21);
+            this.label11.Location = new System.Drawing.Point(668, 16);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label11.Size = new System.Drawing.Size(122, 25);
+            this.label11.Size = new System.Drawing.Size(170, 30);
             this.label11.TabIndex = 7;
             this.label11.Text = "내용 상세보기";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxDetail_req
             // 
@@ -277,11 +279,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(14, 22);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(11, 16);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label9.Size = new System.Drawing.Size(92, 25);
+            this.label9.Size = new System.Drawing.Size(93, 30);
             this.label9.TabIndex = 5;
             this.label9.Text = "결재 내역";
             // 
@@ -293,7 +295,7 @@
             this.label7.Location = new System.Drawing.Point(23, 362);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label7.Size = new System.Drawing.Size(57, 25);
+            this.label7.Size = new System.Drawing.Size(59, 30);
             this.label7.TabIndex = 4;
             this.label7.Text = "메모";
             // 
@@ -309,7 +311,8 @@
             // buttonTurn
             // 
             this.buttonTurn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.buttonTurn.Font = new System.Drawing.Font("굴림", 10F);
+            this.buttonTurn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTurn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonTurn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonTurn.Location = new System.Drawing.Point(436, 424);
             this.buttonTurn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -323,7 +326,8 @@
             // buttonSign
             // 
             this.buttonSign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.buttonSign.Font = new System.Drawing.Font("굴림", 10F);
+            this.buttonSign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSign.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonSign.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonSign.Location = new System.Drawing.Point(173, 424);
             this.buttonSign.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -350,13 +354,15 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewRequest.ColumnHeadersHeight = 29;
+            this.dataGridViewRequest.EnableHeadersVisualStyles = false;
             this.dataGridViewRequest.GridColor = System.Drawing.Color.Black;
             this.dataGridViewRequest.Location = new System.Drawing.Point(11, 49);
             this.dataGridViewRequest.Name = "dataGridViewRequest";
             this.dataGridViewRequest.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -384,11 +390,11 @@
             this.tabPageFromMe.Controls.Add(this.label10);
             this.tabPageFromMe.Controls.Add(this.label8);
             this.tabPageFromMe.Controls.Add(this.dataGridViewSignList);
-            this.tabPageFromMe.Location = new System.Drawing.Point(4, 25);
+            this.tabPageFromMe.Location = new System.Drawing.Point(4, 29);
             this.tabPageFromMe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPageFromMe.Name = "tabPageFromMe";
             this.tabPageFromMe.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPageFromMe.Size = new System.Drawing.Size(850, 490);
+            this.tabPageFromMe.Size = new System.Drawing.Size(850, 486);
             this.tabPageFromMe.TabIndex = 2;
             this.tabPageFromMe.Text = "내가 등록한 결재";
             this.tabPageFromMe.UseVisualStyleBackColor = true;
@@ -398,36 +404,36 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label14.Location = new System.Drawing.Point(21, 425);
+            this.label14.Location = new System.Drawing.Point(16, 425);
             this.label14.Name = "label14";
             this.label14.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label14.Size = new System.Drawing.Size(57, 25);
+            this.label14.Size = new System.Drawing.Size(59, 30);
             this.label14.TabIndex = 10;
             this.label14.Text = "메모";
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label13.Location = new System.Drawing.Point(652, 223);
+            this.label13.Location = new System.Drawing.Point(644, 221);
             this.label13.Name = "label13";
             this.label13.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label13.Size = new System.Drawing.Size(122, 25);
+            this.label13.Size = new System.Drawing.Size(182, 30);
             this.label13.TabIndex = 9;
             this.label13.Text = "내용 상세보기";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label12.Location = new System.Drawing.Point(652, 10);
+            this.label12.Location = new System.Drawing.Point(644, 3);
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label12.Size = new System.Drawing.Size(122, 25);
+            this.label12.Size = new System.Drawing.Size(182, 30);
             this.label12.TabIndex = 8;
             this.label12.Text = "내용 상세보기";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxDetail_turn
             // 
@@ -472,14 +478,15 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewSignTurnList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewSignTurnList.ColumnHeadersHeight = 29;
             this.dataGridViewSignTurnList.EnableHeadersVisualStyles = false;
             this.dataGridViewSignTurnList.GridColor = System.Drawing.Color.Black;
-            this.dataGridViewSignTurnList.Location = new System.Drawing.Point(20, 254);
+            this.dataGridViewSignTurnList.Location = new System.Drawing.Point(20, 247);
             this.dataGridViewSignTurnList.Name = "dataGridViewSignTurnList";
             this.dataGridViewSignTurnList.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -492,7 +499,7 @@
             this.dataGridViewSignTurnList.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewSignTurnList.RowTemplate.Height = 27;
             this.dataGridViewSignTurnList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSignTurnList.Size = new System.Drawing.Size(617, 143);
+            this.dataGridViewSignTurnList.Size = new System.Drawing.Size(617, 160);
             this.dataGridViewSignTurnList.TabIndex = 0;
             this.dataGridViewSignTurnList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSignTurnList_CellDoubleClick);
             // 
@@ -501,10 +508,10 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(21, 223);
+            this.label10.Location = new System.Drawing.Point(21, 209);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label10.Size = new System.Drawing.Size(92, 25);
+            this.label10.Size = new System.Drawing.Size(93, 30);
             this.label10.TabIndex = 3;
             this.label10.Text = "반려 내역";
             // 
@@ -513,10 +520,10 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(20, 10);
+            this.label8.Location = new System.Drawing.Point(21, 4);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.label8.Size = new System.Drawing.Size(92, 25);
+            this.label8.Size = new System.Drawing.Size(93, 30);
             this.label8.TabIndex = 2;
             this.label8.Text = "결재 내역";
             // 
@@ -536,6 +543,7 @@
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewSignList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewSignList.ColumnHeadersHeight = 29;
             this.dataGridViewSignList.EnableHeadersVisualStyles = false;
             this.dataGridViewSignList.GridColor = System.Drawing.Color.Black;
             this.dataGridViewSignList.Location = new System.Drawing.Point(20, 37);
@@ -543,7 +551,7 @@
             this.dataGridViewSignList.ReadOnly = true;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -556,7 +564,7 @@
             this.dataGridViewSignList.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewSignList.RowTemplate.Height = 27;
             this.dataGridViewSignList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSignList.Size = new System.Drawing.Size(617, 177);
+            this.dataGridViewSignList.Size = new System.Drawing.Size(617, 160);
             this.dataGridViewSignList.TabIndex = 0;
             this.dataGridViewSignList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSignList_CellDoubleClick);
             // 
@@ -605,7 +613,6 @@
         private System.Windows.Forms.TextBox textBoxMemo;
         private System.Windows.Forms.Button buttonTurn;
         private System.Windows.Forms.Button buttonSign;
-        private System.Windows.Forms.DataGridView dataGridViewRequest;
         private System.Windows.Forms.DataGridView dataGridViewSignList;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -620,5 +627,6 @@
         private System.Windows.Forms.TextBox textBoxDetail_turn;
         private System.Windows.Forms.TextBox textBoxDetail_done;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridView dataGridViewRequest;
     }
 }

@@ -18,7 +18,7 @@ namespace MOVEROAD
         public int depart;
         public string name;
         public int age;
-
+        
         public SearchUsers(MainForm main)
         {
             InitializeComponent();

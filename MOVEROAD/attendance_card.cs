@@ -77,12 +77,14 @@ namespace MOVEROAD
             }
             else // 출근버튼을 눌렀다면
                 MessageBox.Show("이미 출근 처리 되었습니다.");
+            showgrid();
         }
 
         private void buttonFinish_Click(object sender, EventArgs e) //퇴근 버튼
         {
             att_finish();
             check_overtime();
+            showgrid();
         }
 
         #region 퇴근 확인
@@ -334,7 +336,7 @@ namespace MOVEROAD
 
             // 출근부를 조회 현재 년-월을 like문으로 설정하여 년-월 별로 출근부를 조회 할수 있음 
             string query = "SELECT name AS 사용자이름, DATE_FORMAT(date, '%d') AS 출근일,startTime AS 출근시간 ,DATE_FORMAT(date2, '%d') AS 퇴근일,finishTime AS 퇴근시간"
-                       + " FROM attendance_card join user on attendance_card.id = user.id Where user.id='" + main.me.id + "' and date like '" + a + "%' ";
+                       + " FROM attendance_card join user on attendance_card.id = user.id Where user.id='" + main.me.id + "' and date like '" + a + "%'  order by `출근일` asc";
             object tb = DBConnetion.getInstance().Select(query, 70);
             dataGridView1.DataSource = tb;
         }
@@ -346,7 +348,7 @@ namespace MOVEROAD
 
             // 출근부를 조회 현재 년-월을 like문으로 설정하여 년-월 별로 출근부를 조회 할수 있음 
             string query = "SELECT name AS 사용자이름, DATE_FORMAT(date, '%d') AS 출근일,startTime AS 출근시간 ,DATE_FORMAT(date2, '%d') AS 퇴근일,finishTime AS 퇴근시간"
-                       + " FROM attendance_card join user on attendance_card.id = user.id Where user.id='" + main.me.id + "' and date like '" + a + "%' ";
+                       + " FROM attendance_card join user on attendance_card.id = user.id Where user.id='" + main.me.id + "' and date like '" + a + "%' order by `출근일` asc ";
             object tb = DBConnetion.getInstance().Select(query, 70);
             dataGridView1.DataSource = tb;
         }

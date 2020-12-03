@@ -45,7 +45,7 @@
             this.btn_department.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_department.Font = new System.Drawing.Font("Segoe UI", 24F);
             this.btn_department.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_department.Image = global::MOVEROAD.Properties.Resources.test01;
+            this.btn_department.Image = global::MOVEROAD.Properties.Resources.부서관리;
             this.btn_department.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_department.Location = new System.Drawing.Point(283, 120);
             this.btn_department.Name = "btn_department";
@@ -66,7 +66,7 @@
             this.btn_payment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_payment.Font = new System.Drawing.Font("Segoe UI", 24F);
             this.btn_payment.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_payment.Image = global::MOVEROAD.Properties.Resources.payment01;
+            this.btn_payment.Image = global::MOVEROAD.Properties.Resources.급여관리;
             this.btn_payment.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_payment.Location = new System.Drawing.Point(482, 120);
             this.btn_payment.Name = "btn_payment";
@@ -79,7 +79,7 @@
             // btn_HR
             // 
             this.btn_HR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.btn_HR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_HR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_HR.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_HR.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_HR.FlatAppearance.BorderSize = 0;
@@ -87,7 +87,7 @@
             this.btn_HR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HR.Font = new System.Drawing.Font("Segoe UI", 24F);
             this.btn_HR.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_HR.Image = global::MOVEROAD.Properties.Resources.test02;
+            this.btn_HR.Image = global::MOVEROAD.Properties.Resources.사원관리4;
             this.btn_HR.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_HR.Location = new System.Drawing.Point(86, 120);
             this.btn_HR.Name = "btn_HR";

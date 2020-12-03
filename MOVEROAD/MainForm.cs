@@ -335,6 +335,8 @@ namespace MOVEROAD
         {
             lastPanel.Dispose();
             importDepartmentInfo();
+            string sql = "SELECT * FROM user where `index` = '" + this.me.index + "'";
+            this.me = (UserInfo)DBConnetion.getInstance().Select(sql, 0);
             DashBoard dashBoard = new DashBoard(me ,this);
             dashBoard.TopLevel = false;
             dashBoard.Show();
