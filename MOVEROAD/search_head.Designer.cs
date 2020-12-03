@@ -60,12 +60,12 @@
             // username
             // 
             this.username.Text = "이름";
-            this.username.Width = 94;
+            this.username.Width = 85;
             // 
             // userindex
             // 
             this.userindex.Text = "직급";
-            this.userindex.Width = 97;
+            this.userindex.Width = 86;
             // 
             // btn_cancel
             // 

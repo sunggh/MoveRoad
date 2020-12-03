@@ -23,8 +23,13 @@ namespace MOVEROAD
 
         private void btn_search_head_Click(object sender, EventArgs e)
         {
-            rivise_depart rivise = new rivise_depart(this);
-            rivise.ShowDialog();
+            this.TransparencyKey = Color.Gray;
+            this.Opacity = 0.5;
+            using (rivise_depart rivise = new rivise_depart(this))
+            {
+                rivise.ShowDialog();
+            }
+            this.Opacity = 1;
         }
 
         private void btn_revise_Click(object sender, EventArgs e)
@@ -86,11 +91,14 @@ namespace MOVEROAD
 
         private void btn_search_Click(object sender, EventArgs e)
         {
+            this.TransparencyKey = Color.Gray;
+            this.Opacity = 0.5;
             using (search_head search = new search_head())
             {
                 search.ShowDialog();
                 tb_revise_head.Text = search.name_;
             }
+            this.Opacity = 1;
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -60,7 +60,7 @@
             // depart_name
             // 
             this.depart_name.Text = "부서 명";
-            this.depart_name.Width = 70;
+            this.depart_name.Width = 64;
             // 
             // depart_head
             // 
@@ -70,7 +70,7 @@
             // memo
             // 
             this.memo.Text = "설명(간략)";
-            this.memo.Width = 120;
+            this.memo.Width = 117;
             // 
             // btn_cancel
             // 
