@@ -53,9 +53,6 @@ namespace MOVEROAD
                 string today = dt.ToString("yyyy-MM");
 
                 //출근 시 deduction 테이블에 기본값 배치(급여확인용)
-                string get_query = "SELECT * FROM project.deduction where `date` = '" + today + "'";
-                string get_date = (string)DBConnetion.getInstance().Select(get_query, 84);
-
                 string sql = "SELECT totalPay from deduction where `index` = '"+user.index+"' and `date` = '" + today + "'";
                 string get_tp = (string)DBConnetion.getInstance().Select(sql, 181);
 
@@ -247,7 +244,7 @@ namespace MOVEROAD
 
             List<string> list = (List<string>)DBConnetion.getInstance().Select(set_dedcution, 83);
 
-            string get_query = "SELECT * FROM project.deduction where `date` = '"+today+"'";
+            string get_query = "SELECT * FROM project.deduction where `index` = '"+user.index+"' and `date` = '"+today+"'";
             string get_date = (string)DBConnetion.getInstance().Select(get_query, 84);
 
             //deduction 테이블 달별, 실급여, 유저 삽입(나머지 값 0)
