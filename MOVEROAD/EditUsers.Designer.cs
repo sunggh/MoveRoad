@@ -82,9 +82,9 @@
             this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRefresh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonRefresh.ForeColor = System.Drawing.Color.White;
-            this.buttonRefresh.Location = new System.Drawing.Point(12, 6);
+            this.buttonRefresh.Location = new System.Drawing.Point(12, 12);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(86, 29);
+            this.buttonRefresh.Size = new System.Drawing.Size(81, 23);
             this.buttonRefresh.TabIndex = 2;
             this.buttonRefresh.Text = "새로고침";
             this.buttonRefresh.UseVisualStyleBackColor = false;
