@@ -68,6 +68,7 @@ namespace MOVEROAD
 
                 //부서 추가시 task_class에도 값을 
                 string task_add_query = "INSERT INTO task_class(name,parent_id,level,depart_id) VALUES('" + depart_name + "',' 1 ',' 1 ','" + count_id + "')";
+                DBConnetion.getInstance().Insert(task_add_query);
 
                 //메인에 객체형태로 department 넣어주기 위함.
                 mf.departments.Add(new DepartmentInfo(department_id, depart_name, user.index, depart_memo));
