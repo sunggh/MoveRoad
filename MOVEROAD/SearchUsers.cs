@@ -105,7 +105,7 @@ namespace MOVEROAD
             }
             else
             {
-                try
+                if(age >= 1 && age < 100) // 나이 1세~99세 까지만 가입 가능
                 {
                     this.age = Convert.ToInt32(textBoxAge.Text);
                     string query = "SELECT user.index AS 'No.', department.name AS '부서명', " +
@@ -117,11 +117,19 @@ namespace MOVEROAD
 
                     textBoxAge.Text = "";
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("올바르게 입력하여 주십시오.", "입력 오류");
+                    MessageBox.Show("나이를 올바르게 입력하여 주십시오. (범위: 1-99)", "입력 오류");
                     return;
                 }
+            }
+        }
+
+        private void textBoxAge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
             }
         }
     }

@@ -125,6 +125,7 @@
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(88, 23);
             this.textBoxAge.TabIndex = 5;
+            this.textBoxAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAge_KeyPress);
             // 
             // label3
             // 

@@ -104,7 +104,7 @@ namespace MOVEROAD
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             if(comboBoxDepart.Text == "" || comboBoxGrade.Text == "" || textBoxAge.Text == "" || textBoxId.Text == "" || textBoxPassword.Text == "" || textBoxName.Text == "" || comboBoxGender.Text == "" ||
-                textBoxPhone.Text == "" || textBoxAddress.Text == "" || textBoxPhone.Text == "하이픈(-)까지 입력")
+                textBoxPhone.Text == "" || textBoxAddress.Text == "" || textBoxPhone.Text == "하이픈(-)없이 입력")
             {
                 MessageBox.Show("빈칸을 모두 채워 주십시오.", "등록 오류");
                 return;
@@ -121,8 +121,16 @@ namespace MOVEROAD
                 this.phone = textBoxPhone.Text; // 전화번호
                 this.address = textBoxAddress.Text; // 주소
 
-                AddNewcomer(); // 사원 추가
-                DataShow(); // 데이터 그리드뷰 갱신
+                if(age >= 1 && age < 100) // 나이 1세~99세 까지만 가입 가능
+                {
+                    AddNewcomer(); // 사원 추가
+                    DataShow(); // 데이터 그리드뷰 갱신
+                }
+                else
+                {
+                    MessageBox.Show("나이를 올바르게 입력하여 주십시오. (범위: 1-99)", "입력 오류");
+                    return;
+                }
             }
         }
 
@@ -142,10 +150,26 @@ namespace MOVEROAD
 
         private void textBoxPhone_MouseClick(object sender, MouseEventArgs e)
         {
-            if(textBoxPhone.Text == "하이픈(-)까지 입력")
+            if(textBoxPhone.Text == "하이픈(-)없이 입력")
             {
                 textBoxPhone.Text = "";
             } 
+        }
+
+        private void textBoxAge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
