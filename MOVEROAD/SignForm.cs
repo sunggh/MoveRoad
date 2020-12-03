@@ -16,20 +16,121 @@ namespace MOVEROAD
     public partial class SignForm : Form
     {
         MainForm main;
+        DataTable taskClass;
+        int subID;
+
+        //대분류 -> 중분류 -> 소분류 dataTable
+        DataTable department = new DataTable();
+        DataTable middleClass = new DataTable();
+        DataTable subClass = new DataTable();
+
         public SignForm(MainForm main)
         {
             InitializeComponent();
 
             this.main = main;
 
-            //업무선택 콤보박스
-            foreach (DepartmentInfo department in main.departments)
+            CreateClassficationTable();
+            setClassficationTable();
+            setDepartmentCbItem();
+        }
+
+        #region 부서선택관련된comboBox
+        private void CreateClassficationTable()
+        {
+            //대분류 생성
+            department.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
+            department.Columns.Add("Name", typeof(string));    //이름
+            department.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
+            //중분류 생성
+            middleClass.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
+            middleClass.Columns.Add("Name", typeof(string));    //이름
+            middleClass.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
+            //소분류 생성
+            subClass.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
+            subClass.Columns.Add("Name", typeof(string));    //이름
+            subClass.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
+        }
+
+        private void setClassficationTable()
+        {
+            department.Rows.Clear();
+            middleClass.Rows.Clear();
+            subClass.Rows.Clear();
+
+            // ID | Name | ParentID | Level | DepartID
+            string query = "SELECT * FROM task_class";
+            taskClass = (DBConnetion.getInstance().Select(query, 4)) as DataTable;
+
+            for (int i = 0; i < taskClass.Rows.Count; i++)
             {
-                comboBoxWork.Items.Add(department.name);
+                DataRow row = taskClass.Rows[i];
+                int level = Convert.ToInt32(row["Level"]);
+                if (level == 1)
+                {
+                    department.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
+                }
+                else if (level == 2)
+                {
+                    middleClass.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
+                }
+                else if (level == 3)
+                {
+                    subClass.Rows.Add((int)row["ID"], (string)row["Name"], (int)row["ParentID"]);
+
+                }
             }
         }
 
-        //콤보박스의 업무를 선택하면
+        private void setDepartmentCbItem()
+        {
+            comboBoxWork.SelectedItem = null;
+            comboBoxWork.Items.Clear();
+            comboBoxMiddleWork.SelectedItem = null;
+            comboBoxMiddleWork.Items.Clear();
+            comboBoxSubWork.SelectedItem = null;
+            comboBoxSubWork.Items.Clear();
+
+            for (int i = 0; i < department.Rows.Count; i++)
+            {
+                DataRow row = department.Rows[i];
+                comboBoxWork.Items.Add(row["Name"].ToString());
+            }
+        }
+
+        //부서선택 -> 1 업무구분선택 -> 2 업무선택 -> 3        
+        int classflag = 0;  //아무것도 선택안 했을 때 1
+
+        private void setMiddleCbItem(int departID)
+        {
+            if (classflag == 1)
+            {
+                comboBoxMiddleWork.Items.Clear();
+
+                for (int i = 0; i < middleClass.Rows.Count; i++)
+                {
+                    int pid = Convert.ToInt32(middleClass.Rows[i]["ParentID"]);
+                    if (pid == departID)
+                        comboBoxMiddleWork.Items.Add(middleClass.Rows[i]["Name"].ToString());
+                }
+            }
+        }
+        private void setSubCbItem(int middleID)
+        {
+            if (classflag == 2)
+            {
+                comboBoxSubWork.Items.Clear();
+
+                for (int i = 0; i < subClass.Rows.Count; i++)
+                {
+                    int pid = Convert.ToInt32(subClass.Rows[i]["ParentID"]);
+                    if (pid == middleID)
+                        comboBoxSubWork.Items.Add(subClass.Rows[i]["Name"].ToString());
+                }
+            }
+        }
+
+        //부서선택하면
         private void comboBoxWork_SelectedIndexChanged(object sender, EventArgs e)
         {
             //결재자 초기화
@@ -38,7 +139,7 @@ namespace MOVEROAD
             try
             {
                 //콤보박스에서 선택된 업무의 부서장만 SELECT할 수 있게
-                string sql_drafter = "SELECT name FROM user WHERE grade = 1 AND depart = " + main.departments[comboBoxWork.SelectedIndex].id + "";
+                string sql_drafter = "SELECT name FROM user WHERE grade = 1 AND depart = " + main.departments[comboBoxWork.SelectedIndex + 1].id + "";
                 string drafter = (string)DBConnetion.getInstance().Select(sql_drafter, 3);
                 comboBoxDrafter.Items.Add(drafter);
             }
@@ -46,7 +147,77 @@ namespace MOVEROAD
             {
                 MessageBox.Show("해당 부서의 부서장이 존재하지 않습니다.", "알림");
             }
+
+            //부서선택되면
+            if (comboBoxWork.SelectedItem != null)
+            {
+                if (classflag > 1)
+                {
+                    comboBoxMiddleWork.SelectedItem = null;
+                    comboBoxSubWork.SelectedItem = null;
+                    comboBoxSubWork.Items.Clear();
+                }
+                classflag = 1;
+                
+                string depart = comboBoxWork.SelectedItem as string;
+                try
+                {
+                    DataRow[] rows = department.Select("Name = '" + depart + "'");
+                    int departID = Convert.ToInt32(rows[0]["ID"]);
+                    setMiddleCbItem(departID);
+                }
+                catch (EvaluateException ee)
+                {
+                    Console.WriteLine("오류 : " + ee);
+                }
+            }
         }
+
+        private void comboBoxMiddleWork_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxMiddleWork.SelectedItem != null && classflag >= 1)
+            {
+                if (classflag == 3)
+                {
+                    comboBoxSubWork.SelectedItem = null;
+                    comboBoxSubWork.Items.Clear();
+                }
+                classflag = 2;
+
+                string middleclass = comboBoxMiddleWork.SelectedItem as string;
+                try
+                {
+                    DataRow[] rows = middleClass.Select("Name = '" + middleclass + "'");
+                    int middleID = Convert.ToInt32(rows[0]["ID"]);
+                    setSubCbItem(middleID);
+
+                }
+                catch (EvaluateException ee)
+                {
+                    Console.WriteLine("오류 : " + ee);
+                }
+            }
+        }
+
+        private void comboBoxSubWork_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxSubWork.SelectedItem != null && classflag >= 2)
+            {
+                classflag = 3;
+
+                string subclass = comboBoxSubWork.SelectedItem as string;
+                try
+                {
+                    DataRow[] rows = subClass.Select("Name = '" + subclass + "'");
+                    subID = Convert.ToInt32(rows[0]["ID"]);
+                }
+                catch (EvaluateException ee)
+                {
+                    Console.WriteLine("오류 : " + ee);
+                }
+            }
+        }
+        #endregion
 
         //결재 신규 등록할 때
         private void buttonInsert_Click(object sender, EventArgs e)
@@ -56,8 +227,10 @@ namespace MOVEROAD
             string content = textBoxContent.Text;
             string comment = textBoxComment.Text;
             string work = comboBoxWork.Text;
+            string work_middle = comboBoxMiddleWork.Text;
+            string work_sub = comboBoxSubWork.Text;
 
-            if (title == "" || drafter == "" || content == "" || comment == "" || work == "")
+            if (title == "" || drafter == "" || content == "" || comment == "" || work == "" || work_middle == "" || work_sub == "")
             {
                 MessageBox.Show("빈칸을 채워주세요.", "알림");
             }
@@ -67,8 +240,8 @@ namespace MOVEROAD
                 //사원만 신규 결재 등록 가능
                 if (main.me.grade == 2)
                 {
-                    string sql = "INSERT INTO sign(title, text, comment, sub_class, drafter, drafter_to, progress) " +
-                    "VALUES('" + title + "', '" + content + "', '" + comment + "', '" + main.departments[comboBoxWork.SelectedIndex].id + "', '" + main.me.index + "', '" + drafter + "', 0)";
+                    string sql = "INSERT INTO sign(title, text, comment, sub_class, middle_work, sub_work, drafter, drafter_to, progress) " +
+                    "VALUES('" + title + "', '" + content + "', '" + comment + "', '" + main.departments[comboBoxWork.SelectedIndex + 1].id + "', '" + work_middle + "', '" + work_sub + "', '" + main.me.index + "', '" + drafter + "', 0)";
 
                     DBConnetion.getInstance().Insert(sql);
 
@@ -78,6 +251,8 @@ namespace MOVEROAD
                     textBoxContent.Text = "";
                     textBoxComment.Text = "";
                     comboBoxWork.Text = "";
+                    comboBoxMiddleWork.Text = "";
+                    comboBoxSubWork.Text = "";
                     comboBoxDrafter.Text = "";
                 }
                 else
@@ -94,7 +269,6 @@ namespace MOVEROAD
             {
                 SignForMe();
             }
-
             //내가 등록한 결재 내역 tab을 클릭하면
             else if (tabControlSign.SelectedTab == tabPageFromMe)
             {
@@ -107,7 +281,7 @@ namespace MOVEROAD
             //user가 사장이면 결재 중인 내역만 보이게
             if (main.me.grade == 0)
             {
-                string sql = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, user.name AS 기안자 " +
+                string sql = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, sub_work AS 관련업무, user.name AS 기안자 " +
                 "FROM sign JOIN user ON drafter_to = '" + main.me.name + "' AND sign.drafter = user.index AND sign.progress = 1";
 
                 object table = DBConnetion.getInstance().Select(sql, 70);
@@ -117,7 +291,7 @@ namespace MOVEROAD
             //user가 부서장이면 결재 전인 내역만 보이게
             else if (main.me.grade == 1)
             {
-                string sql = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, user.name AS 기안자 " +
+                string sql = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, sub_work AS 관련업무, user.name AS 기안자 " +
                 "FROM sign JOIN user ON drafter_to = '" + main.me.name + "' AND sign.drafter = user.index AND sign.progress = 0";
 
                 object table = DBConnetion.getInstance().Select(sql, 70);
@@ -134,13 +308,13 @@ namespace MOVEROAD
         private void SignFromMe()
         {
             //내가 등록한 결재 내역
-            string sql_done = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, CASE WHEN progress=0 THEN '결재전' WHEN progress=1 THEN '결재중' WHEN progress=2 THEN '결재완료' ELSE '반려됨' END AS 진행상황 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress != 3";
+            string sql_done = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, sub_work AS 관련업무, CASE WHEN progress=0 THEN '결재전' WHEN progress=1 THEN '결재중' WHEN progress=2 THEN '결재완료' ELSE '반려됨' END AS 진행상황 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress != 3";
 
             object table_DoneList = DBConnetion.getInstance().Select(sql_done, 70);
             dataGridViewSignList.DataSource = table_DoneList;
 
             //반려 내역
-            string sql_turn = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress = 3";
+            string sql_turn = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, sub_work AS 관련업무, drafter_to AS 반려자 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress = 3";
 
             object table_TurnList = DBConnetion.getInstance().Select(sql_turn, 70);
             dataGridViewSignTurnList.DataSource = table_TurnList;
@@ -151,7 +325,14 @@ namespace MOVEROAD
         {
             if(dataGridViewRequest.CurrentCell == null)
             {
-                MessageBox.Show("결재할 내역을 선택해 주십시오.", "알림");
+                if (main.me.grade == 2)
+                {
+                    MessageBox.Show("해당 권한이 없습니다.", "알림");
+                }
+                else
+                {
+                    MessageBox.Show("결재할 내역을 선택해 주십시오.", "알림");
+                } 
             }
             else
             {
@@ -206,7 +387,14 @@ namespace MOVEROAD
         {
             if (dataGridViewRequest.CurrentRow == null)
             {
-                MessageBox.Show("반려할 내역을 선택해 주십시오.", "알림");
+                if (main.me.grade == 2)
+                {
+                    MessageBox.Show("해당 권한이 없습니다.", "알림");
+                }
+                else
+                {
+                    MessageBox.Show("반려할 내역을 선택해 주십시오.", "알림");
+                }
             }
             else
             {

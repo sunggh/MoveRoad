@@ -331,7 +331,6 @@ namespace MOVEROAD
                         totalPay = string.Format("{0}", rdr["totalPay"]);
                     }
                     return totalPay;
-
             }
             rdr.Close();
             conn.Close();
