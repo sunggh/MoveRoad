@@ -36,12 +36,17 @@
             // 
             // btn_cancel
             // 
+            this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btn_cancel.FlatAppearance.BorderSize = 0;
+            this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_cancel.ForeColor = System.Drawing.Color.White;
             this.btn_cancel.Location = new System.Drawing.Point(0, 185);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(198, 21);
             this.btn_cancel.TabIndex = 7;
             this.btn_cancel.Text = "종료하기";
-            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // lv_dpt_users
@@ -75,7 +80,7 @@
             this.userindex.Text = "부서";
             this.userindex.Width = 100;
             // 
-            // change_dpt
+            // search_username
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -83,7 +88,7 @@
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.lv_dpt_users);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "change_dpt";
+            this.Name = "search_username";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "change_dpt";
             this.ResumeLayout(false);

@@ -36,6 +36,7 @@
             // 
             // lv_searching
             // 
+            this.lv_searching.Alignment = System.Windows.Forms.ListViewAlignment.Default;
             this.lv_searching.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.lv_searching.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lv_searching.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -49,7 +50,7 @@
             this.lv_searching.HoverSelection = true;
             this.lv_searching.Location = new System.Drawing.Point(0, 0);
             this.lv_searching.Name = "lv_searching";
-            this.lv_searching.Size = new System.Drawing.Size(196, 186);
+            this.lv_searching.Size = new System.Drawing.Size(195, 189);
             this.lv_searching.TabIndex = 4;
             this.lv_searching.UseCompatibleStateImageBehavior = false;
             this.lv_searching.View = System.Windows.Forms.View.Details;
@@ -64,25 +65,30 @@
             // userindex
             // 
             this.userindex.Text = "직급";
-            this.userindex.Width = 100;
+            this.userindex.Width = 97;
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(0, 184);
+            this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.btn_cancel.FlatAppearance.BorderSize = 0;
+            this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_cancel.ForeColor = System.Drawing.Color.White;
+            this.btn_cancel.Location = new System.Drawing.Point(0, 187);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(196, 21);
             this.btn_cancel.TabIndex = 5;
             this.btn_cancel.Text = "종료하기";
-            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // search_head
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(196, 208);
-            this.Controls.Add(this.btn_cancel);
+            this.ClientSize = new System.Drawing.Size(195, 208);
             this.Controls.Add(this.lv_searching);
+            this.Controls.Add(this.btn_cancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "search_head";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
