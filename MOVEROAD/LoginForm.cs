@@ -62,12 +62,12 @@ namespace MOVEROAD
 
         }
         //pw에서 enter눌렀을 때 로그인
-        private void LoginPass_KeyPress(object sender, KeyPressEventArgs e)
+        private void LoginPass_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 login_button_Click(sender, e);
-            }
+            } 
         }
     }
 }

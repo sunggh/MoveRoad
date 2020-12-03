@@ -131,6 +131,7 @@ namespace MOVEROAD
                 }
             }*/
         }
+        
         public void addchat(string msg)
         {
             Panel panel = new Panel();
@@ -149,6 +150,7 @@ namespace MOVEROAD
             else
             {
                 textBox.Dock = DockStyle.Left;
+
             }
 
             panel.Controls.Add(textBox);

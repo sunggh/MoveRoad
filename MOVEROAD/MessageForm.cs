@@ -26,8 +26,6 @@ namespace MOVEROAD
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-
-
             string to = ToBox.Text;
             string id = this.main.me.id;
             string title = TotitleBox.Text;
