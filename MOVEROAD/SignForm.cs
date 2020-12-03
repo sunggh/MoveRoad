@@ -204,41 +204,13 @@ namespace MOVEROAD
                 DBConnetion.getInstance().Update(query);
 
                 MessageBox.Show("반려되었습니다.", "알림");
+
+                textBoxMemo.Text = "";
             }
         }
 
-        //결재 반려내역 셀 클릭시 내용 상세보기 & 반려 메모 보기
-        private void dataGridViewSignTurnList_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int rowIndex = dataGridViewSignTurnList.CurrentRow.Index;
-
-            string cnt_ = dataGridViewSignTurnList.Rows[rowIndex].Cells[0].Value.ToString();
-            int cnt = Convert.ToInt32(cnt_.ToString());
-
-            string sql = "SELECT memo FROM sign_turn WHERE sign_turn.index = '" + cnt + "'";
-
-            textBoxSignTurnMemo.Text = (string)DBConnetion.getInstance().Select(sql, 7);
-
-            string query = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
-
-            textBoxDetail_turn.Text = (string)DBConnetion.getInstance().Select(query, 9);
-        }
-
-        //결재 요청내역 셀 클릭시 내용 상세보기
-        private void dataGridViewRequest_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int rowIndex = dataGridViewRequest.CurrentRow.Index;
-
-            string cnt_ = dataGridViewRequest.Rows[rowIndex].Cells[0].Value.ToString();
-            int cnt = Convert.ToInt32(cnt_.ToString());
-
-            string sql = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
-
-            textBoxDetail_req.Text = (string)DBConnetion.getInstance().Select(sql, 9);
-        }
-
         //내가 등록한 결재 내역 셀 클릭시 내용 상세보기
-        private void dataGridViewSignList_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewSignList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = dataGridViewSignList.CurrentRow.Index;
 
@@ -260,6 +232,36 @@ namespace MOVEROAD
             {
                 MessageBox.Show("결재 전 내역입니다.", "알림");
             }
+        }
+
+        //결재 반려내역 셀 클릭시 내용 상세보기 & 반려 메모 보기
+        private void dataGridViewSignTurnList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = dataGridViewSignTurnList.CurrentRow.Index;
+
+            string cnt_ = dataGridViewSignTurnList.Rows[rowIndex].Cells[0].Value.ToString();
+            int cnt = Convert.ToInt32(cnt_.ToString());
+
+            string sql = "SELECT memo FROM sign_turn WHERE sign_turn.index = '" + cnt + "'";
+
+            textBoxSignTurnMemo.Text = (string)DBConnetion.getInstance().Select(sql, 7);
+
+            string query = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
+
+            textBoxDetail_turn.Text = (string)DBConnetion.getInstance().Select(query, 9);
+        }
+
+        //결재 요청내역 셀 클릭시 내용 상세보기
+        private void dataGridViewRequest_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = dataGridViewRequest.CurrentRow.Index;
+
+            string cnt_ = dataGridViewRequest.Rows[rowIndex].Cells[0].Value.ToString();
+            int cnt = Convert.ToInt32(cnt_.ToString());
+
+            string sql = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
+
+            textBoxDetail_req.Text = (string)DBConnetion.getInstance().Select(sql, 9);
         }
     }
 }

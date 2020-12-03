@@ -339,6 +339,8 @@
             this.dataGridViewRequest.AllowUserToAddRows = false;
             this.dataGridViewRequest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewRequest.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewRequest.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridViewRequest.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -368,7 +370,7 @@
             this.dataGridViewRequest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRequest.Size = new System.Drawing.Size(639, 267);
             this.dataGridViewRequest.TabIndex = 0;
-            this.dataGridViewRequest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRequest_CellClick);
+            this.dataGridViewRequest.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRequest_CellDoubleClick);
             // 
             // tabPageFromMe
             // 
@@ -459,6 +461,8 @@
             this.dataGridViewSignTurnList.AllowUserToAddRows = false;
             this.dataGridViewSignTurnList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSignTurnList.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewSignTurnList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridViewSignTurnList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -486,7 +490,7 @@
             this.dataGridViewSignTurnList.RowTemplate.Height = 27;
             this.dataGridViewSignTurnList.Size = new System.Drawing.Size(617, 143);
             this.dataGridViewSignTurnList.TabIndex = 4;
-            this.dataGridViewSignTurnList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSignTurnList_CellClick);
+            this.dataGridViewSignTurnList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSignTurnList_CellDoubleClick);
             // 
             // label10
             // 
@@ -532,6 +536,7 @@
             this.dataGridViewSignList.Location = new System.Drawing.Point(20, 37);
             this.dataGridViewSignList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewSignList.Name = "dataGridViewSignList";
+            this.dataGridViewSignList.ReadOnly = true;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -548,7 +553,7 @@
             this.dataGridViewSignList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSignList.Size = new System.Drawing.Size(617, 177);
             this.dataGridViewSignList.TabIndex = 0;
-            this.dataGridViewSignList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSignList_CellClick);
+            this.dataGridViewSignList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSignList_CellDoubleClick);
             // 
             // SignForm
             // 
