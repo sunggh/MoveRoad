@@ -39,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.listBox2 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label_attendance = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.msgList = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label_sign = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -181,29 +181,13 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.panel2.Controls.Add(this.listBox2);
+            this.panel2.Controls.Add(this.label_sign);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(366, 288);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(214, 190);
             this.panel2.TabIndex = 3;
-            // 
-            // listBox2
-            // 
-            this.listBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.listBox2.ForeColor = System.Drawing.Color.White;
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 20;
-            this.listBox2.Location = new System.Drawing.Point(0, 41);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(215, 140);
-            this.listBox2.TabIndex = 2;
-            this.listBox2.TabStop = false;
-            this.listBox2.UseTabStops = false;
             // 
             // label2
             // 
@@ -346,6 +330,18 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // label_sign
+            // 
+            this.label_sign.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label_sign.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label_sign.ForeColor = System.Drawing.Color.White;
+            this.label_sign.Location = new System.Drawing.Point(0, 28);
+            this.label_sign.Name = "label_sign";
+            this.label_sign.Size = new System.Drawing.Size(214, 162);
+            this.label_sign.TabIndex = 2;
+            this.label_sign.Text = "결재 정보";
+            this.label_sign.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -383,7 +379,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
@@ -404,5 +399,6 @@
         private System.Windows.Forms.Label label_attendance;
         private System.Windows.Forms.ListBox msgList;
         private System.Windows.Forms.ListBox TaskList;
+        private System.Windows.Forms.Label label_sign;
     }
 }

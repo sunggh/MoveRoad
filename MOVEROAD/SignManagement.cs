@@ -21,7 +21,6 @@ namespace MOVEROAD
         public int progress { get; set; } //진행 사항 (0:결재 전, 1:결재 중, 2:결재 완료, 3:결재 반려)
 
 
-        //singleton
         private static SignManagement sign = new SignManagement();
 
         public static SignManagement GetInstance()
@@ -31,19 +30,7 @@ namespace MOVEROAD
 
         public void addSign()
         {
-            //string query = "SELECT id FROM department";
 
-            //MySqlConnection conn = new MySqlConnection(con);
-            //conn.Open();
-            //MySqlCommand cmd = new MySqlCommand(query, conn);
-            //MySqlDataReader rdr = cmd.ExecuteReader();
-
-            //while (rdr.Read())
-            //{
-            //    sub_class = Convert.ToInt32(rdr["id"]);
-            //}
-
-            //string query = "INSERT INTO sign(sub_class, comment, drafter, progress) VALUES(
         }
     }
 }

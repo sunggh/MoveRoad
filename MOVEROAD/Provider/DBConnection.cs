@@ -346,6 +346,11 @@ namespace MOVEROAD
                         totalPay = string.Format("{0}", rdr["totalPay"]);
                     }
                     return totalPay;
+                case 11:
+                        rdr.Read();
+                        string count = (rdr["count(*)"].ToString());
+                        thing = count;
+                    break;
             }
             rdr.Close();
             conn.Close();

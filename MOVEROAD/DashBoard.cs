@@ -39,6 +39,7 @@ namespace MOVEROAD
 
             set_attendance_check();
             setTaskListRecently();
+            set_Sign();
         }
 
         private void setTaskListRecently()
@@ -149,6 +150,36 @@ namespace MOVEROAD
 
         }
 
-       
+       private void set_Sign()
+        {
+            //사장이 접속하면
+            if(main.me.grade == 0)
+            {
+                //부서장이 한번 결재한 건이 사장한테 가니까 결재 중 상태인 내역 가져오기
+                string sql = "SELECT count(*) FROM sign WHERE progress = 1";
+                string count = (string)DBConnetion.getInstance().Select(sql, 11);
+
+                label_sign.Text = "결재할 내역 : " + count + "개";
+            }
+            //부서장이 접속하면
+            else if(main.me.grade == 1)
+            {
+                string sql = "SELECT count(*) FROM sign WHERE progress = 0 AND drafter_to = '" + main.me.name + "'";
+                string count = (string)DBConnetion.getInstance().Select(sql, 11);
+
+                label_sign.Text = "결재할 내역 : " + count + "개";
+            }
+            //사원이 접속하면
+            else if (main.me.grade == 2)
+            {
+                string sql = "SELECT count(*) FROM sign WHERE progress = 2 AND drafter = '" + main.me.index + "'";
+                string count_done = (string)DBConnetion.getInstance().Select(sql, 11);
+
+                string query = "SELECT count(*) FROM sign WHERE progress = 3 AND drafter = '" + main.me.index + "'";
+                string count_turn = (string)DBConnetion.getInstance().Select(query, 11);
+
+                label_sign.Text = "결재완료된 내역 : " + count_done + "개" + "\n" + "반려된 내역 : " + count_turn + "개";
+            }
+        }
     }
 }
