@@ -44,6 +44,8 @@
             this.buttonDec = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label_deductioninfo = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -105,7 +107,7 @@
             // name
             // 
             this.name.Text = "이름";
-            this.name.Width = 46;
+            this.name.Width = 63;
             // 
             // date
             // 
@@ -140,16 +142,17 @@
             // deduction
             // 
             this.deduction.Text = "공제";
-            this.deduction.Width = 70;
+            this.deduction.Width = 63;
             // 
             // actualPay
             // 
             this.actualPay.Text = "실급여";
-            this.actualPay.Width = 88;
+            this.actualPay.Width = 76;
             // 
             // buttonInc
             // 
             this.buttonInc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonInc.FlatAppearance.BorderSize = 0;
             this.buttonInc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonInc.ForeColor = System.Drawing.Color.White;
@@ -157,13 +160,14 @@
             this.buttonInc.Name = "buttonInc";
             this.buttonInc.Size = new System.Drawing.Size(24, 26);
             this.buttonInc.TabIndex = 8;
-            this.buttonInc.Text = "^";
+            this.buttonInc.Text = "▲";
             this.buttonInc.UseVisualStyleBackColor = false;
             this.buttonInc.Click += new System.EventHandler(this.buttonInc_Click);
             // 
             // buttonDec
             // 
             this.buttonDec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonDec.FlatAppearance.BorderSize = 0;
             this.buttonDec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDec.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonDec.ForeColor = System.Drawing.Color.White;
@@ -171,7 +175,7 @@
             this.buttonDec.Name = "buttonDec";
             this.buttonDec.Size = new System.Drawing.Size(24, 26);
             this.buttonDec.TabIndex = 9;
-            this.buttonDec.Text = "v";
+            this.buttonDec.Text = "▼";
             this.buttonDec.UseVisualStyleBackColor = false;
             this.buttonDec.Click += new System.EventHandler(this.buttonDec_Click);
             // 
@@ -196,11 +200,23 @@
             this.label_deductioninfo.Text = "※ 세금 공제란?";
             this.label_deductioninfo.Click += new System.EventHandler(this.label_deductioninfo_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MOVEROAD.Properties.Resources.calendar;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(219, 16);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 33);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
             // Paymentmanagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 412);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label_deductioninfo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonDec);
@@ -211,6 +227,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Paymentmanagement";
             this.Text = "PaymentForm";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +251,6 @@
         private System.Windows.Forms.Button buttonDec;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label_deductioninfo;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

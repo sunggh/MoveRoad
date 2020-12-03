@@ -35,27 +35,39 @@ namespace MOVEROAD
             InitializeComponent();
             this.main = main;
             this.me = me;
-
-            //업무 마스터 등록
-            CreateTree();
-
-            //일일 업무 등록
+            
             CreateClassficationTable();
+            //일일 업무 등록
+            setClassficationTable();
             setDepartmentCbItem();
 
             initDateTimepicker();
-
             dataGridViewTask.BackgroundColor = Color.White;
-            //일일 업무 검색
-            setTaskKeyword();
-            setRegistrant();
+            
+        }
+        private void tabControlTask_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControlTask.SelectedTab == tabPageRegistraion)
+            {
+                //일일 업무 등록
+                setClassficationTable();
+                setDepartmentCbItem();
+            }
+            else if (tabControlTask.SelectedTab == tabPageManagement)
+            {
+                //일일 업무 관리
+                setTaskKeyword();
+                setRegistrant();
+            }
+            else if (tabControlTask.SelectedTab == tabPageMaster)
+            {
+                //업무 마스터 관리
+                setClassficationTable();
+                CreateTree();                
+            }
         }
         private void CreateClassficationTable()
         {
-            // ID | Name | ParentID | Level | DepartID
-            string query = "SELECT * FROM task_class";
-            taskClass = (DBConnetion.getInstance().Select(query, 4)) as DataTable;
-
             //대분류 생성
             department.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
             department.Columns.Add("Name", typeof(string));    //이름
@@ -68,6 +80,16 @@ namespace MOVEROAD
             subClass.Columns.Add("ID", typeof(int));   //table내에서 부여한 고유 ID
             subClass.Columns.Add("Name", typeof(string));    //이름
             subClass.Columns.Add("ParentID", typeof(int));       //상위 class의 ID
+        }
+        private void setClassficationTable()
+        {
+            department.Rows.Clear();
+            middleClass.Rows.Clear();
+            subClass.Rows.Clear();
+
+            // ID | Name | ParentID | Level | DepartID
+            string query = "SELECT * FROM task_class";
+            taskClass = (DBConnetion.getInstance().Select(query, 4)) as DataTable;
 
             for (int i = 0; i < taskClass.Rows.Count; i++)
             {
@@ -376,6 +398,14 @@ namespace MOVEROAD
                 string query = "INSERT INTO task_class(name,parent_id,level,depart_id) VALUES('" + TaskClassInfo.name + "','" + TaskClassInfo.pid + "','" + TaskClassInfo.level + "','" + TaskClassInfo.did + "')";
                 SelectedNode.Tag = DBConnetion.getInstance().InsertNewNode(query);                
                 menuflag = 0;
+                if (TaskClassInfo.level == 2)
+                {
+                    middleClass.Rows.Add(SelectedNode.Tag, TaskClassInfo.name, TaskClassInfo.pid);
+                }
+                else if (TaskClassInfo.level == 3)
+                {
+                    subClass.Rows.Add(SelectedNode.Tag, TaskClassInfo.name, TaskClassInfo.pid);
+                }
             }
             else if(menuflag == 2)
             {
@@ -391,7 +421,7 @@ namespace MOVEROAD
         private void DeleteNode(object sender, EventArgs e)
         {
             if (SelectedNode != null && SelectedNode.Parent != null) {
-                int nodeID = (int)SelectedNode.Tag;
+                int nodeID = Convert.ToInt32(SelectedNode.Tag);
                 DepartmentInfo department = departmentInfos.Find(d => (d.id == nodeID)); //id -> taskclass에서의 id
                 if (department == null)
                 {
@@ -493,6 +523,13 @@ namespace MOVEROAD
         }
         private void setDepartmentCbItem()
         {
+            comboBoxDepartment.SelectedItem = null;
+            comboBoxDepartment.Items.Clear();
+            comboBoxMiddleClass.SelectedItem = null;
+            comboBoxMiddleClass.Items.Clear();
+            comboBoxSubClass.SelectedItem = null;
+            comboBoxSubClass.Items.Clear();
+
             for (int i = 0; i < department.Rows.Count; i++)
             {
                 DataRow row = department.Rows[i];
@@ -501,7 +538,7 @@ namespace MOVEROAD
         }
         private void setMiddleCbItem(int departID)
         {
-            if(classflag == 1)
+            if (classflag == 1)
             {
                 comboBoxMiddleClass.Items.Clear();
                 for (int i = 0; i < middleClass.Rows.Count; i++)
@@ -727,6 +764,8 @@ namespace MOVEROAD
                 MessageBox.Show("작성자만 수정할 수 있습니다.");
             }
         }
+
+        
 
         #endregion
         //일일 업무 마스터 treeview

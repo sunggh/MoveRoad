@@ -79,6 +79,7 @@ namespace MOVEROAD
             this.tabControlTask.SelectedIndex = 0;
             this.tabControlTask.Size = new System.Drawing.Size(745, 412);
             this.tabControlTask.TabIndex = 0;
+            this.tabControlTask.SelectedIndexChanged += new System.EventHandler(this.tabControlTask_SelectedIndexChanged);
             // 
             // tabPageRegistraion
             // 
