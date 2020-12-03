@@ -111,7 +111,7 @@
             this.btn_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.btn_add.FlatAppearance.BorderSize = 0;
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_add.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_add.ForeColor = System.Drawing.Color.White;
             this.btn_add.Location = new System.Drawing.Point(25, 229);
             this.btn_add.Name = "btn_add";
@@ -126,7 +126,7 @@
             this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.btn_cancel.FlatAppearance.BorderSize = 0;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_cancel.ForeColor = System.Drawing.Color.White;
             this.btn_cancel.Location = new System.Drawing.Point(169, 229);
             this.btn_cancel.Name = "btn_cancel";
@@ -141,9 +141,9 @@
             this.btn_search_head.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.btn_search_head.FlatAppearance.BorderSize = 0;
             this.btn_search_head.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_search_head.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btn_search_head.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.btn_search_head.ForeColor = System.Drawing.Color.White;
-            this.btn_search_head.Location = new System.Drawing.Point(224, 45);
+            this.btn_search_head.Location = new System.Drawing.Point(224, 47);
             this.btn_search_head.Name = "btn_search_head";
             this.btn_search_head.Size = new System.Drawing.Size(50, 21);
             this.btn_search_head.TabIndex = 13;
@@ -153,7 +153,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.tb_depart_memo);
             this.panel1.Controls.Add(this.btn_search_head);
@@ -166,7 +166,7 @@
             this.panel1.Controls.Add(this.tb_depart_head);
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(320, 295);
+            this.panel1.Size = new System.Drawing.Size(310, 295);
             this.panel1.TabIndex = 14;
             // 
             // depart_add_event
@@ -174,7 +174,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.ClientSize = new System.Drawing.Size(324, 299);
+            this.ClientSize = new System.Drawing.Size(315, 299);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

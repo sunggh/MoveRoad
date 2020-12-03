@@ -71,7 +71,7 @@
             // username
             // 
             this.username.Text = "부서명";
-            this.username.Width = 136;
+            this.username.Width = 128;
             // 
             // search_departname
             // 

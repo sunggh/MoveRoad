@@ -84,11 +84,15 @@ namespace MOVEROAD
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            this.TransparencyKey = Color.Gray;
+            this.Opacity = 0.5;
             using (search_head search = new search_head())
             {
                 search.ShowDialog();
                 tb_depart_head.Text = search.name_;
             }
+            this.Opacity = 1;
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -22,20 +22,26 @@ namespace MOVEROAD
 
         private void btn_user_search_Click(object sender, EventArgs e)
         {
+            this.TransparencyKey = Color.Gray;
+            this.Opacity = 0.5;
             using (search_username dpt = new search_username())
             {
                 dpt.ShowDialog();
                 tb_user.Text = dpt.username_;
             }
+            this.Opacity = 1;
         }
 
         private void btn_dpt_search_Click(object sender, EventArgs e)
         {
+            this.TransparencyKey = Color.Gray;
+            this.Opacity = 0.5;
             using (search_departname dpt = new search_departname())
             {
                 dpt.ShowDialog();
                 tb_depart_name.Text = dpt.dpt_name_;
             }
+            this.Opacity = 1;
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)

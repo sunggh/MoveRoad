@@ -53,6 +53,8 @@ namespace MOVEROAD
         private void btn_add_Click(object sender, EventArgs e)
         {
             //새 폼 띄우고 ShowDialog로 다른행동 못하게 금지
+            mf.TransparencyKey = Color.Gray;
+            mf.Opacity = 0.5;
             using (depart_add_event add = new depart_add_event(mf))
             {
                 if (add.ShowDialog() == DialogResult.OK)
@@ -61,10 +63,13 @@ namespace MOVEROAD
                     listview_departlist();
                 }
             }
+            mf.Opacity = 1;
         }
 
         private void btn_update_Click(object sender, EventArgs e)
         {
+            mf.TransparencyKey = Color.Gray;
+            mf.Opacity = 0.5;
             using (depart_revise_event revise = new depart_revise_event(mf))
             {
                 if (revise.ShowDialog() == DialogResult.OK)
@@ -73,6 +78,7 @@ namespace MOVEROAD
                     listview_departlist();
                 }
             }
+            mf.Opacity = 1;
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -137,6 +143,8 @@ namespace MOVEROAD
 
         private void button1_Click(object sender, EventArgs e)
         {
+            mf.TransparencyKey = Color.Gray;
+            mf.Opacity = 0.5;
             using (internal_mobility im = new internal_mobility(mf))
             {
                 if (im.ShowDialog() == DialogResult.OK)
@@ -145,6 +153,7 @@ namespace MOVEROAD
                     listview_departlist();
                 }
             }
+            mf.Opacity = 1;
         }
     }
 }

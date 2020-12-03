@@ -73,12 +73,12 @@
             // username
             // 
             this.username.Text = "이름";
-            this.username.Width = 94;
+            this.username.Width = 76;
             // 
             // userindex
             // 
             this.userindex.Text = "부서";
-            this.userindex.Width = 100;
+            this.userindex.Width = 95;
             // 
             // search_username
             // 
