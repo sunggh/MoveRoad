@@ -336,6 +336,7 @@
             this.comboBoxEditGrade.Name = "comboBoxEditGrade";
             this.comboBoxEditGrade.Size = new System.Drawing.Size(88, 23);
             this.comboBoxEditGrade.TabIndex = 17;
+            this.comboBoxEditGrade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxEditGrade_KeyPress);
             // 
             // comboBoxEditDepart
             // 
@@ -345,6 +346,7 @@
             this.comboBoxEditDepart.Name = "comboBoxEditDepart";
             this.comboBoxEditDepart.Size = new System.Drawing.Size(88, 23);
             this.comboBoxEditDepart.TabIndex = 16;
+            this.comboBoxEditDepart.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxEditDepart_KeyPress);
             // 
             // textBoxEditAddress
             // 
@@ -371,7 +373,6 @@
             this.textBoxEditPhone.Name = "textBoxEditPhone";
             this.textBoxEditPhone.Size = new System.Drawing.Size(116, 23);
             this.textBoxEditPhone.TabIndex = 13;
-            this.textBoxEditPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxEditPhone_KeyPress);
             // 
             // label10
             // 

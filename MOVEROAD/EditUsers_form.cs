@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -110,8 +111,13 @@ namespace MOVEROAD
                     int editGender = comboBoxEditGender.SelectedIndex;
                     string editPhone = phone;
                     string editAddress = address;
-
-                    if(editAge >= 1 && editAge < 100) // 나이 1세~99세 까지만 가입 가능
+                    Regex regex = new Regex("^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$");
+                    if (!regex.IsMatch(editPhone))
+                    {
+                        MessageBox.Show("전화 번호를 하이픈(-) 포함하여 제대로 입력해 주세요.", "입력 오류");
+                        return;
+                    }
+                    if (editAge >= 1 && editAge < 100) // 나이 1세~99세 까지만 가입 가능
                     {
                         // 수정한 정보를 query문으로 update 해주기
                         string query = "UPDATE project.`user` SET `depart` = '" + depart_id + "', `grade` = '" + editGrade + "', `name` = '" + editName + "', " +
@@ -143,12 +149,14 @@ namespace MOVEROAD
             }
         }
 
-        private void textBoxEditPhone_KeyPress(object sender, KeyPressEventArgs e)
+        private void comboBoxEditDepart_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
-            {
-                e.Handled = true;
-            }
+            e.Handled = true;
+        }
+
+        private void comboBoxEditGrade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
