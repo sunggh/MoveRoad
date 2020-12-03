@@ -237,7 +237,8 @@ namespace MOVEROAD
                             continue;
                         }
 
-                        taskName = (string)rdr["task"];
+                        taskName = (string)rdr["task"] + " : " + (string)rdr["text"];
+
                         recentlytask.Add(taskName);
                     }
                     thing = recentlytask;
