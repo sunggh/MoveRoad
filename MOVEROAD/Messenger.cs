@@ -52,6 +52,7 @@ namespace MOVEROAD
             }
             else
             {
+
                 loadUserList();
                 onlines = new Dictionary<int, UserInfo>(this.main.onlines);
             }
@@ -65,10 +66,15 @@ namespace MOVEROAD
         public void loadUserList()
         {
             onlineList.Items.Clear();
+            bool macth = false;
             foreach (var user in this.main.onlines)
             {
                 onlineList.Items.Add(user.Value.name + "(" + user.Value.index + ")");
+                if (nameBOX.Text == user.Value.name + user.Value.index)
+                    macth = true;
             }
+            if (!macth)
+                nameBOX.Text = "";
         }
         public void SetTextBoxClientSize(TextBox textBox)
         {

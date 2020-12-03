@@ -26,6 +26,7 @@ namespace MOVEROAD
                 departName.Add(depart.id,depart.name);
             }
             InitializeComponent();
+            msgList.Items.Add("메세지가 없습니다.");
             backgroundWorker = new BackgroundWorker();
             backgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorkerDoWork);
             backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerRunWorkerCompleted);
@@ -35,7 +36,7 @@ namespace MOVEROAD
             this.departLabel.Text = departName[user.depart];
             this.gradeLabel.Text = grade[user.grade];
             this.user = user;
-            msgList.Items.Add("메세지가 없습니다.");
+
         }
 
         private void DashBoard_Load(object sender, EventArgs e)
@@ -54,27 +55,35 @@ namespace MOVEROAD
             {
                 e.Result = (bool)false;
             }
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
         }
         private void BackgroundWorkerRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if ((bool)e.Result)
+            if (e.Result == null)
             {
-                if(msgList.Items.Count < 7)
-                {
-                    msgList.Items.Clear();
-                    msgList.Items.AddRange(this.main.msgDash.ToArray());
-                } else
-                {
-                    msgList.Items.RemoveAt(0);
-                    msgList.Items.Add(this.main.msgDash[5]);
-                }  
-            }
-            else
+                backgroundWorker.RunWorkerAsync();
+            } else
             {
-                
+                if ((bool)e.Result)
+                {
+                    if (msgList.Items.Count < 7)
+                    {
+                        msgList.Items.Clear();
+                        msgList.Items.AddRange(this.main.msgDash.ToArray());
+                    }
+                    else
+                    {
+                        msgList.Items.RemoveAt(0);
+                        msgList.Items.Add(this.main.msgDash[5]);
+                    }
+                }
+                else
+                {
+
+                }
             }
-            backgroundWorker.RunWorkerAsync();
+            
+            
         }
         private void pictureBox2_Click(object sender, EventArgs e)
         {

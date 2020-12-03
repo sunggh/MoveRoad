@@ -137,7 +137,6 @@ namespace MOVEROAD
                     {
                         room_msg.Remove(onlines[user_id]);
                     }
-                    reloadNameBox();
                     onlines.Remove(user_id);
                     break;
                 case 3:
@@ -174,12 +173,12 @@ namespace MOVEROAD
                     }
                     mss = onlines[room[cur_room]].name + "|" + msg;
                     room_msg[onlines[to_id]].Add(mss);
-                    msgDash.Add(onlines[room[cur_room]].name + "( "+ onlines[room[cur_room]].index+ ") : " + str[1].Substring(0, 7));
+                    msgDash.Add(onlines[room[cur_room]].name + "( "+ onlines[room[cur_room]].index+ ") : " + str[1]);
                     if (msgDash.Count == 6)
                     {
                         msgDash.RemoveAt(0);
                     }
-                    if (ms.nameBOX.Text == onlines[to_id].name+ to_id)
+                    if (ms.nameBOX.Text == onlines[to_id].name+to_id)
                         DisplayText(mss);
                     break;
             }
@@ -201,6 +200,7 @@ namespace MOVEROAD
                 }));
             }
         }
+        /*
         public void reloadNameBox()
         {
             if (ms.nameBOX.InvokeRequired)
@@ -217,7 +217,7 @@ namespace MOVEROAD
                     ms.nameBOX.Text = "";
                 }));
             }
-        }
+        }*/
 
         private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
         {
