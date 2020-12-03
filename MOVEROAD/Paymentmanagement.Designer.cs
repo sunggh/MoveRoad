@@ -65,8 +65,8 @@
             this.btn_overtime.FlatAppearance.BorderSize = 0;
             this.btn_overtime.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.btn_overtime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_overtime.Font = new System.Drawing.Font("함초롬바탕", 12F);
-            this.btn_overtime.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_overtime.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_overtime.ForeColor = System.Drawing.Color.White;
             this.btn_overtime.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_overtime.Location = new System.Drawing.Point(639, 12);
             this.btn_overtime.Name = "btn_overtime";
@@ -78,6 +78,7 @@
             // 
             // lv_rivise
             // 
+            this.lv_rivise.Activation = System.Windows.Forms.ItemActivation.TwoClick;
             this.lv_rivise.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.lv_rivise.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lv_rivise.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -94,7 +95,6 @@
             this.lv_rivise.FullRowSelect = true;
             this.lv_rivise.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lv_rivise.HideSelection = false;
-            this.lv_rivise.HoverSelection = true;
             this.lv_rivise.Location = new System.Drawing.Point(12, 55);
             this.lv_rivise.Name = "lv_rivise";
             this.lv_rivise.Size = new System.Drawing.Size(721, 329);
@@ -149,31 +149,39 @@
             // 
             // buttonInc
             // 
+            this.buttonInc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonInc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.buttonInc.ForeColor = System.Drawing.Color.White;
             this.buttonInc.Location = new System.Drawing.Point(363, 16);
             this.buttonInc.Name = "buttonInc";
             this.buttonInc.Size = new System.Drawing.Size(24, 26);
             this.buttonInc.TabIndex = 8;
             this.buttonInc.Text = "^";
-            this.buttonInc.UseVisualStyleBackColor = true;
+            this.buttonInc.UseVisualStyleBackColor = false;
             this.buttonInc.Click += new System.EventHandler(this.buttonInc_Click);
             // 
             // buttonDec
             // 
+            this.buttonDec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonDec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDec.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.buttonDec.ForeColor = System.Drawing.Color.White;
             this.buttonDec.Location = new System.Drawing.Point(393, 16);
             this.buttonDec.Name = "buttonDec";
             this.buttonDec.Size = new System.Drawing.Size(24, 26);
             this.buttonDec.TabIndex = 9;
             this.buttonDec.Text = "v";
-            this.buttonDec.UseVisualStyleBackColor = true;
+            this.buttonDec.UseVisualStyleBackColor = false;
             this.buttonDec.Click += new System.EventHandler(this.buttonDec_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(252, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 15);
+            this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 10;
             this.label2.Text = "현재 년-월";
             // 
@@ -181,7 +189,7 @@
             // 
             this.label_deductioninfo.AutoSize = true;
             this.label_deductioninfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label_deductioninfo.Location = new System.Drawing.Point(488, 29);
+            this.label_deductioninfo.Location = new System.Drawing.Point(513, 30);
             this.label_deductioninfo.Name = "label_deductioninfo";
             this.label_deductioninfo.Size = new System.Drawing.Size(91, 12);
             this.label_deductioninfo.TabIndex = 11;
