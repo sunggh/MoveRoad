@@ -28,8 +28,8 @@ namespace MOVEROAD
             int userindex = main.me.index;
             int userdepart = main.me.depart;
 
-            List<string> list = new List<string>();
-            string query = "";
+            List<string> list;
+            string query;
 
             if (userdepart == 1)
             {
