@@ -36,32 +36,38 @@
             // 
             // buttonAddUsers
             // 
+            this.buttonAddUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonAddUsers.ForeColor = System.Drawing.Color.White;
             this.buttonAddUsers.Location = new System.Drawing.Point(12, 12);
             this.buttonAddUsers.Name = "buttonAddUsers";
             this.buttonAddUsers.Size = new System.Drawing.Size(235, 51);
             this.buttonAddUsers.TabIndex = 1;
             this.buttonAddUsers.Text = "사원 등록";
-            this.buttonAddUsers.UseVisualStyleBackColor = true;
+            this.buttonAddUsers.UseVisualStyleBackColor = false;
             this.buttonAddUsers.Click += new System.EventHandler(this.buttonAddUsers_Click);
             // 
             // buttonSearchUsers
             // 
+            this.buttonSearchUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonSearchUsers.ForeColor = System.Drawing.Color.White;
             this.buttonSearchUsers.Location = new System.Drawing.Point(253, 12);
             this.buttonSearchUsers.Name = "buttonSearchUsers";
             this.buttonSearchUsers.Size = new System.Drawing.Size(235, 51);
             this.buttonSearchUsers.TabIndex = 3;
             this.buttonSearchUsers.Text = "사원 검색";
-            this.buttonSearchUsers.UseVisualStyleBackColor = true;
+            this.buttonSearchUsers.UseVisualStyleBackColor = false;
             this.buttonSearchUsers.Click += new System.EventHandler(this.buttonSearchUsers_Click);
             // 
             // buttonEditUsers
             // 
+            this.buttonEditUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonEditUsers.ForeColor = System.Drawing.Color.White;
             this.buttonEditUsers.Location = new System.Drawing.Point(498, 12);
             this.buttonEditUsers.Name = "buttonEditUsers";
             this.buttonEditUsers.Size = new System.Drawing.Size(235, 51);
             this.buttonEditUsers.TabIndex = 4;
             this.buttonEditUsers.Text = "사원 정보 수정";
-            this.buttonEditUsers.UseVisualStyleBackColor = true;
+            this.buttonEditUsers.UseVisualStyleBackColor = false;
             this.buttonEditUsers.Click += new System.EventHandler(this.buttonEditUsers_Click);
             // 
             // HRpanel
@@ -76,6 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(745, 412);
             this.Controls.Add(this.HRpanel);
             this.Controls.Add(this.buttonEditUsers);

@@ -47,9 +47,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.msgList = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.msgList = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -278,6 +278,22 @@
             this.panel6.Size = new System.Drawing.Size(187, 152);
             this.panel6.TabIndex = 4;
             // 
+            // msgList
+            // 
+            this.msgList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
+            this.msgList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.msgList.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.msgList.ForeColor = System.Drawing.Color.White;
+            this.msgList.FormattingEnabled = true;
+            this.msgList.ItemHeight = 15;
+            this.msgList.Location = new System.Drawing.Point(0, 33);
+            this.msgList.Name = "msgList";
+            this.msgList.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.msgList.Size = new System.Drawing.Size(188, 120);
+            this.msgList.TabIndex = 3;
+            this.msgList.TabStop = false;
+            this.msgList.UseTabStops = false;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -301,22 +317,6 @@
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // msgList
-            // 
-            this.msgList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
-            this.msgList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.msgList.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.msgList.ForeColor = System.Drawing.Color.White;
-            this.msgList.FormattingEnabled = true;
-            this.msgList.ItemHeight = 15;
-            this.msgList.Location = new System.Drawing.Point(0, 33);
-            this.msgList.Name = "msgList";
-            this.msgList.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.msgList.Size = new System.Drawing.Size(188, 120);
-            this.msgList.TabIndex = 3;
-            this.msgList.TabStop = false;
-            this.msgList.UseTabStops = false;
             // 
             // DashBoard
             // 

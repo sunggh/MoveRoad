@@ -86,12 +86,11 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBoxExistingIndex);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.groupBox1.Location = new System.Drawing.Point(14, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(695, 150);
+            this.groupBox1.Size = new System.Drawing.Size(621, 120);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "기존 정보";
@@ -99,169 +98,161 @@
             // textBoxExistingAddress
             // 
             this.textBoxExistingAddress.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBoxExistingAddress.Location = new System.Drawing.Point(235, 104);
-            this.textBoxExistingAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxExistingAddress.Location = new System.Drawing.Point(194, 83);
             this.textBoxExistingAddress.Name = "textBoxExistingAddress";
             this.textBoxExistingAddress.ReadOnly = true;
-            this.textBoxExistingAddress.Size = new System.Drawing.Size(452, 25);
+            this.textBoxExistingAddress.Size = new System.Drawing.Size(336, 23);
             this.textBoxExistingAddress.TabIndex = 15;
             this.textBoxExistingAddress.TabStop = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(195, 108);
+            this.label8.Location = new System.Drawing.Point(159, 86);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 15);
+            this.label8.Size = new System.Drawing.Size(31, 15);
             this.label8.TabIndex = 14;
             this.label8.Text = "주소";
             // 
             // textBoxExistingPhone
             // 
             this.textBoxExistingPhone.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBoxExistingPhone.Location = new System.Drawing.Point(42, 104);
-            this.textBoxExistingPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxExistingPhone.Location = new System.Drawing.Point(37, 83);
             this.textBoxExistingPhone.Name = "textBoxExistingPhone";
             this.textBoxExistingPhone.ReadOnly = true;
-            this.textBoxExistingPhone.Size = new System.Drawing.Size(146, 25);
+            this.textBoxExistingPhone.Size = new System.Drawing.Size(116, 23);
             this.textBoxExistingPhone.TabIndex = 13;
             this.textBoxExistingPhone.TabStop = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 108);
+            this.label7.Location = new System.Drawing.Point(6, 86);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 15);
+            this.label7.Size = new System.Drawing.Size(26, 15);
             this.label7.TabIndex = 12;
             this.label7.Text = "H.P";
             // 
             // textBoxExistingGender
             // 
             this.textBoxExistingGender.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBoxExistingGender.Location = new System.Drawing.Point(378, 70);
-            this.textBoxExistingGender.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxExistingGender.Location = new System.Drawing.Point(331, 56);
             this.textBoxExistingGender.Name = "textBoxExistingGender";
             this.textBoxExistingGender.ReadOnly = true;
-            this.textBoxExistingGender.Size = new System.Drawing.Size(114, 25);
+            this.textBoxExistingGender.Size = new System.Drawing.Size(88, 23);
             this.textBoxExistingGender.TabIndex = 11;
             this.textBoxExistingGender.TabStop = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(338, 74);
+            this.label6.Location = new System.Drawing.Point(296, 59);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 15);
+            this.label6.Size = new System.Drawing.Size(31, 15);
             this.label6.TabIndex = 10;
             this.label6.Text = "성별";
             // 
             // textBoxExistingAge
             // 
             this.textBoxExistingAge.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBoxExistingAge.Location = new System.Drawing.Point(217, 70);
-            this.textBoxExistingAge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxExistingAge.Location = new System.Drawing.Point(190, 56);
             this.textBoxExistingAge.Name = "textBoxExistingAge";
             this.textBoxExistingAge.ReadOnly = true;
-            this.textBoxExistingAge.Size = new System.Drawing.Size(114, 25);
+            this.textBoxExistingAge.Size = new System.Drawing.Size(88, 23);
             this.textBoxExistingAge.TabIndex = 9;
             this.textBoxExistingAge.TabStop = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(177, 74);
+            this.label5.Location = new System.Drawing.Point(155, 59);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 15);
+            this.label5.Size = new System.Drawing.Size(31, 15);
             this.label5.TabIndex = 8;
             this.label5.Text = "나이";
             // 
             // textBoxExistingName
             // 
             this.textBoxExistingName.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBoxExistingName.Location = new System.Drawing.Point(42, 70);
-            this.textBoxExistingName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxExistingName.Location = new System.Drawing.Point(37, 56);
             this.textBoxExistingName.Name = "textBoxExistingName";
             this.textBoxExistingName.ReadOnly = true;
-            this.textBoxExistingName.Size = new System.Drawing.Size(114, 25);
+            this.textBoxExistingName.Size = new System.Drawing.Size(88, 23);
             this.textBoxExistingName.TabIndex = 7;
             this.textBoxExistingName.TabStop = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(2, 74);
+            this.label4.Location = new System.Drawing.Point(2, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 15);
+            this.label4.Size = new System.Drawing.Size(31, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "이름";
             // 
             // textBoxExistingGrade
             // 
             this.textBoxExistingGrade.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBoxExistingGrade.Location = new System.Drawing.Point(378, 36);
-            this.textBoxExistingGrade.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxExistingGrade.Location = new System.Drawing.Point(331, 29);
             this.textBoxExistingGrade.Name = "textBoxExistingGrade";
             this.textBoxExistingGrade.ReadOnly = true;
-            this.textBoxExistingGrade.Size = new System.Drawing.Size(114, 25);
+            this.textBoxExistingGrade.Size = new System.Drawing.Size(88, 23);
             this.textBoxExistingGrade.TabIndex = 5;
             this.textBoxExistingGrade.TabStop = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(338, 40);
+            this.label3.Location = new System.Drawing.Point(296, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 15);
+            this.label3.Size = new System.Drawing.Size(31, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "직위";
             // 
             // textBoxExistingDepart
             // 
             this.textBoxExistingDepart.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBoxExistingDepart.Location = new System.Drawing.Point(217, 36);
-            this.textBoxExistingDepart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxExistingDepart.Location = new System.Drawing.Point(190, 29);
             this.textBoxExistingDepart.Name = "textBoxExistingDepart";
             this.textBoxExistingDepart.ReadOnly = true;
-            this.textBoxExistingDepart.Size = new System.Drawing.Size(114, 25);
+            this.textBoxExistingDepart.Size = new System.Drawing.Size(88, 23);
             this.textBoxExistingDepart.TabIndex = 3;
             this.textBoxExistingDepart.TabStop = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(163, 40);
+            this.label2.Location = new System.Drawing.Point(143, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 15);
+            this.label2.Size = new System.Drawing.Size(43, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "부서명";
             // 
             // textBoxExistingIndex
             // 
             this.textBoxExistingIndex.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBoxExistingIndex.Location = new System.Drawing.Point(42, 36);
-            this.textBoxExistingIndex.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxExistingIndex.Location = new System.Drawing.Point(37, 29);
             this.textBoxExistingIndex.Name = "textBoxExistingIndex";
             this.textBoxExistingIndex.ReadOnly = true;
-            this.textBoxExistingIndex.Size = new System.Drawing.Size(114, 25);
+            this.textBoxExistingIndex.Size = new System.Drawing.Size(88, 23);
             this.textBoxExistingIndex.TabIndex = 1;
             this.textBoxExistingIndex.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 40);
+            this.label1.Location = new System.Drawing.Point(6, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 15);
+            this.label1.Size = new System.Drawing.Size(26, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "No.";
             // 
             // buttonSave
             // 
             this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonSave.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(623, 258);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonSave.Location = new System.Drawing.Point(547, 194);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(86, 29);
             this.buttonSave.TabIndex = 17;
@@ -272,9 +263,9 @@
             // buttonClose
             // 
             this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonClose.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(623, 294);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonClose.Location = new System.Drawing.Point(547, 229);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(86, 29);
             this.buttonClose.TabIndex = 18;
@@ -300,12 +291,11 @@
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.textBoxEditIndex);
             this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.groupBox2.Location = new System.Drawing.Point(14, 172);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Location = new System.Drawing.Point(12, 138);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(602, 150);
+            this.groupBox2.Size = new System.Drawing.Size(527, 120);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "정보 수정 (빈칸을 모두 채워주십시오)";
@@ -316,10 +306,9 @@
             this.comboBoxEditGender.Items.AddRange(new object[] {
             "남자",
             "여자"});
-            this.comboBoxEditGender.Location = new System.Drawing.Point(378, 70);
-            this.comboBoxEditGender.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBoxEditGender.Location = new System.Drawing.Point(331, 56);
             this.comboBoxEditGender.Name = "comboBoxEditGender";
-            this.comboBoxEditGender.Size = new System.Drawing.Size(114, 23);
+            this.comboBoxEditGender.Size = new System.Drawing.Size(88, 23);
             this.comboBoxEditGender.TabIndex = 18;
             // 
             // comboBoxEditGrade
@@ -329,149 +318,141 @@
             "사장",
             "부서장",
             "사원"});
-            this.comboBoxEditGrade.Location = new System.Drawing.Point(378, 36);
-            this.comboBoxEditGrade.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBoxEditGrade.Location = new System.Drawing.Point(331, 29);
             this.comboBoxEditGrade.Name = "comboBoxEditGrade";
-            this.comboBoxEditGrade.Size = new System.Drawing.Size(114, 23);
+            this.comboBoxEditGrade.Size = new System.Drawing.Size(88, 23);
             this.comboBoxEditGrade.TabIndex = 17;
             // 
             // comboBoxEditDepart
             // 
             this.comboBoxEditDepart.FormattingEnabled = true;
-            this.comboBoxEditDepart.Location = new System.Drawing.Point(217, 36);
-            this.comboBoxEditDepart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBoxEditDepart.Location = new System.Drawing.Point(190, 29);
             this.comboBoxEditDepart.Name = "comboBoxEditDepart";
-            this.comboBoxEditDepart.Size = new System.Drawing.Size(114, 23);
+            this.comboBoxEditDepart.Size = new System.Drawing.Size(88, 23);
             this.comboBoxEditDepart.TabIndex = 16;
             // 
             // textBoxEditAddress
             // 
-            this.textBoxEditAddress.Location = new System.Drawing.Point(235, 104);
-            this.textBoxEditAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxEditAddress.Location = new System.Drawing.Point(194, 83);
             this.textBoxEditAddress.Name = "textBoxEditAddress";
-            this.textBoxEditAddress.Size = new System.Drawing.Size(359, 25);
+            this.textBoxEditAddress.Size = new System.Drawing.Size(315, 23);
             this.textBoxEditAddress.TabIndex = 15;
             this.textBoxEditAddress.DoubleClick += new System.EventHandler(this.textBoxEditAddress_DoubleClick);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(195, 108);
+            this.label9.Location = new System.Drawing.Point(159, 86);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 15);
+            this.label9.Size = new System.Drawing.Size(31, 15);
             this.label9.TabIndex = 14;
             this.label9.Text = "주소";
             // 
             // textBoxEditPhone
             // 
-            this.textBoxEditPhone.Location = new System.Drawing.Point(42, 104);
-            this.textBoxEditPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxEditPhone.Location = new System.Drawing.Point(37, 83);
             this.textBoxEditPhone.Name = "textBoxEditPhone";
-            this.textBoxEditPhone.Size = new System.Drawing.Size(146, 25);
+            this.textBoxEditPhone.Size = new System.Drawing.Size(116, 23);
             this.textBoxEditPhone.TabIndex = 13;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 108);
+            this.label10.Location = new System.Drawing.Point(6, 86);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(32, 15);
+            this.label10.Size = new System.Drawing.Size(26, 15);
             this.label10.TabIndex = 12;
             this.label10.Text = "H.P";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(338, 74);
+            this.label11.Location = new System.Drawing.Point(296, 59);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 15);
+            this.label11.Size = new System.Drawing.Size(31, 15);
             this.label11.TabIndex = 10;
             this.label11.Text = "성별";
             // 
             // textBoxEditAge
             // 
-            this.textBoxEditAge.Location = new System.Drawing.Point(217, 70);
-            this.textBoxEditAge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxEditAge.Location = new System.Drawing.Point(190, 56);
             this.textBoxEditAge.Name = "textBoxEditAge";
-            this.textBoxEditAge.Size = new System.Drawing.Size(114, 25);
+            this.textBoxEditAge.Size = new System.Drawing.Size(88, 23);
             this.textBoxEditAge.TabIndex = 9;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(177, 74);
+            this.label12.Location = new System.Drawing.Point(155, 59);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 15);
+            this.label12.Size = new System.Drawing.Size(31, 15);
             this.label12.TabIndex = 8;
             this.label12.Text = "나이";
             // 
             // textBoxEditName
             // 
-            this.textBoxEditName.Location = new System.Drawing.Point(42, 70);
-            this.textBoxEditName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxEditName.Location = new System.Drawing.Point(37, 56);
             this.textBoxEditName.Name = "textBoxEditName";
-            this.textBoxEditName.Size = new System.Drawing.Size(114, 25);
+            this.textBoxEditName.Size = new System.Drawing.Size(88, 23);
             this.textBoxEditName.TabIndex = 7;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(2, 74);
+            this.label13.Location = new System.Drawing.Point(2, 59);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(37, 15);
+            this.label13.Size = new System.Drawing.Size(31, 15);
             this.label13.TabIndex = 6;
             this.label13.Text = "이름";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(338, 40);
+            this.label14.Location = new System.Drawing.Point(296, 32);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(37, 15);
+            this.label14.Size = new System.Drawing.Size(31, 15);
             this.label14.TabIndex = 4;
             this.label14.Text = "직위";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(163, 40);
+            this.label15.Location = new System.Drawing.Point(143, 32);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(52, 15);
+            this.label15.Size = new System.Drawing.Size(43, 15);
             this.label15.TabIndex = 2;
             this.label15.Text = "부서명";
             // 
             // textBoxEditIndex
             // 
             this.textBoxEditIndex.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBoxEditIndex.Location = new System.Drawing.Point(42, 36);
-            this.textBoxEditIndex.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxEditIndex.Location = new System.Drawing.Point(37, 29);
             this.textBoxEditIndex.Name = "textBoxEditIndex";
             this.textBoxEditIndex.ReadOnly = true;
-            this.textBoxEditIndex.Size = new System.Drawing.Size(114, 25);
+            this.textBoxEditIndex.Size = new System.Drawing.Size(88, 23);
             this.textBoxEditIndex.TabIndex = 1;
             this.textBoxEditIndex.TabStop = false;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 40);
+            this.label16.Location = new System.Drawing.Point(6, 32);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(30, 15);
+            this.label16.Size = new System.Drawing.Size(26, 15);
             this.label16.TabIndex = 0;
             this.label16.Text = "No.";
             // 
             // EditUsers_form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(722, 338);
+            this.ClientSize = new System.Drawing.Size(645, 270);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EditUsers_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditUsers_form";

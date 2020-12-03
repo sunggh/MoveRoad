@@ -104,7 +104,7 @@ namespace MOVEROAD
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             if(comboBoxDepart.Text == "" || comboBoxGrade.Text == "" || textBoxAge.Text == "" || textBoxId.Text == "" || textBoxPassword.Text == "" || textBoxName.Text == "" || comboBoxGender.Text == "" ||
-                textBoxPhone.Text == "" || textBoxAddress.Text == "")
+                textBoxPhone.Text == "" || textBoxAddress.Text == "" || textBoxPhone.Text == "하이픈(-)까지 입력")
             {
                 MessageBox.Show("빈칸을 모두 채워 주십시오.", "등록 오류");
                 return;

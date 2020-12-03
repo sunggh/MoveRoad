@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxGrade = new System.Windows.Forms.ComboBox();
@@ -65,35 +65,35 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
-            this.dataGridView1.Location = new System.Drawing.Point(14, 165);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 148);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(824, 252);
+            this.dataGridView1.Size = new System.Drawing.Size(719, 179);
             this.dataGridView1.TabIndex = 0;
             // 
             // groupBox1
@@ -119,11 +119,12 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox1.Location = new System.Drawing.Point(14, 4);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(824, 154);
+            this.groupBox1.Size = new System.Drawing.Size(719, 136);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -134,54 +135,54 @@
             "사장",
             "부서장",
             "사원"});
-            this.comboBoxGrade.Location = new System.Drawing.Point(208, 44);
+            this.comboBoxGrade.Location = new System.Drawing.Point(175, 29);
             this.comboBoxGrade.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxGrade.Name = "comboBoxGrade";
-            this.comboBoxGrade.Size = new System.Drawing.Size(114, 23);
+            this.comboBoxGrade.Size = new System.Drawing.Size(88, 23);
             this.comboBoxGrade.TabIndex = 21;
             // 
             // comboBoxDepart
             // 
             this.comboBoxDepart.FormattingEnabled = true;
-            this.comboBoxDepart.Location = new System.Drawing.Point(47, 44);
+            this.comboBoxDepart.Location = new System.Drawing.Point(46, 30);
             this.comboBoxDepart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxDepart.Name = "comboBoxDepart";
-            this.comboBoxDepart.Size = new System.Drawing.Size(114, 23);
+            this.comboBoxDepart.Size = new System.Drawing.Size(88, 23);
             this.comboBoxDepart.TabIndex = 22;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(670, 42);
+            this.textBoxPassword.Location = new System.Drawing.Point(543, 29);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(114, 25);
+            this.textBoxPassword.Size = new System.Drawing.Size(88, 23);
             this.textBoxPassword.TabIndex = 20;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label9.Location = new System.Drawing.Point(637, 46);
+            this.label9.Location = new System.Drawing.Point(514, 32);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(31, 15);
+            this.label9.Size = new System.Drawing.Size(25, 15);
             this.label9.TabIndex = 19;
             this.label9.Text = "PW";
             // 
             // textBoxId
             // 
-            this.textBoxId.Location = new System.Drawing.Point(515, 42);
+            this.textBoxId.Location = new System.Drawing.Point(420, 28);
             this.textBoxId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxId.Name = "textBoxId";
-            this.textBoxId.Size = new System.Drawing.Size(114, 25);
+            this.textBoxId.Size = new System.Drawing.Size(88, 23);
             this.textBoxId.TabIndex = 18;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label8.Location = new System.Drawing.Point(490, 46);
+            this.label8.Location = new System.Drawing.Point(398, 32);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(20, 15);
+            this.label8.Size = new System.Drawing.Size(19, 15);
             this.label8.TabIndex = 17;
             this.label8.Text = "ID";
             // 
@@ -191,17 +192,18 @@
             this.comboBoxGender.Items.AddRange(new object[] {
             "남자",
             "여자"});
-            this.comboBoxGender.Location = new System.Drawing.Point(208, 76);
+            this.comboBoxGender.Location = new System.Drawing.Point(175, 63);
             this.comboBoxGender.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxGender.Name = "comboBoxGender";
-            this.comboBoxGender.Size = new System.Drawing.Size(114, 23);
+            this.comboBoxGender.Size = new System.Drawing.Size(88, 23);
             this.comboBoxGender.TabIndex = 16;
             // 
             // buttonRegister
             // 
             this.buttonRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonRegister.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.buttonRegister.ForeColor = System.Drawing.Color.White;
-            this.buttonRegister.Location = new System.Drawing.Point(584, 108);
+            this.buttonRegister.Location = new System.Drawing.Point(581, 91);
             this.buttonRegister.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonRegister.Name = "buttonRegister";
             this.buttonRegister.Size = new System.Drawing.Size(86, 29);
@@ -213,8 +215,9 @@
             // buttonSearch
             // 
             this.buttonSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonSearch.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.buttonSearch.ForeColor = System.Drawing.Color.White;
-            this.buttonSearch.Location = new System.Drawing.Point(486, 108);
+            this.buttonSearch.Location = new System.Drawing.Point(483, 91);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(86, 29);
@@ -226,30 +229,30 @@
             // textBoxAddress
             // 
             this.textBoxAddress.BackColor = System.Drawing.Color.White;
-            this.textBoxAddress.Location = new System.Drawing.Point(47, 110);
+            this.textBoxAddress.Location = new System.Drawing.Point(46, 96);
             this.textBoxAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.ReadOnly = true;
-            this.textBoxAddress.Size = new System.Drawing.Size(431, 25);
+            this.textBoxAddress.Size = new System.Drawing.Size(431, 23);
             this.textBoxAddress.TabIndex = 13;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label7.Location = new System.Drawing.Point(7, 114);
+            this.label7.Location = new System.Drawing.Point(6, 100);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 15);
+            this.label7.Size = new System.Drawing.Size(31, 15);
             this.label7.TabIndex = 12;
             this.label7.Text = "주소";
             // 
             // textBoxPhone
             // 
             this.textBoxPhone.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxPhone.Location = new System.Drawing.Point(369, 76);
+            this.textBoxPhone.Location = new System.Drawing.Point(309, 62);
             this.textBoxPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(139, 25);
+            this.textBoxPhone.Size = new System.Drawing.Size(139, 23);
             this.textBoxPhone.TabIndex = 11;
             this.textBoxPhone.Text = "하이픈(-)까지 입력";
             this.textBoxPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -259,9 +262,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label6.Location = new System.Drawing.Point(329, 80);
+            this.label6.Location = new System.Drawing.Point(269, 66);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 15);
+            this.label6.Size = new System.Drawing.Size(26, 15);
             this.label6.TabIndex = 10;
             this.label6.Text = "H.P";
             // 
@@ -269,45 +272,45 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label5.Location = new System.Drawing.Point(168, 80);
+            this.label5.Location = new System.Drawing.Point(140, 66);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 15);
+            this.label5.Size = new System.Drawing.Size(31, 15);
             this.label5.TabIndex = 8;
             this.label5.Text = "성별";
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(47, 76);
+            this.textBoxName.Location = new System.Drawing.Point(46, 62);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(114, 25);
+            this.textBoxName.Size = new System.Drawing.Size(88, 23);
             this.textBoxName.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label4.Location = new System.Drawing.Point(7, 80);
+            this.label4.Location = new System.Drawing.Point(6, 66);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 15);
+            this.label4.Size = new System.Drawing.Size(31, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "성명";
             // 
             // textBoxAge
             // 
-            this.textBoxAge.Location = new System.Drawing.Point(369, 42);
+            this.textBoxAge.Location = new System.Drawing.Point(304, 28);
             this.textBoxAge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxAge.Name = "textBoxAge";
-            this.textBoxAge.Size = new System.Drawing.Size(114, 25);
+            this.textBoxAge.Size = new System.Drawing.Size(88, 23);
             this.textBoxAge.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label3.Location = new System.Drawing.Point(329, 46);
+            this.label3.Location = new System.Drawing.Point(269, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 15);
+            this.label3.Size = new System.Drawing.Size(31, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "나이";
             // 
@@ -315,9 +318,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label2.Location = new System.Drawing.Point(168, 46);
+            this.label2.Location = new System.Drawing.Point(140, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 15);
+            this.label2.Size = new System.Drawing.Size(31, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "직위";
             // 
@@ -325,9 +328,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label1.Location = new System.Drawing.Point(7, 46);
+            this.label1.Location = new System.Drawing.Point(6, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 15);
+            this.label1.Size = new System.Drawing.Size(31, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "부서";
             // 
@@ -335,7 +338,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(851, 425);
+            this.ClientSize = new System.Drawing.Size(745, 340);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
