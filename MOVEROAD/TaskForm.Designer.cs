@@ -198,7 +198,7 @@ namespace MOVEROAD
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.label4.Size = new System.Drawing.Size(89, 30);
-            this.label4.TabIndex = 26;
+            this.label4.TabIndex = 24;
             this.label4.Text = "업무";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
