@@ -59,28 +59,28 @@
             // Fromsearch
             // 
             this.Fromsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Fromsearch.Location = new System.Drawing.Point(21, 65);
+            this.Fromsearch.Location = new System.Drawing.Point(18, 52);
             this.Fromsearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Fromsearch.Name = "Fromsearch";
-            this.Fromsearch.Size = new System.Drawing.Size(121, 24);
+            this.Fromsearch.Size = new System.Drawing.Size(106, 21);
             this.Fromsearch.TabIndex = 1;
             // 
             // titlesearch
             // 
             this.titlesearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.titlesearch.Location = new System.Drawing.Point(147, 65);
+            this.titlesearch.Location = new System.Drawing.Point(129, 52);
             this.titlesearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.titlesearch.Name = "titlesearch";
-            this.titlesearch.Size = new System.Drawing.Size(121, 24);
+            this.titlesearch.Size = new System.Drawing.Size(106, 21);
             this.titlesearch.TabIndex = 2;
             // 
             // textsearch
             // 
             this.textsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textsearch.Location = new System.Drawing.Point(275, 65);
+            this.textsearch.Location = new System.Drawing.Point(241, 52);
             this.textsearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textsearch.Name = "textsearch";
-            this.textsearch.Size = new System.Drawing.Size(177, 24);
+            this.textsearch.Size = new System.Drawing.Size(155, 21);
             this.textsearch.TabIndex = 3;
             // 
             // menuStrip1
@@ -92,7 +92,8 @@
             this.보낸쪽지ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(851, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(745, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -101,7 +102,7 @@
             this.받은쪽지ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.받은쪽지ToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.받은쪽지ToolStripMenuItem.Name = "받은쪽지ToolStripMenuItem";
-            this.받은쪽지ToolStripMenuItem.Size = new System.Drawing.Size(87, 26);
+            this.받은쪽지ToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.받은쪽지ToolStripMenuItem.Text = "받은 쪽지";
             this.받은쪽지ToolStripMenuItem.Click += new System.EventHandler(this.받은쪽지ToolStripMenuItem_Click);
             // 
@@ -110,7 +111,7 @@
             this.보낸쪽지ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.보낸쪽지ToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.보낸쪽지ToolStripMenuItem.Name = "보낸쪽지ToolStripMenuItem";
-            this.보낸쪽지ToolStripMenuItem.Size = new System.Drawing.Size(87, 26);
+            this.보낸쪽지ToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.보낸쪽지ToolStripMenuItem.Text = "보낸 쪽지";
             this.보낸쪽지ToolStripMenuItem.Click += new System.EventHandler(this.보낸쪽지ToolStripMenuItem_Click);
             // 
@@ -121,10 +122,9 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(121, 98);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDelete.Location = new System.Drawing.Point(106, 78);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(94, 34);
+            this.btnDelete.Size = new System.Drawing.Size(82, 27);
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "삭제";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -137,10 +137,9 @@
             this.btnRead.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRead.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRead.ForeColor = System.Drawing.Color.White;
-            this.btnRead.Location = new System.Drawing.Point(222, 98);
-            this.btnRead.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRead.Location = new System.Drawing.Point(194, 78);
             this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(94, 34);
+            this.btnRead.Size = new System.Drawing.Size(82, 27);
             this.btnRead.TabIndex = 12;
             this.btnRead.Text = "읽음";
             this.btnRead.UseVisualStyleBackColor = false;
@@ -177,7 +176,7 @@
             // 
             // listView1
             // 
-            this.listView1.BackColor = System.Drawing.Color.White;
+            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.listView1.CheckBoxes = true;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.checkbox,
@@ -188,10 +187,10 @@
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(21, 138);
+            this.listView1.Location = new System.Drawing.Point(18, 110);
             this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(817, 364);
+            this.listView1.Size = new System.Drawing.Size(715, 292);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -207,10 +206,9 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.Color.White;
-            this.btnNew.Location = new System.Drawing.Point(21, 98);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnNew.Location = new System.Drawing.Point(18, 78);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(94, 34);
+            this.btnNew.Size = new System.Drawing.Size(82, 27);
             this.btnNew.TabIndex = 13;
             this.btnNew.Text = "쪽지 쓰기";
             this.btnNew.UseVisualStyleBackColor = false;
@@ -248,9 +246,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label4.Location = new System.Drawing.Point(46, 43);
+            this.label4.Location = new System.Drawing.Point(40, 34);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 20);
+            this.label4.Size = new System.Drawing.Size(55, 15);
             this.label4.TabIndex = 14;
             this.label4.Text = "보낸사람";
             // 
@@ -259,9 +257,9 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label5.Location = new System.Drawing.Point(192, 43);
+            this.label5.Location = new System.Drawing.Point(168, 34);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 20);
+            this.label5.Size = new System.Drawing.Size(31, 15);
             this.label5.TabIndex = 15;
             this.label5.Text = "제목";
             // 
@@ -270,19 +268,19 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
-            this.label6.Location = new System.Drawing.Point(345, 43);
+            this.label6.Location = new System.Drawing.Point(302, 34);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 20);
+            this.label6.Size = new System.Drawing.Size(31, 15);
             this.label6.TabIndex = 16;
             this.label6.Text = "내용";
             // 
             // pictureBoxRegistrantSearch
             // 
             this.pictureBoxRegistrantSearch.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRegistrantSearch.Image")));
-            this.pictureBoxRegistrantSearch.Location = new System.Drawing.Point(459, 65);
+            this.pictureBoxRegistrantSearch.Location = new System.Drawing.Point(402, 52);
             this.pictureBoxRegistrantSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxRegistrantSearch.Name = "pictureBoxRegistrantSearch";
-            this.pictureBoxRegistrantSearch.Size = new System.Drawing.Size(34, 20);
+            this.pictureBoxRegistrantSearch.Size = new System.Drawing.Size(30, 16);
             this.pictureBoxRegistrantSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxRegistrantSearch.TabIndex = 8;
             this.pictureBoxRegistrantSearch.TabStop = false;
@@ -294,18 +292,18 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(759, 11);
+            this.label7.Location = new System.Drawing.Point(664, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 20);
+            this.label7.Size = new System.Drawing.Size(70, 15);
             this.label7.TabIndex = 17;
             this.label7.Text = "받은 쪽지함";
             // 
             // MessageBoxForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(851, 515);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ClientSize = new System.Drawing.Size(745, 412);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
