@@ -120,7 +120,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(14, 4);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
@@ -131,6 +131,7 @@
             // 
             // comboBoxGrade
             // 
+            this.comboBoxGrade.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.comboBoxGrade.FormattingEnabled = true;
             this.comboBoxGrade.Items.AddRange(new object[] {
             "사장",
@@ -144,6 +145,7 @@
             // 
             // comboBoxDepart
             // 
+            this.comboBoxDepart.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.comboBoxDepart.FormattingEnabled = true;
             this.comboBoxDepart.Location = new System.Drawing.Point(46, 30);
             this.comboBoxDepart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -153,6 +155,7 @@
             // 
             // textBoxPassword
             // 
+            this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxPassword.Location = new System.Drawing.Point(543, 29);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPassword.Name = "textBoxPassword";
@@ -165,12 +168,13 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label9.Location = new System.Drawing.Point(514, 32);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(25, 15);
+            this.label9.Size = new System.Drawing.Size(26, 15);
             this.label9.TabIndex = 19;
             this.label9.Text = "PW";
             // 
             // textBoxId
             // 
+            this.textBoxId.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxId.Location = new System.Drawing.Point(420, 28);
             this.textBoxId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxId.Name = "textBoxId";
@@ -183,12 +187,13 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label8.Location = new System.Drawing.Point(398, 32);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(18, 15);
+            this.label8.Size = new System.Drawing.Size(20, 15);
             this.label8.TabIndex = 17;
             this.label8.Text = "ID";
             // 
             // comboBoxGender
             // 
+            this.comboBoxGender.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.comboBoxGender.FormattingEnabled = true;
             this.comboBoxGender.Items.AddRange(new object[] {
             "남자",
@@ -233,6 +238,7 @@
             // textBoxAddress
             // 
             this.textBoxAddress.BackColor = System.Drawing.Color.White;
+            this.textBoxAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxAddress.Location = new System.Drawing.Point(46, 96);
             this.textBoxAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxAddress.Name = "textBoxAddress";
@@ -252,6 +258,7 @@
             // 
             // textBoxPhone
             // 
+            this.textBoxPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxPhone.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBoxPhone.Location = new System.Drawing.Point(309, 62);
             this.textBoxPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -284,6 +291,7 @@
             // 
             // textBoxName
             // 
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxName.Location = new System.Drawing.Point(46, 62);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxName.Name = "textBoxName";
@@ -302,6 +310,7 @@
             // 
             // textBoxAge
             // 
+            this.textBoxAge.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxAge.Location = new System.Drawing.Point(304, 28);
             this.textBoxAge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxAge.Name = "textBoxAge";
@@ -321,7 +330,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label2.Location = new System.Drawing.Point(140, 33);
             this.label2.Name = "label2";
@@ -332,7 +341,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label1.Location = new System.Drawing.Point(6, 32);
             this.label1.Name = "label1";

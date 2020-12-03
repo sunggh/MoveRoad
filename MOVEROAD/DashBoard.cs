@@ -18,7 +18,7 @@ namespace MOVEROAD
         private BackgroundWorker backgroundWorker;
         public DashBoard(UserInfo user, MainForm main)
         {
-            string[] grade = { "사장", "부서장", "직원" };
+            string[] grade = { "사장", "부서장", "사원" };
             this.main = main;
             Dictionary<int ,string> departName = new Dictionary<int, string>();
             foreach(var depart in this.main.departments)

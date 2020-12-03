@@ -98,6 +98,7 @@
             // textBoxExistingAddress
             // 
             this.textBoxExistingAddress.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.textBoxExistingAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxExistingAddress.Location = new System.Drawing.Point(194, 83);
             this.textBoxExistingAddress.Name = "textBoxExistingAddress";
             this.textBoxExistingAddress.ReadOnly = true;
@@ -117,6 +118,7 @@
             // textBoxExistingPhone
             // 
             this.textBoxExistingPhone.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.textBoxExistingPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxExistingPhone.Location = new System.Drawing.Point(37, 83);
             this.textBoxExistingPhone.Name = "textBoxExistingPhone";
             this.textBoxExistingPhone.ReadOnly = true;
@@ -136,6 +138,7 @@
             // textBoxExistingGender
             // 
             this.textBoxExistingGender.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.textBoxExistingGender.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxExistingGender.Location = new System.Drawing.Point(331, 56);
             this.textBoxExistingGender.Name = "textBoxExistingGender";
             this.textBoxExistingGender.ReadOnly = true;
@@ -155,6 +158,7 @@
             // textBoxExistingAge
             // 
             this.textBoxExistingAge.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.textBoxExistingAge.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxExistingAge.Location = new System.Drawing.Point(190, 56);
             this.textBoxExistingAge.Name = "textBoxExistingAge";
             this.textBoxExistingAge.ReadOnly = true;
@@ -174,6 +178,7 @@
             // textBoxExistingName
             // 
             this.textBoxExistingName.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.textBoxExistingName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxExistingName.Location = new System.Drawing.Point(37, 56);
             this.textBoxExistingName.Name = "textBoxExistingName";
             this.textBoxExistingName.ReadOnly = true;
@@ -193,6 +198,7 @@
             // textBoxExistingGrade
             // 
             this.textBoxExistingGrade.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.textBoxExistingGrade.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxExistingGrade.Location = new System.Drawing.Point(331, 29);
             this.textBoxExistingGrade.Name = "textBoxExistingGrade";
             this.textBoxExistingGrade.ReadOnly = true;
@@ -212,6 +218,7 @@
             // textBoxExistingDepart
             // 
             this.textBoxExistingDepart.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.textBoxExistingDepart.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxExistingDepart.Location = new System.Drawing.Point(190, 29);
             this.textBoxExistingDepart.Name = "textBoxExistingDepart";
             this.textBoxExistingDepart.ReadOnly = true;
@@ -231,6 +238,7 @@
             // textBoxExistingIndex
             // 
             this.textBoxExistingIndex.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.textBoxExistingIndex.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxExistingIndex.Location = new System.Drawing.Point(37, 29);
             this.textBoxExistingIndex.Name = "textBoxExistingIndex";
             this.textBoxExistingIndex.ReadOnly = true;
@@ -306,6 +314,7 @@
             // 
             // comboBoxEditGender
             // 
+            this.comboBoxEditGender.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.comboBoxEditGender.FormattingEnabled = true;
             this.comboBoxEditGender.Items.AddRange(new object[] {
             "남자",
@@ -317,6 +326,7 @@
             // 
             // comboBoxEditGrade
             // 
+            this.comboBoxEditGrade.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.comboBoxEditGrade.FormattingEnabled = true;
             this.comboBoxEditGrade.Items.AddRange(new object[] {
             "사장",
@@ -329,6 +339,7 @@
             // 
             // comboBoxEditDepart
             // 
+            this.comboBoxEditDepart.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.comboBoxEditDepart.FormattingEnabled = true;
             this.comboBoxEditDepart.Location = new System.Drawing.Point(190, 29);
             this.comboBoxEditDepart.Name = "comboBoxEditDepart";
@@ -337,6 +348,7 @@
             // 
             // textBoxEditAddress
             // 
+            this.textBoxEditAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxEditAddress.Location = new System.Drawing.Point(194, 83);
             this.textBoxEditAddress.Name = "textBoxEditAddress";
             this.textBoxEditAddress.Size = new System.Drawing.Size(315, 23);
@@ -354,6 +366,7 @@
             // 
             // textBoxEditPhone
             // 
+            this.textBoxEditPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxEditPhone.Location = new System.Drawing.Point(37, 83);
             this.textBoxEditPhone.Name = "textBoxEditPhone";
             this.textBoxEditPhone.Size = new System.Drawing.Size(116, 23);
@@ -379,6 +392,7 @@
             // 
             // textBoxEditAge
             // 
+            this.textBoxEditAge.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxEditAge.Location = new System.Drawing.Point(190, 56);
             this.textBoxEditAge.Name = "textBoxEditAge";
             this.textBoxEditAge.Size = new System.Drawing.Size(88, 23);
@@ -395,6 +409,7 @@
             // 
             // textBoxEditName
             // 
+            this.textBoxEditName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxEditName.Location = new System.Drawing.Point(37, 56);
             this.textBoxEditName.Name = "textBoxEditName";
             this.textBoxEditName.Size = new System.Drawing.Size(88, 23);
@@ -430,6 +445,7 @@
             // textBoxEditIndex
             // 
             this.textBoxEditIndex.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.textBoxEditIndex.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxEditIndex.Location = new System.Drawing.Point(37, 29);
             this.textBoxEditIndex.Name = "textBoxEditIndex";
             this.textBoxEditIndex.ReadOnly = true;

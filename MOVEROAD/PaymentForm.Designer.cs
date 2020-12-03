@@ -40,49 +40,60 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 51);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(21, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 12);
+            this.label2.Size = new System.Drawing.Size(58, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "수당 선택";
             // 
             // comboBoxSelect
             // 
+            this.comboBoxSelect.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.comboBoxSelect.FormattingEnabled = true;
             this.comboBoxSelect.Items.AddRange(new object[] {
             "연장근무(금일 10시간 이상 근무 시)",
             "야간근무(금일 22시 이후 근무 시)",
             "휴일근무(토, 일, 공휴일만 적용 가능)"});
-            this.comboBoxSelect.Location = new System.Drawing.Point(23, 66);
+            this.comboBoxSelect.Location = new System.Drawing.Point(24, 98);
             this.comboBoxSelect.Name = "comboBoxSelect";
-            this.comboBoxSelect.Size = new System.Drawing.Size(231, 20);
+            this.comboBoxSelect.Size = new System.Drawing.Size(247, 23);
             this.comboBoxSelect.TabIndex = 3;
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(102, 91);
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.buttonAdd.ForeColor = System.Drawing.Color.White;
+            this.buttonAdd.Location = new System.Drawing.Point(103, 127);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(73, 21);
+            this.buttonAdd.Size = new System.Drawing.Size(81, 23);
             this.buttonAdd.TabIndex = 4;
             this.buttonAdd.Text = "추가";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(181, 91);
+            this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.buttonClose.ForeColor = System.Drawing.Color.White;
+            this.buttonClose.Location = new System.Drawing.Point(190, 127);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(73, 21);
+            this.buttonClose.Size = new System.Drawing.Size(81, 23);
             this.buttonClose.TabIndex = 5;
             this.buttonClose.Text = "닫기";
-            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // textBoxTime
             // 
-            this.textBoxTime.Location = new System.Drawing.Point(23, 92);
+            this.textBoxTime.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBoxTime.Location = new System.Drawing.Point(24, 128);
             this.textBoxTime.Name = "textBoxTime";
-            this.textBoxTime.Size = new System.Drawing.Size(73, 21);
+            this.textBoxTime.Size = new System.Drawing.Size(73, 23);
             this.textBoxTime.TabIndex = 6;
             this.textBoxTime.Text = "(시간 입력)";
             this.textBoxTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -91,28 +102,29 @@
             // Today
             // 
             this.Today.AutoSize = true;
-            this.Today.Font = new System.Drawing.Font("굴림", 9F);
-            this.Today.Location = new System.Drawing.Point(21, 21);
+            this.Today.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.Today.Location = new System.Drawing.Point(21, 50);
             this.Today.Name = "Today";
-            this.Today.Size = new System.Drawing.Size(38, 12);
+            this.Today.Size = new System.Drawing.Size(40, 15);
             this.Today.TabIndex = 8;
             this.Today.Text = "label1";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 9);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(21, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 12);
+            this.label1.Size = new System.Drawing.Size(119, 15);
             this.label1.TabIndex = 9;
-            this.label1.Text = "*초과근무 시작시간";
+            this.label1.Text = "※초과근무 시작시간";
             // 
             // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(291, 142);
+            this.ClientSize = new System.Drawing.Size(300, 175);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Today);
             this.Controls.Add(this.textBoxTime);
@@ -120,6 +132,7 @@
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.comboBoxSelect);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PaymentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "초과 근무 관리";
