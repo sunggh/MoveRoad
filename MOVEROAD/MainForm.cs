@@ -126,7 +126,6 @@ namespace MOVEROAD
                 case 2: // 로그아웃 (2|유저아이디)
                     user_id = int.Parse(str[1]);
                     var roomnum = -1;
-                    room_id = -1;
                     foreach (var r in room)
                     {
                         if(r.Value == user_id)
@@ -137,6 +136,7 @@ namespace MOVEROAD
                     }
                     if(room.ContainsKey(roomnum))
                     {
+                        if (room_id == roomnum) room_id = -1;
                         room.Remove(roomnum);
                     }
                     if (room_msg.ContainsKey(onlines[user_id]))
@@ -334,6 +334,7 @@ namespace MOVEROAD
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             lastPanel.Dispose();
+            importDepartmentInfo();
             DashBoard dashBoard = new DashBoard(me ,this);
             dashBoard.TopLevel = false;
             dashBoard.Show();

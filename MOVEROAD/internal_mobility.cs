@@ -48,15 +48,23 @@ namespace MOVEROAD
             string tb_user_name = tb_user.Text; // 사원 명
             string tb_dpt_name = tb_depart_name.Text; // 부서 명
 
-            //먼저 부서명(한글)을 통해 user테이블의 depart값(depart 테이블의 id값) 으로 변환해야함.
-            string change_depart = "select id from department where `name` = '" + tb_dpt_name + "'";
-            String id = (String)DBConnetion.getInstance().Select(change_depart,87);
 
-            //이제 user테이블에서 정보대로 바꾸기
-            string update_query = "update user set depart = '" + id + "' where name = '" + tb_user_name + "'";
-            DBConnetion.getInstance().Update(update_query);
+            if (tb_user_name.Equals("") || tb_dpt_name.Equals(""))
+            {
+                MessageBox.Show("내용을 입력해주세요.");
+            }
+            else
+            {
+                //먼저 부서명(한글)을 통해 user테이블의 depart값(depart 테이블의 id값) 으로 변환해야함.
+                string change_depart = "select id from department where `name` = '" + tb_dpt_name + "'";
+                String id = (String)DBConnetion.getInstance().Select(change_depart, 87);
 
-            this.Dispose();
+                //이제 user테이블에서 정보대로 바꾸기
+                string update_query = "update user set depart = '" + id + "' where name = '" + tb_user_name + "'";
+                DBConnetion.getInstance().Update(update_query);
+
+                this.Dispose();
+            }
         }
     }
 }
