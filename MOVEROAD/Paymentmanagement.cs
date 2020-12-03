@@ -91,13 +91,14 @@ namespace MOVEROAD
             if(checkin.Equals(1) && checkout.Equals(0)) // 현재 출근처리 되어있으며, 퇴근하지 않은 경우 추가수당 ui창 띄우기
             {
                 // 초과근무 창 띄우고 다른행동 못하게 금지
+                main.TransparencyKey = Color.Gray;
+                main.Opacity = 0.5;
                 using (PaymentForm payment = new PaymentForm(main))
                 {
-                    if (payment.ShowDialog() == DialogResult.OK)
-                    {
-                        //refresh
-                    }
+                    payment.ShowDialog();
                 }
+
+                main.Opacity = 1;
             }
             else // 출근처리가 안 되어있거나 이미 퇴근처리가 된 경우
             {
@@ -124,8 +125,14 @@ namespace MOVEROAD
 
         private void label_deductioninfo_Click(object sender, EventArgs e)
         {
-            show_deductioninfo sd = new show_deductioninfo();
-            sd.ShowDialog();
+            main.TransparencyKey = Color.Gray;
+            main.Opacity = 0.5;
+            using(show_deductioninfo sd = new show_deductioninfo())
+            {
+                sd.ShowDialog();
+            }
+
+            main.Opacity = 1;
         }
     }
 }

@@ -38,8 +38,24 @@ namespace MOVEROAD
             this.user = user;
 
             set_attendance_check();
+            setTaskListRecently();
         }
 
+        private void setTaskListRecently()
+        {
+            //최근에 한 업무 5개 불러오기
+            string query = "SELECT A.*, B.name as task FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.id WHERE A.user_id = '" + user.index + "'";
+            List<string> recentlyTask = DBConnetion.getInstance().Select(query, 16) as List<string>;
+            recentlyTask.Reverse();
+            int i = 1;
+            foreach(string task in recentlyTask)
+            {
+                if (i > 5)
+                    break;
+                TaskList.Items.Add(i + ". " + task);
+                i++;
+            }
+        }
 
         private void set_attendance_check()
         {
@@ -132,5 +148,7 @@ namespace MOVEROAD
         {
 
         }
+
+       
     }
 }

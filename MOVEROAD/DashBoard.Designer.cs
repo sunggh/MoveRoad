@@ -45,6 +45,7 @@
             this.label_attendance = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.TaskList = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.msgList = new System.Windows.Forms.ListBox();
@@ -256,12 +257,29 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.panel5.Controls.Add(this.TaskList);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Location = new System.Drawing.Point(623, 36);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(214, 190);
             this.panel5.TabIndex = 4;
+            // 
+            // TaskList
+            // 
+            this.TaskList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.TaskList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TaskList.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.TaskList.ForeColor = System.Drawing.Color.White;
+            this.TaskList.FormattingEnabled = true;
+            this.TaskList.ItemHeight = 20;
+            this.TaskList.Location = new System.Drawing.Point(-1, 50);
+            this.TaskList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TaskList.Name = "TaskList";
+            this.TaskList.Size = new System.Drawing.Size(215, 140);
+            this.TaskList.TabIndex = 3;
+            this.TaskList.TabStop = false;
+            this.TaskList.UseTabStops = false;
             // 
             // label5
             // 
@@ -385,5 +403,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label_attendance;
         private System.Windows.Forms.ListBox msgList;
+        private System.Windows.Forms.ListBox TaskList;
     }
 }
