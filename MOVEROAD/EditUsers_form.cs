@@ -110,13 +110,22 @@ namespace MOVEROAD
                     int editGender = comboBoxEditGender.SelectedIndex;
                     string editPhone = phone;
                     string editAddress = address;
-                    // 수정한 정보를 query문으로 update 해주기
-                    string query = "UPDATE project.`user` SET `depart` = '" + depart_id + "', `grade` = '" + editGrade + "', `name` = '" + editName + "', " +
-                        "`age` = '" + editAge + "', `gender` = '" + editGender + "', `phone` = '" + editPhone + "', `address` = '" + editAddress + "' WHERE `index` = '" + editIndex + "'";
-                    DBConnetion.getInstance().Update(query);
 
-                    MessageBox.Show("수정이 완료 되었습니다. 새로고침 시 적용됩니다.", "수정 완료");
-                    this.Dispose();
+                    if(editAge >= 1 && editAge < 100) // 나이 1세~99세 까지만 가입 가능
+                    {
+                        // 수정한 정보를 query문으로 update 해주기
+                        string query = "UPDATE project.`user` SET `depart` = '" + depart_id + "', `grade` = '" + editGrade + "', `name` = '" + editName + "', " +
+                            "`age` = '" + editAge + "', `gender` = '" + editGender + "', `phone` = '" + editPhone + "', `address` = '" + editAddress + "' WHERE `index` = '" + editIndex + "'";
+                        DBConnetion.getInstance().Update(query);
+
+                        MessageBox.Show("수정이 완료 되었습니다. 새로고침 시 적용됩니다.", "수정 완료");
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        MessageBox.Show("나이를 올바르게 입력하여 주십시오. (범위: 1-99)", "입력 오류");
+                        return;
+                    }
                 }
             }
         }
@@ -124,6 +133,22 @@ namespace MOVEROAD
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void textBoxEditAge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxEditPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

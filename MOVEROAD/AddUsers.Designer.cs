@@ -265,9 +265,10 @@
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(139, 23);
             this.textBoxPhone.TabIndex = 11;
-            this.textBoxPhone.Text = "하이픈(-)까지 입력";
+            this.textBoxPhone.Text = "하이픈(-)없이 입력";
             this.textBoxPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxPhone.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBoxPhone_MouseClick);
+            this.textBoxPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPhone_KeyPress);
             // 
             // label6
             // 
@@ -316,6 +317,7 @@
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(88, 23);
             this.textBoxAge.TabIndex = 5;
+            this.textBoxAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAge_KeyPress);
             // 
             // label3
             // 

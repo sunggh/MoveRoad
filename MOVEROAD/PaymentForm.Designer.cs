@@ -100,6 +100,7 @@
             this.textBoxTime.Text = "(시간 입력)";
             this.textBoxTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxTime.Click += new System.EventHandler(this.textBoxTime_Click);
+            this.textBoxTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTime_KeyPress);
             // 
             // Today
             // 

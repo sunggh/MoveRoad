@@ -371,6 +371,7 @@
             this.textBoxEditPhone.Name = "textBoxEditPhone";
             this.textBoxEditPhone.Size = new System.Drawing.Size(116, 23);
             this.textBoxEditPhone.TabIndex = 13;
+            this.textBoxEditPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxEditPhone_KeyPress);
             // 
             // label10
             // 
@@ -397,6 +398,7 @@
             this.textBoxEditAge.Name = "textBoxEditAge";
             this.textBoxEditAge.Size = new System.Drawing.Size(88, 23);
             this.textBoxEditAge.TabIndex = 9;
+            this.textBoxEditAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxEditAge_KeyPress);
             // 
             // label12
             // 
