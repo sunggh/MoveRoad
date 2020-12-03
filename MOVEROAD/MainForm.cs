@@ -334,6 +334,7 @@ namespace MOVEROAD
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             lastPanel.Dispose();
+            importDepartmentInfo();
             DashBoard dashBoard = new DashBoard(me ,this);
             dashBoard.TopLevel = false;
             dashBoard.Show();
