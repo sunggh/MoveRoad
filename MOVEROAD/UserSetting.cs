@@ -30,6 +30,7 @@ namespace MOVEROAD
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool pass = false;
             if(this.idTextbox.Text == "")
             {
                 MessageBox.Show("변경 할 ID를 입력해주세요.");
@@ -40,10 +41,21 @@ namespace MOVEROAD
                 MessageBox.Show("집 주소를 제대로 입력 해주세요.");
                 return;
             }
+            if (this.pwTextBox.Text != "" && this.pwTextBox2.Text != "")
+            {
+                if(pwTextBox.Text != pwTextBox2.Text)
+                {
+                    MessageBox.Show("비밀번호와 확인이 일치하지 않습니다.");
+                    return;
+                }
+                pass = true;
+            }
             me.address = addTextbox.Text;
-            DBConnetion.getInstance().Update("UPDATE `project`.`user` SET `address` = '"+addTextbox.Text+ "' WHERE (`index` = '"+me.index+"');");
+            if(pass)
+                DBConnetion.getInstance().Update("UPDATE `project`.`user` SET `password` = '"+pwTextBox.Text+"',`address` = '" + addTextbox.Text+ "' WHERE (`index` = '"+me.index+"')");
+            else
+                DBConnetion.getInstance().Update("UPDATE `project`.`user` SET `address` = '" + addTextbox.Text + "' WHERE (`index` = '" + me.index + "')");
             MessageBox.Show("성공적으로 변경 되었습니다.");
-
             this.Dispose();
         }
 

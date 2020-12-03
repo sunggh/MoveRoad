@@ -94,6 +94,7 @@
             this.pwTextBox2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.pwTextBox2.Location = new System.Drawing.Point(111, 147);
             this.pwTextBox2.Name = "pwTextBox2";
+            this.pwTextBox2.PasswordChar = '*';
             this.pwTextBox2.Size = new System.Drawing.Size(375, 39);
             this.pwTextBox2.TabIndex = 16;
             // 

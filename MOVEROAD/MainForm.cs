@@ -21,7 +21,7 @@ namespace MOVEROAD
         public Form lastPanel;
         public List<DepartmentInfo> departments = new List<DepartmentInfo>();
         private BackgroundWorker backgroundWorker;
-        private static Messenger ms;
+        public static Messenger ms;
         public int messagecheck = 0;
         TcpClient clientSocket = new TcpClient();
         public NetworkStream stream = default(NetworkStream);
@@ -29,6 +29,13 @@ namespace MOVEROAD
         public Dictionary<int,UserInfo> onlines = new Dictionary<int,UserInfo>();
         public Dictionary<int, int> room = new Dictionary<int, int>();
         public Dictionary<UserInfo, List<string>> room_msg = new Dictionary<UserInfo, List<string>>();
+        private static List<string> msgDash = new List<string>();
+
+        public List<string> getMsgDash()
+        {
+            return msgDash;
+        }
+
         public MainForm(UserInfo me)
         {
             this.me = me;
@@ -136,7 +143,6 @@ namespace MOVEROAD
                     {
                         room_msg.Remove(onlines[user_id]);
                     }
-                    reloadNameBox();
                     onlines.Remove(user_id);
                     break;
                 case 3:
@@ -173,7 +179,12 @@ namespace MOVEROAD
                     }
                     mss = onlines[room[cur_room]].name + "|" + msg;
                     room_msg[onlines[to_id]].Add(mss);
-                    if(ms.nameBOX.Text == onlines[to_id].name+ to_id)
+                    msgDash.Add(onlines[room[cur_room]].name + "("+ onlines[room[cur_room]].index+ ") : " + str[3]);
+                    if (msgDash.Count == 6)
+                    {
+                        msgDash.RemoveAt(0);
+                    }
+                    if (ms.nameBOX.Text == onlines[to_id].name+to_id)
                         DisplayText(mss);
                     break;
             }
@@ -195,6 +206,7 @@ namespace MOVEROAD
                 }));
             }
         }
+        /*
         public void reloadNameBox()
         {
             if (ms.nameBOX.InvokeRequired)
@@ -211,7 +223,7 @@ namespace MOVEROAD
                     ms.nameBOX.Text = "";
                 }));
             }
-        }
+        }*/
 
         private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
         {

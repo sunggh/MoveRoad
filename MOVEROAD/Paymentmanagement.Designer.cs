@@ -62,7 +62,7 @@
             this.btn_overtime.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_overtime.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_overtime.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn_overtime.FlatAppearance.BorderSize = 2;
+            this.btn_overtime.FlatAppearance.BorderSize = 0;
             this.btn_overtime.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.btn_overtime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_overtime.Font = new System.Drawing.Font("함초롬바탕", 12F);

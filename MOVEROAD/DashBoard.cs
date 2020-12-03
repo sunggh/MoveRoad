@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,6 +15,7 @@ namespace MOVEROAD
     {
         UserInfo user;
         MainForm main;
+        private BackgroundWorker backgroundWorker;
         public DashBoard(UserInfo user, MainForm main)
         {
             string[] grade = { "사장", "부서장", "직원" };
@@ -24,20 +26,63 @@ namespace MOVEROAD
                 departName.Add(depart.id,depart.name);
             }
             InitializeComponent();
-            
+            msgList.Items.Add("새로운 메세지가 없습니다.");
+            backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorkerDoWork);
+            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerRunWorkerCompleted);
+            backgroundWorker.RunWorkerAsync();
             this.nameLabel.Text = user.name;
             this.ageLabel.Text = user.age + " 살";
             this.departLabel.Text = departName[user.depart];
             this.gradeLabel.Text = grade[user.grade];
             this.user = user;
-            
+
         }
 
         private void DashBoard_Load(object sender, EventArgs e)
         {
 
         }
+        private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
+        {
+            if (this.main.getMsgDash().Count>0)
+            {
+                if (msgList.Items[0].ToString() != this.main.getMsgDash()[0].ToString() || msgList.Items.Count != this.main.getMsgDash().Count)
+                {
+                    e.Result = (bool)true;
+                }
+                else
+                    e.Result = (bool)false;
+            }
+            else
+            {
+                e.Result = (bool)false;
+            }
+            Thread.Sleep(500);
+        }
+        private void BackgroundWorkerRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if ((bool)e.Result)
+            {
+                if (msgList.Items.Count < 7)
+                {
+                    msgList.Items.Clear();
+                    msgList.Items.AddRange(this.main.getMsgDash().ToArray());
+                }
+                else
+                {
+                    msgList.Items.RemoveAt(0);
+                    msgList.Items.Add(this.main.getMsgDash()[5]);
+                }
+            }
+            else
+            {
 
+            }
+
+            backgroundWorker.RunWorkerAsync();
+
+        }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             main.TransparencyKey = Color.Gray;

@@ -23,6 +23,12 @@ namespace MOVEROAD
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            if(textBoxTime.Text == "" || textBoxTime.Text == "(시간 입력)")
+            {
+                MessageBox.Show("시간을 입력해 주세요.", "신청 불가");
+                return;
+            }
+
             DateTime dt = Convert.ToDateTime(Today.Text);
             string today = dt.ToString("yyyy-MM-dd"); // 오늘 날짜
             int select = comboBoxSelect.SelectedIndex; // 초과근무 선택
@@ -53,7 +59,7 @@ namespace MOVEROAD
             string check_login_query = "SELECT * FROM project.salary " +
                 "WHERE salary.date = '" + today + "' AND salary.index = " + userIndex;
             object check = DBConnetion.getInstance().Select(check_login_query, 28);
-
+            
             if (check.Equals(1)) // 출근한 기록이 있을 때
             {
                 switch (select)
