@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -104,7 +105,7 @@ namespace MOVEROAD
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             if(comboBoxDepart.Text == "" || comboBoxGrade.Text == "" || textBoxAge.Text == "" || textBoxId.Text == "" || textBoxPassword.Text == "" || textBoxName.Text == "" || comboBoxGender.Text == "" ||
-                textBoxPhone.Text == "" || textBoxAddress.Text == "" || textBoxPhone.Text == "하이픈(-)없이 입력")
+                textBoxPhone.Text == "" || textBoxAddress.Text == "" || textBoxPhone.Text == "하이픈(-)포함 입력")
             {
                 MessageBox.Show("빈칸을 모두 채워 주십시오.", "등록 오류");
                 return;
@@ -120,8 +121,13 @@ namespace MOVEROAD
                 this.gender = comboBoxGender.SelectedIndex; // 성별
                 this.phone = textBoxPhone.Text; // 전화번호
                 this.address = textBoxAddress.Text; // 주소
-
-                if(age >= 1 && age < 100) // 나이 1세~99세 까지만 가입 가능
+                Regex regex = new Regex("^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$");
+                if (!regex.IsMatch(this.phone))
+                {
+                    MessageBox.Show("전화 번호를 하이픈(-) 포함하여 제대로 입력해 주세요.", "입력 오류");
+                    return;
+                }
+                if (age >= 1 && age < 100) // 나이 1세~99세 까지만 가입 가능
                 {
                     AddNewcomer(); // 사원 추가
                     DataShow(); // 데이터 그리드뷰 갱신
@@ -131,6 +137,7 @@ namespace MOVEROAD
                     MessageBox.Show("나이를 올바르게 입력하여 주십시오. (범위: 1-99)", "입력 오류");
                     return;
                 }
+                
             }
         }
 
@@ -150,7 +157,7 @@ namespace MOVEROAD
 
         private void textBoxPhone_MouseClick(object sender, MouseEventArgs e)
         {
-            if(textBoxPhone.Text == "하이픈(-)없이 입력")
+            if(textBoxPhone.Text == "하이픈(-)포함 입력")
             {
                 textBoxPhone.Text = "";
             } 
@@ -164,12 +171,19 @@ namespace MOVEROAD
             }
         }
 
-        private void textBoxPhone_KeyPress(object sender, KeyPressEventArgs e)
+        private void comboBoxGender_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
-            {
-                e.Handled = true;
-            }
+            e.Handled = true;
+        }
+
+        private void comboBoxDepart_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void comboBoxGrade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
