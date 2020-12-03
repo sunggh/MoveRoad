@@ -104,12 +104,7 @@ namespace MOVEROAD
                 MessageBox.Show("출근처리가 안 되어있거나 이미 퇴근처리 되었습니다.", "확인");
             }
         }
-
-        private void btn_refresh_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+        
         // 달 추가
         private void buttonInc_Click(object sender, EventArgs e)
         {

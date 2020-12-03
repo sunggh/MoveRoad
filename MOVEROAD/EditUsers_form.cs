@@ -32,8 +32,8 @@ namespace MOVEROAD
 
         public void init()
         {
+            // 정보 창에 기존에 있던 값들 다 넣어주기
             textBoxExistingIndex.Text = index;
-            textBoxEditIndex.Text = index;
             textBoxExistingDepart.Text = depart;
             textBoxExistingGrade.Text = grade;
             textBoxExistingName.Text = name;
@@ -41,6 +41,15 @@ namespace MOVEROAD
             textBoxExistingGender.Text = gender;
             textBoxExistingPhone.Text = phone;
             textBoxExistingAddress.Text = address;
+
+            textBoxEditIndex.Text = index;
+            comboBoxEditDepart.Text = depart;
+            comboBoxEditGrade.Text = grade;
+            textBoxEditName.Text = name;
+            textBoxEditAge.Text = age;
+            comboBoxEditGender.Text = gender;
+            textBoxEditPhone.Text = phone;
+            textBoxEditAddress.Text = address;
 
             List<DepartmentInfo> departs = main.departments;
             foreach (var departname in departs)

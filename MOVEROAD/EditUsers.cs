@@ -36,8 +36,8 @@ namespace MOVEROAD
         {
             int rowIndex = dataGridView1.CurrentRow.Index;
 
+            // 클릭한 정보 넣어주기
             EditUsers_form edit = new EditUsers_form(main);
-            
             edit.index = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
             edit.depart = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
             edit.grade = dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
@@ -47,8 +47,15 @@ namespace MOVEROAD
             edit.phone = dataGridView1.Rows[rowIndex].Cells[6].Value.ToString();
             edit.address = dataGridView1.Rows[rowIndex].Cells[7].Value.ToString();
             edit.init();
-
-            edit.Show();
+            
+            // 수정 창 띄우고 다른행동 못하게 금지
+            using (edit)
+            {
+                if (edit.ShowDialog() == DialogResult.OK)
+                {
+                    //refresh
+                }
+            }
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
