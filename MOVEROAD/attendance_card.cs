@@ -61,7 +61,7 @@ namespace MOVEROAD
 
                 //deduction 테이블 달별, 실급여, 유저 삽입(나머지 값 0)
                 //만약 테이블에 같은 달이 입력되어 있지 않다면
-                if (get_tp.Equals(""))
+                if (get_date.Equals(""))
                 {
                     string insert_query = "insert into deduction(`index`,`date`,`totalPay`) values('" + user.index + "','"+today+"',0)";
                     DBConnetion.getInstance().Insert(insert_query);
