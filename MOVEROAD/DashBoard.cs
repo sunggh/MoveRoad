@@ -53,7 +53,7 @@ namespace MOVEROAD
                 "WHERE id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 22);  // 출근버튼을 클릭하였는지 확인
 
             object finish = DBConnetion.getInstance().Select("SELECT finishTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date!= 'null'", 23); // 퇴근을 눌렀는지 확인
+                "WHERE id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 23); // 퇴근을 눌렀는지 확인
 
             //////////////////////////////////////
             
