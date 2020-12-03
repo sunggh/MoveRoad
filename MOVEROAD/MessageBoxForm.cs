@@ -95,11 +95,6 @@ namespace MOVEROAD
              
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
         private void btnRead_Click(object sender, EventArgs e)  // 직접 메시지를 수신하지 않아도 읽음처리 가능
         {
 
