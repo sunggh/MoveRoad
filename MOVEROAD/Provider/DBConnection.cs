@@ -227,6 +227,21 @@ namespace MOVEROAD
                     }
                     thing = task;
                     break;
+                case 16:
+                    List<string> recentlytask = new List<string>();
+                    while (rdr.Read())
+                    {
+                        string taskName;
+                        if (rdr["task"] == System.DBNull.Value)
+                        {
+                            continue;
+                        }
+
+                        taskName = (string)rdr["task"];
+                        recentlytask.Add(taskName);
+                    }
+                    thing = recentlytask;
+                    break;
                 case 7:
                     try
                     {
