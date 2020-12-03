@@ -80,7 +80,6 @@
             // 
             // lv_rivise
             // 
-            this.lv_rivise.Activation = System.Windows.Forms.ItemActivation.TwoClick;
             this.lv_rivise.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.lv_rivise.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lv_rivise.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
