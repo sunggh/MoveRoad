@@ -101,7 +101,6 @@ namespace MOVEROAD
                     int editGender = comboBoxEditGender.SelectedIndex;
                     string editPhone = phone;
                     string editAddress = address;
-
                     // 수정한 정보를 query문으로 update 해주기
                     string query = "UPDATE project.`user` SET `depart` = '" + depart_id + "', `grade` = '" + editGrade + "', `name` = '" + editName + "', " +
                         "`age` = '" + editAge + "', `gender` = '" + editGender + "', `phone` = '" + editPhone + "', `address` = '" + editAddress + "' WHERE `index` = '" + editIndex + "'";
