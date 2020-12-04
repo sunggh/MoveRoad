@@ -172,13 +172,16 @@ namespace MOVEROAD
             //사원이 접속하면
             else if (main.me.grade == 2)
             {
+                string sql_ = "SELECT count(*) FROM sign WHERE progress = 0 AND drafter = '" + main.me.index + "'";
+                string count_yet = (string)DBConnetion.getInstance().Select(sql_, 11);
+
                 string sql = "SELECT count(*) FROM sign WHERE progress = 2 AND drafter = '" + main.me.index + "'";
                 string count_done = (string)DBConnetion.getInstance().Select(sql, 11);
 
                 string query = "SELECT count(*) FROM sign WHERE progress = 3 AND drafter = '" + main.me.index + "'";
                 string count_turn = (string)DBConnetion.getInstance().Select(query, 11);
 
-                label_sign.Text = "결재완료된 내역 : " + count_done + "개" + "\n" + "반려된 내역 : " + count_turn + "개";
+                label_sign.Text = "결재 대기 내역 : " + count_yet + "개" + "\n" + "결재완료된 내역 : " + count_done + "개" + "\n" + "반려된 내역 : " + count_turn + "개";
             }
         }
     }
