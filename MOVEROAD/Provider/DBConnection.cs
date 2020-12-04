@@ -298,7 +298,8 @@ namespace MOVEROAD
                     {
                         thing = string.Format("{0}", rdr["totalPay"]);
                     }
-                    return thing;
+                    int totalpay = Int32.Parse(thing);
+                    return totalpay;
                 case 83:
                     List<string> list1 = new List<string>();
                     while (rdr.Read())

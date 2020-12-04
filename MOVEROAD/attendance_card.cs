@@ -129,8 +129,7 @@ namespace MOVEROAD
             //현재 접속중인 아이디
             string ID = main.me.id;
 
-            string query = "SELECT startTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date!= 'null' and date2 != 'null'";
+            string query = "SELECT startTime FROM attendance_card WHERE id='" + ID + "' and date!= 'null' and date2 != 'null'";
             object start = DBConnetion.getInstance().Select(query, 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
 
             if ((string)start == null)
@@ -248,7 +247,7 @@ namespace MOVEROAD
 
             List<string> list = (List<string>)DBConnetion.getInstance().Select(set_dedcution, 83);
 
-            string get_query = "SELECT * FROM project.deduction where `date` = '"+today+"'";
+            string get_query = "SELECT * FROM project.deduction where `date` = '"+today+"' and `index` = '"+user.index+"'";
             string get_date = (string)DBConnetion.getInstance().Select(get_query, 84);
 
             //deduction 테이블 달별, 실급여, 유저 삽입(나머지 값 0)
@@ -266,7 +265,7 @@ namespace MOVEROAD
             }
 
             string query = "select `totalPay` from deduction where `index` = '" + user.index + "' and `date` = '" + list[0] + "'";
-            int totalPay = Convert.ToInt32((string)DBConnetion.getInstance().Select(query, 82))/1000*1000;
+            int totalPay = Convert.ToInt32(DBConnetion.getInstance().Select(query, 82)) /1000*1000;
             //1000원미만 절사하기
 
             double health_insurance = ((totalPay * 0.0335)/10*10);//건강보험-건강보험
