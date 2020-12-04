@@ -55,8 +55,18 @@ namespace MOVEROAD
             {
                 edit.ShowDialog();
             }
-
             main.Opacity = 1;
+            if (main.me.depart != 1)
+            {
+                MessageBox.Show("접근 제한", "Error");
+                DashBoard dashBoard = new DashBoard(main.me, main);
+                dashBoard.TopLevel = false;
+                dashBoard.Show();
+                main.MainPanel.Controls.Clear();
+                main.MainPanel.Controls.Add(dashBoard);
+                main.lastPanel = dashBoard;
+                return;
+            }
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
