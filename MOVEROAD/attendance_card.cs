@@ -132,17 +132,15 @@ namespace MOVEROAD
             object start = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
                 "WHERE id='" + ID + "' and date!= 'null' and finishTime ='\"' ", 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
 
-            //if ((string)start == null)
-            //{// 만약 출근버튼을 먼저 누르지 않았다면
+            if ((string)start == null)
+            {// 만약 출근버튼을 먼저 누르지 않았다면
 
-            //}
-            //else
-            //{
+            }
+            else
+            {
                 //현재 날짜
                 DateTime dt = Convert.ToDateTime(Today.Text);
                 string today = dt.ToString("yyyy-MM-dd");
-
-
 
                 //현재 접속중인 유저의 정보 받아오기
                 UserInfo user;
@@ -220,7 +218,7 @@ namespace MOVEROAD
                 //totalpay 계산
                 get_totalpay(user, today);
                 get_deduction(user, today);
-            //}
+            }
         }
         #endregion
 

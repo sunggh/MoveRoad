@@ -288,8 +288,10 @@ namespace MOVEROAD
                     thing = list;
                     return thing;
                 case 81: //총급여 계산
-                    rdr.Read();
-                    thing = string.Format("{0}", rdr["sumpays"]);
+                    while (rdr.Read())
+                    {
+                        thing = string.Format("{0}", rdr["sumpays"]);
+                    }
                     return thing;
                 case 82: // 총급여 가져오기
                     while (rdr.Read())
