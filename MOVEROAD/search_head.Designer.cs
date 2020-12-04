@@ -30,8 +30,9 @@
         {
             this.lv_searching = new System.Windows.Forms.ListView();
             this.username = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.userindex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.usergrade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.userindex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lv_searching
@@ -40,8 +41,9 @@
             this.lv_searching.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.lv_searching.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lv_searching.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.userindex,
             this.username,
-            this.userindex});
+            this.usergrade});
             this.lv_searching.Dock = System.Windows.Forms.DockStyle.Top;
             this.lv_searching.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.lv_searching.FullRowSelect = true;
@@ -60,12 +62,12 @@
             // username
             // 
             this.username.Text = "이름";
-            this.username.Width = 85;
+            this.username.Width = 64;
             // 
-            // userindex
+            // usergrade
             // 
-            this.userindex.Text = "직급";
-            this.userindex.Width = 86;
+            this.usergrade.Text = "직급";
+            this.usergrade.Width = 72;
             // 
             // btn_cancel
             // 
@@ -81,6 +83,11 @@
             this.btn_cancel.Text = "종료하기";
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // userindex
+            // 
+            this.userindex.Text = "사원코드";
+            this.userindex.Width = 57;
             // 
             // search_head
             // 
@@ -99,8 +106,9 @@
 
         #endregion
         private System.Windows.Forms.ColumnHeader username;
-        private System.Windows.Forms.ColumnHeader userindex;
+        private System.Windows.Forms.ColumnHeader usergrade;
         private System.Windows.Forms.Button btn_cancel;
         public System.Windows.Forms.ListView lv_searching;
+        private System.Windows.Forms.ColumnHeader userindex;
     }
 }

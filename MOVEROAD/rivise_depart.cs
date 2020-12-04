@@ -28,13 +28,15 @@ namespace MOVEROAD
 
         public void print_revising_users()
         {
-            string query = "select * from department where id<99999";
+            string query = "SELECT `d`.`name`,`u`.`name` as `manager`,left(`d`.`description`,10) as `description` " +
+                "FROM project.department as `d`,project.user as `u` " +
+                "WHERE `d`.`manager` = `u`.`index` and `d`.`id`<99999";
             List<string> list;
             list = (List<string>)DBConnetion.getInstance().revise_userlist(query);
             
             lv_rivise.Items.Clear();
             lv_rivise.BeginUpdate();
-            ListViewItem item = new ListViewItem();
+            ListViewItem item;
 
             for (int i = 0; i < list.Count; i = i + 3)
             {
@@ -56,24 +58,31 @@ namespace MOVEROAD
                 string name = item.SubItems[0].Text;
 
                 string manager = item.SubItems[1].Text;
-                string index_to_head = "SELECT * FROM user where `index`= '" + manager + "'";
+                string index_to_head = "SELECT * FROM user where `name`= '" + manager + "' and `grade` = 1";
                 user = (UserInfo)DBConnetion.getInstance().Select(index_to_head, 0);
 
-                string description = item.SubItems[2].Text;
+                if (user == null)
+                {
+                    MessageBox.Show("인사 체계에 치명적 결함이 생겼습니다. 해당 부서에 문의하세요.");
+                }
+                else
+                {
+                    string description = item.SubItems[2].Text;
 
-                dre.tb_original_name.Text = name;
-                dre.tb_original_head.Text = user.name;
-                dre.tb_original_description.Text = description;
+                    dre.tb_original_name.Text = name;
+                    dre.tb_original_head.Text = user.name;
+                    dre.tb_original_description.Text = description;
 
-                dre.lb_depart_name.Visible = true;
-                dre.lb_depart_head.Visible = true;
-                dre.lb_depart_description.Visible = true;
-                dre.tb_revise_name.Visible= true;
-                dre.tb_revise_head.Visible = true;
-                dre.tb_revise_description.Visible = true;
-                dre.btn_revise.Visible = true;
-                dre.btn_search.Visible = true;
-                this.Dispose();
+                    dre.lb_depart_name.Visible = true;
+                    dre.lb_depart_head.Visible = true;
+                    dre.lb_depart_description.Visible = true;
+                    dre.tb_revise_name.Visible = true;
+                    dre.tb_revise_head.Visible = true;
+                    dre.tb_revise_description.Visible = true;
+                    dre.btn_revise.Visible = true;
+                    dre.btn_search.Visible = true;
+                    this.Dispose();
+                }
             }
         }
     }

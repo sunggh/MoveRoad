@@ -31,6 +31,7 @@
             this.btn_cancel = new System.Windows.Forms.Button();
             this.lv_dpt_users = new System.Windows.Forms.ListView();
             this.username = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.userdepart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.userindex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
@@ -54,8 +55,9 @@
             this.lv_dpt_users.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.lv_dpt_users.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lv_dpt_users.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.userindex,
             this.username,
-            this.userindex});
+            this.userdepart});
             this.lv_dpt_users.Dock = System.Windows.Forms.DockStyle.Top;
             this.lv_dpt_users.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.lv_dpt_users.FullRowSelect = true;
@@ -73,12 +75,16 @@
             // username
             // 
             this.username.Text = "이름";
-            this.username.Width = 76;
+            this.username.Width = 64;
+            // 
+            // userdepart
+            // 
+            this.userdepart.Text = "부서";
+            this.userdepart.Width = 72;
             // 
             // userindex
             // 
-            this.userindex.Text = "부서";
-            this.userindex.Width = 95;
+            this.userindex.Text = "사원코드";
             // 
             // search_username
             // 
@@ -100,6 +106,7 @@
         private System.Windows.Forms.Button btn_cancel;
         public System.Windows.Forms.ListView lv_dpt_users;
         private System.Windows.Forms.ColumnHeader username;
+        private System.Windows.Forms.ColumnHeader userdepart;
         private System.Windows.Forms.ColumnHeader userindex;
     }
 }

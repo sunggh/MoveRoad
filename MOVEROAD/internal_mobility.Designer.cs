@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_move = new System.Windows.Forms.Button();
             this.tb_user = new System.Windows.Forms.TextBox();
+            this.label_deductioninfo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +45,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label_deductioninfo);
             this.panel1.Controls.Add(this.btn_dpt_search);
             this.panel1.Controls.Add(this.tb_depart_name);
             this.panel1.Controls.Add(this.label1);
@@ -157,6 +159,17 @@
             this.tb_user.Size = new System.Drawing.Size(122, 23);
             this.tb_user.TabIndex = 9;
             // 
+            // label_deductioninfo
+            // 
+            this.label_deductioninfo.AutoSize = true;
+            this.label_deductioninfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_deductioninfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label_deductioninfo.Location = new System.Drawing.Point(77, 39);
+            this.label_deductioninfo.Name = "label_deductioninfo";
+            this.label_deductioninfo.Size = new System.Drawing.Size(125, 15);
+            this.label_deductioninfo.TabIndex = 16;
+            this.label_deductioninfo.Text = "※ 사원만 검색됩니다.";
+            // 
             // internal_mobility
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -185,5 +198,6 @@
         private System.Windows.Forms.Button btn_dpt_search;
         public System.Windows.Forms.TextBox tb_depart_name;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_deductioninfo;
     }
 }

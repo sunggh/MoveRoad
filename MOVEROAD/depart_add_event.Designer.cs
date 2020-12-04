@@ -79,7 +79,7 @@
             // 
             // tb_depart_name
             // 
-            this.tb_depart_name.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tb_depart_name.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_depart_name.Location = new System.Drawing.Point(95, 13);
             this.tb_depart_name.Name = "tb_depart_name";
             this.tb_depart_name.Size = new System.Drawing.Size(122, 23);
@@ -89,7 +89,7 @@
             // tb_depart_head
             // 
             this.tb_depart_head.BackColor = System.Drawing.Color.White;
-            this.tb_depart_head.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tb_depart_head.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_depart_head.Location = new System.Drawing.Point(95, 45);
             this.tb_depart_head.Name = "tb_depart_head";
             this.tb_depart_head.ReadOnly = true;
@@ -99,7 +99,7 @@
             // 
             // tb_depart_memo
             // 
-            this.tb_depart_memo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tb_depart_memo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tb_depart_memo.Location = new System.Drawing.Point(25, 109);
             this.tb_depart_memo.Multiline = true;
             this.tb_depart_memo.Name = "tb_depart_memo";

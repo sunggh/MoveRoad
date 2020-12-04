@@ -13,6 +13,8 @@ namespace MOVEROAD
 {
     public partial class depart_revise_event : Form
     {
+        public string get_id;
+
         private MainForm mf;
 
         public depart_revise_event(MainForm mf)
@@ -49,10 +51,13 @@ namespace MOVEROAD
             }
             else
             {
-                string index_to_head = "SELECT * FROM user where `name`= '" + og_head + "'";
+                //og는 분명히 부서장이어야 함(부서장은 한명이니 중복x)
+                string index_to_head = "SELECT * FROM user where `name`= '" + og_head + "' and `grade` = 1";
                 user = (UserInfo)DBConnetion.getInstance().Select(index_to_head, 0); // og의 유저값
 
-                string head_to_index = "SELECT * FROM user where `name`= '" + revise_head + "'";
+               
+                //수정될 ng는 동명이인이 있을 수 있음
+                string head_to_index = "SELECT * FROM user where `name`= '" + revise_head + "' and `grade` = 2 and `index` = '"+get_id+"'";
                 user2 = (UserInfo)DBConnetion.getInstance().Select(head_to_index, 0); // 수정할 유저값
 
                 string update_query = "update project.`department` " +
@@ -76,14 +81,14 @@ namespace MOVEROAD
                     DBConnetion.getInstance().Update(up_query2);
                 }
 
-                // [[[[[[[[[[[[[[[[[[[[[[[[[중요]]]]]]]]]]]]]]]]]]]]]]]]] //
-                //
-                //         수정된대로 객체로 넣어주는 작업도 해야함
-                //
-                // [[[[[[[[[[[[[[[[[[[[[[[[[중요]]]]]]]]]]]]]]]]]]]]]]]]] //
+                string get_dpt = "select `id` from `department` where `name` = '" + revise_name + "' and `manager` = '" + user2.index + "'";
+                int dpt_og_id = (int)DBConnetion.getInstance().Select(get_dpt, 20);
+                
+                //task_class의 부서이름이 달린 대업무 이름도 변경하기
+                string task_class = "update task_class set `name` = '" + revise_name + "' where `parent_id`=1 and `level` = 1 and `depart_id` = '" + dpt_og_id+ "'";
+                DBConnetion.getInstance().Update(task_class);
 
-
-
+                MessageBox.Show("수정되었습니다.");
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();
             }
@@ -97,6 +102,7 @@ namespace MOVEROAD
             {
                 search.ShowDialog();
                 tb_revise_head.Text = search.name_;
+                get_id = search.get_id_;
             }
             this.Opacity = 1;
         }

@@ -385,6 +385,7 @@ namespace MOVEROAD
                 switch (token)
                 {
                     case 0:
+                        list.Add(string.Format("{0}", rdr["index"]));
                         list.Add(string.Format("{0}", rdr["name"]));
                         list.Add(string.Format("{0}", rdr["depart"]));
 
@@ -426,6 +427,7 @@ namespace MOVEROAD
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
+                list.Add(string.Format("{0}", rdr["index"]));
                 list.Add(string.Format("{0}", rdr["name"]));
                 list.Add(string.Format("{0}", rdr["grade"]));
             }
