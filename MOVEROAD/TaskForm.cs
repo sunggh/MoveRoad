@@ -294,14 +294,17 @@ namespace MOVEROAD
                         }
                     }
                     //pid인 노드의 부모노드의 id를 알아야 부서를 알 수 있음
-                    DepartmentInfo department = departmentInfos.Find(d => (d.id == ppid)); //id -> taskclass에서의 id
-                    if(department == null)
+                    try
+                    {
+                        DepartmentInfo department = departmentInfos.Find(d => (d.id == ppid)); //id -> taskclass에서의 id
+                        departID = department.subID;     //subID -> department에서의 id  
+                    }
+                    catch
                     {
                         MessageBox.Show("추가 할 수 없는 위치 입니다.");
                         newNode.Remove();
                         return;
                     }
-                    departID = department.subID;     //subID -> department에서의 id                       
                 }
                 else if(level == 2)   //2만드는 경우
                 {
