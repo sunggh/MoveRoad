@@ -129,8 +129,9 @@ namespace MOVEROAD
             //현재 접속중인 아이디
             string ID = main.me.id;
 
-            object start = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date!= 'null' and finishTime ='\"' ", 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
+            string query = "SELECT startTime FROM attendance_card " +
+                "WHERE id='" + ID + "' and date!= 'null' and date2 != 'null'";
+            object start = DBConnetion.getInstance().Select(query, 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
 
             if ((string)start == null)
             {// 만약 출근버튼을 먼저 누르지 않았다면
