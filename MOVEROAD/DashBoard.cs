@@ -45,7 +45,7 @@ namespace MOVEROAD
         private void setTaskListRecently()
         {
             //최근에 한 업무 5개 불러오기
-            string query = "SELECT A.*, B.name as task FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.id WHERE A.user_id = '" + user.index + "'";
+            string query = "SELECT A.*, B.name as task FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.index WHERE A.user_id = '" + user.index + "'";
             List<string> recentlyTask = DBConnetion.getInstance().Select(query, 16) as List<string>;
             recentlyTask.Reverse();
             int i = 1;
@@ -67,10 +67,10 @@ namespace MOVEROAD
             string ID = main.me.id;  //현재접속중인 id값
 
             object start = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 22);  // 출근버튼을 클릭하였는지 확인
+                "WHERE user_id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 22);  // 출근버튼을 클릭하였는지 확인
 
             object finish = DBConnetion.getInstance().Select("SELECT finishTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 23); // 퇴근을 눌렀는지 확인
+                "WHERE user_id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 23); // 퇴근을 눌렀는지 확인
 
             //////////////////////////////////////
             

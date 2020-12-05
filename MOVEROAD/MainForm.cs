@@ -253,7 +253,7 @@ namespace MOVEROAD
 
         private void importDepartmentInfo()
         {
-            string sql = "SELECT id, name, manager FROM department WHERE id != 99999";
+            string sql = "SELECT `index`, name, manager FROM department WHERE `index` != 99999";
             departments = (List<DepartmentInfo>)DBConnetion.getInstance().Select(sql,2);
         }
         

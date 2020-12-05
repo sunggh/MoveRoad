@@ -54,7 +54,7 @@ namespace MOVEROAD
                 case 0:
                     if (rdr.Read())
                     {
-                        UserInfo me = new UserInfo((int)rdr["index"], (string)rdr["name"], (int)rdr["age"], (int)rdr["depart"], (int)rdr["grade"], (string)rdr["address"], (int)rdr["gender"], (string)rdr["id"]);
+                        UserInfo me = new UserInfo((int)rdr["index"], (string)rdr["name"], (int)rdr["age"], (int)rdr["depart"], (int)rdr["grade"], (string)rdr["address"], (int)rdr["gender"], (string)rdr["account_id"]);
                         thing = me;
                         break;
                     }
@@ -67,7 +67,7 @@ namespace MOVEROAD
                     List<DepartmentInfo> departments = new List<DepartmentInfo>();
                     while (rdr.Read())
                     {
-                        DepartmentInfo department = new DepartmentInfo((int)rdr["id"], (string)rdr["name"], (int)rdr["manager"]);
+                        DepartmentInfo department = new DepartmentInfo((int)rdr["index"], (string)rdr["name"], (int)rdr["manager"]);
                         departments.Add(department);
                     }
                     thing = departments;
