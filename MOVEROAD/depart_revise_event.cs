@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -44,6 +45,14 @@ namespace MOVEROAD
             string revise_name = tb_revise_name.Text;
             string revise_head = tb_revise_head.Text;
             string revise_description = tb_revise_description.Text;
+
+            //정규식//
+            Regex regex = new Regex("^([가-힣]{2,})$");
+            if (!regex.IsMatch(revise_name) || !regex.IsMatch(revise_description))
+            {
+                MessageBox.Show("한글만 입력가능합니다.");
+                return;
+            }
 
             if (revise_name.Equals("") || revise_head.Equals(""))
             {
