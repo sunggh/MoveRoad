@@ -26,7 +26,7 @@ namespace MOVEROAD
             string query = "SELECT user.index AS 'No.', department.name AS '부서명', " +
                 "CASE user.grade WHEN 0 THEN '사장' WHEN 1 THEN '부서장' WHEN 2 THEN '사원' END AS '직위', user.name AS '이름', user.age AS '나이', " +
                 "CASE user.gender WHEN 0 THEN '남자' WHEN 1 THEN '여자' END AS '성별', user.phone AS 'H.P', user.address AS '주소' " +
-                "FROM project.user, project.department WHERE user.depart = department.id";
+                "FROM project.user, project.department WHERE user.depart = department.index";
             object table = DBConnetion.getInstance().Select(query, 70);
             
             dataGridView1.DataSource = table;

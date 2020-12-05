@@ -154,7 +154,7 @@ namespace MOVEROAD
                 case 20:
                     if (rdr.Read())
                     {
-                        thing = (int)rdr["id"];
+                        thing = (int)rdr["index"];
                         break;
                     }
                     else
