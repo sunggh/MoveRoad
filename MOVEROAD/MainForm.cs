@@ -206,24 +206,6 @@ namespace MOVEROAD
                 }));
             }
         }
-        /*
-        public void reloadNameBox()
-        {
-            if (ms.nameBOX.InvokeRequired)
-            {
-                ms.nameBOX.BeginInvoke(new MethodInvoker(delegate
-                {
-                    ms.nameBOX.Text = "";
-                }));
-            }
-            else
-            {
-                ms.nameBOX.BeginInvoke(new MethodInvoker(delegate
-                {
-                    ms.nameBOX.Text = "";
-                }));
-            }
-        }*/
 
         private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
         {
@@ -250,22 +232,12 @@ namespace MOVEROAD
             backgroundWorker.RunWorkerAsync();
         }
    
-
         private void importDepartmentInfo()
         {
             string sql = "SELECT `index`, name, manager FROM department WHERE `index` != 99999";
             departments = (List<DepartmentInfo>)DBConnetion.getInstance().Select(sql,2);
         }
         
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-        
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
