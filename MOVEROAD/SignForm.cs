@@ -367,11 +367,13 @@ namespace MOVEROAD
 
                         DBConnetion.getInstance().Update(sql);
 
-                        string query = "UPDATE sign_ok SET sign_ok.date = '" + datetime + "' WHERE sign_ok.num = '" + cnt + "'";
+                        string query = "UPDATE sign_ok SET sign_ok.date = '" + datetime + "' WHERE sign_ok.index = '" + cnt + "'";
                         DBConnetion.getInstance().Update(query);
                     }
 
                     MessageBox.Show(datetime + "에 결재되었습니다.", "알림");
+
+                    textBoxMemo.Text = "";
 
                     SignForMe();
 
