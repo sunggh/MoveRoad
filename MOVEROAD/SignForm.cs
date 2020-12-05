@@ -30,6 +30,7 @@ namespace MOVEROAD
 
             this.main = main;
 
+            textBoxdrafter.Text = main.me.name;
             CreateClassficationTable();
             setClassficationTable();
             setDepartmentCbItem();

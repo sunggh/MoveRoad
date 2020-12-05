@@ -285,7 +285,7 @@ namespace MOVEROAD
             //1000원미만 절사하기
 
             double health_insurance = ((totalPay * 0.0335)/10*10);//건강보험-건강보험
-            double health_insurance2 = (health_insurance * 0.01025) / 10 * 10;//건강보험-장기요양보험
+            double health_insurance2 = (health_insurance * 0.1025) / 10 * 10;//건강보험-장기요양보험
             double total_health_insurance = health_insurance + health_insurance2;//건강+장기요양보험
 
             double pension; //연금보험료
