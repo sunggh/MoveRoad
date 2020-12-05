@@ -74,7 +74,7 @@ namespace MOVEROAD
                     break;
                 case 3:
                     rdr.Read();
-                    String str = ((string)rdr["name"]);
+                    string str = ((string)rdr["name"]);
                     thing = str;
                     break;
                 case 4:
@@ -286,20 +286,19 @@ namespace MOVEROAD
                         list.Add(string.Format("{0}", rdr["actualPay"]));
                     }
                     thing = list;
-                    return thing;
+                    break;
                 case 81: //총급여 계산
                     while (rdr.Read())
                     {
                         thing = string.Format("{0}", rdr["sumpays"]);
                     }
-                    return thing;
+                    break;
                 case 82: // 총급여 가져오기
                     while (rdr.Read())
                     {
                         thing = string.Format("{0}", rdr["totalPay"]);
                     }
-                    int totalpay = Int32.Parse(thing);
-                    return totalpay;
+                    return thing;
                 case 83:
                     List<string> list1 = new List<string>();
                     while (rdr.Read())
@@ -308,13 +307,15 @@ namespace MOVEROAD
                         list1.Add(string.Format("{0}", rdr["totalPay"]));
                     }
                     thing = list1;
-                    return thing;
+                    break;
                 case 84:
                     string dates = "";
                     while (rdr.Read())
                     {
                         dates = string.Format("{0}", rdr["date"]);
                     }
+                    rdr.Close();
+                    conn.Close();
                     return dates;
                 case 85: //주말인지 아닌지 알아내기
                     rdr.Read();
@@ -338,6 +339,8 @@ namespace MOVEROAD
                     {
                         department_ = new DepartmentInfo((int)rdr["id"], (string)rdr["name"], (int)rdr["manager"]);
                     }
+                    rdr.Close();
+                    conn.Close();
                     return department_;
                 case 89:
                     rdr.Read();
@@ -349,6 +352,8 @@ namespace MOVEROAD
                     {
                         totalPay = string.Format("{0}", rdr["totalPay"]);
                     }
+                    rdr.Close();
+                    conn.Close();
                     return totalPay;
                 case 11:
                         rdr.Read();
