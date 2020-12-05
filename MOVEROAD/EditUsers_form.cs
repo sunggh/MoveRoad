@@ -170,19 +170,27 @@ namespace MOVEROAD
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("[이름]: " + name + " [부서]: " + depart + "\n삭제 하시겠습니까?", "사원정보 삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if(grade == "사장" || grade == "부서장")
             {
-                string delete_query = "DELETE FROM project.user WHERE user.index = " + index;
-                DBConnetion.getInstance().Delete(delete_query);
-                
-                MessageBox.Show("삭제 되었습니다. 새로고침 시 적용됩니다.", "삭제 완료");
-                this.Dispose();
+                MessageBox.Show("사장이나 부서장은 삭제할 수 없습니다.", "삭제 오류");
                 return;
             }
             else
             {
-                MessageBox.Show("취소 되었습니다.", "삭제 취소");
-                return;
+                if (MessageBox.Show("[이름]: " + name + " [부서]: " + depart + "\n삭제 하시겠습니까?", "사원정보 삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    string delete_query = "DELETE FROM project.user WHERE user.index = " + index;
+                    DBConnetion.getInstance().Delete(delete_query);
+
+                    MessageBox.Show("삭제 되었습니다. 새로고침 시 적용됩니다.", "삭제 완료");
+                    this.Dispose();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("취소 되었습니다.", "삭제 취소");
+                    return;
+                }
             }
         }
     }
