@@ -62,7 +62,7 @@ namespace MOVEROAD
             else
             {
                 //부서명(한글)을 통해 user테이블의 depart값(depart 테이블의 id값) 으로 변환해야함.
-                string change_depart = "select id from department where `name` = '" + tb_dpt_name + "'";
+                string change_depart = "select `index` from department where `name` = '" + tb_dpt_name + "'";
                 string id = (string)DBConnetion.getInstance().Select(change_depart, 87);
 
                 //이제 user테이블에서 정보대로 바꾸기

@@ -25,7 +25,7 @@ namespace MOVEROAD
             //이름과 부서를 뽑아내기(사원 계급만)
             string get_name_and_dpt = "SELECT `user`.`index`, `user`.`name`, `department`.`name`as `depart` " +
                 "FROM project.user,project.department " +
-                "where `department`.id = `user`.`depart` and `grade` = 2";
+                "where `department`.index = `user`.`depart` and `grade` = 2";
 
             List<string> list;
             list = DBConnetion.getInstance().dpt_id_and_name(get_name_and_dpt,0);

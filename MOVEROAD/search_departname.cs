@@ -23,7 +23,7 @@ namespace MOVEROAD
         public void print_lv_dpt_name()
         {
             //이름과 부서를 뽑아내기
-            string get_name_and_dpt = "select `name` from department where id<99999";
+            string get_name_and_dpt = "select `name` from department where `index` != 99999";
 
             List<string> list;
             list = (List<string>)DBConnetion.getInstance().dpt_id_and_name(get_name_and_dpt,1);

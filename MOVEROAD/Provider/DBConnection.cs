@@ -154,7 +154,7 @@ namespace MOVEROAD
                 case 20:
                     if (rdr.Read())
                     {
-                        thing = (int)rdr["id"];
+                        thing = (int)rdr["index"];
                         break;
                     }
                     else
@@ -329,13 +329,13 @@ namespace MOVEROAD
                     break;
                 case 87:
                     rdr.Read();
-                    thing = string.Format("{0}", rdr["id"]);
+                    thing = string.Format("{0}", rdr["index"]);
                     break;
                 case 88:
                     DepartmentInfo department_ = new DepartmentInfo(0, "", 0);
                     while (rdr.Read())
                     {
-                        department_ = new DepartmentInfo((int)rdr["id"], (string)rdr["name"], (int)rdr["manager"]);
+                        department_ = new DepartmentInfo((int)rdr["index"], (string)rdr["name"], (int)rdr["manager"]);
                     }
                     thing = department_;
                     break;
@@ -370,7 +370,7 @@ namespace MOVEROAD
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                count = string.Format("{0}", rdr["id"]);
+                count = string.Format("{0}", rdr["index"]);
             }
 
             return count;
