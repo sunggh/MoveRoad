@@ -355,7 +355,7 @@ namespace MOVEROAD
 
                         DBConnetion.getInstance().Update(sql);
 
-                        string query = "INSERT INTO sign_ok(sign_ok.num, date) VALUES('" + cnt + "', '" + datetime + "')";
+                        string query = "INSERT INTO sign_ok(sign_ok.index, date) VALUES('" + cnt + "', '" + datetime + "')";
                         DBConnetion.getInstance().Insert(query);
                     }
 
@@ -442,7 +442,7 @@ namespace MOVEROAD
 
             try
             {
-                string query = "SELECT date FROM sign_ok JOIN sign WHERE sign_ok.num = '" + cnt + "' AND sign.progress != 0";
+                string query = "SELECT date FROM sign_ok JOIN sign WHERE sign_ok.index = '" + cnt + "' AND sign.progress != 0";
                 DateTime done_date = (DateTime)DBConnetion.getInstance().Select(query, 10);
 
                 MessageBox.Show(done_date + "에 결재된 내역입니다.", "알림");

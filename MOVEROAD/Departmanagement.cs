@@ -27,7 +27,7 @@ namespace MOVEROAD
 
         public void listview_departlist()
         {
-            string query = "SELECT department.name as departname,user.name,department.description " +
+            string query = "SELECT department.name as departname,user.name,left(department.`description`,10) as `description`  " +
                 "FROM project.user,project.department " +
                 "where user.index = department.manager AND department.id != 99999";
 
@@ -133,7 +133,11 @@ namespace MOVEROAD
                 ListViewItem item = items[0]; // 클릭 한거
                 string dpt_name = item.SubItems[0].Text;
                 string name = item.SubItems[1].Text;
-                string description = item.SubItems[2].Text;
+
+                //설명 뽑기
+                string get_ds = "select description as `name` from department where name = '" + dpt_name + "'";
+                string ds = (string)DBConnetion.getInstance().Select(get_ds, 3);
+                string description = ds;
 
                 tb_depart_name.Text = dpt_name;
                 tb_depart_head.Text = name;

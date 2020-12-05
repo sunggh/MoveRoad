@@ -60,7 +60,7 @@ namespace MOVEROAD
             try 
             {
                 
-                clientSocket.Connect("211.229.51.245", 80);//211.229.51.245
+                clientSocket.Connect("121.150.220.47", 80);//211.229.51.245
                 stream = clientSocket.GetStream();
                 message = "1|"+me.index;
                 byte[] buffer = Encoding.Unicode.GetBytes(message);
@@ -253,7 +253,7 @@ namespace MOVEROAD
 
         private void importDepartmentInfo()
         {
-            string sql = "SELECT id, name, manager FROM department WHERE id != 99999";
+            string sql = "SELECT `index`, name, manager FROM department WHERE `index` != 99999";
             departments = (List<DepartmentInfo>)DBConnetion.getInstance().Select(sql,2);
         }
         

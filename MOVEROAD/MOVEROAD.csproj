@@ -311,7 +311,6 @@
     <Compile Include="TaskForm.Designer.cs">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SignManagement.cs" />
     <Compile Include="UserSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -508,6 +507,9 @@
   <ItemGroup>
     <Content Include="Resources\calendar.png" />
     <Content Include="Resources\search.jpg" />
+    <None Include="Resources\메인3.png" />
+    <None Include="Resources\메인2.png" />
+    <None Include="Resources\메인.png" />
     <None Include="Resources\사원관리4.png" />
     <None Include="Resources\급여관리.png" />
     <None Include="Resources\부서관리.png" />

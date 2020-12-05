@@ -47,7 +47,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label1.Location = new System.Drawing.Point(11, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 23);
+            this.label1.Size = new System.Drawing.Size(69, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "받는 사람";
             // 
@@ -59,7 +59,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
             this.label2.Location = new System.Drawing.Point(30, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 23);
+            this.label2.Size = new System.Drawing.Size(37, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "제목";
             // 
@@ -85,7 +85,7 @@
             this.ToBox.Location = new System.Drawing.Point(98, 26);
             this.ToBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ToBox.Name = "ToBox";
-            this.ToBox.Size = new System.Drawing.Size(479, 27);
+            this.ToBox.Size = new System.Drawing.Size(479, 23);
             this.ToBox.TabIndex = 3;
             // 
             // TotitleBox
@@ -94,7 +94,7 @@
             this.TotitleBox.Location = new System.Drawing.Point(98, 65);
             this.TotitleBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TotitleBox.Name = "TotitleBox";
-            this.TotitleBox.Size = new System.Drawing.Size(479, 27);
+            this.TotitleBox.Size = new System.Drawing.Size(479, 23);
             this.TotitleBox.TabIndex = 4;
             this.TotitleBox.TextChanged += new System.EventHandler(this.TotitleBox_TextChanged);
             // 
@@ -123,7 +123,7 @@
             // 
             // MessageForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(745, 412);
@@ -139,7 +139,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MessageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MessageForm";
+            this.Text = "6";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

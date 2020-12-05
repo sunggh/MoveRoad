@@ -13,7 +13,7 @@ namespace MOVEROAD
 {
     public class DBConnetion
     {
-        private string dbip = "211.229.51.245";
+        private string dbip = "121.150.220.47";
         private string dbname = "project";
         private string dbpass = "road";
         private string dbid = "move";
@@ -54,7 +54,7 @@ namespace MOVEROAD
                 case 0:
                     if (rdr.Read())
                     {
-                        UserInfo me = new UserInfo((int)rdr["index"], (string)rdr["name"], (int)rdr["age"], (int)rdr["depart"], (int)rdr["grade"], (string)rdr["address"], (int)rdr["gender"], (string)rdr["id"]);
+                        UserInfo me = new UserInfo((int)rdr["index"], (string)rdr["name"], (int)rdr["age"], (int)rdr["depart"], (int)rdr["grade"], (string)rdr["address"], (int)rdr["gender"], (string)rdr["account_id"]);
                         thing = me;
                         break;
                     }
@@ -67,14 +67,14 @@ namespace MOVEROAD
                     List<DepartmentInfo> departments = new List<DepartmentInfo>();
                     while (rdr.Read())
                     {
-                        DepartmentInfo department = new DepartmentInfo((int)rdr["id"], (string)rdr["name"], (int)rdr["manager"]);
+                        DepartmentInfo department = new DepartmentInfo((int)rdr["index"], (string)rdr["name"], (int)rdr["manager"]);
                         departments.Add(department);
                     }
                     thing = departments;
                     break;
                 case 3:
                     rdr.Read();
-                    String str = ((string)rdr["name"]);
+                    string str = ((string)rdr["name"]);
                     thing = str;
                     break;
                 case 4:
@@ -88,7 +88,7 @@ namespace MOVEROAD
 
                     while (rdr.Read())
                     {
-                        taskClassInfo.Rows.Add((int)rdr["id"], (string)rdr["name"], (int)rdr["parent_id"], (int)rdr["level"], (int)rdr["depart_id"]);                        
+                        taskClassInfo.Rows.Add((int)rdr["index"], (string)rdr["name"], (int)rdr["parent_id"], (int)rdr["level"], (int)rdr["depart_id"]);                        
                     }
                     thing = taskClassInfo;
                     break;
@@ -99,7 +99,7 @@ namespace MOVEROAD
                     List<Message> messages = new List<Message>();
                     while (rdr.Read())
                     {
-                        messages.Add(new Message((string)rdr["mfrom"], (string)rdr["mto"], (string)rdr["title"], (string)rdr["text"], (int)rdr["id"], (DateTime)rdr["date"], (int)rdr["reads"]));
+                        messages.Add(new Message((string)rdr["mfrom"], (string)rdr["mto"], (string)rdr["title"], (string)rdr["text"], (int)rdr["index"], (DateTime)rdr["date"], (int)rdr["reads"]));
                     }
                     thing = messages;
                     break;
@@ -114,7 +114,7 @@ namespace MOVEROAD
                         thing = startTime;
                         break;
                     }
-                    thing = null;
+                    thing = "";
                     break;
                 case 23:
                     if (rdr.Read())
@@ -123,7 +123,7 @@ namespace MOVEROAD
                         thing = finishTime;
                         break;
                     }
-                    thing = null;
+                    thing = "";
                     break;
                 /*                case 4:
                     rdr.Read();
@@ -148,8 +148,9 @@ namespace MOVEROAD
                     thing = null;
                     break;*/
                 case 28:
-                    if (rdr.Read()) return 1;
-                    else return 0;
+                    if (rdr.Read()) thing= 1;
+                    else thing = 0;
+                    break;
                 case 20:
                     if (rdr.Read())
                     {
@@ -223,7 +224,7 @@ namespace MOVEROAD
                         {
                             continue;
                         }
-                        task.Rows.Add((int)rdr["id"], taskName, string.Format("{0:yyyy-MM-dd}",rdr["date"]), ((string)rdr["user"] + "(" + user_id + ")"), (string)rdr["text"], startTime, finishTime);
+                        task.Rows.Add((int)rdr["index"], taskName, string.Format("{0:yyyy-MM-dd}",rdr["date"]), ((string)rdr["user"] + "(" + user_id + ")"), (string)rdr["text"], startTime, finishTime);
                     }
                     thing = task;
                     break;
@@ -286,17 +287,19 @@ namespace MOVEROAD
                         list.Add(string.Format("{0}", rdr["actualPay"]));
                     }
                     thing = list;
-                    return thing;
+                    break;
                 case 81: //총급여 계산
-                    rdr.Read();
-                    thing = string.Format("{0}", rdr["sumpays"]);
-                    return thing;
+                    if (rdr.Read())
+                        thing = rdr["sumpays"].ToString();
+                    else
+                        thing = "0";
+                    break;
                 case 82: // 총급여 가져오기
-                    while (rdr.Read())
-                    {
-                        thing = string.Format("{0}", rdr["totalPay"]);
-                    }
-                    return thing;
+                    if (rdr.Read())
+                        thing = rdr["totalPay"].ToString();
+                    else
+                        thing = "0";
+                    break;
                 case 83:
                     List<string> list1 = new List<string>();
                     while (rdr.Read())
@@ -305,25 +308,24 @@ namespace MOVEROAD
                         list1.Add(string.Format("{0}", rdr["totalPay"]));
                     }
                     thing = list1;
-                    return thing;
+                    break;
                 case 84:
-                    string dates = "";
-                    while (rdr.Read())
-                    {
-                        dates = string.Format("{0}", rdr["date"]);
-                    }
-                    return dates;
+                    if (rdr.Read())
+                        thing = rdr["date"].ToString();
+                    else
+                        thing = "";
+                    break;
                 case 85: //주말인지 아닌지 알아내기
-                    rdr.Read();
-                    thing = string.Format("{0}", rdr["dayofweek"]);
+                    if (rdr.Read())
+                        thing = rdr["dayofweek"].ToString();
+                    else
+                        thing = "8";
                     break;
                 case 86:// X-Y(날짜) 초로 가져오기
-                    string get_sectime = "";
-                    while (rdr.Read())
-                    {
-                        get_sectime = string.Format("{0}", rdr["sectime"]);
-                    }
-                    thing = get_sectime;
+                    if (rdr.Read())
+                        thing = rdr["sectime"].ToString();
+                    else
+                        thing = "0";
                     break;
                 case 87:
                     rdr.Read();
@@ -335,18 +337,20 @@ namespace MOVEROAD
                     {
                         department_ = new DepartmentInfo((int)rdr["id"], (string)rdr["name"], (int)rdr["manager"]);
                     }
-                    return department_;
-                case 89:
-                    rdr.Read();
-                    thing = string.Format("{0}", rdr["date2"]);
+                    thing = department_;
                     break;
-                case 181:
-                    string totalPay = "";
+                case 89:
                     while (rdr.Read())
                     {
-                        totalPay = string.Format("{0}", rdr["totalPay"]);
+                        thing = rdr["date2"].ToString();
                     }
-                    return totalPay;
+                    break;
+                case 181:
+                    if (rdr.Read())
+                        thing = rdr["totalPay"].ToString();
+                    else
+                        thing = "0";
+                    break;
                 case 11:
                         rdr.Read();
                         string count = (rdr["count(*)"].ToString());
@@ -383,6 +387,7 @@ namespace MOVEROAD
                 switch (token)
                 {
                     case 0:
+                        list.Add(string.Format("{0}", rdr["index"]));
                         list.Add(string.Format("{0}", rdr["name"]));
                         list.Add(string.Format("{0}", rdr["depart"]));
 
@@ -424,6 +429,7 @@ namespace MOVEROAD
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
+                list.Add(string.Format("{0}", rdr["index"]));
                 list.Add(string.Format("{0}", rdr["name"]));
                 list.Add(string.Format("{0}", rdr["grade"]));
             }

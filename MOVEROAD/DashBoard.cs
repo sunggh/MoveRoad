@@ -45,7 +45,7 @@ namespace MOVEROAD
         private void setTaskListRecently()
         {
             //최근에 한 업무 5개 불러오기
-            string query = "SELECT A.*, B.name as task FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.id WHERE A.user_id = '" + user.index + "'";
+            string query = "SELECT A.*, B.name as task FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.index WHERE A.user_id = '" + user.index + "'";
             List<string> recentlyTask = DBConnetion.getInstance().Select(query, 16) as List<string>;
             recentlyTask.Reverse();
             int i = 1;
@@ -67,10 +67,10 @@ namespace MOVEROAD
             string ID = main.me.id;  //현재접속중인 id값
 
             object start = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 22);  // 출근버튼을 클릭하였는지 확인
+                "WHERE user_id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 22);  // 출근버튼을 클릭하였는지 확인
 
             object finish = DBConnetion.getInstance().Select("SELECT finishTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 23); // 퇴근을 눌렀는지 확인
+                "WHERE user_id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 23); // 퇴근을 눌렀는지 확인
 
             //////////////////////////////////////
             
@@ -156,7 +156,7 @@ namespace MOVEROAD
             if(main.me.grade == 0)
             {
                 //부서장이 한번 결재한 건이 사장한테 가니까 결재 중 상태인 내역 가져오기
-                string sql = "SELECT count(*) FROM sign WHERE progress = 1";
+                string sql = "SELECT count(*) FROM sign WHERE progress = 1 AND drafter_to = '" + main.me.name + "'";
                 string count = (string)DBConnetion.getInstance().Select(sql, 11);
 
                 label_sign.Text = "결재할 내역 : " + count + "개";
@@ -172,13 +172,20 @@ namespace MOVEROAD
             //사원이 접속하면
             else if (main.me.grade == 2)
             {
+                //결재 전
+                string sql_ = "SELECT count(*) FROM sign WHERE progress = 0 AND drafter = '" + main.me.index + "'";
+                string count_yet = (string)DBConnetion.getInstance().Select(sql_, 11);
+                //결재 중
+                string query_ = "SELECT count(*) FROM sign WHERE progress = 1 AND drafter = '" + main.me.index + "'";
+                string count_ing = (string)DBConnetion.getInstance().Select(query_, 11);
+                //결재 완료
                 string sql = "SELECT count(*) FROM sign WHERE progress = 2 AND drafter = '" + main.me.index + "'";
                 string count_done = (string)DBConnetion.getInstance().Select(sql, 11);
-
+                //결재 반려
                 string query = "SELECT count(*) FROM sign WHERE progress = 3 AND drafter = '" + main.me.index + "'";
                 string count_turn = (string)DBConnetion.getInstance().Select(query, 11);
 
-                label_sign.Text = "결재완료된 내역 : " + count_done + "개" + "\n" + "반려된 내역 : " + count_turn + "개";
+                label_sign.Text = "결재 대기 내역 : " + count_yet + "개" + "\n" + "결재 중 내역 : " + count_ing + "개" + "\n" + "결재완료된 내역 : " + count_done + "개" + "\n" + "반려된 내역 : " + count_turn + "개";
             }
         }
     }

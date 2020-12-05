@@ -61,9 +61,9 @@ namespace MOVEROAD
             }
             else
             {
-                //먼저 부서명(한글)을 통해 user테이블의 depart값(depart 테이블의 id값) 으로 변환해야함.
+                //부서명(한글)을 통해 user테이블의 depart값(depart 테이블의 id값) 으로 변환해야함.
                 string change_depart = "select id from department where `name` = '" + tb_dpt_name + "'";
-                String id = (String)DBConnetion.getInstance().Select(change_depart, 87);
+                string id = (string)DBConnetion.getInstance().Select(change_depart, 87);
 
                 //이제 user테이블에서 정보대로 바꾸기
                 string update_query = "update user set depart = '" + id + "' where name = '" + tb_user_name + "'";

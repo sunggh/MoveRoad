@@ -16,29 +16,33 @@ namespace MOVEROAD
         //int set = 9999;
 
         public string name_;
+        public string get_id_;
 
         public search_head()
         {
             InitializeComponent();
             print_search_users();
-            //this.set = set;
         }
 
         public void print_search_users()
         {
             //string first_query = "select `name`, `grade` from project.user where ";
 
-            string query = "SELECT `name`, CASE `grade` WHEN 0 THEN '사장' WHEN 1 THEN '부서장' WHEN 2 THEN '사원' END AS `grade` FROM project.user where `grade` = 2";
+            string query = "SELECT `index`, `name`, " +
+                "CASE `grade` WHEN 0 THEN '사장' WHEN 1 THEN '부서장' WHEN 2 THEN '사원' END AS `grade` " +
+                "FROM project.user " +
+                "where `grade` = 2";
             List<string> list;
             list = (List<string>)DBConnetion.getInstance().search_userlist(query);
             lv_searching.Items.Clear();
             lv_searching.BeginUpdate();
             ListViewItem item;
 
-            for (int i = 0; i < list.Count; i=i+2)
+            for (int i = 0; i < list.Count; i=i+3)
             {
                 item = new ListViewItem(list[i]);
                 item.SubItems.Add(list[i + 1]);
+                item.SubItems.Add(list[i + 2]);
                 lv_searching.Items.Add(item);
             }
             lv_searching.EndUpdate();
@@ -55,13 +59,14 @@ namespace MOVEROAD
             {
                 ListView.SelectedListViewItemCollection items = lv_searching.SelectedItems;
                 ListViewItem item = items[0];
-                string name = item.SubItems[0].Text; // 부서 이름
+                
+                string name = item.SubItems[1].Text; // 부서 이름
 
-
-                //depart_add_event.getinstance().tb_depart_head.Text = name;
+                //다른 폼에 전달하기 위해//
+                get_id_ = item.SubItems[0].Text; // -> 
                 name_ = name;
+                ///////////////////////////
 
-                //depart_revise_event.getinstance().tb_revise_head.Text = name;
 
                 this.Dispose();
             }

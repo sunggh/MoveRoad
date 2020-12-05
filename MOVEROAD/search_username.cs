@@ -22,8 +22,10 @@ namespace MOVEROAD
         
         public void print_lv_dpt_users()
         {
-            //이름과 부서를 뽑아내기
-            string get_name_and_dpt = "select `name`,`depart` from user";
+            //이름과 부서를 뽑아내기(사원 계급만)
+            string get_name_and_dpt = "SELECT `user`.`index`, `user`.`name`, `department`.`name`as `depart` " +
+                "FROM project.user,project.department " +
+                "where `department`.id = `user`.`depart` and `grade` = 2";
 
             List<string> list;
             list = DBConnetion.getInstance().dpt_id_and_name(get_name_and_dpt,0);
@@ -31,10 +33,11 @@ namespace MOVEROAD
             lv_dpt_users.BeginUpdate();
             ListViewItem item;
 
-            for (int i = 0; i < list.Count; i = i + 2)
+            for (int i = 0; i < list.Count; i = i + 3)
             {
                 item = new ListViewItem(list[i]);
                 item.SubItems.Add(list[i + 1]);
+                item.SubItems.Add(list[i + 2]);
                 lv_dpt_users.Items.Add(item);
             }
             lv_dpt_users.EndUpdate();
@@ -46,7 +49,7 @@ namespace MOVEROAD
             {
                 ListView.SelectedListViewItemCollection items = lv_dpt_users.SelectedItems;
                 ListViewItem item = items[0];
-                string username = item.SubItems[0].Text; 
+                string username = item.SubItems[1].Text; 
 
                 username_ = username;
 

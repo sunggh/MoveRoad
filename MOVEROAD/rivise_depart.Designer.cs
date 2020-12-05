@@ -64,7 +64,7 @@
             // 
             // depart_head
             // 
-            this.depart_head.Text = "부서 장(코드)";
+            this.depart_head.Text = "부서 장";
             this.depart_head.Width = 81;
             // 
             // memo
