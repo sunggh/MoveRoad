@@ -72,6 +72,9 @@ namespace MOVEROAD
                     dre.tb_original_name.Text = name;
                     dre.tb_original_head.Text = user.name;
                     dre.tb_original_description.Text = description;
+                    dre.tb_revise_name.Text = name;
+                    dre.tb_revise_head.Text = user.name;
+                    dre.tb_revise_description.Text = description;
 
                     dre.lb_depart_name.Visible = true;
                     dre.lb_depart_head.Visible = true;
