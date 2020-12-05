@@ -56,12 +56,12 @@ namespace MOVEROAD
                 string dttime = testTime.Value.ToString("HH:mm");
                 string overtime_check_query = "SELECT time_to_sec(timediff('" + dttime + "', attendance_card.startTime)) AS 'sectime' " +
                     "FROM project.attendance_card " +
-                    "WHERE attendance_card.id = '" + ID + "' AND attendance_card.date = '" + today + "'";
+                    "WHERE attendance_card.user_id = '" + ID + "' AND attendance_card.date = '" + today + "'";
                 int overtime_sec = Convert.ToInt32((string)DBConnetion.getInstance().Select(overtime_check_query, 86));
 
                 // 로그인한 사용자가 출근기록이 있는지 확인
                 string check_login_query = "SELECT * FROM project.salary " +
-                    "WHERE salary.date = '" + today + "' AND salary.index = " + userIndex;
+                    "WHERE salary.date = '" + today + "' AND salary.user_index = " + userIndex;
                 object check = DBConnetion.getInstance().Select(check_login_query, 28);
 
                 if (check.Equals(1)) // 출근한 기록이 있을 때
@@ -72,11 +72,11 @@ namespace MOVEROAD
                             if (overtime_sec >= 36000) // (현재시간 - 출근시간)이 10시간 이상인 경우 
                             {
                                 string overtime_query = "UPDATE salary SET salary.overtimePay = '" + time * 15000 + "' " +
-                                "WHERE salary.index = " + userIndex + " AND salary.date = '" + today + "'";
+                                "WHERE salary.user_index = " + userIndex + " AND salary.date = '" + today + "'";
                                 DBConnetion.getInstance().Update(overtime_query);
 
                                 string total_query = "UPDATE project.salary SET totalPay = basicPay+overtimePay+nighttimePay+holidayPay " +
-                                    "WHERE salary.index = '" + userIndex + "' AND salary.date = '" + today + "'";
+                                    "WHERE salary.user_index = '" + userIndex + "' AND salary.date = '" + today + "'";
                                 DBConnetion.getInstance().Update(total_query); // total 갱신
 
                                 MessageBox.Show("연장근무 ( " + time + " ) 시간 등록이 완료되었습니다.", "신청 확인");
@@ -92,11 +92,11 @@ namespace MOVEROAD
                             if ((nowhour >= 22 && nowhour <= 24) || nowhour <= 4) // 야간(22시-24시, 04시 이전)인 경우
                             {
                                 string nighttime_query = "UPDATE salary SET salary.nighttimePay = '" + time * 15000 + "' " +
-                                "WHERE salary.index = " + userIndex + " AND salary.date = '" + today + "'";
+                                "WHERE salary.user_index = " + userIndex + " AND salary.date = '" + today + "'";
                                 DBConnetion.getInstance().Update(nighttime_query);
 
                                 string total_query = "UPDATE project.salary SET totalPay = basicPay+overtimePay+nighttimePay+holidayPay " +
-                                    "WHERE salary.index = '" + userIndex + "' AND salary.date = '" + today + "'";
+                                    "WHERE salary.user_index = '" + userIndex + "' AND salary.date = '" + today + "'";
                                 DBConnetion.getInstance().Update(total_query); // total 갱신
 
                                 MessageBox.Show("야간근무 ( " + time + " ) 시간 등록이 완료되었습니다.", "신청 확인");
@@ -111,11 +111,11 @@ namespace MOVEROAD
                             if (dayofweek == "일" || dayofweek == "토") // 주말인 경우
                             {
                                 string holiday_query = "UPDATE salary SET salary.holidayPay = '" + time * 15000 + "' " +
-                                "WHERE salary.index = " + userIndex + " AND salary.date = '" + today + "'";
+                                "WHERE salary.user_index = " + userIndex + " AND salary.date = '" + today + "'";
                                 DBConnetion.getInstance().Update(holiday_query);
 
                                 string total_query = "UPDATE project.salary SET totalPay = basicPay+overtimePay+nighttimePay+holidayPay " +
-                                    "WHERE salary.index = '" + userIndex + "' AND salary.date = '" + today + "'";
+                                    "WHERE salary.user_index = '" + userIndex + "' AND salary.date = '" + today + "'";
                                 DBConnetion.getInstance().Update(total_query); // total 갱신
 
                                 MessageBox.Show("휴일근무 ( " + time + " ) 시간 등록이 완료되었습니다.", "신청 확인");
@@ -149,7 +149,7 @@ namespace MOVEROAD
             //먼저 deduction 테이블에 달별 실급여 정리하기
             string set_dedcution = "SELECT left(`date`,7) as `month`, sum(salary.`totalPay`) as `totalPay` " +
                 "FROM project.salary " +
-                "where salary.`index` = '"+user.index+"' and left(`date`,7) = '" + today + "' " +
+                "where salary.`user_index` = '"+user.index+"' and left(`date`,7) = '" + today + "' " +
                 "group by `month`";
 
             List<string> list = (List<string>)DBConnetion.getInstance().Select(set_dedcution, 83);
@@ -161,17 +161,17 @@ namespace MOVEROAD
             //만약 테이블에 같은 달이 입력되어 있지 않다면
             if (get_date.Equals(""))
             {
-                string insert_query = "insert into deduction(`index`,`date`,`totalPay`) values('" + user.index + "','" + list[0] + "','" + list[1] + "')";
+                string insert_query = "insert into deduction(`user_index`,`date`,`totalPay`) values('" + user.index + "','" + list[0] + "','" + list[1] + "')";
                 DBConnetion.getInstance().Insert(insert_query);
             }
             else
             {
-                string update_query = "update deduction set `index` = '" + user.index + "', `date` = '" + list[0] + "', `totalPay` =  '" + list[1] + "' " +
+                string update_query = "update deduction set `user_index` = '" + user.index + "', `date` = '" + list[0] + "', `totalPay` =  '" + list[1] + "' " +
                     "where `index` = '" + user.index + "' and `date` = '" + list[0] + "'";
                 DBConnetion.getInstance().Insert(update_query);
             }
 
-            string query = "select `totalPay` from deduction where `index` = '" + user.index + "' and `date` = '" + list[0] + "'";
+            string query = "select `totalPay` from deduction where `user_index` = '" + user.index + "' and `date` = '" + list[0] + "'";
             int totalPay = Convert.ToInt32((string)DBConnetion.getInstance().Select(query, 82)) / 1000 * 1000;
             //1000원미만 절사하기
 
@@ -203,12 +203,12 @@ namespace MOVEROAD
             //deduction 테이블에 공제금 세개 넣기
             string update = "update deduction set health_insurance = '" + total_health_insurance + "', pension = '" + pension + "'" +
                 ", unemployment = '" + unemployment + "' " +
-                "where `index` = '" + user.index + "' and `date` = '" + list[0] + "'";
+                "where `user_index` = '" + user.index + "' and `date` = '" + list[0] + "'";
             DBConnetion.getInstance().Update(update);
 
             // 다시 salary 테이블에 넣기(공제 총액과 총급여 계산)
             string update_salary = "update deduction set `deduction` = '" + total_deduction + "', `actualPay` = '" + actualPay + "' " +
-                "where `index` = '" + user.index + "' and `date` = '" + list[0] + "'";
+                "where `user_index` = '" + user.index + "' and `date` = '" + list[0] + "'";
             DBConnetion.getInstance().Update(update_salary);
 
         }
