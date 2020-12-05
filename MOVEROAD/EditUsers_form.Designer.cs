@@ -64,6 +64,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.textBoxEditIndex = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -262,7 +263,7 @@
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(545, 206);
+            this.buttonSave.Location = new System.Drawing.Point(545, 177);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(81, 23);
             this.buttonSave.TabIndex = 17;
@@ -465,12 +466,28 @@
             this.label16.TabIndex = 0;
             this.label16.Text = "No.";
             // 
+            // buttonDelete
+            // 
+            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
+            this.buttonDelete.FlatAppearance.BorderSize = 0;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.Location = new System.Drawing.Point(545, 206);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(81, 23);
+            this.buttonDelete.TabIndex = 19;
+            this.buttonDelete.Text = "삭제";
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
             // EditUsers_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(645, 270);
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
@@ -525,5 +542,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBoxEditIndex;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }

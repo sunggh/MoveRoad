@@ -7,6 +7,7 @@ using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -38,6 +39,14 @@ namespace MOVEROAD
             user = (UserInfo)DBConnetion.getInstance().Select(head_to_index,0);
 
             string depart_memo = tb_depart_memo.Text; // 입력한 설명
+
+            //정규식//
+            Regex regex = new Regex("^([가-힣]{2,})$");
+            if (!regex.IsMatch(depart_name)|| !regex.IsMatch(depart_memo))
+            {
+                MessageBox.Show("한글만 입력가능합니다.");
+                return;
+            }
 
             //department 테이블의 id 개수를 세어서 index를 수동으로 올려줘야함(더미 포함이라 count개수 대로)
             string get_index_query = "select MAX(`index`+1) as `index` from department where `index` != 99999";
@@ -118,6 +127,11 @@ namespace MOVEROAD
         private void tb_depart_head_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void tb_depart_name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
     }
 }
