@@ -84,7 +84,7 @@ namespace MOVEROAD
             {
                 if (listView1.Items[i].Checked == true)
                 {
-                    string sql = "UPDATE `message` SET sendvisible ='0' WHERE (`id` = '" + messages[i].index + "')";
+                    string sql = "UPDATE `message` SET sendvisible ='0' WHERE (`index` = '" + messages[i].index + "')";
 
 
                     DBConnetion.getInstance().Update(sql);

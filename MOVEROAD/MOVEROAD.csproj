@@ -311,7 +311,6 @@
     <Compile Include="TaskForm.Designer.cs">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SignManagement.cs" />
     <Compile Include="UserSearch.cs">
       <SubType>Form</SubType>
     </Compile>
