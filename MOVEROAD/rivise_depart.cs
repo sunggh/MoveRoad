@@ -30,7 +30,7 @@ namespace MOVEROAD
         {
             string query = "SELECT `d`.`name`,`u`.`name` as `manager`,left(`d`.`description`,10) as `description` " +
                 "FROM project.department as `d`,project.user as `u` " +
-                "WHERE `d`.`manager` = `u`.`index` and `d`.`id`<99999";
+                "WHERE `d`.`manager` = `u`.`index` and `d`.`index`<99999";
             List<string> list;
             list = (List<string>)DBConnetion.getInstance().revise_userlist(query);
             

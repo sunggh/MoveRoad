@@ -42,8 +42,8 @@ namespace MOVEROAD
                     ",SUM(`overtimePay`) as `overtimePay`,sum(`nighttimePay`) as `nighttimePay`" +
                     ",sum(`holidayPay`) as `holidayPay`,`d`.`totalPay`,`d`.`deduction`,`d`.`actualPay`" +
                     "FROM project.user as `u`,project.salary as `s`,project.deduction as `d` " +
-                    "where left(`s`.`date`,7) = '"+date+"' and `u`.index = `s`.index and `u`.index = `d`.index and left(`s`.`date`, 7) = `d`.`date` " +
-                    "group by `s`.index,left(`s`.`date`,7)";
+                    "where left(`s`.`date`,7) = '"+date+ "' and `u`.index = `s`.`user_index` and `u`.index = `d`.user_index and left(`s`.`date`, 7) = `d`.`date` " +
+                    "group by `s`.`user_index`,left(`s`.`date`,7)";
             }
             else
             {
@@ -53,9 +53,9 @@ namespace MOVEROAD
                 ", `d`.`totalPay`,`d`.`deduction`,`d`.`actualPay` " +
                 "FROM project.attendance_card as `ac`,project.salary as `s`" +
                 ", project.user as `u`,project.deduction as `d` " +
-                "WHERE left(`s`.`date`,7) = '" + date + "' and `s`.`index` = '" + userindex + "'" +
-                " and `s`.`index` = `u`.`index` and `s`.`date` = `ac`.`date` and `u`.`id` = `ac`.`id` " +
-                " and left(`s`.`date`,7) = `d`.`date` and `u`.`index` = `d`.`index` " +
+                "WHERE left(`s`.`date`,7) = '" + date + "' and `s`.`user_index` = '" + userindex + "'" +
+                " and `s`.`user_index` = `u`.`index` and `s`.`date` = `ac`.`date` and `u`.`account_id` = `ac`.`user_id` " +
+                " and left(`s`.`date`,7) = `d`.`date` and `u`.`index` = `d`.`user_index` " +
                 "GROUP BY left(`s`.`date`,7)";
             }
             list = (List<string>)DBConnetion.getInstance().Select(query, 80);
@@ -86,10 +86,10 @@ namespace MOVEROAD
             DateTime dt = testTime.Value;
             string today = dt.ToString("yyyy-MM-dd");
 
-            string checkin_query = "SELECT * FROM project.attendance_card WHERE attendance_card.id = '" + userid + "' AND date = '" + today + "'";
+            string checkin_query = "SELECT * FROM project.attendance_card WHERE attendance_card.user_id = '" + userid + "' AND date = '" + today + "'";
             int checkin = (int)DBConnetion.getInstance().Select(checkin_query, 28);
 
-            string checkout_query = "SELECT * FROM project.attendance_card WHERE attendance_card.id = '" + userid + "' AND date2 = '" + today + "'";
+            string checkout_query = "SELECT * FROM project.attendance_card WHERE attendance_card.user_id = '" + userid + "' AND date2 = '" + today + "'";
             int checkout = (int)DBConnetion.getInstance().Select(checkout_query, 28);
 
             if(checkin==1 && checkout== 0) // 현재 출근처리 되어있으며, 퇴근하지 않은 경우 추가수당 ui창 띄우기

@@ -81,7 +81,7 @@ namespace MOVEROAD
                     DBConnetion.getInstance().Update(up_query2);
                 }
 
-                string get_dpt = "select `id` from `department` where `name` = '" + revise_name + "' and `manager` = '" + user2.index + "'";
+                string get_dpt = "select `index` from `department` where `name` = '" + revise_name + "' and `manager` = '" + user2.index + "'";
                 int dpt_og_id = (int)DBConnetion.getInstance().Select(get_dpt, 20);
                 
                 //task_class의 부서이름이 달린 대업무 이름도 변경하기

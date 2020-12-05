@@ -249,7 +249,7 @@ namespace MOVEROAD
         {
             if(1 == Convert.ToInt32(SelectedNode.Tag))
             {
-                MessageBox.Show("root는 수정할 수 없습니다.");
+                MessageBox.Show("부서는 수정할 수 없습니다.");
                 return true;
             }
 

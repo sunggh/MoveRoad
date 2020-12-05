@@ -29,7 +29,7 @@ namespace MOVEROAD
         {
             string query = "SELECT department.name as departname,user.name,left(department.`description`,10) as `description`  " +
                 "FROM project.user,project.department " +
-                "where user.index = department.manager AND department.id != 99999";
+                "where user.index = department.manager AND department.index != 99999";
 
             List<string> list;
 
@@ -100,12 +100,12 @@ namespace MOVEROAD
 
                 //1.
                 //department 테이블에서 지정된 부서의 정보를 delete함.
-                string delete_query = "delete from department where `name` ='" + dpt_name + "' and `id` = '"+dpt_info.id+"'";
+                string delete_query = "delete from department where `name` ='" + dpt_name + "' and `index` = '"+dpt_info.id+"'";
                 DBConnetion.getInstance().Delete(delete_query);
                 
                 //2.
                 //부서 삭제 시 부서장의 직급은 사원으로 내리고 그 부서에 속한 모든 부서원들은 미지정 부서로 이동하게 됨
-                string update_user_query = "update `user` set `grade` = 2 where `index` = "+user.index;
+                string update_user_query = "update `user` set `grade` = 2 where `index` = " + user.index;
                 DBConnetion.getInstance().Update(update_user_query);
 
                 //3.
