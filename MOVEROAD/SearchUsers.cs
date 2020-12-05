@@ -132,5 +132,36 @@ namespace MOVEROAD
                 e.Handled = true;
             }
         }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = dataGridView1.CurrentRow.Index;
+
+            int user_index = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells[0].Value.ToString());
+            string user_name = dataGridView1.Rows[rowIndex].Cells[3].Value.ToString();
+            string user_depart = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
+
+            if(MessageBox.Show("[이름]: " + user_name + " [부서]: " + user_depart + "\n삭제 하시겠습니까?", "사원정보 삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                string delete_query = "DELETE FROM project.user WHERE user.index = " + user_index;
+                DBConnetion.getInstance().Delete(delete_query);
+
+                string refresh_query = "SELECT user.index AS 'No.', department.name AS '부서명', " +
+                "CASE user.grade WHEN 0 THEN '사장' WHEN 1 THEN '부서장' WHEN 2 THEN '사원' END AS '직위', user.name AS '이름', user.age AS '나이', " +
+                "CASE user.gender WHEN 0 THEN '남자' WHEN 1 THEN '여자' END AS '성별', user.phone AS 'H.P', user.address AS '주소' " +
+                "FROM project.user, project.department WHERE user.depart = department.index AND department.index = '" + depart + "'";
+                object table = DBConnetion.getInstance().Select(refresh_query, 70);
+
+                dataGridView1.DataSource = table;
+
+                MessageBox.Show("삭제 되었습니다.", "삭제 완료");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("취소 되었습니다.", "삭제 취소");
+                return;
+            }
+        }
     }
 }
