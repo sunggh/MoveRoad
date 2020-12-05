@@ -23,8 +23,9 @@ namespace MOVEROAD
         public attendance_card(MainForm main)
         {
             InitializeComponent();
-            Today.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            label2.Text = DateTime.Now.ToString("yyyy-MM");
+            if (main.me.grade == 1) testTime.Visible = true;
+            Today.Text = testTime.Value.ToString("yyyy-MM-dd");//DateTime.Now
+            label2.Text = testTime.Value.ToString("yyyy-MM");
             this.main = main;
             showgrid();
         }
@@ -32,7 +33,7 @@ namespace MOVEROAD
         {
             string ID = main.me.id;  //현재접속중인 id값
             string start = (string)DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
-                "WHERE id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 22);  // 출근버튼을 클릭하였는지 확인
+                "WHERE id='" + ID + "' and date ='" + testTime.Value.ToString("yyyy-MM-dd") + "'", 22);  // 출근버튼을 클릭하였는지 확인
 
             //현재 접속중인 유저의 index값 가져오기
             UserInfo user;
@@ -42,11 +43,11 @@ namespace MOVEROAD
             if (start == "")   // 출근버튼을 누르지 않았더라면
             {
                 DBConnetion.getInstance().Insert("INSERT INTO attendance_card (id, date, startTime)" +
-                        "VALUES('" + ID + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "','" + DateTime.Now.ToString("HH:mm") + "')");
+                        "VALUES('" + ID + "','" + testTime.Value.ToString("yyyy-MM-dd") + "','" + testTime.Value.ToString("HH:mm") + "')");
 
                 //출근 시 salary 테이블에 기본값 배치
                 string insert_base = "insert into salary(`index`,`date`,`basicPay`) " +
-                    "values ('" + user.index + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "',0)";
+                    "values ('" + user.index + "','" + testTime.Value.ToString("yyyy-MM-dd") + "',0)";
                 DBConnetion.getInstance().Insert(insert_base);
 
                 DateTime dt = Convert.ToDateTime(Today.Text);
@@ -73,7 +74,7 @@ namespace MOVEROAD
                     DBConnetion.getInstance().Insert(update_query);
                 }
 
-                MessageBox.Show("현재시각" + DateTime.Now.ToString("HH시 mm분") + "출근 완료");
+                MessageBox.Show("현재시각" + testTime.Value.ToString("HH시 mm분") + "출근 완료");
             }
             else // 출근버튼을 눌렀다면
                 MessageBox.Show("이미 출근 처리 되었습니다.");
@@ -118,7 +119,7 @@ namespace MOVEROAD
                 DBConnetion.getInstance().Update("UPDATE attendance_card SET date2='" + DateTime.Now.ToString("yyyy-MM-dd") + "' , finishTime ='" + DateTime.Now.ToString("HH:mm") + "' " +
                      "WHERE id='" + ID + "' and startTime != 'null' and  finishTime = '\"' ");
 
-                MessageBox.Show("현재시각" + DateTime.Now.ToString("HH:mm") + "퇴근 완료");
+                MessageBox.Show("현재시각" + testTime.Value.ToString("HH:mm") + "퇴근 완료");
                 return true;
                 //workTime(); // 퇴근과 동시에 업무시간 업데이트
             }
@@ -247,8 +248,8 @@ namespace MOVEROAD
         private void get_deduction(UserInfo user, string today)
         {
             //달별 계산을위해 today 달별로 자르기
-            today = DateTime.ParseExact(today, "yyyy-MM-dd", null).ToString("yyyy-MM");
-
+            today = testTime.Value.ToString("yyyy-MM");//DateTime.ParseExact(today, "yyyy-MM-dd", null)
+            
             //먼저 deduction 테이블에 달별 실급여 정리하기
             string set_dedcution = "SELECT left(`date`,7) as `month`, sum(salary.`totalPay`) as `totalPay` " +
                 "FROM project.salary " +
@@ -323,16 +324,21 @@ namespace MOVEROAD
         private void buttonInc_Click(object sender, EventArgs e) // 한달 추가
         {
             DateTime dt;
-            dt = Convert.ToDateTime(label2.Text);
-            label2.Text = dt.AddMonths(1).ToString("yyyy-MM");
+            //dt = Convert.ToDateTime(label2.Text);
+  
+            testTime.Value = testTime.Value.AddMonths(1);
+            testTime.Update();
+            label2.Text = testTime.Value.ToString("yyyy-MM");
             showgrid();
         }
 
         private void buttonDec_Click(object sender, EventArgs e) // 한달 감소
         {
             DateTime dt;
-            dt = Convert.ToDateTime(label2.Text);
-            label2.Text = dt.AddMonths(-1).ToString("yyyy-MM");
+            // dt = Convert.ToDateTime(label2.Text);
+            testTime.Value = testTime.Value.AddMonths(-1);
+            testTime.Update();
+            label2.Text = testTime.Value.ToString("yyyy-MM");
             showgrid();
         }
 
@@ -368,6 +374,12 @@ namespace MOVEROAD
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void testTime_ValueChanged(object sender, EventArgs e)
+        {
+            Today.Text = testTime.Value.ToString("yyyy-MM-dd");//DateTime.Now
+            label2.Text = testTime.Value.ToString("yyyy-MM");
         }
     }
 }
