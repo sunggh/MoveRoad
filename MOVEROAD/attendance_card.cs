@@ -25,6 +25,7 @@ namespace MOVEROAD
             InitializeComponent();
             if (main.me.grade == 1) testTime.Visible = true;
             Today.Text = testTime.Value.ToString("yyyy-MM-dd");//DateTime.Now
+            Today2.Text = DateTime.Now.ToString("yyyy-MM-dd");
             label2.Text = testTime.Value.ToString("yyyy-MM");
             this.main = main;
             showgrid();
