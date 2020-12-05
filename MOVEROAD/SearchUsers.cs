@@ -98,15 +98,15 @@ namespace MOVEROAD
 
         private void buttonAgeSearch_Click(object sender, EventArgs e)
         {
-            this.age = Convert.ToInt32(textBoxAge.Text);
-            if (textBoxAge.Text == "")
+            if (textBoxAge.Text == "" || textBoxAge.Text == null)
             {
                 MessageBox.Show("나이를 입력하여 주십시오.", "입력 오류");
                 return;
             }
             else
             {
-                if(age >= 1 && age < 100) // 나이 1세~99세 까지만 가입 가능
+                this.age = Convert.ToInt32(textBoxAge.Text);
+                if (age >= 1 && age < 100) // 나이 1세~99세 까지만 가입 가능
                 {
                     string query = "SELECT user.index AS 'No.', department.name AS '부서명', " +
                     "CASE user.grade WHEN 0 THEN '사장' WHEN 1 THEN '부서장' WHEN 2 THEN '사원' END AS '직위', user.name AS '이름', user.age AS '나이', " +
