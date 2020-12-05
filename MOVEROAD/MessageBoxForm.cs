@@ -102,7 +102,7 @@ namespace MOVEROAD
             {
                 if (listView1.Items[i].Checked == true)
                 {
-                    string sql = "UPDATE `message` SET `reads` = '1' WHERE (`id` = '" + messages[i].index + "')";
+                    string sql = "UPDATE `message` SET `reads` = '1' WHERE (`index` = '" + messages[i].index + "')";
 
 
                     DBConnetion.getInstance().Update(sql);
@@ -135,7 +135,7 @@ namespace MOVEROAD
             }
             if(messages[row].reads == 0)
             {
-                string sql = "UPDATE `message` SET `reads` = '1' WHERE (`id` = '"+ messages[row].index+ "')";
+                string sql = "UPDATE `message` SET `reads` = '1' WHERE (`index` = '"+ messages[row].index+ "')";
                 DBConnetion.getInstance().Update(sql);
  
             }
@@ -156,7 +156,7 @@ namespace MOVEROAD
             {                       
                 if (listView1.Items[i].Checked == true )
                 {                
-                    string sql = "UPDATE `message` SET receivevisible ='0' WHERE (`id` = '" + messages[i].index + "')";
+                    string sql = "UPDATE `message` SET receivevisible ='0' WHERE (`index` = '" + messages[i].index + "')";
 
                    
                     DBConnetion.getInstance().Update(sql);
