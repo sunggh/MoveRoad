@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label_deductioninfo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.testTime = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -211,11 +212,22 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
+            // testTime
+            // 
+            this.testTime.CustomFormat = "yyyy-MM-dd HH:mm";
+            this.testTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.testTime.Location = new System.Drawing.Point(499, 6);
+            this.testTime.Name = "testTime";
+            this.testTime.Size = new System.Drawing.Size(138, 21);
+            this.testTime.TabIndex = 16;
+            this.testTime.Visible = false;
+            // 
             // Paymentmanagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 412);
+            this.Controls.Add(this.testTime);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label_deductioninfo);
             this.Controls.Add(this.label2);
@@ -252,5 +264,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label_deductioninfo;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DateTimePicker testTime;
     }
 }

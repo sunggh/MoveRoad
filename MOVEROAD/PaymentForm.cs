@@ -14,10 +14,12 @@ namespace MOVEROAD
     {
         MainForm main;
         
-        public PaymentForm(MainForm main)
+        public PaymentForm(MainForm main, DateTime time)
         {
             InitializeComponent();
-            Today.Text = DateTime.Now.ToString("yyyy년MM월 dd일 HH시 mm분 ddd요일");
+            testTime.Value = time;
+            testTime.Update();
+            Today.Text = testTime.Value.ToString("yyyy년MM월 dd일 HH시 mm분 ddd요일");
             this.main = main;
         }
 
@@ -32,7 +34,7 @@ namespace MOVEROAD
             try
             {
                 DateTime dt = Convert.ToDateTime(Today.Text);
-                string today = dt.ToString("yyyy-MM-dd"); // 오늘 날짜
+                string today = testTime.Value.ToString("yyyy-MM-dd"); // 오늘 날짜dt.ToString
                 int select = comboBoxSelect.SelectedIndex; // 초과근무 선택
                 int time = Convert.ToInt32(textBoxTime.Text); // 근무시간
                 int userIndex = Convert.ToInt32(main.me.index); // 현재 접속중인 index 값
@@ -44,14 +46,14 @@ namespace MOVEROAD
                 user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
 
                 // 휴일근무 - 오늘 요일값 받아오기
-                string dayofweek = dt.ToString("ddd");
+                string dayofweek = testTime.Value.ToString("ddd");
 
                 // 야간근무 - 현재 시간을 받아와서 22시 이후인지 알아보기
-                string dthour = dt.ToString("HH");
+                string dthour = testTime.Value.ToString("HH");
                 int nowhour = Convert.ToInt32(dthour);
 
                 // 초과근무 - 출근시간과 현재시간을 받아와서 10시간 이상인지 알아보기
-                string dttime = dt.ToString("HH:mm");
+                string dttime = testTime.Value.ToString("HH:mm");
                 string overtime_check_query = "SELECT time_to_sec(timediff('" + dttime + "', attendance_card.startTime)) AS 'sectime' " +
                     "FROM project.attendance_card " +
                     "WHERE attendance_card.id = '" + ID + "' AND attendance_card.date = '" + today + "'";
@@ -227,6 +229,11 @@ namespace MOVEROAD
             {
                 e.Handled = true;
             }
+        }
+
+        private void testTime_ValueChanged(object sender, EventArgs e)
+        {
+            Today.Text = testTime.Value.ToString("yyyy년MM월 dd일 HH시 mm분 ddd요일");
         }
     }
 }

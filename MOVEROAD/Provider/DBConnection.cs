@@ -148,8 +148,9 @@ namespace MOVEROAD
                     thing = null;
                     break;*/
                 case 28:
-                    if (rdr.Read()) return 1;
-                    else return 0;
+                    if (rdr.Read()) thing= 1;
+                    else thing = 0;
+                    break;
                 case 20:
                     if (rdr.Read())
                     {

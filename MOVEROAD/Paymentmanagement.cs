@@ -18,7 +18,11 @@ namespace MOVEROAD
         {
             InitializeComponent();
             this.main = main;
-            label2.Text = DateTime.Now.ToString("yyyy-MM");
+            label2.Text = testTime.Value.ToString("yyyy-MM");
+            if(main.me.grade==1)
+            {
+                testTime.Visible = true;
+            }
             set_pay_listview(label2.Text);
         }
 
@@ -79,21 +83,21 @@ namespace MOVEROAD
         private void btn_overtime_Click(object sender, EventArgs e)
         {
             string userid = main.me.id;
-            DateTime dt = DateTime.Now;
+            DateTime dt = testTime.Value;
             string today = dt.ToString("yyyy-MM-dd");
 
             string checkin_query = "SELECT * FROM project.attendance_card WHERE attendance_card.id = '" + userid + "' AND date = '" + today + "'";
-            object checkin = DBConnetion.getInstance().Select(checkin_query, 28);
+            int checkin = (int)DBConnetion.getInstance().Select(checkin_query, 28);
 
             string checkout_query = "SELECT * FROM project.attendance_card WHERE attendance_card.id = '" + userid + "' AND date2 = '" + today + "'";
-            object checkout = DBConnetion.getInstance().Select(checkout_query, 28);
+            int checkout = (int)DBConnetion.getInstance().Select(checkout_query, 28);
 
-            if(checkin.Equals(1) && checkout.Equals(0)) // 현재 출근처리 되어있으며, 퇴근하지 않은 경우 추가수당 ui창 띄우기
+            if(checkin==1 && checkout== 0) // 현재 출근처리 되어있으며, 퇴근하지 않은 경우 추가수당 ui창 띄우기
             {
                 // 초과근무 창 띄우고 다른행동 못하게 금지
                 main.TransparencyKey = Color.Gray;
                 main.Opacity = 0.5;
-                using (PaymentForm payment = new PaymentForm(main))
+                using (PaymentForm payment = new PaymentForm(main, testTime.Value))
                 {
                     payment.ShowDialog();
                 }

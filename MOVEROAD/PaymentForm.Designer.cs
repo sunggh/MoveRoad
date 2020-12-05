@@ -36,6 +36,7 @@
             this.Today = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.testTime = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,6 +126,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.testTime);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.Today);
@@ -136,6 +138,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(295, 170);
             this.panel1.TabIndex = 10;
+            // 
+            // testTime
+            // 
+            this.testTime.CustomFormat = "yyyy-MM-dd HH:mm";
+            this.testTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.testTime.Location = new System.Drawing.Point(148, 47);
+            this.testTime.Name = "testTime";
+            this.testTime.Size = new System.Drawing.Size(138, 21);
+            this.testTime.TabIndex = 15;
+            this.testTime.Visible = false;
+            this.testTime.ValueChanged += new System.EventHandler(this.testTime_ValueChanged);
             // 
             // PaymentForm
             // 
@@ -164,5 +177,6 @@
         private System.Windows.Forms.Label Today;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DateTimePicker testTime;
     }
 }
