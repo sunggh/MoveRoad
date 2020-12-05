@@ -86,7 +86,11 @@ namespace MOVEROAD
             {
                 check_overtime();
                 showgrid();
-            }   
+            }
+            else
+            {
+                MessageBox.Show("먼저 출근을 해주세요.");
+            }
         }
 
         #region 퇴근 확인
@@ -133,25 +137,26 @@ namespace MOVEROAD
             //현재 접속중인 아이디
             string ID = main.me.id;
 
-            string query = "SELECT startTime FROM attendance_card WHERE id='" + ID + "' and date!= 'null' and date2 = 'null'";
-            string start = (string)DBConnetion.getInstance().Select(query, 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
+            //string query = "SELECT startTime FROM attendance_card WHERE id='" + ID + "' and date!= 'null' and date2 = 'null'";
+            //string start = (string)DBConnetion.getInstance().Select(query, 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
 
-            if (start == "")
-            {// 만약 출근버튼을 먼저 누르지 않았다면
+            //현재 날짜
+            DateTime dt = Convert.ToDateTime(Today.Text);
+            string today = dt.ToString("yyyy-MM-dd");
 
-                return;
-            }
-            else
-            {
-                //현재 날짜
-                DateTime dt = Convert.ToDateTime(Today.Text);
-                string today = dt.ToString("yyyy-MM-dd");
+            //현재 접속중인 유저의 정보 받아오기
+            UserInfo user;
+            string get_index = "select * from `user` where `id` = '" + ID + "'";
+            user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
 
-                //현재 접속중인 유저의 정보 받아오기
-                UserInfo user;
-                string get_index = "select * from `user` where `id` = '" + ID + "'";
-                user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
+            //if (start == "")
+            //{// 만약 출근버튼을 먼저 누르지 않았다면
 
+             //   return;
+            //}
+            //else
+            //{
+                
                 #region 주말일 시
                 // 만약 주말이라면 아예 예외로하기
                 string get_dayofweek = "select DAYOFWEEK(`date`) as `dayofweek` from project.attendance_card where `id` = '" + ID + "' and `date` = '" + today + "'";
@@ -223,7 +228,7 @@ namespace MOVEROAD
                 //totalpay 계산
                 get_totalpay(user, today);
                 get_deduction(user, today);
-            }
+           // }
         }
         #endregion
 
