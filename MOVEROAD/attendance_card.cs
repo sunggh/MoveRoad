@@ -156,7 +156,7 @@ namespace MOVEROAD
 
                 #region 주말일 시
                 // 만약 주말이라면 아예 예외로하기
-                string get_dayofweek = "select DAYOFWEEK(`date`) as `dayofweek` from project.attendance_card where `id` = '" + ID + "' and `date` = '" + today + "'";
+                string get_dayofweek = "select DAYOFWEEK(`date`) as `dayofweek` from project.attendance_card where `id` = '" + ID + "' and `date2` = '" + today + "'";
                 int dayofweek = int.Parse((string)DBConnetion.getInstance().Select(get_dayofweek, 85));
                 #endregion
 
@@ -164,26 +164,33 @@ namespace MOVEROAD
                 { //일요일=1, 토요일=7이 아닌경우
 
                     // 비교를 위해 퇴근일 가져오기
-                    string get_sf_date = "select date2 from attendance_card where `id` = '" + ID + "' and `date` = '" + today + "'";
+                    string get_sf_date = "select date2 from attendance_card where `id` = '" + ID + "' and `date2` = '" + today + "'";
                     string finishdate = (string)DBConnetion.getInstance().Select(get_sf_date, 89);
 
                     // 출/퇴근일이 같을때 22시 이후인지 알기위함
                     string get_ot_date = "SELECT TIME_TO_SEC(timediff(`finishTime`,'00:00')) as `sectime` FROM project.attendance_card " +
-                        "where `id` = '" + ID + "' and `date` = '" + today + "'";
+                        "where `id` = '" + ID + "' and `date2` = '" + today + "'";
                     int check_ot = int.Parse((string)DBConnetion.getInstance().Select(get_ot_date, 86));
 
+                    string start = (string)DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
+                        "WHERE id='" + ID + "' and date2 = '"+today+"'", 22);// 기본급 계산 위한 출근시간
+
+                    // 출근일
+                    string start_date = (string)DBConnetion.getInstance().Select("select date from attendance_card " +
+                        "where id = '" + ID + "' and startTime = '" + start + "'",84);
 
                     // if 22시-출근시간>=10시간 , 10시간 기본급
                     // else if 22시-출근시간<10시간, 그 시간만큼 기본급을 위한 계산
                     string up_night = "SELECT TIME_TO_SEC(timediff('22:00',`startTime`)) as `sectime` " +
-                    "FROM project.attendance_card " +
-                    "where `id` = '" + ID + "' and `date` = '" + today + "'";
+                        "FROM project.attendance_card " +
+                        "where `id` = '" + ID + "' and `date` = '" + start_date + "'";
+
                     // 10시에서 뺀 시간
                     int get_nighttime_sec = int.Parse((string)DBConnetion.getInstance().Select(up_night, 86));
 
 
                     // 출근일과 퇴근일이 다르다면 야간근무임, 그리고 퇴근일이 같아도 22시 이상이면 야간근무
-                    if (!today.Equals(finishdate) || (today.Equals(finishdate) && check_ot >= 79200))
+                    if (!start_date.Equals(finishdate) || (start_date.Equals(finishdate) && check_ot >= 79200))
                     {
                         // 초과근무면서 야간근무 겹칠때 ( 야간이 되기전에 이미 10시간이 넘을때 )
                         if (get_nighttime_sec > 36000)

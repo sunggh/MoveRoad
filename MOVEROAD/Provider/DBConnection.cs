@@ -340,8 +340,10 @@ namespace MOVEROAD
                     thing = department_;
                     break;
                 case 89:
-                    rdr.Read();
-                    thing = string.Format("{0}", rdr["date2"]);
+                    while (rdr.Read())
+                    {
+                        thing = rdr["date2"].ToString();
+                    }
                     break;
                 case 181:
                     if (rdr.Read())
