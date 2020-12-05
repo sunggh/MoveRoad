@@ -31,7 +31,7 @@ namespace MOVEROAD
         private void buttonStart_Click(object sender, EventArgs e) // 출근버튼
         {
             string ID = main.me.id;  //현재접속중인 id값
-            object start = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
+            string start = (string)DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
                 "WHERE id='" + ID + "' and date ='" + DateTime.Now.ToString("yyyy-MM-dd") + "'", 22);  // 출근버튼을 클릭하였는지 확인
 
             //현재 접속중인 유저의 index값 가져오기
@@ -39,7 +39,7 @@ namespace MOVEROAD
             string get_index = "select * from `user` where `id` = '" + ID + "'";
             user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
 
-            if ((string)start == null)   // 출근버튼을 누르지 않았더라면
+            if (start == "")   // 출근버튼을 누르지 않았더라면
             {
                 DBConnetion.getInstance().Insert("INSERT INTO attendance_card (id, date, startTime)" +
                         "VALUES('" + ID + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "','" + DateTime.Now.ToString("HH:mm") + "')");
@@ -82,13 +82,15 @@ namespace MOVEROAD
 
         private void buttonFinish_Click(object sender, EventArgs e) //퇴근 버튼
         {
-            att_finish();
-            check_overtime();
-            showgrid();
+            if (att_finish())
+            {
+                check_overtime();
+                showgrid();
+            }   
         }
 
         #region 퇴근 확인
-        private void att_finish()
+        private bool att_finish()
         {
             string ID = main.me.id;
             DateTime dt;
@@ -96,30 +98,32 @@ namespace MOVEROAD
             string today = dt.ToString("yyyy-MM-dd");
 
 
-            object start = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
+            string start = (string)DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
                 "WHERE id='" + ID + "' and date!= 'null' and finishTime ='\"' ", 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
 
-            object finish = DBConnetion.getInstance().Select("SELECT finishTime FROM attendance_card " +
+            string finish = (string)DBConnetion.getInstance().Select("SELECT finishTime FROM attendance_card " +
                 "WHERE id='" + ID + "' and date!= 'null' and finishTime = '\"' ", 23); // 퇴근을 눌렀는지 확인
 
-            object start2 = DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
+            string start2 = (string)DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
                 "WHERE id='" + ID + "' and date like '"+today+"%' ", 22);
     
 
 
-            if ((string)start != null && (string)finish == "\"") // 출근을 누르고 퇴근을 누르지 않았을때 (정상적인 상황)
+            if (start != "" && finish == "\"") // 출근을 누르고 퇴근을 누르지 않았을때 (정상적인 상황)
             {// 만약 출근을 눌렀다면 정상적으로 종료시간 업데이트 종료시간 업데이트시 당일날만 업데이트 하기위해 like문으로 date의 값을 당일날이라는 조건으로 걸어둔다
                 DBConnetion.getInstance().Update("UPDATE attendance_card SET date2='" + DateTime.Now.ToString("yyyy-MM-dd") + "' , finishTime ='" + DateTime.Now.ToString("HH:mm") + "' " +
                      "WHERE id='" + ID + "' and startTime != 'null' and  finishTime = '\"' ");
 
                 MessageBox.Show("현재시각" + DateTime.Now.ToString("HH:mm") + "퇴근 완료");
+                return true;
                 //workTime(); // 퇴근과 동시에 업무시간 업데이트
             }
-            if ((string)start2 == null) // 만약 출근버튼을 먼저 누르지 않았다면
+            if (start2 == "") // 만약 출근버튼을 먼저 누르지 않았다면
                 MessageBox.Show("먼저 출근버튼을 눌러주십시오.");
 
-            if ((string)start ==null && (string)finish == null && (string)finish != "\"" && (string)start2 !=null)
+            if (start == "" && finish == null && finish != "\"" && start2 != "")
                 MessageBox.Show("이미 퇴근처리가 되었습니다.");
+            return false;
         }
         #endregion
 
@@ -129,12 +133,13 @@ namespace MOVEROAD
             //현재 접속중인 아이디
             string ID = main.me.id;
 
-            string query = "SELECT startTime FROM attendance_card WHERE id='" + ID + "' and date!= 'null' and date2 != 'null'";
-            object start = DBConnetion.getInstance().Select(query, 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
+            string query = "SELECT startTime FROM attendance_card WHERE id='" + ID + "' and date!= 'null' and date2 = 'null'";
+            string start = (string)DBConnetion.getInstance().Select(query, 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
 
-            if ((string)start == null)
+            if (start == "")
             {// 만약 출근버튼을 먼저 누르지 않았다면
 
+                return;
             }
             else
             {
@@ -150,7 +155,7 @@ namespace MOVEROAD
                 #region 주말일 시
                 // 만약 주말이라면 아예 예외로하기
                 string get_dayofweek = "select DAYOFWEEK(`date`) as `dayofweek` from project.attendance_card where `id` = '" + ID + "' and `date` = '" + today + "'";
-                int dayofweek = Convert.ToInt32((string)DBConnetion.getInstance().Select(get_dayofweek, 85));
+                int dayofweek = int.Parse((string)DBConnetion.getInstance().Select(get_dayofweek, 85));
                 #endregion
 
                 if (dayofweek > 1 && dayofweek < 7)
@@ -163,7 +168,7 @@ namespace MOVEROAD
                     // 출/퇴근일이 같을때 22시 이후인지 알기위함
                     string get_ot_date = "SELECT TIME_TO_SEC(timediff(`finishTime`,'00:00')) as `sectime` FROM project.attendance_card " +
                         "where `id` = '" + ID + "' and `date` = '" + today + "'";
-                    int check_ot = Convert.ToInt32(DBConnetion.getInstance().Select(get_ot_date, 86));
+                    int check_ot = int.Parse((string)DBConnetion.getInstance().Select(get_ot_date, 86));
 
 
                     // if 22시-출근시간>=10시간 , 10시간 기본급
@@ -172,7 +177,7 @@ namespace MOVEROAD
                     "FROM project.attendance_card " +
                     "where `id` = '" + ID + "' and `date` = '" + today + "'";
                     // 10시에서 뺀 시간
-                    int get_nighttime_sec = Convert.ToInt32((string)DBConnetion.getInstance().Select(up_night, 86));
+                    int get_nighttime_sec = int.Parse((string)DBConnetion.getInstance().Select(up_night, 86));
 
 
                     // 출근일과 퇴근일이 다르다면 야간근무임, 그리고 퇴근일이 같아도 22시 이상이면 야간근무
@@ -197,7 +202,7 @@ namespace MOVEROAD
                     {
                         string get_worktimesec = "select TIME_TO_SEC(timediff(`finishTime`,`startTime`)) as `sectime` FROM attendance_card " +
                                 "where `id` = '" + ID + "' and `date` = '" + today + "'";
-                        int worktime = Convert.ToInt32((string)DBConnetion.getInstance().Select(get_worktimesec, 86));
+                        int worktime = int.Parse((string)DBConnetion.getInstance().Select(get_worktimesec, 86));
 
                         // 어차피 야간은 아닐테니 근무시간이 10시간 넘으면 초과근무
                         if (worktime > 36000)
@@ -225,8 +230,8 @@ namespace MOVEROAD
         //총급여 계산(totalPay)
         private void get_totalpay(UserInfo user,string today)
         {
-            string query = "select ifnull(basicPay+overtimePay+nighttimePay+holidayPay,0) as `sumpays` from salary where `index` = '" + user.index + "' and `date` = '" + today + "'";
-            int total_pay = Convert.ToInt32((string)DBConnetion.getInstance().Select(query, 81));
+            string query = "select convert(basicPay+overtimePay+nighttimePay+holidayPay,UNSIGNED) as `sumpays` from salary where `index` = '" + user.index + "' and `date` = '" + today + "'";
+            int total_pay = int.Parse((string)DBConnetion.getInstance().Select(query, 81));
 
             string update_query = "update salary set totalPay = '"+total_pay+"' where `index` = '"+user.index+"' and `date` = '"+ today+"'";
             DBConnetion.getInstance().Update(update_query);
@@ -265,7 +270,7 @@ namespace MOVEROAD
             }
 
             string query = "select `totalPay` from deduction where `index` = '" + user.index + "' and `date` = '" + list[0] + "'";
-            int totalPay = Convert.ToInt32(DBConnetion.getInstance().Select(query, 82)) /1000*1000;
+            int totalPay = int.Parse((string)DBConnetion.getInstance().Select(query, 82)) /1000*1000;
             //1000원미만 절사하기
 
             double health_insurance = ((totalPay * 0.0335)/10*10);//건강보험-건강보험

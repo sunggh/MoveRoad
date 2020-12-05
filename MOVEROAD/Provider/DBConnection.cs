@@ -114,7 +114,7 @@ namespace MOVEROAD
                         thing = startTime;
                         break;
                     }
-                    thing = null;
+                    thing = "";
                     break;
                 case 23:
                     if (rdr.Read())
@@ -123,7 +123,7 @@ namespace MOVEROAD
                         thing = finishTime;
                         break;
                     }
-                    thing = null;
+                    thing = "";
                     break;
                 /*                case 4:
                     rdr.Read();
@@ -288,17 +288,17 @@ namespace MOVEROAD
                     thing = list;
                     break;
                 case 81: //총급여 계산
-                    while (rdr.Read())
-                    {
-                        thing = string.Format("{0}", rdr["sumpays"]);
-                    }
+                    if (rdr.Read())
+                        thing = rdr["sumpays"].ToString();
+                    else
+                        thing = "0";
                     break;
                 case 82: // 총급여 가져오기
-                    while (rdr.Read())
-                    {
-                        thing = string.Format("{0}", rdr["totalPay"]);
-                    }
-                    return thing;
+                    if (rdr.Read())
+                        thing = rdr["totalPay"].ToString();
+                    else
+                        thing = "0";
+                    break;
                 case 83:
                     List<string> list1 = new List<string>();
                     while (rdr.Read())
@@ -309,25 +309,22 @@ namespace MOVEROAD
                     thing = list1;
                     break;
                 case 84:
-                    string dates = "";
-                    while (rdr.Read())
-                    {
-                        dates = string.Format("{0}", rdr["date"]);
-                    }
-                    rdr.Close();
-                    conn.Close();
-                    return dates;
+                    if (rdr.Read())
+                        thing = rdr["date"].ToString();
+                    else
+                        thing = "";
+                    break;
                 case 85: //주말인지 아닌지 알아내기
-                    rdr.Read();
-                    thing = string.Format("{0}", rdr["dayofweek"]);
+                    if (rdr.Read())
+                        thing = rdr["dayofweek"].ToString();
+                    else
+                        thing = "8";
                     break;
                 case 86:// X-Y(날짜) 초로 가져오기
-                    string get_sectime = "";
-                    while (rdr.Read())
-                    {
-                        get_sectime = string.Format("{0}", rdr["sectime"]);
-                    }
-                    thing = get_sectime;
+                    if (rdr.Read())
+                        thing = rdr["sectime"].ToString();
+                    else
+                        thing = "0";
                     break;
                 case 87:
                     rdr.Read();
@@ -339,22 +336,18 @@ namespace MOVEROAD
                     {
                         department_ = new DepartmentInfo((int)rdr["id"], (string)rdr["name"], (int)rdr["manager"]);
                     }
-                    rdr.Close();
-                    conn.Close();
-                    return department_;
+                    thing = department_;
+                    break;
                 case 89:
                     rdr.Read();
                     thing = string.Format("{0}", rdr["date2"]);
                     break;
                 case 181:
-                    string totalPay = "";
-                    while (rdr.Read())
-                    {
-                        totalPay = string.Format("{0}", rdr["totalPay"]);
-                    }
-                    rdr.Close();
-                    conn.Close();
-                    return totalPay;
+                    if (rdr.Read())
+                        thing = rdr["totalPay"].ToString();
+                    else
+                        thing = "0";
+                    break;
                 case 11:
                         rdr.Read();
                         string count = (rdr["count(*)"].ToString());
