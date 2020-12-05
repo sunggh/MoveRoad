@@ -42,7 +42,6 @@ namespace MOVEROAD
             setDepartmentCbItem();
 
             initDateTimepicker();
-            dataGridViewTask.BackgroundColor = Color.White;
             
         }
         private void tabControlTask_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,6 +55,7 @@ namespace MOVEROAD
             else if (tabControlTask.SelectedTab == tabPageManagement)
             {
                 //일일 업무 관리
+                setAllTask();
                 setTaskKeyword();
                 setRegistrant();
             }
@@ -692,6 +692,15 @@ namespace MOVEROAD
             searchFlag = 2;
             selectedRegistrantDataView();
         }
+        private void setAllTask()
+        {
+            string query = "SELECT A.*, B.name as task, C.name as user FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.`index` LEFT OUTER JOIN project.user as C ON A.user_id = C.index";
+            DataTable table = DBConnetion.getInstance().Select(query, 15) as DataTable;
+
+            dataGridViewTask.DataSource = table;
+            dataGridViewTask.Columns[0].Width = 50;
+            dataGridViewTask.ReadOnly = true;
+        }
         public void selectedKeywordDataView(){
             //날짜 + 키워드
             string date = string.Format("{0:yyyy-MM-dd}", dateTimePickerSearchTask.Value);
@@ -708,7 +717,6 @@ namespace MOVEROAD
                 dataGridViewTask.DataSource = table;
                 dataGridViewTask.Columns[0].Width = 50;
                 dataGridViewTask.ReadOnly = true;
-                
             }
             catch(IndexOutOfRangeException re)
             {
