@@ -85,6 +85,7 @@
             this.tb_depart_name.Size = new System.Drawing.Size(122, 23);
             this.tb_depart_name.TabIndex = 8;
             this.tb_depart_name.TextChanged += new System.EventHandler(this.tb_depart_name_TextChanged);
+            this.tb_depart_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_depart_name_KeyPress);
             // 
             // tb_depart_head
             // 
