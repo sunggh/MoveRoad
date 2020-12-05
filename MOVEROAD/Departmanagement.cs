@@ -85,39 +85,48 @@ namespace MOVEROAD
         {
             if (lv_depart.SelectedItems.Count == 1)
             {
-                ListView.SelectedListViewItemCollection items = lv_depart.SelectedItems;
-                ListViewItem item = items[0]; // 클릭 한거
-                string dpt_name = item.SubItems[0].Text; // 부서명
-                string manager = item.SubItems[1].Text; // 부서장으로 선택된 사람의 이름
+                if (MessageBox.Show("정말 삭제 하시겠습니까?", "부서정보 삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    ListView.SelectedListViewItemCollection items = lv_depart.SelectedItems;
+                    ListViewItem item = items[0]; // 클릭 한거
+                    string dpt_name = item.SubItems[0].Text; // 부서명
+                    string manager = item.SubItems[1].Text; // 부서장으로 선택된 사람의 이름
 
-                //먼저 부서명을 통해(부서명은 중복될 일이 없으니) 부서정보를 받아오기
-                string get_depart_id = "select * from department where `name` = '" + dpt_name + "'";
-                DepartmentInfo dpt_info = (DepartmentInfo)DBConnetion.getInstance().Select(get_depart_id, 88);
+                    //먼저 부서명을 통해(부서명은 중복될 일이 없으니) 부서정보를 받아오기
+                    string get_depart_id = "select * from department where `name` = '" + dpt_name + "'";
+                    DepartmentInfo dpt_info = (DepartmentInfo)DBConnetion.getInstance().Select(get_depart_id, 88);
 
-                //삭제될 부서의 부서장을 user에서 찾아 정보 받아오기
-                string manager_to_index = "SELECT * from project.user where name ='" + manager + "' and depart = '" + dpt_info.id + "' and grade = 1";
-                UserInfo user = (UserInfo)DBConnetion.getInstance().Select(manager_to_index, 0);
+                    //삭제될 부서의 부서장을 user에서 찾아 정보 받아오기
+                    string manager_to_index = "SELECT * from project.user where name ='" + manager + "' and depart = '" + dpt_info.id + "' and grade = 1";
+                    UserInfo user = (UserInfo)DBConnetion.getInstance().Select(manager_to_index, 0);
 
-                //1.
-                //department 테이블에서 지정된 부서의 정보를 delete함.
-                string delete_query = "delete from department where `name` ='" + dpt_name + "' and `index` = '"+dpt_info.id+"'";
-                DBConnetion.getInstance().Delete(delete_query);
-                
-                //2.
-                //부서 삭제 시 부서장의 직급은 사원으로 내리고 그 부서에 속한 모든 부서원들은 미지정 부서로 이동하게 됨
-                string update_user_query = "update `user` set `grade` = 2 where `index` = " + user.index;
-                DBConnetion.getInstance().Update(update_user_query);
+                    //1.
+                    //department 테이블에서 지정된 부서의 정보를 delete함.
+                    string delete_query = "delete from department where `name` ='" + dpt_name + "' and `index` = '" + dpt_info.id + "'";
+                    DBConnetion.getInstance().Delete(delete_query);
 
-                //3.
-                //이제 삭제되는 부서에 속한 모든 부서원들을 미지정 부서로 이동
-                string update_query = "update `user` set `depart` = 0 where depart = '" + dpt_info.id + "'";
-                DBConnetion.getInstance().Update(update_query);
+                    //2.
+                    //부서 삭제 시 부서장의 직급은 사원으로 내리고 그 부서에 속한 모든 부서원들은 미지정 부서로 이동하게 됨
+                    string update_user_query = "update `user` set `grade` = 2 where `index` = " + user.index;
+                    DBConnetion.getInstance().Update(update_user_query);
 
-                tb_depart_name.Text = "";
-                tb_depart_head.Text = "";
-                tb_depart_description.Text = "";
+                    //3.
+                    //이제 삭제되는 부서에 속한 모든 부서원들을 미지정 부서로 이동
+                    string update_query = "update `user` set `depart` = 0 where depart = '" + dpt_info.id + "'";
+                    DBConnetion.getInstance().Update(update_query);
 
-                listview_departlist();
+                    tb_depart_name.Text = "";
+                    tb_depart_head.Text = "";
+                    tb_depart_description.Text = "";
+
+                    listview_departlist();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("취소 되었습니다.", "삭제 취소");
+                    return;
+                }
             }
             else
             {
