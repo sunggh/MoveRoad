@@ -37,7 +37,7 @@ namespace MOVEROAD
                 item.SubItems.Add(message.from_id);
                 item.SubItems.Add(message.title);
                 string str = "읽음";
-                if (message.reads == 0) str = "읽지X";
+                if (message.reads == 0) str = "안읽음";
                 item.SubItems.Add(str);
                 item.SubItems.Add(message.date.ToString("yyyy-MM-dd"));
                 listView1.Items.Add(item);
