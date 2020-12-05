@@ -54,7 +54,7 @@ namespace MOVEROAD
         }
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            string query = "DELETE FROM task WHERE id = '" + id + "'";
+            string query = "DELETE FROM task WHERE `index` = '" + id + "'";
             DBConnetion.getInstance().Delete(query);
 
             MessageBox.Show("업무 삭제가 완료 되었습니다.");
@@ -85,7 +85,7 @@ namespace MOVEROAD
             }
 
             Console.WriteLine("시작시간 : " + st);
-            string query = "UPDATE task SET text = '" + text + "', startTime ='" + st + "', finishTime = '" + ft + "' WHERE id = '" + id + "'";
+            string query = "UPDATE task SET text = '" + text + "', startTime ='" + st + "', finishTime = '" + ft + "' WHERE `index` = '" + id + "'";
             DBConnetion.getInstance().Update(query);
             
             MessageBox.Show("업무 수정이 완료 되었습니다.");

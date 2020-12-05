@@ -88,7 +88,7 @@ namespace MOVEROAD
 
                     while (rdr.Read())
                     {
-                        taskClassInfo.Rows.Add((int)rdr["id"], (string)rdr["name"], (int)rdr["parent_id"], (int)rdr["level"], (int)rdr["depart_id"]);                        
+                        taskClassInfo.Rows.Add((int)rdr["index"], (string)rdr["name"], (int)rdr["parent_id"], (int)rdr["level"], (int)rdr["depart_id"]);                        
                     }
                     thing = taskClassInfo;
                     break;
@@ -99,7 +99,7 @@ namespace MOVEROAD
                     List<Message> messages = new List<Message>();
                     while (rdr.Read())
                     {
-                        messages.Add(new Message((string)rdr["mfrom"], (string)rdr["mto"], (string)rdr["title"], (string)rdr["text"], (int)rdr["id"], (DateTime)rdr["date"], (int)rdr["reads"]));
+                        messages.Add(new Message((string)rdr["mfrom"], (string)rdr["mto"], (string)rdr["title"], (string)rdr["text"], (int)rdr["index"], (DateTime)rdr["date"], (int)rdr["reads"]));
                     }
                     thing = messages;
                     break;
@@ -224,7 +224,7 @@ namespace MOVEROAD
                         {
                             continue;
                         }
-                        task.Rows.Add((int)rdr["id"], taskName, string.Format("{0:yyyy-MM-dd}",rdr["date"]), ((string)rdr["user"] + "(" + user_id + ")"), (string)rdr["text"], startTime, finishTime);
+                        task.Rows.Add((int)rdr["index"], taskName, string.Format("{0:yyyy-MM-dd}",rdr["date"]), ((string)rdr["user"] + "(" + user_id + ")"), (string)rdr["text"], startTime, finishTime);
                     }
                     thing = task;
                     break;

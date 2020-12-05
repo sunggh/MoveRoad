@@ -412,7 +412,7 @@ namespace MOVEROAD
                 //바뀐 정보 DB UPDATE하기
                 //Console.WriteLine("나 지금 수정 끝났어");
                 //Console.WriteLine("노드의 이름 : " + SelectedNode.Text + " 노드의 id : " + SelectedNode.Tag);
-                string query = "UPDATE task_class SET name = '" + SelectedNode.Text + "' WHERE id = '" + SelectedNode.Tag + "'";
+                string query = "UPDATE task_class SET name = '" + SelectedNode.Text + "' WHERE `index` = '" + SelectedNode.Tag + "'";
                 DBConnetion.getInstance().Update(query);
                 menuflag = 0;
             }
@@ -428,7 +428,7 @@ namespace MOVEROAD
                     if (MessageBox.Show(SelectedNode.Text + " 업무를 삭제하시겠습니까?\n삭제시 하위 정보도 모두 삭제됩니다.", "warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         int id = Convert.ToInt32(SelectedNode.Tag);
-                        string query = "DELETE FROM task_class WHERE parent_id = '" + id + "' OR id = '" + id + "'";
+                        string query = "DELETE FROM task_class WHERE parent_id = '" + id + "' OR `index` = '" + id + "'";
 
                         if (id > 1)
                         {   //혹시라도 root가 지워질 경우 방지  
@@ -702,7 +702,7 @@ namespace MOVEROAD
                 DataRow[] rows = subClass.Select("Name = '" + name + "'");
                 int taskID = Convert.ToInt32(rows[0]["ID"]);
 
-                string query = "SELECT A.*, B.name as task, C.name as user FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.id LEFT OUTER JOIN project.user as C ON A.user_id = C.index WHERE sub_id = '" + taskID + "' AND date = '" + date + "'";
+                string query = "SELECT A.*, B.name as task, C.name as user FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.`index` LEFT OUTER JOIN project.user as C ON A.user_id = C.index WHERE sub_id = '" + taskID + "' AND date = '" + date + "'";
                 DataTable table = DBConnetion.getInstance().Select(query, 15) as DataTable;
 
                 dataGridViewTask.DataSource = table;
@@ -722,7 +722,7 @@ namespace MOVEROAD
             {
                 int id = userInfos[comboBoxRegistrant.SelectedIndex].index;
 
-                string query = "SELECT A.*, B.name as task, C.name as user FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.id LEFT OUTER JOIN project.user as C ON A.user_id = C.index WHERE A.user_id = '" + id + "'";
+                string query = "SELECT A.*, B.name as task, C.name as user FROM project.task as A LEFT OUTER JOIN project.task_class as B ON A.sub_id = B.index LEFT OUTER JOIN project.user as C ON A.user_id = C.index WHERE A.user_id = '" + id + "'";
                 DataTable table = DBConnetion.getInstance().Select(query, 15) as DataTable;
 
                 dataGridViewTask.DataSource = table;
@@ -765,7 +765,8 @@ namespace MOVEROAD
             }
         }
 
-        
+
+
 
         #endregion
         //일일 업무 마스터 treeview
