@@ -26,7 +26,7 @@ namespace MOVEROAD
             if (main.me.grade == 1) testTime.Visible = true;
             Today.Text = testTime.Value.ToString("yyyy-MM-dd");//DateTime.Now
             Today2.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            label2.Text = testTime.Value.ToString("yyyy-MM");
+            label2.Text = DateTime.Now.ToString("yyyy-MM");
             this.main = main;
             showgrid();
         }
@@ -320,21 +320,16 @@ namespace MOVEROAD
         private void buttonInc_Click(object sender, EventArgs e) // 한달 추가
         {
             DateTime dt;
-            //dt = Convert.ToDateTime(label2.Text);
-  
-            testTime.Value = testTime.Value.AddMonths(1);
-            testTime.Update();
-            label2.Text = testTime.Value.ToString("yyyy-MM");
+            dt = Convert.ToDateTime(label2.Text);
+            label2.Text = dt.AddMonths(1).ToString("yyyy-MM");
             showgrid();
         }
 
         private void buttonDec_Click(object sender, EventArgs e) // 한달 감소
         {
             DateTime dt;
-            // dt = Convert.ToDateTime(label2.Text);
-            testTime.Value = testTime.Value.AddMonths(-1);
-            testTime.Update();
-            label2.Text = testTime.Value.ToString("yyyy-MM");
+            dt = Convert.ToDateTime(label2.Text);
+            label2.Text = dt.AddMonths(-1).ToString("yyyy-MM");
             showgrid();
         }
 
@@ -375,7 +370,6 @@ namespace MOVEROAD
         private void testTime_ValueChanged(object sender, EventArgs e)
         {
             Today.Text = testTime.Value.ToString("yyyy-MM-dd");//DateTime.Now
-            label2.Text = testTime.Value.ToString("yyyy-MM");
         }
     }
 }
