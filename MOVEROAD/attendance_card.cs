@@ -134,16 +134,16 @@ namespace MOVEROAD
             //현재 접속중인 아이디
             string ID = main.me.id;
 
-            string query = "SELECT startTime FROM attendance_card WHERE id='" + ID + "' and date!= 'null' and date2 = 'null'";
-            string start = (string)DBConnetion.getInstance().Select(query, 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
+            //string query = "SELECT startTime FROM attendance_card WHERE id='" + ID + "' and date!= 'null' and date2 = 'null'";
+            //string start = (string)DBConnetion.getInstance().Select(query, 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
 
-            if (start == "")
-            {// 만약 출근버튼을 먼저 누르지 않았다면
+            //if (start == "")
+            //{// 만약 출근버튼을 먼저 누르지 않았다면
 
-                return;
-            }
-            else
-            {
+            //    return;
+            //}
+            //else
+            //{
                 //현재 날짜
                 DateTime dt = Convert.ToDateTime(Today.Text);
                 string today = dt.ToString("yyyy-MM-dd");
@@ -224,7 +224,7 @@ namespace MOVEROAD
                 //totalpay 계산
                 get_totalpay(user, today);
                 get_deduction(user, today);
-            }
+            //}
         }
         #endregion
 
