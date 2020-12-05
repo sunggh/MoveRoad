@@ -87,11 +87,7 @@ namespace MOVEROAD
             {
                 check_overtime();
                 showgrid();
-            }
-            else
-            {
-                MessageBox.Show("먼저 출근을 해주세요.");
-            }
+            }   
         }
 
         #region 퇴근 확인
@@ -116,7 +112,7 @@ namespace MOVEROAD
 
             if (start != "" && finish == "\"") // 출근을 누르고 퇴근을 누르지 않았을때 (정상적인 상황)
             {// 만약 출근을 눌렀다면 정상적으로 종료시간 업데이트 종료시간 업데이트시 당일날만 업데이트 하기위해 like문으로 date의 값을 당일날이라는 조건으로 걸어둔다
-                DBConnetion.getInstance().Update("UPDATE attendance_card SET date2='" + DateTime.Now.ToString("yyyy-MM-dd") + "' , finishTime ='" + DateTime.Now.ToString("HH:mm") + "' " +
+                DBConnetion.getInstance().Update("UPDATE attendance_card SET date2='" + testTime.Value.ToString("yyyy-MM-dd") + "' , finishTime ='" + testTime.Value.ToString("HH:mm") + "' " +
                      "WHERE id='" + ID + "' and startTime != 'null' and  finishTime = '\"' ");
 
                 MessageBox.Show("현재시각" + testTime.Value.ToString("HH:mm") + "퇴근 완료");
@@ -138,26 +134,25 @@ namespace MOVEROAD
             //현재 접속중인 아이디
             string ID = main.me.id;
 
-            //string query = "SELECT startTime FROM attendance_card WHERE id='" + ID + "' and date!= 'null' and date2 = 'null'";
-            //string start = (string)DBConnetion.getInstance().Select(query, 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
+            string query = "SELECT startTime FROM attendance_card WHERE id='" + ID + "' and date!= 'null' and date2 = 'null'";
+            string start = (string)DBConnetion.getInstance().Select(query, 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
 
-            //현재 날짜
-            DateTime dt = Convert.ToDateTime(Today.Text);
-            string today = dt.ToString("yyyy-MM-dd");
+            if (start == "")
+            {// 만약 출근버튼을 먼저 누르지 않았다면
 
-            //현재 접속중인 유저의 정보 받아오기
-            UserInfo user;
-            string get_index = "select * from `user` where `id` = '" + ID + "'";
-            user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
+                return;
+            }
+            else
+            {
+                //현재 날짜
+                DateTime dt = Convert.ToDateTime(Today.Text);
+                string today = dt.ToString("yyyy-MM-dd");
 
-            //if (start == "")
-            //{// 만약 출근버튼을 먼저 누르지 않았다면
+                //현재 접속중인 유저의 정보 받아오기
+                UserInfo user;
+                string get_index = "select * from `user` where `id` = '" + ID + "'";
+                user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
 
-             //   return;
-            //}
-            //else
-            //{
-                
                 #region 주말일 시
                 // 만약 주말이라면 아예 예외로하기
                 string get_dayofweek = "select DAYOFWEEK(`date`) as `dayofweek` from project.attendance_card where `id` = '" + ID + "' and `date` = '" + today + "'";
@@ -229,7 +224,7 @@ namespace MOVEROAD
                 //totalpay 계산
                 get_totalpay(user, today);
                 get_deduction(user, today);
-           // }
+            }
         }
         #endregion
 
