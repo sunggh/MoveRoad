@@ -86,6 +86,8 @@ namespace MOVEROAD
                     comboBoxGender.Text = "";
                     textBoxPhone.Text = "";
                     textBoxAddress.Text = "";
+
+                    MessageBox.Show("등록이 완료되었습니다.", "등록 완료");
                 }
             }
         }
