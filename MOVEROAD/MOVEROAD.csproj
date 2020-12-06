@@ -122,6 +122,12 @@
     <Compile Include="FormReviseTask.Designer.cs">
       <DependentUpon>FormReviseTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageAddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageAddress.Designer.cs">
+      <DependentUpon>MessageAddress.cs</DependentUpon>
+    </Compile>
     <Compile Include="search_departname.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReviseTask.resx">
       <DependentUpon>FormReviseTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageAddress.resx">
+      <DependentUpon>MessageAddress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="search_departname.resx">
       <DependentUpon>search_departname.cs</DependentUpon>

@@ -13,6 +13,8 @@ namespace MOVEROAD
     public partial class MessageForm : Form
     {
         MainForm main;
+     
+      
         public MessageForm(MainForm main)
         {
             this.main = main;
@@ -74,6 +76,18 @@ namespace MOVEROAD
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (MessageAddress ma = new MessageAddress(main))
+            {
+                ma.ShowDialog();
+               ToBox.Text = ma.address[1];
+             
+              
+         
+            }
         }
     }
 }

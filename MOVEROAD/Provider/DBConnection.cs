@@ -356,6 +356,20 @@ namespace MOVEROAD
                         string count = (rdr["count(*)"].ToString());
                         thing = count;
                     break;
+                case 100:
+                    List<UserInfo> users = new List<UserInfo>();
+                    while (rdr.Read())
+                    {
+                        users.Add(new UserInfo((int)rdr["index"], (string)rdr["name"], (int)rdr["age"], (int)rdr["depart"], (int)rdr["grade"], (string)rdr["address"], (int)rdr["gender"], (string)rdr["account_id"]));
+                    }
+                    thing = users;
+                    break;
+                case 101:
+                    if (rdr.Read())
+                        thing = rdr["account_id"].ToString();
+                    else
+                        thing = "0";
+                    break;
             }
             rdr.Close();
             conn.Close();
