@@ -255,10 +255,22 @@ namespace MOVEROAD
                     comboBoxMiddleWork.Text = "";
                     comboBoxSubWork.Text = "";
                     comboBoxDrafter.Text = "";
+
+                    comboBoxDrafter.Items.Clear();
                 }
                 else
                 {
                     MessageBox.Show("결재 등록은 사원만 가능합니다.", "알림");
+
+                    textBoxTitle.Text = "";
+                    textBoxContent.Text = "";
+                    textBoxComment.Text = "";
+                    comboBoxWork.Text = "";
+                    comboBoxMiddleWork.Text = "";
+                    comboBoxSubWork.Text = "";
+                    comboBoxDrafter.Text = "";
+
+                    comboBoxDrafter.Items.Clear();
                 }
             }
         }
@@ -279,6 +291,8 @@ namespace MOVEROAD
 
         private void SignForMe()
         {
+            textBoxDetail_req.Text = "";
+
             //user가 사장이면 결재 중인 내역만 보이게
             if (main.me.grade == 0)
             {
