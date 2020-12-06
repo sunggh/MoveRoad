@@ -1,5 +1,5 @@
 ﻿/*
- * copyright 2020. MOVEROAD. ALL RIGHTS RESERVED
+ * COPYRIGHT 2020. MOVEROAD. ALL RIGHTS RESERVED
  */
 using Renci.SshNet.Messages;
 using System;

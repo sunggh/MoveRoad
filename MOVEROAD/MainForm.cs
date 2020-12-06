@@ -1,4 +1,7 @@
-﻿using MOVEROAD.InfoFile;
+﻿/*
+ * COPYRIGHT 2020. MOVEROAD. ALL RIGHTS RESERVED
+ */
+using MOVEROAD.InfoFile;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
