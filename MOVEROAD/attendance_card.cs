@@ -138,105 +138,96 @@ namespace MOVEROAD
             //현재 접속중인 아이디
             string ID = main.me.id;
 
-            //string query = "SELECT startTime FROM attendance_card WHERE id='" + ID + "' and date!= 'null' and date2 = 'null'";
-            //string start = (string)DBConnetion.getInstance().Select(query, 22); // 현재 id값이 출근을 눌렀는지 확인하기 위한 변수
 
-            //if (start == "")
-            //{// 만약 출근버튼을 먼저 누르지 않았다면
+            //현재 날짜
+            DateTime dt = Convert.ToDateTime(Today.Text);
+            string today = dt.ToString("yyyy-MM-dd");
 
-            //    return;
-            //}
-            //else
-            //{
-                //현재 날짜
-                DateTime dt = Convert.ToDateTime(Today.Text);
-                string today = dt.ToString("yyyy-MM-dd");
+            //현재 접속중인 유저의 정보 받아오기
+            UserInfo user;
+            string get_index = "select * from `user` where `account_id` = '" + ID + "'";
+            user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
 
-                //현재 접속중인 유저의 정보 받아오기
-                UserInfo user;
-                string get_index = "select * from `user` where `account_id` = '" + ID + "'";
-                user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
+            #region 주말일 시
+            // 만약 주말이라면 아예 예외로하기
+            string get_dayofweek = "select DAYOFWEEK(`date`) as `dayofweek` from project.attendance_card where `user_id` = '" + ID + "' and `date2` = '" + today + "'";
+            int dayofweek = int.Parse((string)DBConnetion.getInstance().Select(get_dayofweek, 85));
+            #endregion
 
-                #region 주말일 시
-                // 만약 주말이라면 아예 예외로하기
-                string get_dayofweek = "select DAYOFWEEK(`date`) as `dayofweek` from project.attendance_card where `user_id` = '" + ID + "' and `date2` = '" + today + "'";
-                int dayofweek = int.Parse((string)DBConnetion.getInstance().Select(get_dayofweek, 85));
-                #endregion
+            if (dayofweek > 1 && dayofweek < 7)
+            { //일요일=1, 토요일=7이 아닌경우
 
-                if (dayofweek > 1 && dayofweek < 7)
-                { //일요일=1, 토요일=7이 아닌경우
+                // 비교를 위해 퇴근일 가져오기
+                string get_sf_date = "select date2 from attendance_card where `user_id` = '" + ID + "' and `date2` = '" + today + "'";
+                string finishdate = (string)DBConnetion.getInstance().Select(get_sf_date, 89);
 
-                    // 비교를 위해 퇴근일 가져오기
-                    string get_sf_date = "select date2 from attendance_card where `user_id` = '" + ID + "' and `date2` = '" + today + "'";
-                    string finishdate = (string)DBConnetion.getInstance().Select(get_sf_date, 89);
+                // 출/퇴근일이 같을때 22시 이후인지 알기위함
+                string get_ot_date = "SELECT TIME_TO_SEC(timediff(`finishTime`,'00:00')) as `sectime` FROM project.attendance_card " +
+                    "where `user_id` = '" + ID + "' and `date2` = '" + today + "'";
+                int check_ot = int.Parse((string)DBConnetion.getInstance().Select(get_ot_date, 86));
 
-                    // 출/퇴근일이 같을때 22시 이후인지 알기위함
-                    string get_ot_date = "SELECT TIME_TO_SEC(timediff(`finishTime`,'00:00')) as `sectime` FROM project.attendance_card " +
-                        "where `user_id` = '" + ID + "' and `date2` = '" + today + "'";
-                    int check_ot = int.Parse((string)DBConnetion.getInstance().Select(get_ot_date, 86));
+                string start = (string)DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
+                    "WHERE `user_id`='" + ID + "' and date2 = '" + today + "'", 22);// 기본급 계산 위한 출근시간
 
-                    string start = (string)DBConnetion.getInstance().Select("SELECT startTime FROM attendance_card " +
-                        "WHERE `user_id`='" + ID + "' and date2 = '"+today+"'", 22);// 기본급 계산 위한 출근시간
+                // 출근일
+                string start_date = (string)DBConnetion.getInstance().Select("select date from attendance_card " +
+                    "where `user_id` = '" + ID + "' and startTime = '" + start + "' order by date desc", 84);
 
-                    // 출근일
-                    string start_date = (string)DBConnetion.getInstance().Select("select date from attendance_card " +
-                        "where `user_id` = '" + ID + "' and startTime = '" + start + "'",84);
+                // if 22시-출근시간>=10시간 , 10시간 기본급
+                // else if 22시-출근시간<10시간, 그 시간만큼 기본급을 위한 계산
+                string up_night = "SELECT TIME_TO_SEC(timediff('22:00',`startTime`)) as `sectime` " +
+                    "FROM project.attendance_card " +
+                    "where `user_id` = '" + ID + "' and `date` = '" + start_date + "'";
 
-                    // if 22시-출근시간>=10시간 , 10시간 기본급
-                    // else if 22시-출근시간<10시간, 그 시간만큼 기본급을 위한 계산
-                    string up_night = "SELECT TIME_TO_SEC(timediff('22:00',`startTime`)) as `sectime` " +
-                        "FROM project.attendance_card " +
-                        "where `user_id` = '" + ID + "' and `date` = '" + start_date + "'";
+                // 10시에서 뺀 시간
+                int get_nighttime_sec = int.Parse((string)DBConnetion.getInstance().Select(up_night, 86));
 
-                    // 10시에서 뺀 시간
-                    int get_nighttime_sec = int.Parse((string)DBConnetion.getInstance().Select(up_night, 86));
-
-
-                    // 출근일과 퇴근일이 다르다면 야간근무임, 그리고 퇴근일이 같아도 22시 이상이면 야간근무
-                    if (!start_date.Equals(finishdate) || (start_date.Equals(finishdate) && check_ot >= 79200))
-                    {
-                        // 초과근무면서 야간근무 겹칠때 ( 야간이 되기전에 이미 10시간이 넘을때 )
-                        if (get_nighttime_sec > 36000)
-                        {
-                            string update_basicpay = "update salary set `basicpay` = 100000 where `user_index` = '" + user.index + "' and `date` = '" + today + "'";
-                            DBConnetion.getInstance().Update(update_basicpay);
-
-                        }
-                        else // 겹치지만 야간되기전에 10시간근무 넘은건 아닐때 10시까지만 계산
-                        {
-                            string update_basicpay = "update salary set `basicpay` = '" + (get_nighttime_sec / 3600) * 10000 + "' " +
-                            "where `user_index` = '" + user.index + "' and `date` = '" + today + "'";
-                            DBConnetion.getInstance().Update(update_basicpay);
-
-                        }
-                    }
-                    // 출근일과 퇴근일이 같으면서 야간근무가 아닌경우
-                    else if (today.Equals(finishdate) && check_ot < 79200)
-                    {
-                        string get_worktimesec = "select TIME_TO_SEC(timediff(`finishTime`,`startTime`)) as `sectime` FROM attendance_card " +
+                string get_worktimesec = "select TIME_TO_SEC(timediff(`finishTime`,`startTime`)) as `sectime` FROM attendance_card " +
                                 "where `user_id` = '" + ID + "' and `date` = '" + today + "'";
-                        int worktime = int.Parse((string)DBConnetion.getInstance().Select(get_worktimesec, 86));
+                int worktime = int.Parse((string)DBConnetion.getInstance().Select(get_worktimesec, 86));
 
-                        // 어차피 야간은 아닐테니 근무시간이 10시간 넘으면 초과근무
-                        if (worktime > 36000)
-                        {
-                            string update_basicpay = "update salary set `basicpay` = 100000 where `user_index` = '" + user.index + "' and `date` = '" + today + "'";
-                            DBConnetion.getInstance().Update(update_basicpay);
 
-                        }
-                        else //야간도 초과근무도 아니라면
-                        {
-                            string update_basicpay = "update salary set `basicpay` = '" + (worktime / 3600) * 10000 + "' " +
-                                "where `user_index` = '" + user.index + "' and `date` = '" + today + "'";
-                            DBConnetion.getInstance().Update(update_basicpay);
-                        }
+                // 출근일과 퇴근일이 다르다면 야간근무임, 그리고 퇴근일이 같아도 22시 이상이면 야간근무
+                if (!start_date.Equals(finishdate) || (start_date.Equals(finishdate) && check_ot >= 79200))
+                {
+                    // 초과근무면서 야간근무 겹칠때 ( 야간이 되기전에 이미 10시간이 넘을때 )
+                    if (get_nighttime_sec > 36000 && worktime > 36000)
+                    {
+                        string update_basicpay = "update salary set `basicpay` = 100000 where `user_index` = '" + user.index + "' and `date` = '" + today + "'";
+                        DBConnetion.getInstance().Update(update_basicpay);
+
+                    }
+                    else // 겹치지만 야간되기전에 10시간근무 넘은건 아닐때 10시까지만 계산
+                    {
+                        string update_basicpay = "update salary set `basicpay` = '" + (get_nighttime_sec / 3600) * 10000 + "' " +
+                        "where `user_index` = '" + user.index + "' and `date` = '" + today + "'";
+                        DBConnetion.getInstance().Update(update_basicpay);
+
                     }
                 }
+                // 출근일과 퇴근일이 같으면서 야간근무가 아닌경우
+                else if (today.Equals(finishdate) && check_ot < 79200)
+                {
+                    // 어차피 야간은 아닐테니 근무시간이 10시간 넘으면 초과근무
+                    if (worktime > 36000)
+                    {
+                        string update_basicpay = "update salary set `basicpay` = 100000 where `user_index` = '" + user.index + "' and `date` = '" + today + "'";
+                        DBConnetion.getInstance().Update(update_basicpay);
 
-                //totalpay 계산
-                get_totalpay(user, today);
-                get_deduction(user, today);
-            //}
+                    }
+                    else //야간도 초과근무도 아니라면
+                    {
+                        string update_basicpay = "update salary set `basicpay` = '" + (worktime / 3600) * 10000 + "' " +
+                            "where `user_index` = '" + user.index + "' and `date` = '" + today + "'";
+                        DBConnetion.getInstance().Update(update_basicpay);
+                    }
+                }
+            }
+
+            //totalpay 계산
+            get_totalpay(user, today);
+            get_deduction(user, today);
+
         }
         #endregion
 
