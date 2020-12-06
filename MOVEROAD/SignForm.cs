@@ -322,6 +322,10 @@ namespace MOVEROAD
 
         private void SignFromMe()
         {
+            textBoxDetail_done.Text = "";
+            textBoxDetail_turn.Text = "";
+            textBoxSignTurnMemo.Text = "";
+            
             //내가 등록한 결재 내역
             string sql_done = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, sub_work AS 관련업무, CASE WHEN progress=0 THEN '결재전' WHEN progress=1 THEN '결재중' WHEN progress=2 THEN '결재완료' ELSE '반려됨' END AS 진행상황 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress != 3";
 
