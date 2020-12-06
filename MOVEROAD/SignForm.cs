@@ -322,6 +322,10 @@ namespace MOVEROAD
 
         private void SignFromMe()
         {
+            textBoxDetail_done.Text = "";
+            textBoxDetail_turn.Text = "";
+            textBoxSignTurnMemo.Text = "";
+            
             //내가 등록한 결재 내역
             string sql_done = "SELECT sign.index AS No, title AS 제목, text AS 내용, comment AS 코멘트, sub_work AS 관련업무, CASE WHEN progress=0 THEN '결재전' WHEN progress=1 THEN '결재중' WHEN progress=2 THEN '결재완료' ELSE '반려됨' END AS 진행상황 FROM sign WHERE drafter = '" + main.me.index + "' AND sign.progress != 3";
 
@@ -448,56 +452,77 @@ namespace MOVEROAD
         //내가 등록한 결재 내역 셀 클릭시 내용 상세보기
         private void dataGridViewSignList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int rowIndex = dataGridViewSignList.CurrentRow.Index;
-
-            string cnt_ = dataGridViewSignList.Rows[rowIndex].Cells[0].Value.ToString();
-            int cnt = Convert.ToInt32(cnt_.ToString());
-
-            string sql = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
-
-            textBoxDetail_done.Text = (string)DBConnetion.getInstance().Select(sql, 9);
-
             try
             {
-                string query = "SELECT date FROM sign_ok JOIN sign WHERE sign_ok.index = '" + cnt + "' AND sign.progress != 0";
-                DateTime done_date = (DateTime)DBConnetion.getInstance().Select(query, 10);
+                int rowIndex = dataGridViewSignList.CurrentRow.Index;
 
-                MessageBox.Show(done_date + "에 결재된 내역입니다.", "알림");
+                string cnt_ = dataGridViewSignList.Rows[rowIndex].Cells[0].Value.ToString();
+                int cnt = Convert.ToInt32(cnt_.ToString());
+
+                string sql = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
+
+                textBoxDetail_done.Text = (string)DBConnetion.getInstance().Select(sql, 9);
+
+                try
+                {
+                    string query = "SELECT date FROM sign_ok JOIN sign WHERE sign_ok.index = '" + cnt + "' AND sign.progress != 0";
+                    DateTime done_date = (DateTime)DBConnetion.getInstance().Select(query, 10);
+
+                    MessageBox.Show(done_date + "에 결재된 내역입니다.", "알림");
+                }
+                catch
+                {
+                    MessageBox.Show("결재 전 내역입니다.", "알림");
+                }
             }
             catch
             {
-                MessageBox.Show("결재 전 내역입니다.", "알림");
+                MessageBox.Show("선택된 내역이 없습니다.", "알림");
             }
         }
 
         //결재 반려내역 셀 클릭시 내용 상세보기 & 반려 메모 보기
         private void dataGridViewSignTurnList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int rowIndex = dataGridViewSignTurnList.CurrentRow.Index;
+            try
+            {
+                int rowIndex = dataGridViewSignTurnList.CurrentRow.Index;
 
-            string cnt_ = dataGridViewSignTurnList.Rows[rowIndex].Cells[0].Value.ToString();
-            int cnt = Convert.ToInt32(cnt_.ToString());
+                string cnt_ = dataGridViewSignTurnList.Rows[rowIndex].Cells[0].Value.ToString();
+                int cnt = Convert.ToInt32(cnt_.ToString());
 
-            string sql = "SELECT memo FROM sign_turn WHERE sign_turn.index = '" + cnt + "'";
+                string sql = "SELECT memo FROM sign_turn WHERE sign_turn.index = '" + cnt + "'";
 
-            textBoxSignTurnMemo.Text = (string)DBConnetion.getInstance().Select(sql, 7);
+                textBoxSignTurnMemo.Text = (string)DBConnetion.getInstance().Select(sql, 7);
 
-            string query = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
+                string query = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
 
-            textBoxDetail_turn.Text = (string)DBConnetion.getInstance().Select(query, 9);
+                textBoxDetail_turn.Text = (string)DBConnetion.getInstance().Select(query, 9);
+            }
+            catch
+            {
+                MessageBox.Show("선택된 내역이 없습니다.", "알림");
+            }
         }
 
         //결재 요청내역 셀 클릭시 내용 상세보기
         private void dataGridViewRequest_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int rowIndex = dataGridViewRequest.CurrentRow.Index;
+            try
+            {
+                int rowIndex = dataGridViewRequest.CurrentRow.Index;
 
-            string cnt_ = dataGridViewRequest.Rows[rowIndex].Cells[0].Value.ToString();
-            int cnt = Convert.ToInt32(cnt_.ToString());
+                string cnt_ = dataGridViewRequest.Rows[rowIndex].Cells[0].Value.ToString();
+                int cnt = Convert.ToInt32(cnt_.ToString());
 
-            string sql = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
+                string sql = "SELECT text FROM sign WHERE sign.index = '" + cnt + "'";
 
-            textBoxDetail_req.Text = (string)DBConnetion.getInstance().Select(sql, 9);
+                textBoxDetail_req.Text = (string)DBConnetion.getInstance().Select(sql, 9);
+            }
+            catch
+            {
+                MessageBox.Show("선택된 내역이 없습니다.", "알림");
+            }
         }
     }
 }
