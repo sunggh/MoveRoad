@@ -63,7 +63,7 @@ namespace MOVEROAD
             try 
             {
                 
-                clientSocket.Connect("121.150.220.47", 80);//211.229.51.245
+                clientSocket.Connect("121.150.220.47", 80);
                 stream = clientSocket.GetStream();
                 message = "1|"+me.index;
                 byte[] buffer = Encoding.Unicode.GetBytes(message);
