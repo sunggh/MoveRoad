@@ -181,9 +181,13 @@ namespace MOVEROAD
 
             double pension; //연금보험료
             //만약 totalpay가 32만원미만이면 32만원으로, 503만원 초과면 503만원으로 계산하기
-            if (totalPay < 320000)
+            if (totalPay > 14400 && totalPay < 320000)
             {
                 pension = 14400;
+            }
+            else if (totalPay >= 0 && totalPay <= 14400)
+            {
+                pension = 0;
             }
             else if (totalPay > 5030000)
             {
