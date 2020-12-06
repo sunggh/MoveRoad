@@ -66,7 +66,17 @@ namespace MOVEROAD
         */
         private void button2_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT * FROM user WHERE `name` = '"+textBoxSearch.Text+"'";
+            string sql = "";
+
+            if (textBoxSearch.Text == "")
+            {
+                sql = "SELECT * FROM user";
+            }
+            else 
+            {
+                sql = "SELECT * FROM user WHERE `name` = '" + textBoxSearch.Text + "'";
+            }
+
             users = (List<UserInfo>)DBConnetion.getInstance().Select(sql, 100);                   
             viewMessageList();
         }
@@ -86,6 +96,8 @@ namespace MOVEROAD
         {
             this.Dispose();
         }
+
+      
     }
 
  }
