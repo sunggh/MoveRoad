@@ -42,7 +42,7 @@ namespace MOVEROAD
 
                 //현재 접속중인 유저의 정보 받아오기
                 UserInfo user;
-                string get_index = "select * from `user` where `id` = '" + ID + "'";
+                string get_index = "select * from `user` where `account_id` = '" + ID + "'";
                 user = (UserInfo)DBConnetion.getInstance().Select(get_index, 0);
 
                 // 휴일근무 - 오늘 요일값 받아오기
