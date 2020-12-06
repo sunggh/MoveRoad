@@ -64,22 +64,7 @@ namespace MOVEROAD
                       
         }
         */
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string sql = "";
-
-            if (textBoxSearch.Text == "")
-            {
-                sql = "SELECT * FROM user";
-            }
-            else 
-            {
-                sql = "SELECT * FROM user WHERE `name` = '" + textBoxSearch.Text + "'";
-            }
-
-            users = (List<UserInfo>)DBConnetion.getInstance().Select(sql, 100);                   
-            viewMessageList();
-        }
+   
 
         public String[] address = { "", "", "" };
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -97,7 +82,23 @@ namespace MOVEROAD
             this.Dispose();
         }
 
-      
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string sql = "";
+
+            if (textBoxSearch.Text == "")
+            {
+                sql = "SELECT * FROM user";
+            }
+            else
+            {
+                sql = "SELECT * FROM user WHERE `name` = '" + textBoxSearch.Text + "'";
+            }
+
+            users = (List<UserInfo>)DBConnetion.getInstance().Select(sql, 100);
+            viewMessageList();
+        }
     }
 
  }
