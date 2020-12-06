@@ -14,13 +14,17 @@ namespace MOVEROAD
     {
         MainForm main;
         private List<UserInfo> users = new List<UserInfo>();
+        Dictionary<int, string> departName = new Dictionary<int, string>();
         public MessageAddress(MainForm main)
         {
             InitializeComponent();
             this.main = main;
             string sql = "SELECT * FROM user";
             users = (List<UserInfo>)DBConnetion.getInstance().Select(sql, 100);
-            
+            foreach (var depart in this.main.departments)
+            {
+                departName.Add(depart.id, depart.name);
+            }
             viewMessageList();
 
         }
@@ -29,12 +33,13 @@ namespace MOVEROAD
             listView3.Items.Clear();
             listView3.BeginUpdate();
             ListViewItem item;
+
             foreach (UserInfo user in users)
             {
                 item = new ListViewItem();
                 item.SubItems.Add(user.id);
                 item.SubItems.Add(user.name);
-                item.SubItems.Add(Convert.ToString(user.depart));
+                item.SubItems.Add(departName[user.depart]);
 
                 listView3.Items.Add(item);
             }

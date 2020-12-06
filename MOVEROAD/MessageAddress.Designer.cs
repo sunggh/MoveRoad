@@ -32,10 +32,10 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -80,6 +80,12 @@
             this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 74;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "부서";
+            this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader1.Width = 69;
+            // 
             // textBoxSearch
             // 
             this.textBoxSearch.Location = new System.Drawing.Point(24, 38);
@@ -110,12 +116,6 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "부서";
-            this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader1.Width = 69;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(71)))), ((int)(((byte)(117)))));
@@ -145,6 +145,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MessageAddress";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MessageAddress";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

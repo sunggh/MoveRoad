@@ -1,4 +1,7 @@
-﻿using Renci.SshNet.Messages;
+﻿/*
+ * copyright 2020. MOVEROAD. ALL RIGHTS RESERVED
+ */
+using Renci.SshNet.Messages;
 using System;
 using System.Collections.Generic;
 using System.IO;
