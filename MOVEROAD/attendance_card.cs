@@ -171,7 +171,7 @@ namespace MOVEROAD
 
                 // 출근일
                 string start_date = (string)DBConnetion.getInstance().Select("select date from attendance_card " +
-                    "where `user_id` = '" + ID + "' and startTime = '" + start + "' order by date desc", 84);
+                    "where `user_id` = '" + ID + "' and startTime = '" + start + "' order by index desc", 84);
 
                 // if 22시-출근시간>=10시간 , 10시간 기본급
                 // else if 22시-출근시간<10시간, 그 시간만큼 기본급을 위한 계산
